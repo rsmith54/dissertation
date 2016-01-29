@@ -115,7 +115,7 @@ By default this file is called \texttt{mydocument-metadata.tex}.
 \label{sec:contribute}
 %-------------------------------------------------------------------------------
 
-The supporting documentation for an ATLAS note should contain a list of the contributors to the analysis.
+The supporting documentation for an ATLAS note (not the paper draft) should contain a list of the contributors to the analysis.
 A style file \Package{atlascontribute.sty} has been written to help with the creation of such a list.
 The macros in the style file can also build the author list at the same time.
 Two basic macros are used to add names to the author list and list of contributions:
@@ -156,6 +156,7 @@ Note that the \Package{atlascontribute} package requires that the packages
 If the list of contributors is very long, it may spread over more than one page.
 The \Package{tabular} environment does not like this.
 Add the option \Option{xtab} to use \Package{xtab} instead.
+This option of course also requires that the package \Package{xtab} is installed.
 
 
 %-------------------------------------------------------------------------------

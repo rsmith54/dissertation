@@ -1,7 +1,8 @@
+
 # Makefile for creating an ATLAS LaTeX document
 #------------------------------------------------------------------------------
-# By default makes mydocument.pdf using target run_pdflatex.
-# Replace mydocument with your main filename or add another target set.
+# By default makes thesis.pdf using target run_pdflatex.
+# Replace thesis with your main filename or add another target set.
 # Adjust TEXLIVE if it is not correct, or pass it to "make new".
 # Replace BIBTEX = bibtex with BIBTEX = biber if you use biber instead of bibtex.
 # Adjust FIGSDIR for your figures directory tree.
@@ -19,7 +20,7 @@
 
 #-------------------------------------------------------------------------------
 # Check which TeX Live installation you have with the command pdflatex --version
-TEXLIVE  = 2013
+TEXLIVE  = 2015
 LATEX    = latex
 PDFLATEX = pdflatex
 BIBTEX   = bibtex
@@ -29,7 +30,7 @@ DVIPDF   = dvipdf
 
 #-------------------------------------------------------------------------------
 # The main document filename
-BASENAME = mydocument
+BASENAME = thesis
 #-------------------------------------------------------------------------------
 # Adjust this according to your top-level figures directory
 # This directory tree is used by the "make cleanepstopdf" command
@@ -40,7 +41,7 @@ FIGSDIR  = figs
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
 EPSTOPDFFILES = $(call rwildcard, $(FIGSDIR), *eps-converted-to.pdf)
 
-# Default target - make mydocument.pdf with pdflatex
+# Default target - make thesis.pdf with pdflatex
 default: run_pdflatex
 
 .PHONY: new newtexmf draftcover preprintcover auxmat \
@@ -127,24 +128,24 @@ dvips:	$(BASENAME).dvi
 
 help:
 	@echo "To create a new document give the commands:"
-	@echo "make new [BASENAME=mydocument] [TEXLIVE=YYYY]"
+	@echo "make new [BASENAME=thesis] [TEXLIVE=YYYY]"
 	@echo "make"
 	@echo "If your bib files are not in the main directory, adjust the %.pdf target accordingly." 
 	@echo ""
 	@echo "If atlaslatex is installed centrally, e.g. in ~/texmf:"
-	@echo "make newtexmf [BASENAME=mydocument] [TEXLIVE=YYYY]"
+	@echo "make newtexmf [BASENAME=thesis] [TEXLIVE=YYYY]"
 	@echo ""
 	@echo "If you need a standalone draft cover give the commands:"
-	@echo "make draftcover [BASENAME=mydocument] [TEXLIVE=YYYY]"
-	@echo "pdflatex mydocument-draft-cover"
+	@echo "make draftcover [BASENAME=thesis] [TEXLIVE=YYYY]"
+	@echo "pdflatex thesis-draft-cover"
 	@echo ""
 	@echo "If you need a standalone preprint cover give the commands:"
-	@echo "make preprintcover [BASENAME=mydocument] [TEXLIVE=YYYY]"
-	@echo "pdflatex mydocument-preprint-cover"
+	@echo "make preprintcover [BASENAME=thesis] [TEXLIVE=YYYY]"
+	@echo "pdflatex thesis-preprint-cover"
 	@echo ""
 	@echo "If you need a document for auxiliary material give the commands:"
-	@echo "make auxmat [BASENAME=mydocument] [TEXLIVE=YYYY]"
-	@echo "pdflatex mydocument-auxmat"
+	@echo "make auxmat [BASENAME=thesis] [TEXLIVE=YYYY]"
+	@echo "pdflatex thesis-auxmat"
 	@echo ""
 	@echo "make clean    to clean auxiliary files (not output PDF)"
 	@echo "make cleanpdf to clean output PDF files"

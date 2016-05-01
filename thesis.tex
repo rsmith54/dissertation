@@ -135,16 +135,18 @@
 \pagestyle{plain} %Put page numbers at the bottom-center for the whole dissertation. Columbia's dissertation office requires that the numbers appear at this location on the page throughout the document.
 
 
-
-
+\newcommand{\thesisTitle}{A search for sparticles in zero lepton final states}
+\newcommand{\myName}{Russell W. Smith}
+\newcommand{\abstractText}{ TODO : Here's where your abstract will eventually go. The above text is all in the center, but the abstract itself should be written as a regular paragraph on the page, and it should not have indentation. Just replace this text.}
+\newcommand{\yearText}{2016}
 %The section that follows renders the "Cover pages and Abstract" part of your dissertation.
 
 %We need to define a customized command to render Columbia's required title page
 %Be sure you replace the title and author with the title of your dissertation and your name!
 \newcommand*{\TitleColumbia}{\begingroup
 \begin{center}
-YOUR TITLE HERE\\
-YOUR NAME\par
+\thesisTitle{} \\
+\myName{} \par
 \vspace*{5 in} %This is a sloppy way to get the "Submitted in partial fulfillment" part to move to the bottom of the page
 %\begin{SingleSpace} can be used here if you want the "Submitted" text to be single-spaced.
 Submitted in partial fulfillment of the\\
@@ -154,7 +156,7 @@ in the Graduate School of Arts and Sciences\par
 %\end{SingleSpace} here if you decide to use single-spacing on the "Submitted" text.
 \vfill
 COLUMBIA UNIVERSITY\\ 
-2015
+\yearText
 \end{center}
 \endgroup} 
 
@@ -172,8 +174,8 @@ COLUMBIA UNIVERSITY\\
 \thispagestyle{empty}
 \begin{center}
 \vspace*{7.5 in} %Another sloppy way to get the copyright notice to move to the bottom of the page.
-© YEAR\\
-YOUR NAME\\
+© \yearText{} \\
+\myName{} \\
 All rights reserved
 \end{center} %There are lots of copyright options available for your dissertation, including Creative Commons licensing. You should scope out Columbia's Dissertation Office website for more information.
 
@@ -185,10 +187,10 @@ All rights reserved
 \thispagestyle{empty}
 \begin{center}
 ABSTRACT\\ %You need to keep this text here in all capitals. Don't change it.
-Your title here\\ %Do of course change this to the title of your dissertation.
-Your name\\ %Your name here
+\thesisTitle \\ %Do of course change this to the title of your dissertation.
+\myName \\ %Your name here
 \end{center}
-Here's where your abstract will eventually go. The above text is all in the center, but the abstract itself should be written as a regular paragraph on the page, and it should not have indentation. Just replace this text.
+\abstractText{}
 
 %Phew, you're done with the "Cover pages and abstract" part. Now to the "Prefatory pages."
 \frontmatter %This command lets LaTeX know that you want lowercase Roman page numbers in these next sections.

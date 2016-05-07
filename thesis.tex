@@ -13,6 +13,7 @@
 %\documentclass[UKenglish,texlive=2011]{\ATLASLATEXPATH atlasdoc}
 \documentclass[letterpaper,12pt]{memoir} %The memoir class is great for longer works that use separate chapters. The Dissertation Office recommends 10-pt Arial or 12-pt Times New Roman. I use 12-pt for readability.
 \usepackage[american]{babel} %Enables hyphenation and date formats according to American conventions. Change "american" to "british" (or another value) if you work outside the US.
+\usepackage{todonotes}
 
 
 % The language of the document must be set: usually UKenglish or USenglish.
@@ -212,12 +213,13 @@ ABSTRACT\\ %You need to keep this text here in all capitals. Don't change it.
 %I use subdirectories for each part of my dissertation just to keep the files tidy. LaTeX generates a lot of different files for output, and using subdirectories allows you to find your .tex files more easily.
 
 \include{./Introduction/chapter}       %Introduction
-\include{./Chapter-Analysis/chapter   }%SM   theory                                
-\include{./Chapter-LHC/chapter        }%SUSY theory                                
-\include{./Chapter-RJR/chapter        }%LHC                                        
-\include{./Chapter-Results/chapter    }%ATLAS detector                             
 \include{./Chapter-SM-theory/chapter  }%Recursive Jigsaw Reconstruction            
 \include{./Chapter-SUSY-theory/chapter}%Search for SUSY in events with 0L using RJR
+\include{./Chapter-LHC/chapter        }%SUSY theory                                
+\include{./Chapter-ATLAS/chapter        }%SUSY theory                                
+\include{./Chapter-RJR/chapter        }%LHC                                       
+\include{./Chapter-Analysis/chapter   }%SM   theory                                
+\include{./Chapter-Results/chapter    }%ATLAS detector                             
 \include{./Conclusion/chapter}         %Conclusion
 
 %This final section includes your bibliography.

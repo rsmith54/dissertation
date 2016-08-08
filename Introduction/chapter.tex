@@ -1,11 +1,46 @@
 %The following command starts your introduction. 
 
-\chapter*{Introduction} %Your introduction isn't a numbered chapter, so we use the asterisk here.
+\chapter{Introduction}
 
-\addcontentsline{toc}{chapter}{Introduction} %This command puts your introduction in your table of contents even though we have used the asterisk in the \chapter command above.
+%\addcontentsline{toc}{chapter}{Introduction} %This command puts your introduction in your table of contents even though we have used the asterisk in the \chapter command above.
 
-\section{New Section}
+Particle physics is a remarkably successful field of scientific inquiry.
+The ability to precisely predict the properties of a exceedingly wide range of physical phenomenom, such as the description of the cosmic microwave background (cite planck)  anomalous magnetic moment of the muon (cite paper on this), and the measurement of the number of weakly-interacting neutrino flavors is truly amazing.
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
+The theory that has allowed this range of predictions is the Standard Model of particle physics (SM) as developed by Gell-Mann, \todo{guy and guy., cite}
+This quantum field theory (QFT) contains a tiny number of particles, whose interactions describe phenomenom up to at least the \TeV\xspace scale.
+These particles are manifestations of the fields of the Standard Model, after application of the Higgs Mechanism.
+The particle content of the SM consists only of the six quarks, six leptons, the four gauge bosons, and the scalar Higgs boson.
 
+Despite its impressive range of described phenomenom, the Standard Model has some theoretical and experimental deficiencies.
+The SM contains 26 free parameters. \footnotemark 
+While this is not upsetting, if the number of free parameters could be understood in terms of a more fundamental theory, this would be more theoretically pleasing.
+The major theoretical concern of the Standard Model, as it pertains to this thesis, is the ``hierachy problem''.\todo {cite hierachy problem}
+The light mass of the Higgs boson (125 \GeV) should be quadratically dependent on the scale of UV physics, due to the quantum corrections from high-energy physics processes.
+The most perplexing experimental issue is the existence of ``dark matter'', which interacts very weakly with those particles of the Standard Model,  which has been shown by cosmological data. \todo{cite dark matter research}
+There is no particle in the SM which can act as a candidate for dark matter.
+\footnotetext{This is the Standard Model corrected to include neutrino masses.
+ These parameters are the fermion masses (6 leptons, 6 quarks), CKM and PMNS mixing angles (8 angles, 2 CP-violating phases), W/Z/Higgs masses (3) , the Higgs field expectation value, and the couplings of the strong, weak, and electromagnetic forces (3 $\alpha_{force}$ ) .}
+
+
+Both of these major issues, as well as numerous others \todo{check or add some, maybe cited}, can be solved by the introduction of ``supersymmetry''.\todo{cite}
+In supersymmetric theories, all particles have a so-called ``superpartners'', or sparticles, differing from the particle by $1/2$ in spin.
+These theories solve the hierachy problem, since the corrections induced from the superpartners exactly cancel those induced by the SM particles.
+In addition, these theories are usually constructed assuming $R-$parity, which can be thought of as the ``charge'' of supersymmetry, with SM particles having $R=1$ and sparticles having $R=-1$.
+In collider experiments, since the incoming SM particles have total $R=1$, the resulting sparticles are produced in pairs.
+This is produces a rich phenomenology, which is often characterized by large missing transverse energy (\met), which provides significant discrimination against SM backgrounds.
+
+Despite the power of searches for supersymmetry where \met is a primary discriminating variable, there has been significant interest in the use of other variables to discriminate against SM backgrounds.
+These include searches based on the variables $\alpha{something}$, $ M_{T,2}$, and the razor variables ($M_R, R^2$). \todo{cite many searches}
+In this thesis, we will present the first search for supersymmetry using the novel Recursive Jigsaw Reconstruction (RJR) technique.
+RJR can be considered the conceptual successor of the razor variables.
+We impose a particular final state ``decay tree'' on an event, which roughly corresponds to a simplified Feynmann diagram.
+This allows understanding of internal decay structure, as well as additional rejection of SM backgrounds.
+
+This thesis details a search for the superpartners of the gluon and squark, the gluino and squark, in final states with zero leptons, with \todo{ 7 \ifb} of data using the ATLAS detector.
+This thesis is organized as follows.
+The theoretical motivation of the Standard Model and supersymmetry are described in Chapters 2 and 3.
+The Large Hadron Collider and the ATLAS detector are presented in Chapters 4 and 5.
+Chapter 5 provides a detailed description of Recursive Jigsaw Reconstruction, as well as a description of the variables used for the particular search presented in this thesis.
+Chapter 6 presents the details of the analysis, including the dataset, object reconstruction, and selections used by the analysis.
+In Chapter 7, the final results are presented; since there is no evidence of a supersymmetric signal in the analysis, we present the final exclusion curves in simplified supersymmetric models.

@@ -5,7 +5,7 @@
 % See ChangeLog or SVN log for history of changes.
 % Responsible: Ian Brock (ian.brock@cern.ch)
 %-------------------------------------------------------------------------------
-\ProvidesPackage{latex/atlasbiblatex}[2016/01/29 v.01-07-09 ATLAS biblatex style]
+\ProvidesPackage{latex/atlasbiblatex}[2016/08/23 v.01-08-01 ATLAS biblatex style]
 \NeedsTeXFormat{LaTeX2e}
 
 %-------------------------------------------------------------------------------
@@ -21,6 +21,8 @@
 \DeclareBoolOption[false]{titlequote}
 \DeclareBoolOption[false]{showdoi}
 \DeclareBoolOption[true]{eprint}
+\DeclareBoolOption[false]{address}
+\DeclareBoolOption[false]{location}
 \DeclareStringOption[2013]{texlive}
 \ProcessKeyvalOptions*
 
@@ -34,8 +36,11 @@
     \relax
   \else
     \ExecuteBibliographyOptions{doi=false}
-    \newbibmacro{string+doi}[1]{%
+    % Fix from Knut Zoch - field is better than macro to avoid comma becoming part of link
+    \DeclareFieldFormat{string+doi}{%
       \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+    %\newbibmacro{string+doi}[1]{%
+    %  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
     %\DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
   \fi
   
@@ -53,6 +58,10 @@
     \ExecuteBibliographyOptions{date=year}
   }
   
+  % Don't want months
+  \AtEveryBibitem{%
+    \clearfield{month}
+  }
   
   % Use consistent format for title for articles and booklets/reports (CONF/PUB notes)
   \ifABIB@articletitle
@@ -89,6 +98,19 @@
     \ifentrytype{article}{\clearfield{number}}{}
   }
   
+  % Do not print out the address
+  \ifABIB@address
+    \relax
+  \else
+    \ifABIB@location
+      \relax
+    \else
+      \AtEveryBibitem{%
+        \clearlist{location}
+      }
+    \fi
+  \fi
+
   % DOI as link with journal reference
   \ifABIB@showdoi
     \relax
@@ -97,8 +119,10 @@
     %\DeclareFieldFormat[article]{journal+issuetitle}{\usebibmacro{string+doi}{#1}}
     % Adapted from /usr/local/texlive/2014/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
     % Merge page number into journal+issuetitle and remove it from note+pages
+    % Use fix from Knut Zoch so comma before journal is not part of the link
     \renewbibmacro*{journal+issuetitle}{%
-      \usebibmacro{string+doi}{%
+      %\usebibmacro{string+doi}{%
+      \printtext[string+doi]{%
       \usebibmacro{journal}%
       \setunit*{\addspace}%
       \iffieldundef{series}

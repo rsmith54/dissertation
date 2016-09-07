@@ -11,7 +11,94 @@ When you need a new paragraph, just skip an extra line.
 
 \section{Quantum Field Theory}
 
+\todo{cite Yuval's lectures and notes somehow}
+
+In this section, we provide a brief overview of the necessary concepts from Quantum Field Theory (QFT).
+
+In modern physics, the laws of nature are described by the ``action'' $S$, with the imposition of the principle of minimum action. \todo{cite}
+The action is the integral over the spacetime coordinates of the ``Lagrangian density'' \Lagr, or Lagrangian for short.
+The Lagrangian is a function of ``fields''; general fields will be called $\phi(x^\mu)$, where the indices $\mu$ run over the space-time coordinates.
+We can then write the action $S$ as
+
+\begin{equation}
+S = \int d^4 x \Lagr[ \phi_i(x^\mu) , \dmu \phi_i(x^\mu)]
+\end{equation}
+
+where we have an additional summation over $i$ (of the different fields).
+Generally, we impose the following constraints on the Lagrangian :
+
+\begin{enumerate}
+\item Translational invariance - The Lagrangian is only a function of the fields $\phi$ and their derivatives $\dmu \phi$
+\item Locality - The Lagrangian is only a function of one point $x_\mu$ in spacetime.
+\item Reality condition - The Lagrangian is real to conserve probability.
+\item Lorentz invariance - The Lagrangian is invariant under the \Poincare group of spacetime.
+\item Analyticity - The Lagrangian is an analytical function of the fields; this is to allow the use of pertubation theory.
+\item Invariance and Naturalness - The Lagrangian is invariant under some internal symmetry groups; in fact, the Lagrangian will have \textit{all} terms allowed by the imposed symmetry groups. \todo{maybe add in ref here}
+\item Renormalizabilty - The Lagrangian will be renormalizable - in practice, this means there will not be terms with more than power 4 in the fields.
+\end{enumerate}
+
+The key item from the point of view of this thesis is that of ``Invariance and Natural''.
+We impose a set of ``symmetries'' and then our Lagragian is the most general which is allowed by those symmetries.
+
 \section{Symmetries}
+
+Symmetries can be seen as the fundamental guiding concept of modern physics.
+Symmetries are described by ``groups''. \todo{cite?}.
+To illustrate the importance of symmetries and their mathematical description, groups, we start here with two of the simplest and most useful examples :  \Ztwo and $U(1)$.
+
+\subsection{\Ztwo symmetry}
+
+\Ztwo symmetry is the simplest example of a ``discrete'' symmetry.
+Consider the most general Lagrangian of a single real scalar field $\phi(x_\mu)$ :
+
+\begin{equation} \label{scalarFieldLagrangian}
+\Lagr_\phi = \frac{1}{2} \dmu \phi \dmuup \phi - \frac{m^2}{2} \phi^2 - \frac{\mu}{2 \sqrt{2}}  \phi^3 - \lambda \phi^4
+\end{equation}
+
+Now we \textit{impose} the symmetry :
+\begin{equation}
+\Lagr(\phi) = \Lagr(- \phi)
+\end{equation}
+
+This has the effect of restricting the allowed terms of the Lagrangian.
+In particular, we can see the term $\phi^3 \rightarrow - \phi^3$ under the symmetry transformation, and thus must be disallowed by this symmetry.
+This means under the imposition of this particular symmetry, our Lagrangian should be rewritten as :
+
+\begin{equation}
+\Lagr_\phi = \frac{1}{2} \dmu \phi \dmuup \phi - \frac{m^2}{2} \phi^2  - \lambda \phi^4
+\end{equation}
+
+The effect of this symmetry is that the total number of  $\phi$ particles can only change by even numbers, since the only interaction term $\lambda \phi^4$ is an even power of the field.
+This symmetry is often imposed in supersymmetric theories, as we will see in Chapter 3.
+
+\subsection{$U(1)$ symmetry}
+
+$U(1)$ is the simplest example of a ``continuous'' (or Lie) group.
+Now consider a theory with a single complex scalar field $\phi = \operatorname{Re}\phi + i \operatorname{Im}\phi$ :
+
+\begin{equation}
+\Lagr_\phi = \delta_{i,j} \frac{1}{2} \dmu \phi_i \dmuup \phi_j - \frac{m^2}{2} \phi_i \phi_j - \frac{\mu}{2 \sqrt{2}}  \phi_i \phi_j \phi_k  - \lambda \phi_i \phi_j \phi_k \phi_l
+\end{equation}
+
+where $i,j,k,l = Re, Im$.
+In this case, we impose the following $U(1)$ symmetry : $\phi \rightarrow e^{i\theta}, \phi^* \rightarrow e^{-i\theta} $.
+We see immediately that this again disallows the third-order terms, and we can write a theory of a complex scalar field with $U(1)$ symmetry as :
+
+\begin{equation}
+\Lagr_\phi =  \dmu \phi \dmuup \phi^* - \frac{m^2}{2} \phi \phi^* -   - \lambda (\phi \phi^*)^2
+\end{equation}
+
+\section{Local symmetries}
+
+The two examples considered above are ``global'' symmetries in the sense that the symmetry transformation does not depends on the spacetime coordinate $x_\mu$.
+We know look at local symmetries; in this case, for example with a local $U(1)$ symmetry,  the transformation has the form $\phi(x_\mu) \rightarrow e^{i \theta(\x_mu)}\phi(x_\mu)$.
+These symmetries are also known as ``gauge'' symmetries; all symmetries of the Standard Model are gauge symmetries.
+
+There are wide-ranging consequences to the imposition of local symmetries.
+To begin, we note that the derivative terms of the Lagrangian \ref{scalarFieldLagrangian} are \textit{not} invariant under a local symmetry transformation :
+\begin{equation}
+\dmu \phi(x_\mu) \rightarrow \dmu ( e^(i\theta(x_\mu) \phi(x_\mu )) = (1 + i \theta(x_\mu) ) e^(i\theta(x_\mu) \phi(x_\mu )
+\end{equation}\todo {GET THIS RIGHT}
 
 \section{The Standard Model}
 
@@ -31,7 +118,7 @@ If you want your sections to be numbered and to appear in the table of contents,
 By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
 If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
 
-\section{Electroweak Symmetry breaking}
+\section{Electroweak Symmetry breaking and the Higgs Boson}
 
 By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
 If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.

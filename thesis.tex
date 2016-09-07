@@ -14,7 +14,7 @@
 \documentclass[letterpaper,12pt]{memoir} %The memoir class is great for longer works that use separate chapters. The Dissertation Office recommends 10-pt Arial or 12-pt Times New Roman. I use 12-pt for readability.
 \usepackage[american]{babel} %Enables hyphenation and date formats according to American conventions. Change "american" to "british" (or another value) if you work outside the US.
 \usepackage{todonotes}
-
+\usepackage{amsfonts}
 
 % The language of the document must be set: usually UKenglish or USenglish.
 % british and american also work!
@@ -74,13 +74,13 @@
 % Add you own definitions here (file thesis-defs.sty).
 \usepackage{thesis-defs}
 \usepackage{lineno}
-\linenumbers 
+\linenumbers
 
 %-------------------------------------------------------------------------------
 % Generic document information
 %-------------------------------------------------------------------------------
 
-% Title, abstract and document 
+% Title, abstract and document
 \input{thesis-metadata}
 % Author and title for the PDF file
 \hypersetup{pdftitle={ATLAS document},pdfauthor={The ATLAS Collaboration}}
@@ -116,7 +116,7 @@
 %Here is some stuff on the bibliography. You want to keep your bibliography file in the same directory as this file.
 
 %\usepackage[backend=bibtex8,style=authoryear-icomp,texencoding=utf8,bibencoding=utf8]{biblatex} %The command here uses biblatex to render your bibliography, and it tells biblatex to use Unicode fonts. You can change the style of your citations easily by changing the value for "style" -- I use authoryear-icomp which takes care of the id/ibid citations automatically. There are many styles available if you want to change it.
-%I have tried to use biber instead of biblatex many times, but it's never worked properly for me. I use biblatex, but feel free to try biber instead. 
+%I have tried to use biber instead of biblatex many times, but it's never worked properly for me. I use biblatex, but feel free to try biber instead.
 
 %\addbibresource{./Bibliography.bib} %Your bibliography file. I use JabRef to keep track of my bibliography. Highly recommended, and free! You can use Zotero if you want, but I've had trouble exporting to .bib files from my Zotero database.
 
@@ -136,7 +136,7 @@
 
 \sloppy %If I don't include sloppy, then Greek and Latin words screw up margins all over. If you don't include weird languages in your dissertation, you can probably leave this one out.
 \chapterstyle{chappell} % Nice formatting for chapter headings. Check out the documentation for the memoir class for other options.
-\footnotesep\baselineskip % Footnotes need to have a space between each one for Columbia's Dissertation Office. 
+\footnotesep\baselineskip % Footnotes need to have a space between each one for Columbia's Dissertation Office.
 \DoubleSpacing %Set roomier body text throughout your writing. The dissertation office requires that you use double-spacing throughout your main body text.
 \expandafter\def\expandafter\quote\expandafter{\quote\SingleSpace} %Keep all block quotes single-spaced regardless of body text spacing.
 \pagestyle{plain} %Put page numbers at the bottom-center for the whole dissertation. Columbia's dissertation office requires that the numbers appear at this location on the page throughout the document.
@@ -162,10 +162,10 @@ Doctor of Philosophy\\
 in the Graduate School of Arts and Sciences\par
 %\end{SingleSpace} here if you decide to use single-spacing on the "Submitted" text.
 \vfill
-COLUMBIA UNIVERSITY\\ 
+COLUMBIA UNIVERSITY\\
 \yearText
 \end{center}
-\endgroup} 
+\endgroup}
 
 %These four commands make sure that your title page doesn't count toward your page number counts and that there is no extra header and footer on the page. The final command here also renders the page as you've defined it above.
 \pagenumbering{gobble}
@@ -219,13 +219,13 @@ ABSTRACT\\ %You need to keep this text here in all capitals. Don't change it.
 %I use subdirectories for each part of my dissertation just to keep the files tidy. LaTeX generates a lot of different files for output, and using subdirectories allows you to find your .tex files more easily.
 
 \include{./Introduction/chapter}       %Introduction
-\include{./Chapter-SM-theory/chapter  }%Recursive Jigsaw Reconstruction            
+\include{./Chapter-SM-theory/chapter  }%Recursive Jigsaw Reconstruction
 \include{./Chapter-SUSY-theory/chapter}%Search for SUSY in events with 0L using RJR
-\include{./Chapter-LHC/chapter        }%SUSY theory                                
-\include{./Chapter-ATLAS/chapter        }%SUSY theory                                
-\include{./Chapter-RJR/chapter        }%LHC                                       
-\include{./Chapter-Analysis/chapter   }%SM   theory                                
-\include{./Chapter-Results/chapter    }%ATLAS detector                             
+\include{./Chapter-LHC/chapter        }%SUSY theory
+\include{./Chapter-ATLAS/chapter        }%SUSY theory
+\include{./Chapter-RJR/chapter        }%LHC
+\include{./Chapter-Analysis/chapter   }%SM   theory
+\include{./Chapter-Results/chapter    }%ATLAS detector
 \include{./Conclusion/chapter}         %Conclusion
 
 %This final section includes your bibliography.

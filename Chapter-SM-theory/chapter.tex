@@ -49,20 +49,20 @@ To illustrate the importance of symmetries and their mathematical description, g
 \subsection{\Ztwo symmetry}
 
 \Ztwo symmetry is the simplest example of a ``discrete'' symmetry.
-Consider the most general Lagrangian of a single real scalar field $\phi(x_\mu)$ :
+Consider the most general Lagrangian of a single real scalar field $\phi(x_\mu)$
 
 \begin{equation} \label{scalarFieldLagrangian}
 \Lagr_\phi = \frac{1}{2} \dmu \phi \dmuup \phi - \frac{m^2}{2} \phi^2 - \frac{\mu}{2 \sqrt{2}}  \phi^3 - \lambda \phi^4
 \end{equation}
 
-Now we \textit{impose} the symmetry :
+Now we \textit{impose} the symmetry
 \begin{equation}
 \Lagr(\phi) = \Lagr(- \phi)
 \end{equation}
 
 This has the effect of restricting the allowed terms of the Lagrangian.
 In particular, we can see the term $\phi^3 \rightarrow - \phi^3$ under the symmetry transformation, and thus must be disallowed by this symmetry.
-This means under the imposition of this particular symmetry, our Lagrangian should be rewritten as :
+This means under the imposition of this particular symmetry, our Lagrangian should be rewritten as
 
 \begin{equation}
 \Lagr_\phi = \frac{1}{2} \dmu \phi \dmuup \phi - \frac{m^2}{2} \phi^2  - \lambda \phi^4
@@ -74,7 +74,7 @@ This symmetry is often imposed in supersymmetric theories, as we will see in Cha
 \subsection{$U(1)$ symmetry}
 
 $U(1)$ is the simplest example of a ``continuous'' (or Lie) group.
-Now consider a theory with a single complex scalar field $\phi = \operatorname{Re}\phi + i \operatorname{Im}\phi$ :
+Now consider a theory with a single complex scalar field $\phi = \operatorname{Re}\phi + i \operatorname{Im}\phi$
 
 \begin{equation}
 \Lagr_\phi = \delta_{i,j} \frac{1}{2} \dmu \phi_i \dmuup \phi_j - \frac{m^2}{2} \phi_i \phi_j - \frac{\mu}{2 \sqrt{2}}  \phi_i \phi_j \phi_k  - \lambda \phi_i \phi_j \phi_k \phi_l
@@ -82,7 +82,7 @@ Now consider a theory with a single complex scalar field $\phi = \operatorname{R
 
 where $i,j,k,l = Re, Im$.
 In this case, we impose the following $U(1)$ symmetry : $\phi \rightarrow e^{i\theta}, \phi^* \rightarrow e^{-i\theta} $.
-We see immediately that this again disallows the third-order terms, and we can write a theory of a complex scalar field with $U(1)$ symmetry as :
+We see immediately that this again disallows the third-order terms, and we can write a theory of a complex scalar field with $U(1)$ symmetry as
 
 \begin{equation}
 \Lagr_\phi =  \dmu \phi \dmuup \phi^* - \frac{m^2}{2} \phi \phi^* -   - \lambda (\phi \phi^*)^2
@@ -91,32 +91,154 @@ We see immediately that this again disallows the third-order terms, and we can w
 \section{Local symmetries}
 
 The two examples considered above are ``global'' symmetries in the sense that the symmetry transformation does not depends on the spacetime coordinate $x_\mu$.
-We know look at local symmetries; in this case, for example with a local $U(1)$ symmetry,  the transformation has the form $\phi(x_\mu) \rightarrow e^{i \theta(\x_mu)}\phi(x_\mu)$.
+We know look at local symmetries; in this case, for example with a local $U(1)$ symmetry,  the transformation has the form $\phi(x_\mu) \rightarrow e^{i \theta(\x_mu)} \phi(x_\mu)$.
 These symmetries are also known as ``gauge'' symmetries; all symmetries of the Standard Model are gauge symmetries.
 
 There are wide-ranging consequences to the imposition of local symmetries.
-To begin, we note that the derivative terms of the Lagrangian \ref{scalarFieldLagrangian} are \textit{not} invariant under a local symmetry transformation :
+To begin, we note that the derivative terms of the Lagrangian \ref{scalarFieldLagrangian} are \textit{not} invariant under a local symmetry transformation
 \begin{equation}
 \dmu \phi(x_\mu) \rightarrow \dmu ( e^(i\theta(x_\mu) \phi(x_\mu )) = (1 + i \theta(x_\mu) ) e^(i\theta(x_\mu) \phi(x_\mu )
 \end{equation}\todo {GET THIS RIGHT}
+
+This leads us to note that the kinetic terms of the Lagrangian are also not invariant under a gauge symmetry.
+This would lead to a model with no dynamics, which is clearly unsatisfactory.
+
+Let us take inspiration from the case of global symmetries.
+We need to define a so-called ``covariant'' derivative $D^\mu$ such that
+
+\begin{equation}
+D^\mu \phi   \rightarrow e^{ i q \theta(x^\mu) D^\mu \phi} \\
+D^\mu \phi^* \rightarrow e^{-i q \theta(x^\mu) D^\mu \phi} \\
+\end{equation}
+
+Since $\phi$ and$\phi^*$ transforms with the opposite phase, this will lead the invariance of the Lagrangian under our local gauge transformation.
+This $D^\mu$ is of the following form
+
+\begin{equation}
+D^\mu = \dmu - i g q A^\mu
+\end{equation}
+
+where $A^\mu$ is a vector field we introduce with the transformation law
+
+\begin{equation}
+A^\mu \rightarrow A^\mu - \frac{1}{g} \dmu \theta
+\end{equation}
+
+and $g $ is the coupling constant associated to vector field.
+This vector field $A^\mu$ is also known as a ``gauge'' field.
+
+Since we need to add all allowed terms to the Lagrangian, we define
+
+\begin{equation}
+F^{\mu\nu} = A^\mu A^\nu - A^\nu A^\mu
+\end{equation}
+
+and then we must also add the kinetic term :
+
+\begin{equation}
+\Lagr_{\text{gauge}} = - \frac{1}{4} F^{\mu\nu} F_{\mu\nu}
+\end{equation}
+
+The most general renormalizable Lagrangian with fermion and scalar fields can be written in the following form
+
+\begin{equation}
+\Lagr = \Lagr_{kin} + \Lagr_{\phi} + \Lagr_\psi +   \Lagr{Yukawa}
+\end{equation}
+
+\subsection{Symmetry breaking and the Higgs mechanism}
+
+Here we view some examples of symmetry breaking.
+We investigate breaking of a global $U(1)$ symmetry and a local $U(1)$ symmetry.
+The SM will break the electroweak symmetry $SU(2) x U(1)$, and in Chapter 3 we will see how supersymmetry must also be broken.
+
+There are two ideas of symmetry breaking
+\begin{itemize}
+\item Explicit symmetry breaking by a small parameter - in this case, we have a small parameter which breaks an ``approximate'' symmetry of our Lagrangian.
+An example would be the theory of the single scalar field \ref{scalarFieldLagrangian}, when $\mu << m^2$ and $\mu << \lambda$.
+In this case, we can often ignore the small term when considering low-energy processes.
+\item Spontaneous symmetry breaking (SSB) - spontaneous symmetry breaking occurs when the Lagrangian is symmetric with respect to a given symmetry transformation, but the ground state of the theory is \textit{not} symmetric with respect to that transformation.
+This can have some fascintating consequences, as we will see in the following examples
+\end{itemize}
+Symmetry breaking a
+
+\subsubsection{U(1) global symmetry breaking}
+
+Consider the theory of a complex scalar field under the $U(1)$ symmetry, or the transformation
+\begin{equation}
+\phi \rightarrow e^{i\theta} \phi
+\end{equation}
+
+The Lagrangian for this theory is
+\begin{equation}
+\Lagr = \dmuup \phi^{\dag} \dmu \phi + \frac{\mu^2}{2} \phi^{\dag} \phi + \frac{\lambda}{4} (\phi^\dag \phi)^2
+\end{equation}
+
+Let us write this theory in terms of two scalar fields, $h$ and $\xi$ : $\phi = (h + i\xi) / \sqrt(2)$.
+The Lagrangian can then be written as
+\begin{equation}
+\Lagr = \dmuup h \dmu h + \dmuup \xi dmu \xi - \frac{\mu^2}{2} (h^2 + \xi^2) - \frac{\lambda}{4}(h^2 + \xi^2)^2
+\end{equation}
+
+First, note that the theory is only stable when $\lambda > 0$.
+To understand the effect of SSB, we now enforce that $\mu^2 < 0$, and define $v^2 = -\mu^2/\lambda$.
+We can then write the scalar potential of this theory as :
+\begin{equation}
+V(\phi) = \lambda (\phi^\dag \phi - v^2/2)^2
+\end{equation}
+
+Minimizing this equation with respect to $\phi$, we can see that the ``vacuum expectation value'' of the theory is
+\begin{equation}
+2<\phi^\dag \phi> = <h^2 + \xi^2 > = v^2
+\end{equation}
+
+We now reach the ``breaking'' point of this procedure.
+In the $(h, \xi)$ plane, the minima form a circle of radius $v$.
+We are free to choose any of these minima to expand our Lagrangian around; the physics is not affected by this choice.
+For convenience, choose $<h> = v, <\xi^2> = 0$.
+
+Now, let us define $h' = h - v , \xi' = \xi $ with VEVs $<h'> = 0 , <\xi'> = 0$.
+We can then write our spontaneously broken Lagrangian in the form
+\begin{equation}
+\Lagr = \frac{1}{2} \dmu h' \dmuup h' +  \frac{1}{2} \dmu \xi' \dmuup \xi' - \lambda v^2 h'^2 - \lambda v h' (h'^2 + \xi'^2 ) - \lambda (h'^2 + \xi'^2)^2
+\end{equation}
+
+
+\todo{Add a picture of the potential}
+
+\subsubsection{U(1) local  symmetry breaking}
 
 \section{The Standard Model}
 
 \subsection{Overview}
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
+The Standard Model is another name for the theory of the internal symmetry group $SU(3)_C x SU(2)_L x U(1)_Y$ \todo{CHECK}.
+This quantum field theory is the culmination of years of work in both theoretical and particle physics.  \todo{cite}
 
+\todo{CITE THIS PICTURE}
+\begin{figure}
+\caption{The interactions of the Standard Model}
+\includegraphics[width=\linewidth]{Standard_Model_Feynman_Diagram_Vertices}
+\end{figure}
 
-\subsection{Fermions}
+\subsection{Field Content}
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
+The SM field content is
+\begin{equation}
+\text{Fermions} Q_L(3,2)_{+1/3}, \xspace  U_R(3,1)_{+4/3},\xspace  D_R(3,1)_{-2/3} ,\xspace  L_L(1,2)_{-1} ,\xspace  E_R(1,1)_{-2}\\
+\text{Scalar (Higgs)} \xspace \phi(1,2)_{+1/2} \\
+\text{Vector Fields} \xspace G^\mu(8,1)_0 \xspace W^\mu(1,3)_0  \xspace B^\mu(1,1)_0
+\end{equation}
+where the $(A, B)_Y$ notation represents the irreducible representation under $SU(3)$ and $SU(2)$, with $Y$ being the electroweak hypercharge.
+Each of these fields has an additional index, representing the three generation of fermions.
 
-\subsection{Bosons}
+We observed that $Q_L, U_R,$ and $D_R$ are triplets under $SU(3)$; these are the \textit{quark} fields.
+They are mediated by the ``gluon'' field $G^\mu(8,1)_0$.
+The fermion fields $L_L(1,2)_{-1}$ and $  E_R(1,1)_{-2} $ are singlets under $SU(3)$; we call them \textit{leptons}.
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
+Next, we note the ``left-handed'' particles, denoted by $L$, which are doublets under $SU(2)$.
+This is mediated by the unification of the
+This is the reflection of the ``chirality'' of the Standard Model; the left-handed and right-handed particles are treated differently by the electroweak forces.
+
 
 \section{Electroweak Symmetry breaking and the Higgs Boson}
 

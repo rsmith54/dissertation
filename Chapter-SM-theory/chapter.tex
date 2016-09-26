@@ -148,7 +148,7 @@ The most general renormalizable Lagrangian with fermion and scalar fields can be
 \end{equation}
 
 \subsection{Symmetry breaking and the Higgs mechanism}
-
+\label{subsec:symmetry_breaking}
 Here we view some examples of symmetry breaking.
 We investigate breaking of a global $U(1)$ symmetry and a local $U(1)$ symmetry.
 The SM will break the electroweak symmetry $SU(2) x U(1)$, and in Chapter 3 we will see how supersymmetry must also be broken.
@@ -205,7 +205,11 @@ We can then write our spontaneously broken Lagrangian in the form
 \end{equation}
 
 
-\todo{Add a picture of the potential}
+\todo{CITE THIS PICTURE}
+\begin{figure} \label{fig:sombrero}
+\caption{Sombrero potential}
+\includegraphics[width=\linewidth]{sombrero_potential}
+\end{figure}
 
 \subsubsection{U(1) local  symmetry breaking}
 
@@ -213,7 +217,7 @@ We can then write our spontaneously broken Lagrangian in the form
 
 \subsection{Overview}
 
-The Standard Model is another name for the theory of the internal symmetry group $SU(3)_C x SU(2)_L x U(1)_Y$ \todo{CHECK}.
+The Standard Model is another name for the theory of the internal symmetry group $SU(3)_C \otimes SU(2)_L \otimes U(1)_Y$ \todo{CHECK}.
 This quantum field theory is the culmination of years of work in both theoretical and particle physics.  \todo{cite}
 
 \todo{CITE THIS PICTURE}
@@ -227,9 +231,9 @@ This quantum field theory is the culmination of years of work in both theoretica
 The SM field content is
 \begin{equation}
 \begin{aligned}
-\text{Fermions} Q_L(3,2)_{+1/3}, \xspace  U_R(3,1)_{+4/3},\xspace  D_R(3,1)_{-2/3} ,\xspace  L_L(1,2)_{-1} ,\xspace  E_R(1,1)_{-2}\\
-\text{Scalar (Higgs)} \xspace \phi(1,2)_{+1/2} \\
-\text{Vector Fields} \xspace G^\mu(8,1)_0 \xspace W^\mu(1,3)_0  \xspace B^\mu(1,1)_0
+\text{Fermions } Q_L(3,2)_{+1/3}, \xspace  U_R(3,1)_{+4/3},\xspace  D_R(3,1)_{-2/3} ,\xspace  L_L(1,2)_{-1} ,\xspace  E_R(1,1)_{-2}\\
+\text{Scalar (Higgs) } \xspace \phi(1,2)_{+1} \\
+\text{Vector Fields } \xspace G^\mu(8,1)_0 \xspace W^\mu(1,3)_0  \xspace B^\mu(1,1)_0
 \end{aligned}
 \end{equation}
 where the $(A, B)_Y$ notation represents the irreducible representation under $SU(3)$ and $SU(2)$, with $Y$ being the electroweak hypercharge.
@@ -247,7 +251,7 @@ This is the reflection of the ``chirality'' of the Standard Model; the left-hand
 The right-handed fields, $U_R, D_R$, and $E_R$, are singlets under $SU(2)_L$.
 
 The $U(1)_Y$ symmetry is associated to the $B^\mu(1,1)_0$ boson with one degree of freedom.
-We note that this field is associated with the charge $Y$ of the other particles.
+The charge $Y$ is known as the electroweak hypercharge.
 
 \subsection{$\Lagr_{kin}$}
 
@@ -265,11 +269,11 @@ where $g$ and $g_s$ are the electroweak and strong coupling constant.
 
 We can write the covariant derivative for the Standard Model as
 \begin{equation}
-\Dmuup = \dmuup + ig_s G^\mu_a L_a + i g W^\mu_a T_a + i g^{'} Y B^\mu
+\Dmuup = \dmuup + ig_s G^\mu_a L_a + i g W^\mu_a T_a + i g' Y B^\mu
 \end{equation}
 where $L_a$ and $T_a$ are the generators of $SU(3)_C $ and $SU(2)_L$ respectively for each of the representations.
 Explicitly, for the $SU(3)_C$ triplets, $L_a = \frac{1}{2} \lambda_a$ and for the $SU(3)_C$ singlets, $L_a = 0$. \todo{GELLMANN and Pauli matrices}.
-For $SU(2)_L$ doublets, $L_a = \frac{1}{2} \sigma_a $ and for $SU(2)_L$ singlets, $L_a = 0$.
+For $SU(2)_L$ doublets, $T_a = \frac{1}{2} \sigma_a $ and for $SU(2)_L$ singlets, $T_a = 0$.
 
 The combination of these terms allows us to write the kinetic terms of the Lagrangian as
 \begin{equation}
@@ -279,24 +283,114 @@ The combination of these terms allows us to write the kinetic terms of the Lagra
 \end{aligned}
 \end{equation}
 
-\subsection{\Lagr{\psi} }
+\subsection{$\Lagr_{\psi}$ }
 
 We cannot write down any mass terms for fermions in the Standard Model.
 Dirac mass terms are forbidden since they are all assigned to ``chiral'' representations of the gauge symmetry.
 Majorana mass terms are disallowed since there are no fields with $Y \slashed{=} 0$.
 
-\subsection{\Lagr{Yuk} }
+\subsection{$\Lagr_{Yuk}$ }
 
-We write the Yukawa portion of the Fermions \textit{do not} have mass terms in the Standard Model.  This
+We write the Yukawa portion of the Standard Model Lagrangian
 
+\begin{equation}
+\Lagr_{Yuk} = Y_{ij}\bar{L_{Li} E_{Rj}} \phi + h.c.
+\end{equation}
 
-Let us now recall that local gauge invariance means that the vector fields in this theory are \textit{massless}, yet we know only the photon vector field is massless.
-In the next section, we will see how masses are induced by electroweak symmetry breaking.
+The Yukawa matrix $Y$ is a general complex 3 $\times$ 3 matrix of dimensionless couplings which can be diagonalized, leading to a diagonal matrix with only three real parameters $(y_e , y_\mu , y_\tau)$.
+This reflects the fact that for the electron, muon, and tau lepton, the interaction basis is the same as the mass basis; this is the same as saying an electron has a well-defined mass.
 
-\section{Electroweak Symmetry breaking and the Higgs Boson}
+\section{$\Lagr_\phi$, Electroweak Symmetry breaking and the Higgs Boson}
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
+Let us now recall that local gauge invariance means that the vector fields in this theory are \textit{massless}.
+N\"aively, it seems this combined with the chirality of the Standard Model, that \textit{none} of the fields have masses.
+The solution to this seeming conundrum is of course the well-known ``Higgs'' mechanism, described in Sec. \ref{subsec:symmetry_breaking}.
+
+In the Standard Model, the Higgs potential is given by
+\begin{equation} \label{eq:higgs_potential}
+\Lagr_\phi = -\mu^2 \phi^\dagger \phi - \lambda (\phi^\dagger \phi)^2.
+\end{equation}
+
+Since $\lambda$ is dimensionless and real, to have a potential bounded from below, we require $\lambda > 0$.
+To break the gauge symmetry, we require $\mu^2 < 0$, leading again to the sombrero potential \ref{fig:sombrero}.
+We define
+\begin{equation}
+v^2 = - \frac{\mu^2}{\lambda}.
+\end{equation}
+
+This allows us to write \ref{eq:higgs_potential} as
+\begin{equation} \label{eq:higgs_potential_rewritten}
+\Lagr_\phi = - \lambda (\phi^\dagger \phi - \frac{v^2}{2})^2
+\end{equation}
+after dropping the constant term.
+
+This means the $\phi$ field acquires a VEV $|<\phi>| = v/\sqrt{2}$.
+Choosing the convenient gauge
+\begin{equation}
+\phi = \begin{pmatrix} 0 \\ v/\sqrt{2} \end{pmatrix},
+\end{equation}
+
+The VEV breaks the $SU(2)_L \otimes U(1)_Y$ symmetry to a $U(1)_{EM}$ subgroup.
+We can identify the unbroken generator of this $U(1)_{EM}$ subgroup as $Q_{EM} = T_3 + Y/2$, since this vanishes in the down component
+\begin{equation}
+Q_{\gamma} \phi = (T_3 + Y/2) \phi = (\frac{1}{2} \sigmathree + \frac{1}{2} I ) \begin{pmatrix} 0 \\ v/\sqrt{2} \end{pmatrix}.
+\end{equation}
+Here we see the indicative $\gamma$ for the photon, as this unbroken $U(1)_{EM}$ symmetry is of course the symmetry associated to the electromagnetic force mediated by the gauge boson known as the photon.
+
+There are three broken generators : $T_1, T_2, T_3 - Y/2$.
+These are each associated to one of the massive gauge bosons induced by the symmetry breaking.
+Choosing a gauge which rotates away the ``eaten'' Goldstone boson degrees of freedom, we can write the Higgs field as
+\begin{equation}
+\label{eq:higgs_field}
+\phi = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ v + h(x) \end{pmatrix}.
+\end{equation}
+
+\section{Particle Spectrum : Standard Model Lagrangian after Electroweak Symmetry Breaking}
+
+We can now return to the Standard Model Lagrangian and use the equation for the Higgs field after EWSB \ref{eq:higgs_field}.
+This will show us the ``physical'' particle content of the Standard Model.
+
+\subsection{Particle content associated to $\Lagr_\phi$}
+
+Setting $phi$ as in Eq.\ref{eq:higgs_field}, we quickly see that we can rewrite Eq.\ref{eq:higgs_potential_rewritten} as
+\todo{ CHECK FACTORS OF TWO}
+\begin{equation}
+\Lagr_\phi = - \lambda (\phi^\dagger \phi - \frac{v^2}{2})^2  = - \lambda ( \frac{1}{2} (v + h(x))^2 - \frac{v^2}{2})^2 = - \lambda ( h(x)^2 + vh(x))^2 = -\lambda ( h(x)^4 + v h(x)^3 + \frac{v^2}{2} h(x)^2 ).
+\end{equation}
+
+Interpreting the Higgs field squared term as the mass term of the Higgs boson, we see that $m_H = \sqrt{2 \lambda} v$.
+
+\subsection{Particle content associated to $\Lagr_{kin}$}
+
+Again using Eq.\ref{eq:higgs_field} and $\Dmuup = \dmuup + ig_s G^\mu_a L_a + i g W^\mu_a T_a + i g' Y B^\mu $, we can see how the mass terms associated to the three massive gauge bosons, and also see how the photon stays massless.
+The mass terms for the gauge boson fields come from the kinetic term of the Higgs field :
+\begin{equation}
+\begin{aligned}
+\Lagr_{M_V} = \Dmuup \phi \Dmu \phi = (i g W^\mu_a T_a + i g' Y B^\mu ) \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ v \end{pmatrix} (i g W_{\mu,a} T_a + i g' Y B_\mu ) \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ v \end{pmatrix} = \\
+\frac{1}{8} |\begin{pmatrix} gW_3 + g'B & g(W_1 - iW_2) \\ g(W_1 + iW_2) & -gW_3 + g'B \end{pmatrix}  \begin{pmatrix} 0 \\ v \end{pmatrix} |^2
+\end{aligned}
+\end{equation}
+where we have noted that $\dmu$ and $L_a$ both disappear when acting on $\phi$.
+Defining the \textit{Weinberg} angle $\tan(\theta_W) = g'/g$ and the following physical fields :
+\begin{equation}
+\begin{aligned}
+W^{\pm} = \frac{1}{\sqrt{2}}(W_1 \mp iW_2) \\
+Z^0 = \cos \theta_W W_3 - \sin\theta_W B \\
+A^0 = \sin \theta_W W_3 + \cos\theta_W B
+\end{aligned}
+\end{equation}
+we see that we can write the piece of the Lagrangian associated to the vector boson masses as
+\begin{equation}
+\Lagr_{M_V} = \frac{1}{4} g^2 v^2 W^+ W^- + \frac{1}{8} (g^2 + g'^2)v^2 Z^0 Z^0 .
+\end{equation}
+and we have the following values of the masses for the vector bosons :
+\begin{equation}
+\begin{aligned}
+m_W^2 = \frac{1}{4} g^2 v^2 \\
+m_Z^2 = \frac{1}{4} (g^2 + g'^2) v^2 \\
+m_A^2 = 0
+\end{aligned}
+\end{equation}
 
 \section{Deficiencies of the Standard Model}
 

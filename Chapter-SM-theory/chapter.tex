@@ -4,24 +4,25 @@
 
 \todo{cite Yuval's lectures and notes somehow}
 
-The Standard Model is another name for the theory of the internal symmetry group $SU(3)_C \otimes SU(2)_L \otimes U(1)_Y$ \todo{CHECK}.
-This quantum field theory is the culmination of years of work in both theoretical and particle physics.  \todo{cite}
-In this thesis, we take the view one constructs a model with the field content and symmetries as inputs, and then writes down the most general Lagrangian consistent with those symmetries.
+\textit{A} Standard Model is another name for a theory of the internal symmetry group $SU(3)_C \otimes SU(2)_L \otimes U(1)_Y$, with its associated set of parameters.
+\textit{The} Standard Model refers specifically to a Standard Model with the proper parameters to describe the universe.
+The SM is the culmination of years of work in both theoretical and experimental particle physics.  \todo{cite}
+In this thesis, we take the view that theorists construct a model with the field content and symmetries as inputs, and write down the most general Lagrangian consistent with those symmetries.
+Assuming this model is compatible with nature (in particular, the predictions of the model are consistent with previous experiments), experimentalists are responsible measuring the parameters of this model
 This will be applicable for this chapter and the following one.
+
 Additional theoretical background is in \ref{app:qft_symmetries}.
 
-\section{Field Content}
+\section{Field Content}\label{sec:field_content}
 
 The Standard Model field content is
-\begin{equation}
-\begin{aligned}
-\text{Fermions } Q_L(3,2)_{+1/3}, \xspace  U_R(3,1)_{+4/3},\xspace  D_R(3,1)_{-2/3} ,\xspace  L_L(1,2)_{-1} ,\xspace  E_R(1,1)_{-2}\\
-\text{Scalar (Higgs) } \xspace \phi(1,2)_{+1} \\
-\text{Vector Fields } \xspace G^\mu(8,1)_0 \xspace W^\mu(1,3)_0  \xspace B^\mu(1,1)_0
-\end{aligned}
-\end{equation}
+\begin{align}
+\text{Fermions }       &:  Q_L(3,2)_{+1/3}, \xspace  U_R(3,1)_{+4/3},\xspace  D_R(3,1)_{-2/3} ,\xspace  L_L(1,2)_{-1} ,\xspace  E_R(1,1)_{-2} \notag \\
+\text{Scalar (Higgs) } &:  \phi(1,2)_{+1} \\
+\text{Vector Fields }  &:  G^\mu(8,1)_0 , \xspace W^\mu(1,3)_0 , \xspace B^\mu(1,1)_0 \notag
+\end{align}
 where the $(A, B)_Y$ notation represents the irreducible representation under $SU(3)$ and $SU(2)$, with $Y$ being the electroweak hypercharge.
-Each of these fields has an additional index, representing the three generation of fermions.
+Each of these fermion fields has an additional index, representing the three generation of fermions.
 
 We observed that $Q_L, U_R,$ and $D_R$ are triplets under $SU(3)_C$; these are the \textit{quark} fields.
 The \textit{color} group, $SU(3)_C$ is mediated by the \textit{gluon} field $G^\mu(8,1)_0$, which has 8 degrees of freedom.
@@ -42,100 +43,89 @@ To better understand the phenomenology of the Standard Model, let us investigate
 \subsection{Electroweak sector}
 
 The electroweak sector refers to the $SU(2)_L \otimes U(1)_Y$ portion of the Standard Model gauge group.
-Following our philosophy of writing all gauge-invariant and renormalizable ( maximum degree 4 in the mass) terms, the electroweak Lagrangian can be written as
-\begin{equation}
+Following our philosophy of writing all gauge-invariant and renormalizable terms, the electroweak Lagrangian can be written as
+\begin{equation}\label{eq:ew_lagr}
 \Lagr =  W^{\mu\nu}_a W_{\mu\nu}^a + B^{\mu\nu} B_{\mu\nu} + (\Dmuup \phi)^\dagger \Dmu \phi -  \mu^2 \phi^\dagger \phi - \lambda (\phi^\dagger \phi)^2.
 \end{equation}
-where $W^{\mu\nu}_a$ are the three ($a=1,2,3$) gauge bosons associated to the $SU(2)_L$ gauge group, $B^{\mu\nu}$ is the one gauge boson of the $U(1)_Y$ gauge group, and $\phi$ is the complex Higgs multiplet with weak hypercharge $Y = 1$.
+where $W^{\mu\nu}_a$ are the three ($a=1,2,3$) gauge bosons associated to the $SU(2)_L$ gauge group, $B^{\mu\nu}$ is the one gauge boson of the $U(1)_Y$ gauge group, and $\phi$ is the complex Higgs multiplet.
 The covariant derivative $\Dmuup$ is given by
 \begin{equation}
-\Dmuup = \dmuup  + i \frac{g}{2} W^\mu_a \sigma_a + \frac{i}{2} g' B^\mu
+\Dmuup = \dmuup  + \frac{ig}{2} W^\mu_a \sigma_a + \frac{i g'}{2} B^\mu
 \end{equation}
-where $\sigma_a$ are the Pauli matrices, which are the generators for $SU(2)_L$, and $g$ and $g'$ are the $SU(2)_L$ and $U(1)_Y$ coupling constants, respectively.
+where $i \sigma_a$ are the Pauli matrices times the imaginary constant, which are the generators for $SU(2)_L$, and $g$ and $g'$ are the $SU(2)_L$ and $U(1)_Y$ coupling constants, respectively.
 The field strength tensors  $W^{\mu\nu}_a$ and $B^{\mu\nu}$ are given by the commutator of the covariant derivative associated to each field
-\begin{equation} \label{eq:ew_field_strength_tensor}
-\begin{aligned}
-B^{\mu\nu}   = \dmuup B^\nu - \partial^\nu B^\mu \\
-W^{\mu\nu}_a = \dmuup W^\nu_a - \partial^\nu W^\mu_a - g \epsilon_{abc} W^\mu_a W^\nu_b, i = 1,2,3
-\end{aligned}
-\end{equation}
-
-The terms proportional in the Lagrangian to $\mu^2$ and $\lambda$ make up the ``Higgs potential'' \todo{Cite}.
-As normal (i.e. in Appendix \ref{app:qft_symmetries}), we restrict $\lambda > 0$ to guarantee our potential is bounded from below, and we also require $\mu^2 < 0$, which gives us the standard ``sombrero'' potential shown in \ref{fig:sombrero}. \todo{footnote how we probably shouldn't say mexican hat?}
-
-\todo{CITE THIS PICTURE}
-\begin{figure} \label{fig:sombrero}
+\begin{align} \label{eq:ew_field_strength_tensor}
+B^{\mu\nu}   &=  \dmuup B^\nu - \partial^\nu B^\mu & \\
+W^{\mu\nu}_a &=  \dmuup W^\nu_a - \partial^\nu W^\mu_a - g \epsilon_{abc} W^\mu_a W^\nu_b,& i = 1,2,3 \notag
+\end{align}
+\begin{figure}
 \caption{Sombrero potential}
+\label{fig:sombrero}
 \includegraphics[width=\linewidth]{sombrero_potential}
 \end{figure}
 
-This potential has a minimum at $VALUE$; the ground state is \textit{spontaneously} broken by the choice of ground state, which induces a vacuum expection value (VEV).
+The terms in the Lagrangian \ref{eq:ew_lagr} proportional to $\mu^2$ and $\lambda$ make up the ``Higgs potential'' \cite{Higgs:1964pj}.
+As normal (see Appendix \ref{app:qft_symmetries}), we restrict $\lambda > 0$ to guarantee our potential is bounded from below, and we also require $\mu^2 < 0$, which gives us the standard ``sombrero'' potential shown in \ref{fig:sombrero}. \todo{footnote how we probably shouldn't say mexican hat?}
+
+This potential has infinitely many minima at $<\phi> = \sqrt{2m/\lambda}$; the ground state is \textit{spontaneously} broken by the choice of ground state, which induces a vacuum expection value (VEV).
 Without loss of generality, we can choose the Higgs field $\phi$ to point in the real direction, and write the Higgs field $\phi$ in the following form :
 \begin{equation}
 \phi = \frac{1}{\sqrt{2}} \exp( \frac{i}{v} \sigma_a \theta_a ) \begin{pmatrix} 0 \\ v + h(x) \end{pmatrix}.
 \end{equation}
-We can choose a gauge to rotate away the dependent on $\theta_a$, such that we can write simply
+We choose a gauge to rotate away the dependence on $\theta_a$, such that we can write simply
 \begin{equation}
 \label{eq:higgs_field_after_ssb}
 \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + h(x) \end{pmatrix}.
 \end{equation}
 Now, we can see how the masses of the vector bosons are generated from the application of the Higgs mechanism.
 We plug Eq.\ref{eq:higgs_field_after_ssb} back into the electroweak Lagrangian, and only showing the relevant mass terms in the vacuum state where $h(x) = 0$  see that (dropping the Lorentz indices) :
-\begin{equation}
-\begin{aligned}
-\Lagr_M = \frac{1}{8} |\begin{pmatrix} gW_3 + g'B & g(W_1 - iW_2) \\ g(W_1 + iW_2) & -gW_3 + g'B \end{pmatrix}  \begin{pmatrix} 0 \\ v \end{pmatrix} |^2\\ = \frac{g^2 v^2}{8}[W_1^2 + W_2^2 + (\frac{g'}{g}B - W_3)^2]
-\end{aligned}
-\end{equation}\todo{CHECK THIS EQUATION, especially the squaring?, I'm a bit confused here}
-
-Defining the \textit{Weinberg} angle $\tan(\theta_W) = g'/g$ and the following physical fields :
-\begin{equation}
-\begin{aligned}
-W^{\pm} = \frac{1}{\sqrt{2}}(W_1 \mp iW_2) \\
-Z^0 = \cos \theta_W W_3 - \sin\theta_W B \\
-A^0 = \sin \theta_W W_3 + \cos\theta_W B
-\end{aligned}
-\end{equation}
-we see we can write the piece of the Lagrangian associated to the vector boson masses as
+\begin{align}
+\Lagr_M = \frac{1}{8} \begin{vmatrix} \begin{pmatrix} gW_3 + g'B & g(W_1 - iW_2)\\ g(W_1 + iW_2) & -gW_3 + g'B \end{pmatrix}  \begin{pmatrix} 0  \\ v \end{pmatrix} \end{vmatrix}^2\\ = \frac{g^2 v^2}{8} \begin{bmatrix} W_1^2 + W_2^2 + (\frac{g'}{g}B - W_3)^2 \end{bmatrix} \notag
+\end{align}
+Defining the \textit{Weinberg} angle $\tan(\theta_W) = g'/g$ and the following \textit{physical} fields :
+\begin{align}
+W^{\pm} &= \frac{1}{\sqrt{2}}(W_1 \mp iW_2) \\
+Z^0 &= \cos \theta_W W_3 - \sin\theta_W B \notag\\
+A^0 &= \sin \theta_W W_3 + \cos\theta_W B \notag
+\end{align}
+we can write the piece of the Lagrangian associated to the vector boson masses as
 \begin{equation}
 \Lagr_{M_V} = \frac{1}{4} g^2 v^2 W^+ W^- + \frac{1}{8} (g^2 + g'^2)v^2 Z^0 Z^0 .
 \end{equation}
 and we have the following values of the masses for the vector bosons :
-\begin{equation}
-\begin{aligned}
-m_W^2 = \frac{1}{4}  v^2 g^2 \\
-m_Z^2 = \frac{1}{4}  v^2 (g^2 + g'^2) \\
-m_A^2 = 0
-\end{aligned}
-\end{equation}
+\begin{align}
+m_W^2 &= \frac{1}{4}  v^2 g^2  \\
+m_Z^2 &= \frac{1}{4}  v^2 (g^2 + g'^2)  \notag \\
+m_A^2 &= 0  \notag
+\end{align}
 We thus see how the Higgs mechnanism gives rise to the masses of the $W^{\pm}$ and $Z$ boson in the Standard Model; the mass of the photon is zero, as expected.
 The $SU(2)_L \otimes U(1)_Y$ symmetry of the initially massless $W_{1,2,3}$ and $B$ fields is broken to the $U(1)_{EM}$.
-Of the four degrees of freedom in the complex Higgs doublet, three are ``eaten'' when we give mass to the $W^\pm$ and $Z_0$, while the other degree of freedom is the Higgs particle, as found in 2012 \todo{cite}.
-% \subsection{$\Lagr_{kin}$}
+Of the four degrees of freedom in the complex Higgs doublet, three are ``eaten'' when we give mass to the $W^\pm$ and $Z_0$, while the other degree of freedom is the Higgs particle, as found in 2012 by the ATLAS and CMS collaborations \cite{HIGG-2012-27, CMS-HIG-12-028}.
 
 \subsection{Quantum Chromodynamics}
 
 Quantum chromodynamics (or the theory of the \textit{strong} force) characterizes the behavior of \textit{colored} particles, collectively known as \textit{partons}.
 The partons of the Standard Model are the (fermionic) quarks, and the (bosonic) gluons.
-The strong force is governed by $SU(3)_C$ which is an unbroken symmetry in the Standard Model; this implies the gluon remains massless.
+The strong force is governed by $SU(3)_C$, an unbroken symmetry in the Standard Model, which implies the gluon remains massless.
 Defining the covariant derivative for QCD as
-\begin{equation}
-\Dmuup = \dmuup + ig_s G^\mu_a L_a
-\end{equation}
-where $L_a$ are the generators of $SU(3)_C$, often represented by the Gell-Mann matrices, and $g_s$ is the coupling constant of the strong force. \todo{check the logic here? are tehy actually them?}.
+\begin{align}
+\Dmuup = \dmuup + ig_s G^\mu_a L_a, a = 1,...,8
+\end{align}
+where $L_a$ are the generators of $SU(3)_C$, and $g_s$ is the coupling constant of the strong force.
 The QCD Lagrangian then is given by
 \begin{equation}
-\Lagr_{\text{QCD}} = i \bar{\psi}_f \Dmu \gamma^\mu \psi_f - \frac{1}{4} G^a_{\mu\nu} G_a^{\mu\nu}
+\Lagr_{\text{QCD}} = i \bar{\psi}_f \Dmu \gamma^\mu \psi_f - \frac{1}{4} G_{a,\mu\nu} G_a^{\mu\nu}
 \end{equation}
 where the summation over $f$ is for quarks \textit{families}, and $ G_a^{\mu\nu}$ is the gluon field strength tensor, given by
 \begin{equation}
-G^{\mu\nu}_a = \dmuup G^\nu_a - \partial^\nu G^\mu_a - g_s f^{abc} G^\mu_b G^\nu_c, a = 1,...,8
+G^{\mu\nu}_a = \dmuup G^\nu_a - \partial^\nu G^\mu_a - g_s f^{abc} G^\mu_b G^\nu_c, a,b,c = 1,...,8
 \end{equation}
-where $f^{abc}$ are the structure constants of $SU(3)_C$, which are analogus \todo{sp} to $\epsilon_{abc}$ for $SU(2)_L$.
+where $f^{abc}$ are the structure constants of $SU(3)_C$, which are analogous to $\epsilon_{abc}$ for $SU(2)_L$.
 The kinetic term for the quarks is contained in the standard $\dmu$ term, while the field strength term contains the interactions between the quarks and gluons, as well as the gluon self-interactions.
 
-Written down in this simple form, the QCD Lagrangian does not seem much different from the QED Lagrangian, with the proper adjustments for the different group structures.\todo{maybe cite the QED lagrangian?}
+Written down in this simple form, the QCD Lagrangian does not seem much different from the QED Lagrangian, with the proper adjustments for the different group structures.
 The gluon is massless, like the photon, so one could n\"aively expect an infinite range force, and it pays to understand why this is not the case.
-The reason for this fundamental difference is the gluon self-interactions  \todo{reference figure} arising in the field strength tensor term of the Lagrangian.
+The reason for this fundamental difference is the gluon self-interactions  arising in the field strength tensor term of the Lagrangian.
 This leads to the phenomena of \textit{color confinement}, which describes how one only observes color-neutral particles alone in nature.
 In contrast to the electromagnetic force, particles which interact via the strong force experience a \textit{greater} force as the distance between the particles increases.
 At long distances, the potential is given by $V(r) = -kr$.
@@ -143,29 +133,31 @@ At some point, it is more energetically favorable to create additional partons o
 This leads to \textit{hadronization}.
 Bare quarks and gluons are actually observed as sprays of hadrons (primarly kaons and pions); these sprays are known as \textit{jets}, which are what are observed by experiments.
 
+\begin{figure}
+\caption{Cross-sections of various Standard Model processes}
+\label{fig:sm_xsec}
+\includegraphics[width=\linewidth]{ATLAS_b_SMSummary_FiducialXsect}
+\end{figure}
+
 It is important to recognize the importance of understanding these QCD interactions in high-energy hadron colliders such as the LHC.
 Since protons are hadrons, proton-proton collisions such as those produced by the LHC are primarily governed by the processes of QCD.
-In particular, by far the most frequent process observed in LHC experiments is dijet production from gluon-gluon interactions.
+In particular, by far the most frequent process observed in LHC experiments is dijet production from gluon-gluon interactions (see Fig.\ref{fig:sm_xsec}).
 These gluons that interact are part of the \textit{sea} particles inside the proton; the simple $p = uud$ model does not apply.
 The main \textit{valence} $uud$ quarks are constantly interacting via gluons, which can themselves radiate gluons or split into quarks, and so on.
-A more useful understanding is given by the colloquially-known \textit{bag} model, where the proton is seen as a ``bag'' of (in principle) infinitely many partons, each with energy $ E < \sqrt{s} = 6.5 \TeV$.
-\todo{get that cross section picture}.
-\todo{bag model?}.
-One then collides this (proton) bag with another, and views the products of this very complicated collision.
+A more useful understanding is given by the colloquially-known \textit{bag} model \cite{Chodos:1974je, Chodos:1974pn}, where the proton is seen as a ``bag'' of (in principle) infinitely many partons, each with energy $ E < \sqrt{s} = 6.5 \TeV$.
+One then collides this (proton) bag with another, and views the products of this very complicated collision, where calculations include many loops in nonpertubative QCD calculations.
 
-Fortunately, we are generally saved by the QCD factorization theorem \todo{cite QCD factorization}.
-This allows one to understand the hard (i.e. short distance or highest energy) $2 \rightarrow 2$ parton process using the tools of perturbative QCD, while making series of approximations known as a \textit{parton shower} model to understand the additional corrections from nonpertubative QCD.
+Fortunately, we are generally saved by the QCD factorization theorems \cite{Collins:1989gx}.
+This allows one to understand the hard (i.e. short distance or high energy) $2 \rightarrow 2$ parton process using the tools of perturbative QCD, while making series of approximations known as a \textit{parton shower} model to understand the additional corrections from nonpertubative QCD.
 We will discuss the reconstruction of jets by experiments in Ch.\ref{Chapter-ATLAS}.
-
-\todo{show ratio of ee to qq?}.
 
 \subsection{Fermions}
 
-We will now look more closely at the fermions in the Standard Model.
+We will now look more closely at the fermions in the Standard Model \cite{Agashe:2014kda}.
 
-As noted earlier with regards to the field content, the fermions of the Standard Model can be first distinguished between those that interact via the strong force (quarks) and those which do not (leptons).
+As noted earlier in Sec.\ref{sec:field_content}, the fermions of the Standard Model can be first distinguished between those that interact via the strong force (quarks) and those which do not (leptons).
 
-There are six leptons in the Standard Model, which can be placed into three \textit{generations}. \todo{cite pdg probably}
+There are six leptons in the Standard Model, which can be placed into three \textit{generations}.
 There is the electron ($e)$, muon ($\mu$), and tau ($\tau$), each of which has an associated neutrino ($\nu_e, \nu_\mu, \nu_\tau$).
 Each of the so-called charged (``electron-like'') leptons has electromagnetic charge $-1$, while the neutrinos all have $q_{EM} = 0$.
 
@@ -351,11 +343,11 @@ blah some more
 % For each of the vector boson fields, we have the follow field strengths :
 
 % \begin{equation}
-% \begin{aligned}
+% \begin{align}
 % G^{\mu\nu}_a = \dmuup G^\nu_a + \partial^\nu G^\mu_a - g_s f_{abc} G^\mu_b G^\nu_c \\
 % W^{\mu\nu}_a = \dmuup W^\nu_a + \partial^\nu W^\mu_a - g \epsilon_{abc} W_b^\mu W_c^\nu \\
 % B^{\mu\nu}   = \dmuup B^\nu   + \partial^\nu B^\mu
-% \end{aligned}
+% \end{align}
 % \end{equation}
 
 % where $g$ and $g_s$ are the electroweak and strong coupling constant.
@@ -370,8 +362,8 @@ blah some more
 
 % The combination of these terms allows us to write the kinetic terms of the Lagrangian as
 % \begin{equation}
-% \begin{aligned}
+% \begin{align}
 % \Lagr_{kin} = G^{\mu\nu} G_{\mu\nu} + W^{\mu\nu} W_{\mu\nu} + B^{\mu\nu} B_{\mu\nu}\\
 %  + \Dmuup Q_L \Dmu Q_L + \Dmuup U_R \Dmu U_R +  \Dmuup D_R \Dmu D_R + \Dmuup L_L \Dmu L_LL + \Dmuup E_R \Dmu E_R
-% \end{aligned}
+% \end{align}
 % \end{equation}

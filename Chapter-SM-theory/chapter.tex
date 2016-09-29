@@ -2,8 +2,6 @@
 
 \section{Overview}
 
-\todo{cite Yuval's lectures and notes somehow}
-
 \textit{A} Standard Model is another name for a theory of the internal symmetry group $SU(3)_C \otimes SU(2)_L \otimes U(1)_Y$, with its associated set of parameters.
 \textit{The} Standard Model refers specifically to a Standard Model with the proper parameters to describe the universe.
 The SM is the culmination of years of work in both theoretical and experimental particle physics.  \todo{cite}
@@ -12,6 +10,7 @@ Assuming this model is compatible with nature (in particular, the predictions of
 This will be applicable for this chapter and the following one.
 
 Additional theoretical background is in \ref{app:qft_symmetries}.
+The philosophy and notations are inspired by \cite{yuvalSMLectures, Buchmuller:984122}.
 
 \section{Field Content}\label{sec:field_content}
 
@@ -61,11 +60,11 @@ W^{\mu\nu}_a &=  \dmuup W^\nu_a - \partial^\nu W^\mu_a - g \epsilon_{abc} W^\mu_
 \begin{figure}
 \caption{Sombrero potential}
 \label{fig:sombrero}
-\includegraphics[width=\linewidth]{sombrero_potential}
+\includegraphics[width=.9\linewidth]{sombrero_potential}
 \end{figure}
 
 The terms in the Lagrangian \ref{eq:ew_lagr} proportional to $\mu^2$ and $\lambda$ make up the ``Higgs potential'' \cite{Higgs:1964pj}.
-As normal (see Appendix \ref{app:qft_symmetries}), we restrict $\lambda > 0$ to guarantee our potential is bounded from below, and we also require $\mu^2 < 0$, which gives us the standard ``sombrero'' potential shown in \ref{fig:sombrero}. \todo{footnote how we probably shouldn't say mexican hat?}
+As normal (see Appendix \ref{app:qft_symmetries}), we restrict $\lambda > 0$ to guarantee our potential is bounded from below, and we also require $\mu^2 < 0$, which gives us the standard ``sombrero'' potential shown in \ref{fig:sombrero}.
 
 This potential has infinitely many minima at $<\phi> = \sqrt{2m/\lambda}$; the ground state is \textit{spontaneously} broken by the choice of ground state, which induces a vacuum expection value (VEV).
 Without loss of generality, we can choose the Higgs field $\phi$ to point in the real direction, and write the Higgs field $\phi$ in the following form :
@@ -136,7 +135,7 @@ Bare quarks and gluons are actually observed as sprays of hadrons (primarly kaon
 \begin{figure}
 \caption{Cross-sections of various Standard Model processes}
 \label{fig:sm_xsec}
-\includegraphics[width=\linewidth]{ATLAS_b_SMSummary_FiducialXsect}
+\includegraphics[width=.9\linewidth]{ATLAS_b_SMSummary_FiducialXsect}
 \end{figure}
 
 It is important to recognize the importance of understanding these QCD interactions in high-energy hadron colliders such as the LHC.
@@ -158,35 +157,41 @@ We will now look more closely at the fermions in the Standard Model \cite{Agashe
 As noted earlier in Sec.\ref{sec:field_content}, the fermions of the Standard Model can be first distinguished between those that interact via the strong force (quarks) and those which do not (leptons).
 
 There are six leptons in the Standard Model, which can be placed into three \textit{generations}.
+\begin{equation}
+\begin{pmatrix} e \\ \nu_e \end{pmatrix} , \begin{pmatrix} \mu \\ \nu_\mu \end{pmatrix}, \begin{pmatrix} \tau \\ \nu_\tau \end{pmatrix}
+\end{equation}
 There is the electron ($e)$, muon ($\mu$), and tau ($\tau$), each of which has an associated neutrino ($\nu_e, \nu_\mu, \nu_\tau$).
 Each of the so-called charged (``electron-like'') leptons has electromagnetic charge $-1$, while the neutrinos all have $q_{EM} = 0$.
 
-Often in an experimental context, lepton is used to denote the electron (stable) and muon (metastable), due to their striking experimental signatures.
-Taus are often treated separately, due to their much shorter lifetime of $\tau_{\tau}  $; these decay through hadrons or the other leptons, so often physics analyses at the LHC treat them as jets or leptons, as will be done in this thesis.
+Often in an experimental context, lepton is used to denote the stable electron and metastable muon, due to their striking experimental signatures.
+Taus are often treated separately, due to their much shorter lifetime of $\tau_{\tau} \order 10^{-13} s$; these decay through hadrons or the other leptons, so often physics analyses at the LHC treat them as jets or leptons, as will be done in this thesis.
 
-As the neutrinos are electrically neutral, nearly massless, and only interact via the weak force, it is quite difficult to observe them directly.\todo{footnote?}
+As the neutrinos are electrically neutral, nearly massless, and only interact via the weak force, it is quite difficult to observe them directly.
 Since LHC experiments rely overwhelmingly on electromagnetic interactions to observe particles, the presence of neutrinos is not observed directly.
 Neutrinos are instead observed by the conservation of four-momentum in the plane transverse to the proton-proton collisions, known as \textit{missing transverse energy}.
 
-There are six quarks in the Standard Model : up, down, charm, strange, top, and bottom. Quarks are similar organized into three generations :
+There are six quarks in the Standard Model : up, down, charm, strange, top, and bottom.
+Quarks are similar organized into three generations :
 \begin{equation}
-\begin{pmatrix} u & d \end{pmatrix} , \begin{pmatrix} c & s \end{pmatrix}, \begin{pmatrix} t & b \end{pmatrix}
+\begin{pmatrix} u \\ d \end{pmatrix} , \begin{pmatrix} c \\ s \end{pmatrix}, \begin{pmatrix} t \\ b \end{pmatrix}
 \end{equation}
 where we speak of ``up-like'' quarks and ``down-like'' quarks.
 
 Each up-like quark has charge $q_{up} = 2/3$, while the down-like quarks have $q_{down} = -1/3$.
 At the high energies of the LHC, one often makes the distinction between the light quarks ($u,d,c,s$), the bottom quark, and top quark.
-In general, due to the hadronization process described above, the light quarks are indistinguishable by LHC experiments, and reconstructed as jets.\todo{footnote about charm tagging}.
-The bottom quark hadronizes primarly through a relatively long-lived particle known as the $ B$ (name), which generally travels a short distance before decay.
-This feature allows what is known as \textit{b-tagging}; this will be further discussed in Ch.\todo{refCh ATLAS.}
+In general, due to the hadronization process described above, the light quarks, with masses $m_q <\order 1.5 GeV$ are indistinguishable by LHC experiments.
+Their hadronic decay products generally have long lifetimes and they are reconstructed as jets.\footnotemark.
+\footnotetext{In some contexts, charm quarks are also treated as a separate category, although it is quite difficult to distinguish charm quarks from the other light quarks.}
+The bottom quark hadronizes primarly through the $B$-mesons, which generally travels a short distance before decaying to other hadrons.
+This allows one to distinguish decays via $b-$quarks form other jets; this procedure is known as \textit{b-tagging} and will be discussed more in Ch.\ref{Chapter-ATLAS}.
 Due to its large mass, the top quark decays before it can hadronize; there are no bound states associated to the top quark.
-The top is of particular interest at the LHC; it has a striking signature with a large cross-section, which can be used to distinguish signal processes with decays to top quarks, or understand top production as a background process.
+The top is of particular interest at the LHC; it has a striking signature through its most common decay mode $t \rightarrow Wb$.
+Decays via tops, especially $\ttbar$ are frequently an important signal decay mode, or an important background process.
 
 \subsection{Interactions in the Standard Model}
-\todo{CITE THIS PICTURE}
-\begin{figure}\label{fig:sm_interactions}
-\caption{The interactions of the Standard Model}
-\includegraphics[width=\linewidth]{Standard_Model_Feynman_Diagram_Vertices}
+\begin{figure}
+\caption{The interactions of the Standard Model} \label{fig:sm_interactions}
+\includegraphics[width=.9\linewidth]{Standard_Model_Feynman_Diagram_Vertices}
 \end{figure}
 
 We briefly overview the entirety of the fundamental interactions of the Standard Model; these can also be found in \ref{fig:sm_interactions}.
@@ -195,69 +200,104 @@ The electromagnetic force, mediated by the photon, interacts with via a three-po
 The photon thus interacts with all the quarks, the charged leptons, and the charged $W^\pm$ bosons.
 
 The weak force is mediated by three particles : the $W^\pm$ and the $Z^0$.
-The $Z^0$ can interacts with all fermions via a three-point coupling, governed by the coupling constant $g'$. \todo{CHECK}
-A real $Z_0$ can thus decay to two of each fermion in the Standard Model except for the top quark, due to its large mass.
+The $Z^0$ can interacts with all fermions via a three-point coupling.
+A real $Z_0$ can thus decay to a fermion-antifermion pair of all SM fermions except the top quark, due to its large mass.
 The $W^\pm$ has two important three-point interactions with fermions.
-First, the $W^\pm$ can interact with an up-like quark and a down-like quark.
-The coupling constants for these interactions are encoded in the CKM matrix \todo{cite}
+First, the $W^\pm$ can interact with an up-like quark and a down-like quark; an important example in LHC experiments is $t \rightarrow Wb$
+The coupling constants for these interactions are encoded in the unitary matrix known as the Cabibbo–Kobayashi–Maskawa (CKM) matrix \cite{Cabibbo:1963yz,Kobayashi:1973fv}, and are generally known as flavor-changing interactions.
 Secondly, the $W^\pm$ interacts with a charged lepton and its corresponding neutrino.
+In this case, the unitary matrix that corresponds to CKM matrix for quarks is the identity matrix, which forbids (fundamental) vertices such as $\mu \rightarrow We$.
+For leptons, instead this is a two-step process : $\mu \rightarrow \nu_mu W \rightarrow \nu_mu \bar{\nu_e} e$.
 Finally, there are the self-interactions of the weak gauge bosons.
 There is a three-point and four-point interaction; all combinations are allowed which conserve electric charge.
 
 The strong force is mediated by the gluon, which as discussed above also carries the strong color charge.
-There is the fundamental three-point interaction, where a gluon interacts with any quark.
-Additionally, there are the gluon-only interactions, which occur in a three-point and four-point interaction.
+There is the fundamental three-point interaction, where a quark radiates a gluon.
+Additionally, there are the three-point and four-point gluon-only interactions.
 
 \section{Deficiencies of the Standard Model}
 
 At this point, it is quite easy to simply rest on our laurels.
-This relatively simple theory is capable of explaining a very wide range of phenomenom, which ultimately break down only to combinations of nine diagrams shown in Eq.\ref{eq:sm_interactions}.
+This relatively simple theory is capable of explaining a very wide range of phenomenom, which ultimately break down only to combinations of nine diagrams shown in Fig.\ref{fig:sm_interactions}.
 Unfortunately, there are some unexplained problems with the Standard Model.
 We cannot go through all of the potential issues in this thesis, but we will motivate the primary issues which naturally lead one to \textit{supersymmetry}, as we will see in Ch.\ref{ch:susy}.
 
-The Standard Model has many free paramaters \todo{add list of them from PDG}, especially when corrected for neutrino masses.
+The Standard Model has many free paramaters; see Table \ref{tab:sm_free_parameters}
+\begin{table}
+\centering
+\caption{Parameters of the Standard Model.  For values dependent on the renormalization scheme, we use a combination of the on-shell normalization scheme \cite{Hollik:1988ii, Bardin:1989vz, Kennedy:1988rt, Sirlin:1980nh} and  modified minimal subtraction scheme with $m_{\bar{MS}}$ as indicated in the table\cite{ Fanchiotti:1992tu}}.
+\label{tab:sm_free_parameters}
+\begin{tabular}{| l | l | l |}
+\hline
+$m_e$             & Electron mass                  & 511 keV                           \\ \hline
+$m_\mu$           & Muon mass                      & 105.7 MeV                         \\ \hline
+$m_\tau$          & Tau mass                       & 1.78 GeV                          \\ \hline
+$m_u$             & Up quark mass                  & 1.9 MeV   ($m_{\bar{MS}} = 2 GeV$)                        \\ \hline
+$m_d$             & Down quark mass                & 4.4 MeV   ($m_{\bar{MS}} = 2 GeV$)                       \\ \hline
+$m_s$             & Strange quark mass             & 87 MeV    ($m_{\bar{MS}} = 2 GeV$)                        \\ \hline
+$m_c$             & Charm quark mass               & 1.32 GeV  ($m_{\bar{MS}} = m_c$)                        \\ \hline
+$m_b$             & Bottom quark mass              & 4.24 GeV  ($m_{\bar{MS}} = m_b$)  \\ \hline
+$m_t$             & Top quark mass                 & 172.7 GeV (on-shell renormalization)                       \\ \hline
+$\theta_{12}$ CKM & 12-mixing angle                & 13.1$^{\circ}$                    \\ \hline
+$\theta_{23}$ CKM & 23-mixing angle                & 2.4$^{\circ}$                     \\ \hline
+$\theta_{13}$ CKM & 13-mixing angle                & 0.2$^{\circ}$                     \\ \hline
+$\delta$ CKM      & CP-violating Phase             & 0.995                             \\ \hline
+$g'$              & U(1) gauge coupling            & 0.357     ($m_{\bar{MS}} = m_Z$)                         \\ \hline
+$g$               & SU(2) gauge coupling           & 0.652     ($m_{\bar{MS}} = m_Z$)                         \\ \hline
+$g_s$             & SU(3) gauge coupling           & 1.221     ($m_{\bar{MS}} = m_Z$)                         \\ \hline
+$\theta{QCD}$     & QCD vacuum angle               & \order 0                          \\ \hline
+VEV               & Higgs vacuum expectation value & 246 GeV                           \\ \hline
+$m_H$             & Higgs mass                     & 125 GeV                           \\ \hline
+\end{tabular}
+\end{table}
 In general, we prefer models with less free parameters.
-A great example of this fact, and additionally some of the strongest \todo{only?} experimental proof of EWSB, is the relationship between the couplings of the weak force and the masses of the gauge bosons of the weak force :
+A great example of this fact, and the primary experimental evidence for EWSB, is the relationship between the couplings of the weak force and the masses of the gauge bosons of the weak force :
 \begin{equation}
-\rho \def \frac{m_W^2}{m_Z^2 \cos^2 \theta_W } \stackrel{?}{=} 1
+\rho \equiv \frac{m_W^2}{m_Z^2 \cos^2 \theta_W } \stackrel{?}{=} 1
 \end{equation}
 where $?$ indicates that this is a testable prediction of the Standard Model (in particular, that the gauge bosons gain mass through EWSB).
-This relation has been shown to be true \todo{cite pdg} within experimental and theoretical predictions.
+This relationship has been measured  within experimental and theoretical predictions.
 We would like to produce additional such relationships, which would exist if the Standard Model is a low-energy approximation of some other theory.
 
-An additional issue, although not strictly fundamental, is the lack of gauge coupling unification.
+An additional issue is the lack of \textit{gauge coupling unification}.
 The couplings of any quantum field theory ``run'' as a function of the distance scales (or inversely, energy scales) of the theory.
 The idea is closely related to the unification of the electromagnetic and weak forces at the so-called \textit{electroweak scale} of $O(100 \GeV)$.
 One would hope this behavior was repeated between the electroweak forces and the strong force at some suitable energy scale.
-The Standard Model does automatically not exhibit this behavior, without some additional theoretical gymnastics.
-\todo{maybe show the lack of unification for the Standard Model?}
+\begin{figure}
+\caption{The running of Standard Model gauge couplings.  The Standard Model couplings do not unify at high energies, which indicates it cannot completely describe nature through the Planck scale.} \label{fig:sm_gauge_coupling}
+\includegraphics[width=.9\linewidth]{Grand_unification_couplings_sm}
+\end{figure}
+The Standard Model does automatically not exhibit this behavior, as we can see in Fig.\ref{fig:sm_gauge_coupling}.
 
+\begin{figure}
+\caption{The dominant quantum loop correction to the Higgs mass in the Standard Model.} \label{fig:sm_higgs_corrections}
+\includegraphics[width=.9\linewidth]{sm_higgs_corrections}
+\end{figure}
 The most significant problem with the Standard Model is the \textit{hierarchy problem}.
-In its most straightforward incarnation, the Higgs scalar field is subject to quantum corrections through loop diagrams, as shown in Fig.\todo{loop figure!!}
+In its most straightforward incarnation, the Higgs scalar field is subject to quantum corrections through loop diagrams, as shown in Fig.\ref{fig:sm_higgs_corrections}.
 For demonstration, we use the contributions from the top quark, since the top quark has the largest Higgs Yukawa coupling due to its large mass.
 In general, we should expect these corrections to quadratically dependent on the scale of the ultraviolet physics, $\Lambda$.
-Briefly assume there is no new physics before the scale of Planck scale of gravity, $\Lambda_{\text{Planck}} = 10^{19} \GeV$.
+Briefly assume there is no new physics before the Planck scale of gravity, $\Lambda_{\text{Planck}} = 10^{19} \GeV$.
 In this case, we expect the corrections to the Higgs mass like
 \begin{equation}
-\delta m^2_H \approx (\frac{m_t}{8\pi^2 <\phi>_{VEV}})^2 \Lambda_{Planck}^2.
+\delta m^2_H \approx \begin{pmatrix} \frac{m_t}{8\pi^2 <\phi>_{VEV}} \end{pmatrix}^2 \Lambda_{Planck}^2.
 \end{equation}
-To achieve the miraculous cancellation required to get the observed Higgs Mass of 125 \GeV, one needs to then set  the bare Higgs mass $m_0$, our input to the Standard Model Lagrangian, itself to a \textit{precise} value $~ 10^{19} \GeV$.
+To achieve the miraculous cancellation required to get the observed Higgs mass of 125 \GeV, one needs to then set the bare Higgs mass $m_0$, our input to the Standard Model Lagrangian, itself to a \textit{precise} value $\order 10^{19} \GeV$.
 This extraordinary level of parameter finetuning is quite undesirable, and within the framework of the Standard Model, there is little that can be done to alleviate this issue.
 
-An additional concern, of a different nature, is the lack of a \textit{dark matter} candidate in the Standard Model.\todo{cite}
-Dark matter was discovered by observing galactic rotation curves, which showed that much of the matter that interacted gravitionally was invisible to our (electromagnetic) telescopes. \todo{show one}
-The postulation of the existence of dark matter, which interacts at least through gravity, allows one to understand these galatic rotation curves. \todo{cite lectures from summer school on arxiv?}
-Unfortunately, no particle in the Standard Model *could* be this dark matter particle.
-The only candidate truly worth another look is the neutrino, but it has been shown that the neutrino content of the universe is simply too small to explain the galatic rotation curves (maybe say more).
+An additional concern, of a different nature, is the lack of a \textit{dark matter} candidate in the Standard Model.
+Dark matter was discovered by observing galactic rotation curves, which showed that much of the matter that interacted gravitionally was invisible to our (electromagnetic) telescopes \cite{Rubin:1970zza, Roberts:1970zza, Rubin:1980zd, Rubin:1985ze, Bosma:1981zz, Persic:1995ru, darkMatterPrimer}.
+The postulation of the existence of dark matter, which interacts at least through gravity, allows one to understand these galatic rotation curves.
+Unfortunately, no particle in the Standard Model could possibly be the dark matter particle.
+The only candidate truly worth another look is the neutrino, but it has been shown that the neutrino content of the universe is simply too small to explain the galatic rotation curves \cite{Quigg:2008ab, darkMatterPrimer}.
 The experimental evidence from the galactic rotations curves thus show there \textit{must} be additional physics beyond the Standard Model, which is yet to be understood.
 
 In the next chapter, we will see how these problems can be alleviated by the theory of supersymmetry.
 
-\section{Conclusions}
-
-The Standard Model is an extraordinary theory.
-It is a culmination of decades of work in both theoretical and experimental physics.
-blah some more
+\begin{figure}
+\caption{Particles of the Standard Model} \label{fig:sm_particles}
+\includegraphics[width=.9\linewidth]{Standard_Model_of_Elementary_Particles}
+\end{figure}
 
 % \subsection{$\Lagr_{\psi}$ }
 

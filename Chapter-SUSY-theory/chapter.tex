@@ -10,37 +10,182 @@ This will include a discussion of how the problems with the Standard Model descr
 
 The next step is to discuss the particle content of the \textit{Minimally Supersymmetric Standard Model} (MSSM).
 As its name implies, this theory contains the minimal additional particle content to make Standard Model supersymmetric.
-We then discuss the important phenomonological consequences of this theory, especially as would be observed in experiments at the LHC.
+We then discuss the important phenomonological consequences of this theory, especially as it would be observed in experiments at the LHC.
 
 \section{Supersymmetric theories : from space to superspace}
 
 \subsection{Coleman-Mandula ``no-go'' theorm}
 
 We begin the theoretical motivation for supersymmetry by citing the ``no-go'' theorem of Coleman and Mandula \cite{Coleman:1967ad}.
-This theorem forbids \textit{spin-charge unification}; it states that all quantum field theories which contain nontrivial interactions must be a direct product of the \Poincare group of Lorentz symmetries, the internal product from of gauge symmetries, and the discrete symmetries of parity, charge conjugatio, and time reversal.
+This theorem forbids \textit{spin-charge unification}; it states that all quantum field theories which contain nontrivial interactions must be a direct product of the \Poincare group of Lorentz symmetries, the internal product from of gauge symmetries, and the discrete symmetries of parity, charge conjugation, and time reversal.
 The assumptions which go into building the Coleman-Mandula theorem are quite restrictive, but there is one unique way out, which has become known as \textit{supersymmetry} \cite{Golfand:1971iw, Haag:1974qh}.
+In particular, we must introduce a \textit{spinorial} group generator $Q$.
+Alternatively, and equivalently, this can be viewed as the addition of anti-commuting coordinates; space plus these new anti-commuting coordinates is then called \textit{superspace} \cite{Salam:1974jj}.
+We will not investiage this view in detail, but it is also a quite intuitive and beautiful way to construct supersymmetry\cite{susyPrimer}.
 
-
-
-\todo{cite SUSY lectures from presusy}
+\subsection{Supersymmetry transformations}
 
 A \textit{supersymmetric} transformation $Q$ transforms a bosonic state into a fermionic state, and vice versa :
-\begin{aligned}
-Q \braket{\text{Fermion}} &= \braket{\text{Boson}}
-Q \braket{\text{Boson}} &= \braket{\text{Fermion}}
-\end{aligned}
+
+\begin{align}
+Q \ket{\text{Fermion}} &= \ket{\text{Boson}} \\
+Q \ket{\text{Boson}} &= \ket{\text{Fermion}}
+\end{align}
 To ensure this relation holds, $Q$ must be an anticommuting spinor.
 Additionally, since spinors are inherently complex, $Q^\dagger$ must also be a generator of the supersymmetry transformation.
+Since $Q$ and $Q^\dagger$ are spinor objects (with $s = 1/2$), we can see that supersymmetry must be a spacetime symmetry.
+The Haag-Lopuszanski-Sohnius extension \cite{Haag:1974qh} of the Coleman-Mandula theorem \cite{Coleman:1967ad} is quite restrictive about the forms of such a symmetry.
+Here, we simply write the (anti-) commutation relations \cite{susyPrimer} :
+\begin{align}
+{Q_\alpha, Q_{\dot{\alpha}}^\dagger} &= -2 \sigma_{\alpha \dot{\alpha}^\mu} P_\mu \\
+{Q_\alpha,Q_{\dot{\beta}}} &= {Q_{\dot{\alpha}}^\dagger, Q_{\dot{\beta}}^\dagger}  = 0 \\
+[P^\mu , Q_{\alpha} ] &= [P^\mu, Q_{\dot{\alpha}}^\dagger] = 0
+\end{align}
 
-\subsection{Only Additional allowed Lorentz invariant symmetry}
-\subsection{Dark Matter}
-\subsection{Cancellation of quadratic divergences in corrections to the Higgs Mass}
+\subsection{Supermultiplets}\label{subsec:supermultiplets}
 
-\section{Supersymmetry}
+In a supersymmetric theory, we organize single-particle states into irreducible representations of the supersymmetric algebra which are known as \textit{supermultiplets}.
+Each supermultiplet contains a fermion state $\ket{\text{F}}$ and a boson state $\ket{\text{B}}$; these two states are the known as \textit{superpartners}.
+These are related by some combination of $Q$ and $Q^\dagger$, up to a spacetime transformation.
+$Q$ and $Q^\dagger$ commute with the mass-squared operator $-P^2$ and the operators corresponding to the gauge transformations \cite{susyPrimer}; in particular, the gauge interactions of the Standard Model.
+In an unbroken supersymmetric theory, this means the states $\ket{\text{F}}$ and $\ket{\text{B}}$ have exactly the same mass, electromagnetic charge, electroweak isospin, and color charges.
+One can also prove \cite{susyPrimer} that each supermultiplet contains the exact same number of bosonic ($n_B$) and fermion ($n_F$) degrees of freedom.
+We now explore the possible types of supermultiples one can find in a renormalizable supersymmetric theory.
 
-\section{Additional particle content}
+Since each supermultiplet must contain a fermion state, the simplest type of supermultiplet contains a single Weyl fermion state ($n_F = 2$) which is paired with $n_B = 2$ scalar bosonic degrees of freedom.
+This is most conveniently constructed as single complex scalar field.
+We call this construction a \textit{scalar supermultiplet} or \textit{chiral supermultiplet}.
+The second name is indicative; only chiral supermultiplets can contain fermions whose right-handed and left-handed components transform differently under the gauge interactions (as of course happens in the Standard Model).
+
+The second type of supermultiplet we construct is known as a \textit{gauge} supermultiplet.
+We take a spin-1 gauge boson (which must be massless due to the gauge symmetry, so $n_B = 2$) and pair this with a single massless Weyl spinor\footnotemark.
+\footnotetext{Choosing an $s = 3/2$ massless fermion leads to nonrenormalizable interactions.}
+The gauge bosons transform as the adjoint representation of the their respective gauge groups; their fermionic partners, which are known as gauginos, must also.
+In particular, the left-handed and right-handed components of the gaugino fermions have the same gauge transformation properties.
+
+Excluding gravity, this is the entire list of supermultiplets which can participate in renormalizable interactions in what is known as $N=1$ supersymmetry.
+This means there is only one copy of the supersymmetry generators $Q$ and $Q^\dagger$.
+This is essentially the only ``easy'' phenomenological choice, since it is the only choice in four dimensions which allows for the chiral fermions and parity violations built into the Standard Model, and we will not look further into $N>1$ supersymmtry in this thesis.
+
+The primary goal, after understanding the possible structures of the multiplets above, is to fit the Standard Model particles into a multiplet, and therefore make predictions about their supersymmetric partners.
+We explore this in the next section.
+
+\section{Minimally Supersymmetric Standard Model}
+
+To construct what is known as the MSSM \todo{cite}, we need a few ingredients and assumptions.
+First, we match the Standard Model particles with their corresponding superpartners of the MSSM.
+We will also introduce the naming of the superpartners (also known as \textit{sparticles}).
+We discuss a very common additional restraint imposed on the MSSM, known as $R-$parity.
+We also discuss the concept of soft supersymmetry breaking and how it manifests itself in the MSSM.
+
+
+\subsection{Chiral supermultiplets}
+
+The first thing we deduce is directly from Sec.\ref{subsec:superpartners}.
+The bosonic superpartners associated to the quarks and leptons \textit{must} be spin 0, since the quarks and leptons must be arranged in a chiral supermultiplet.
+This is essentially the note above, since the chiral supermultiplet is the only one which can distinguish between the left-handed and right-handed components of the Standard Model particles.
+The superpartners of the quarks and leptons are known as \textit{squarks} and \textit{sleptons}, or \textit{sfermions} in aggregate. (for ``scalar quarks'', ``scalar leptons'', and ``scalar fermion''\footnotemark).
+\footnotetext{The last one should probably have bigger scare quotes.}
+The ``s-'' prefix can also be added to the individual quarks i.e. \textit{selectron}, \textit{sneutrino}, and \textit{stop}.
+The notation is to add a $\order$ over the corresponding Standard Model particle i.e. $\supe{e}$, the selectron is the superpartner of the electron.
+The two-component Weyl spinors of the Standard Model must each have their own (complex scalar) partner i.e. $e_L, e_R$ have two distinct partners : $\supe{e_L} ,\supe{e_R}$.
+As noted above, the gauge interactions of any of the sfermions are identical to those of their Standard Model partners.
+
+Due to the scalar nature of the Higgs, it must obviously lie in a chiral supermultiplet.
+To avoid gauge anomolies and ensure the correct Yukawa couplings to the quarks and leptons\cite{susyPrimer}, we must add additional Higgs bosons to any supersymmetric theory.
+In the MSSM, we have two chiral supermultiplets.
+The SM (SUSY) parts of the multiplets are denoted $H_u (\supe{H_u})$ and $H_d (\supe{H_d})$.
+Writing out $H_u$ and $H_d$ explicitly:
+\begin{align}
+H_u &= \begin{pmatrix} H_u^+ \\ H_u^0 \end{pmatrix}\\
+H_d &= \begin{pmatrix} H_d^0 \\ H_d^- \end{pmatrix}\\
+\end{align}
+we see that $H_u$ looks very similar to the SM Higgs with $Y = 1$, and $H_d$ is symmetric to this with $+ \rightarrow -$, with $ Y = -1$.
+%$H_u$ is essentially a copy of the SM Higgs $H_u = \$, while $H_d$ an $SU(2)_L$ doublet and $H_d$  have $Y = \pm 1 respectively.
+% \footnotemark.
+% \footnotetext{This is also quite nice.  In the Standard Model we arbitrarily make the $Y=1/2$ choice for the scalar Higgs}.
+The SM Higgs boson, $h_0$, is a linear superposition of the neutral components of these two doublets.
+The SUSY parts of the Higgs multiplets, \supe{H_u} and \supe{H_d}, are each left-handed Weyl spinors.
+For generic spin-1/2 sparticles, we add the ``-ino'' suffix.
+We then call the partners of the two Higgs collectively the \textit{Higgsinos}.
+
+\subsection{Gauge supermultiplets}
+
+The superpartners of the gauge bosons must all be in gauge supermultiplets since they contain a spin-1 particle.
+Collectively, we refer to the superpartners of the gauge bosons as the gauginos.
+
+The first gauge supermultiplet contains the gluon, and its superpartner, which is known as the \textit{gluino}, denoted $\supe{g}$.
+The gluon is of course the SM mediator of $SU(3)_C$; the gluino is also a colored particle, subject to $SU(3)_C$.
+From the SM before EWSB, we have the four gauge bosons of the electroweak symmetry group $SU(2)_L \otimes U(1)_Y : W^{1,2,3}$ and $B^0$.
+The superpartners of these particles are thus the \textit{winos} $\supe{W^{1,2,3}}$ and \textit{bino} $\supe{B^0}$, where each is placed in another gauge supermultiplet with its corresponding SM particle.
+After EWSB, without breaking supersymmetry, we would also have the zino $\supe{Z^0}$ and photino $\supe{\gamma}$.
+\todo{TABLE OR FIGURE OF THE MSSM}
+
+At this point, it's important to take a step back.
+Where are these particles?
+As stated above, supersymmetric theories require that the masses and all quantum numbers of the SM particle and its corresponding sparticle are the same.
+Of course, we have not observed a selectron, squark, or wino.
+The answer, as it often is, is that supersymmetry is \textit{broken} by the vacuum state of nature \cite{susyPrimer}.
+
+\subsection{$R-$parity}
+
+This section is a quick aside to the general story.
+$R-parity$ refers to an additional discrete symmetry which is often imposed on supersymmetric models.
+For a given particle state, we define
+\begin{equation}
+R = (-1)^{3(B-L) + 2s}
+\end{equation}
+where $B,L$ is the baryon (lepton) number and $s$ is the spin.
+The imposition of this symmetry forbids certain terms from the MSSM Lagrangian that would violate baryon and/or lepton number \todo{Feynmann diagram}.
+This is required\footnotemark in order to prevent proton decay, as shown in Fig.\todo{figure}.
+\footnotetext{This is the usual story, but it's actually a bit more complicated.  The author has become quite skeptical of this claim.}
+
+In supersymmetric models, this is a $\mathbb{Z}_2$ symmetry, where SM particles have $R=1$ and sparticles have $R=-1$.
+We will take $R-parity$ as part of the definition of the MSSM.
+We will discuss later the \textit{drastic} consequences of this symmetry on SUSY phenomenology\footnotemark.\todo{do I want to be this strong}
+\footnotetext{The author has actually come to the view that people ``like'' $R-$parity conservation precisely because it leads to an interesting phenomenology.}.
+
+\subsection{Soft supersymmetry breaking}
+
+The fundamental idea of \textit{soft} supersymmetry breaking\cite{Girardello:1981wz,,Lykken:1996xt,Chung:2003fi, susyPrimer} is that we would like to break supersymmetry without reintroducing the quadratic divergences we discussed at the end of Chapter \ref{ch:sm}. \todo{cite presusy lectures here also}.
+Assuming we can do this procedure \todo{something smarter here}, we can write the Lagrangian in a form :
+\begin{equation}
+\Lagr_{\text{MSSM}} = \Lagr_{\text{SUSY}} + \Lagr_{\text{soft}}
+\end{equation}
+In this sense, the symmetry breaking is ``soft'', since we have separated out the completely symmetric terms from those soft terms which will not allow the quadratic divergences in \todo{section}.
+
+The explicitly allowed terms in the soft-breaking Lagrangian are \todo{cite presusy lectures}
+\begin{itemize}
+\item Mass terms for the scalar components of the chiral supermultipletss
+\item Mass terms for the Weyl spinor components of the gauge supermultipletss
+\item Trilinear couplings of scalar components of chiral supermultiplets
+\end{itemize}
+In particular, using the field content described above for the MSSM, the softly-broken portion of the MSSM Lagrangian can be writen
+\begin{align}
+\Lagr_{\text{soft}} &= -\frac{1}{2}\begin{pmatrix} M_3 \supe{g} \supe{g} + M_2 \supe{W} \supe{W} + M_1 \supe{B} \supe{B} + c.c. \end{pmatrix} \\
+                    &-\begin{pmatrix} \supe{u} a_u \supe{Q} H_u - \supe{d} a_d \supe{Q} H_d - \supe{e} a_e \supe{L} H_d + c.c. \end{pmatrix} \\
+                    &- \supe{Q}^\dagger m_Q^2 \supe{Q} - \supe{L}^\dagger m_L^2 \supe{L} - \supe{u} m_u^2 \supe{u}^\dagger - \supe{d} m_d^2 \supe{d}^\dagger - \supe{e} m_e^2 \supe{e}^\dagger \\
+                    &- m^2_{H_u} H_u^* H_u - m^2_{H_d} H_d^* H_d - (b H_u H_d + cc).
+\end{align}
+where we have introduced the following notations :
+\begin{enumerate}
+\item $M_{3},M_2,M_1$ are the gluino, wino, and bino masses. \label{list:gaugino_masses}
+\item $a_u,a_d,a_e$  are complex $3 \times 3$ matrices in family space. \label{list:yukawa_couplings}
+\item $m_Q^2 , m_u^2, m_d^2, m_L^2,m_e^2 $ are hermitian  $3 \times 3$ matrices in family space. \label{list:flavor_changing}
+\item $m_{H_u}^2, m_{H_u}^2, b$ are the SUSY-breaking contributions to the Higgs potential. \label{list:higgs}
+\end{enumerate}
+We have written matrix terms without any sort of additional notational decoration, and we now show why.
+The first term \ref{list:gaugino_masses} are straightforward; these are just the straightforward mass terms for these fields.
+There are strong constraints on the off-diagonal terms for the matrices of \ref{list:yukawa_couplings} \cite{Hisano:1995nq,Gabbiani:1996hi}; for simplicity, we will assume that each $a_i, i = u,d,e$ is proportional to the Yukawa coupling matrix : $a_i = A_{i0} y_i$.
+The matrices in \ref{list:flavour_changing} can be similarly constrained by experiments \cite{ Dimopoulos:1981zb, Gabbiani:1988rb, Hagelin:1992tc, Hagelin:1994id, Choudhury:1994pn, Barbieri:1994pv, deCarlos:1995ah, Casas:1996de,  Gabbiani:1996hi}
+
+
+Here, wediscuss the concept of \textit{soft}, and introduce a Lagrangian for the MSSM.
+The main
 
 \section{Phenomenology}
 
 R parity
 Consequences for sq/gl decays
+
+\section{How SUSY solves the problems with the SM}

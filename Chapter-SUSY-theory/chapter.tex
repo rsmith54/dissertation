@@ -4,7 +4,7 @@
 
 \chapter[Supersymmetry][Top of Page Title]{Supersymmetry}\label{ch:susy}
 
-This chapter will introduce supersymmetry (SUSY) \cite{Lykken:1996xt, susyPrimer} \todo{cite more}.\todo{cite SUSY lectures from presusy}.
+This chapter will introduce supersymmetry (SUSY) \cite{Miyazawa:1966mfa, Gervais:1971xj, Gervais:1971ji, Golfand:1971iw, Neveu:1971rx, Neveu:1971iv, Volkov:1973ix,  Wess:1973kz, Salam:1974ig, Ferrara:1974ac, Wess:1974tw, susyPrimer,Lykken:1996xt, archilSUSYLectures}.
 We will begin by introducing the concept of a \textit{superspace}, and discuss some general ingredients of supersymmetric theories.
 This will include a discussion of how the problems with the Standard Model described in Ch.\ref{ch:sm} are naturally fixed by these theories.
 
@@ -72,12 +72,11 @@ We explore this in the next section.
 
 \section{Minimally Supersymmetric Standard Model}
 
-To construct what is known as the MSSM \todo{cite}, we need a few ingredients and assumptions.
+To construct what is known as the MSSM \cite{Dimopoulos:1981zb,Dimopoulos:1981yj,Ibanez:1981yh,Marciano:1981un,susyPrimer  }, we need a few ingredients and assumptions.
 First, we match the Standard Model particles with their corresponding superpartners of the MSSM.
 We will also introduce the naming of the superpartners (also known as \textit{sparticles}).
 We discuss a very common additional restraint imposed on the MSSM, known as $R-$parity.
 We also discuss the concept of soft supersymmetry breaking and how it manifests itself in the MSSM.
-
 
 \subsection{Chiral supermultiplets}
 
@@ -119,7 +118,12 @@ The gluon is of course the SM mediator of $SU(3)_C$; the gluino is also a colore
 From the SM before EWSB, we have the four gauge bosons of the electroweak symmetry group $SU(2)_L \otimes U(1)_Y : W^{1,2,3}$ and $B^0$.
 The superpartners of these particles are thus the \textit{winos} $\supe{W^{1,2,3}}$ and \textit{bino} $\supe{B^0}$, where each is placed in another gauge supermultiplet with its corresponding SM particle.
 After EWSB, without breaking supersymmetry, we would also have the zino $\supe{Z^0}$ and photino $\supe{\gamma}$.
-\todo{TABLE OR FIGURE OF THE MSSM}
+
+The entire particle content of the MSSM can be seen in Fig.\ref{fig:mssm}.
+\begin{figure}
+\caption{Particles of the MSSM} \label{fig:mssm}
+\includegraphics[width=.9\linewidth]{mssm}
+\end{figure}
 
 At this point, it's important to take a step back.
 Where are these particles?
@@ -136,25 +140,28 @@ For a given particle state, we define
 R = (-1)^{3(B-L) + 2s}
 \end{equation}
 where $B,L$ is the baryon (lepton) number and $s$ is the spin.
-The imposition of this symmetry forbids certain terms from the MSSM Lagrangian that would violate baryon and/or lepton number \todo{Feynmann diagram}.
-This is required\footnotemark in order to prevent proton decay, as shown in Fig.\todo{figure}.
-\footnotetext{This is the usual story, but it's actually a bit more complicated.  The author has become quite skeptical of this claim.}
+The imposition of this symmetry forbids certain terms from the MSSM Lagrangian that would violate baryon and/or lepton number.
+This is required in order to prevent proton decay, as shown in Fig.\ref{fig:proton_decay}\footnotemark.
+\footnotetext{Proton decay can actually be prevented by allowing only one of the four potential R-parity violating terms to survive.}.
+\begin{figure}
+\caption{This Feynmann diagram shows how proton decay is induced in the MSSM, if one does not impose $R-$parity.}\label{fig:proton_decay}
+\includegraphics[width=.9\linewidth]{proton_decay}
+\end{figure}
 
 In supersymmetric models, this is a $\mathbb{Z}_2$ symmetry, where SM particles have $R=1$ and sparticles have $R=-1$.
 We will take $R-parity$ as part of the definition of the MSSM.
-We will discuss later the \textit{drastic} consequences of this symmetry on SUSY phenomenology\footnotemark.\todo{do I want to be this strong}
-\footnotetext{The author has actually come to the view that people ``like'' $R-$parity conservation precisely because it leads to an interesting phenomenology.}.
+We will discuss later the \textit{drastic} consequences of this symmetry on SUSY phenomenology
 
 \subsection{Soft supersymmetry breaking}
 
-The fundamental idea of \textit{soft} supersymmetry breaking\cite{Girardello:1981wz,,Lykken:1996xt,Chung:2003fi, susyPrimer} is that we would like to break supersymmetry without reintroducing the quadratic divergences we discussed at the end of Chapter \ref{ch:sm}. \todo{cite presusy lectures here also}.
-Assuming we can do this procedure \todo{something smarter here}, we can write the Lagrangian in a form :
+The fundamental idea of \textit{soft} supersymmetry breaking\cite{Girardello:1981wz,,Lykken:1996xt,Chung:2003fi, susyPrimer,archilSUSYLectures} is that we would like to break supersymmetry without reintroducing the quadratic divergences we discussed at the end of Chapter \ref{ch:sm}.
+We write the Lagrangian in a form :
 \begin{equation}
 \Lagr_{\text{MSSM}} = \Lagr_{\text{SUSY}} + \Lagr_{\text{soft}}
 \end{equation}
-In this sense, the symmetry breaking is ``soft'', since we have separated out the completely symmetric terms from those soft terms which will not allow the quadratic divergences in \todo{section}.
+In this sense, the symmetry breaking is ``soft'', since we have separated out the completely symmetric terms from those soft terms which will not allow the quadratic divergences to the Higgs mass.
 
-The explicitly allowed terms in the soft-breaking Lagrangian are \todo{cite presusy lectures}
+The explicitly allowed terms in the soft-breaking Lagrangian are \cite{archilSUSYLectures}.
 \begin{itemize}
 \item Mass terms for the scalar components of the chiral supermultipletss
 \item Mass terms for the Weyl spinor components of the gauge supermultipletss
@@ -162,7 +169,7 @@ The explicitly allowed terms in the soft-breaking Lagrangian are \todo{cite pres
 \end{itemize}
 In particular, using the field content described above for the MSSM, the softly-broken portion of the MSSM Lagrangian can be writen
 \begin{align}
-\Lagr_{\text{soft}} &= -\frac{1}{2}\begin{pmatrix} M_3 \supe{g} \supe{g} + M_2 \supe{W} \supe{W} + M_1 \supe{B} \supe{B} + c.c. \end{pmatrix} \\
+\Lagr_{\text{soft}} = &-\frac{1}{2}\begin{pmatrix} M_3 \supe{g} \supe{g} + M_2 \supe{W} \supe{W} + M_1 \supe{B} \supe{B} + c.c. \end{pmatrix} \\
                     &-\begin{pmatrix} \supe{u} a_u \supe{Q} H_u - \supe{d} a_d \supe{Q} H_d - \supe{e} a_e \supe{L} H_d + c.c. \end{pmatrix} \\
                     &- \supe{Q}^\dagger m_Q^2 \supe{Q} - \supe{L}^\dagger m_L^2 \supe{L} - \supe{u} m_u^2 \supe{u}^\dagger - \supe{d} m_d^2 \supe{d}^\dagger - \supe{e} m_e^2 \supe{e}^\dagger \\
                     &- m^2_{H_u} H_u^* H_u - m^2_{H_d} H_d^* H_d - (b H_u H_d + cc).
@@ -180,8 +187,25 @@ There are strong constraints on the off-diagonal terms for the matrices of \ref{
 The matrices in \ref{list:flavour_changing} can be similarly constrained by experiments \cite{ Dimopoulos:1981zb, Gabbiani:1988rb, Hagelin:1992tc, Hagelin:1994id, Choudhury:1994pn, Barbieri:1994pv, deCarlos:1995ah, Casas:1996de,  Gabbiani:1996hi}
 Finally, we assume that the elements \ref{list:higgs} contributing to the Higgs potential as well as all of the \ref{list:gaugino_masses} terms must be real, which limits the possible CP-violating interactions to those of the Standard Model.
 We thus only consider flavor-blind, CP-conserving interactions within the MSSM.
-\todo{neutralinos as mixing of higgsinos }
-\todo{add table}
+
+The important mixing for mass and gauge interaction eigenstates in the MSSM occurs within electroweak sector, in a process akin to EWSB in the Standard Model.
+The neutral portions of the Higgsinos doublets and the neutral gauginos ($\supe{H^0_u}, \supe{H^0_d} ,\supe{B^0}, \supe{W^0}$ of the gauge interaction basis mix to form what are known as the \textit{neutralinos} of mass basis :
+\begin{equation}
+M_{\supe{\chi}}=
+\begin{pmatrix}
+M_1              & 0                & -c_\beta s_W m_Z & s_\beta s_W m_Z  \\
+0                & M_2              & c_\beta c_W m_Z  & -s_\beta c_W m_Z \\
+-c_\beta s_W m_Z & c_\beta c_W m_Z  & 0                & -\mu             \\
+s_\beta s_W m_Z  & -s_\beta c_W m_Z & -\mu             & 0                \\
+\end{pmatrix}
+\end{equation}
+where $s (c)$ are the sine and cosine of angles related to EWSB, which introduced masses to the gauginos and higgsinos.
+Diagonalization of this matrix gives the four neutralino mass states, listed without loss of generality in order of increasing mass : $\supe{\chi^0_{1,2,3,4}}$.
+
+The neutralinos, especially the lightest neutralino \lsp, are important ingredients in SUSY phenomenology.
+
+The same process can be done for the electrically charged gauginos with the charged portions of the Higgsino doublets along with the charged winos ($\supe{H^+_u}, \supe{H^+_d}, \supe{W^+}, \supe{W^-}$.
+This leads to the \textit{charginos}, again in order of increasing mass : $\supe{\chi_{1,2}^\pm}$.
 
 \section{Phenomenology}
 
@@ -192,14 +216,24 @@ The SM particles have $R=1$, while the sparticles all have $R=-1$.
 Simply, this is the ``charge'' of supersymmetry.
 Since the particles of LHC collisions ($pp$) have total incoming $R=1$, we must expect that all sparticles will be produced in \textit{pairs}.
 An additional consequence of this symmetry is the fact that the lightest supersymmetric particle (LSP)  is \textit{stable}.
-\todo{add feynmann diagram example}
-Off each branch of the Feynmann diagram shown in Fig.\todo{Figure}, we have $R=-1$, and this can only decay to another sparticle and a SM particle.
+Off each branch of the Feynmann diagram shown in Fig., we have $R=-1$, and this can only decay to another sparticle and a SM particle.
+\begin{figure}
+\caption{SUSY signals considered in this thesis}\label{fig:signal_feynmann}
+\includegraphics[width=.45\linewidth]{squark_decay}
+\includegraphics[width=.45\linewidth]{gluino_decay}
+\includegraphics[width=.45\linewidth]{gluino_cascade_w}
+\includegraphics[width=.45\linewidth]{gluino_cascade_z}
+\end{figure}
 Once we reach the lightest sparticle in the decay, it is absolutely stable.
 This leads to the common signature \met for a generic SUSY signal.
 
 For this thesis, we will be presenting an inclusive search for squarks and gluinos with zero leptons in the final state.
-This is a very interesting decay channel\footnotemark, due to the high cross-sections of $\supe{g} \supe{g}$ and $\supe{q} \supe{q}$ decays.
-\footnotetext{Prior to Run2, probably the most \textit{most} interesting SUSY decay channel.}
+This is a very interesting decay channel\footnotemark, due to the high cross-sections of $\supe{g} \supe{g}$ and $\supe{q} \supe{q}$ decays, as can be seen in Fig.\ref{fig:susy_xsec} \cite{Borschensky:2014cia}.
+\footnotetext{Prior to Run1, probably the most \textit{most} interesting SUSY decay channel.}
+\begin{figure}
+\caption{SUSY production cross-sections as a function of sparticle mass at $\sqrt{s} = 13 \TeV$.}
+\includegraphics[width=.9\linewidth]{XSectionPlots_13TeV_nlonll_lhc13_col}
+\end{figure}
 This is a direct consequence of the fact that these are the colored particles of the MSSM.
 Since the sparticles interact with the gauge groups of the SM in the same way as their SM partners, the colored sparticles, the squarks and gluinos, are produced and decay as governed by the color group $SU(3)_C$ with the strong coupling $g_S$.
 The digluino production is particularly copious, due to color factor corresponding to the color octet of $SU(3)C$.
@@ -211,48 +245,64 @@ There are also cascade decays, the most common of which, and the only one consid
 For digluino production, the most common decay is $\supe{g} \rightarrow g \supe{q}$, due to the large $g_S$ coupling.
 The squark then decays as listed above.
 In this case, we generically search for four jets and missing transverse energy from the LSPs.
-We can also have the squark decay in association with a $W^\pm$; in this thesis, we are interested in those cases where this $W^\pm$ goes hadronically.
+We can also have the squark decay in association with a $W^\pm$ or $Z^0$; in this thesis, we are interested in those cases where this vector boson goes hadronically.
 
-In the context of experimental searches for SUSY, we often consider \textit{simplified models}.\todo{cite}
+In the context of experimental searches for SUSY, we often consider \textit{simplified models}.
 These models make certain assumptions which allow easy comparisons of results by theorists and rival experimentalists.
 In the context of this thesis, the simplified models will make assumptions about the branching ratios described in the preceding paragraphs.
 In particular, we will often choose a model where the decay of interest occurs with 100\% branching ratio.
 This is entirely for ease of interpretation by other physicists\footnotemark, but it is important to recognize that these are more a useful comparison tool, especially with limits, than a strict statement about the potential masses of sought-after beyond the Standard Model particle.
 \footnotetext{In the author's opionion, this often leads to more confusion than comprehension.
 We will revisit the shortcomings of simplified models in the Conclusion to this thesis.}
-\todo{susy production cross section plots}
 
 \section{How SUSY solves the problems with the SM}
 
 We now return to the issues with the Standard Model as described in Ch.\ref{ch:sm} to see how these issues are solved by supersymmetry.
 
 \subsection{Quadratic divergences to the Higgs mass}
-\todo{show diagrams which contribute}
+
+\begin{figure}
+\caption{Loop diagrams correct the Higgs mass in the MSSM}\label{fig:susy_loops}
+\includegraphics[width=.9\linewidth]{susy_loops}
+\end{figure}
+
 The quadratic divergences induced by the loop corrections to the Higgs mass, for example from the top Yukawa coupling, goes as
 \begin{equation}
 \delta m^2_H \approx \begin{pmatrix} \frac{m_t}{8\pi^2 <\phi>_{VEV}} \end{pmatrix}^2 \Lambda_{Planck}^2.
 \end{equation}
-The miraculous thing about SUSY\footnotemark is each of these terms \textit{automatically} comes with a term which exactly cancels this contribution\cite{susyPrimer}.
+The miraculous thing about SUSY is each of these terms \textit{automatically} comes with a term which exactly cancels this contribution\cite{susyPrimer}.
 The fermions and bosons have opposite signs in this loop diagram to all orders in pertubation theory, which completely solves the hierarchy problem.
-Although this wasn't the original inspiration for supersymmetry, it fits so neatly, this is the most motivational reason for supersymmetry.
-\footnotetext{It is often said that SUSY was created to solve the hierarchy problem, but this is really a rewriting of history.
-SUSY is the only way out of the Coleman-Mandula theorem, and \textit{happens} to solve the hierachy problem.
-This is even more beautiful!}
+This is the most well-motivated reason for supersymmetry.
 
 \subsection{Gauge coupling unification}
-\todo{plot}
+\begin{figure}
+\caption{The running of Standard Model gauge couplings; compare to Fig.\ref{fig:sm_gauge_coupling}.  The MSSM gauge couplings nearly intersect at high energies.}\label{fig:susy_gauge_coupling}
+\includegraphics[width=.9\linewidth]{Grand_unification_couplings_susy}
+\end{figure}
 
 An additional motivation for supersymmetry is seen by the gauge coupling unification high scales.
 In the Standard Model, as we saw the gauge couplings fail to unify at high energies.
-In the MSSM and many other forms of supersymmetry, the gauge couplings unify at high energy, as can be seen in Fig.\todo{ref{fig:}}
+In the MSSM and many other forms of supersymmetry, the gauge couplings unify at high energy, as can be seen in Fig.\ref{fig:susy_gauge_couplings}.
 This provides additional aesthetic motivation for supersymmetric theories.
 
 \subsection{Dark matter}
 
 As we discussed previously, the lack of any dark matter candidate in the Standard Model naturally leads to beyond the Standard Model theories.
-In the Standard Model, there is a natural dark matter candidate in the lightest supersymmetric particle\cite{susyPrimer} \todo{maybe other}.
-The LSP would in dark matter experiments be called a  \textit{weakly-interacting massive particle} (WIMP), which is a type of cold dark matter \cite{darkMatterPrimer}.
+In the Standard Model, there is a natural dark matter candidate in the lightest supersymmetric particle\cite{susyPrimer}
+The LSP would in dark matter experiments be called a  \textit{weakly-interacting massive particle} (WIMP), which is a type of cold dark matter \cite{darkMatterPrimer,Klasen:2015uma}.
 These WIMPS would only interact through the weak force and gravity, which is exactly as a model like the MSSM predicts for the neutralino.
+In Fig.\ref{fig:wimp_exclusions}, we can see the current WIMP exclusions for a given mass.
+\begin{figure}
+\caption{WIMP exclusions from direct dark matter detection experiments.}\label{fig:wimp_exclusions}
+\includegraphics[width=.9\linewidth]{wimp_exclusions}
+\end{figure}
 The range of allowed masses which have not been excluded for LSPs and WIMPs have significant overlap.
 This provides additional motivation outside of the context of theoretical details.
-\todo{some sort of plot probably? WIMP exclusions}
+
+\section{Conclusions}
+
+Supersymmetry is the most well-motivated theory for physics beyond the Standard Model.
+It provides a solution to the hierarchy problem, leads to gauge coupling unification, and provides a dark matter candidate consistent with galatic rotation curves.
+As noted in this chapter, due to the LSPs in the final state, most SUSY searches require a significant amount of missing transverse energy in combination with jets of high transverse momentum.
+However, there is some opportunity to do better than this, especially in final states where one has two weakly-interacting LSPs on opposite sides of some potentially complicated decay tree.
+We will see how this is done in Ch.\ref{ch:rjigsaw}.

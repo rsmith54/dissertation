@@ -4,13 +4,53 @@
 
 \chapter[The Large Hadron Collider][Top of Page Title]{The Large Hadron Collider}
 
-Here you can write some introductory remarks about your chapter.
-I like to give each sentence its own line.
+This brief chapter will summarize the very basics of accelerator physics.
+We will describe the CERN accelerator complex, with particular focus on the Large Hadron Collider (LHC).
 
-When you need a new paragraph, just skip an extra line.
+\section{Basics of Accelerator Physics}
 
-\section{Magnets}
+This section follows closely the presentation of \cite{ShiltsevColliderLectures}.
 
-By using the asterisk to start a new section, I keep the section from appearing in the table of contents.
-If you want your sections to be numbered and to appear in the table of contents, remove the asterisk.
+Simple particle accelerators simply rely on the acceleration of charged particles in a static electric field.
+Given a field of strength $E$, charge $q$, and mass $m$, this is simply
+\begin{equation}
+a = \frac{qE}{m}.
+\end{equation}
+This was used for many early accelerators \todo{cite some?}
+For a given particle with a given mass and charge, this is of course limited by the static electric field which can be produced.
+This is limited by the electric breakdown at high voltages.
 
+There are two complementary solutions to this issue.
+First, we use the \textit{radio frequency acceleration} technique.
+This consist of using a time-varied electric field.
+We call the devices used for this \textit{RF cavities}.
+Second, one bends the particles in a magnetic field, which allows them to pass through the same RF electric field over and over.
+This second process is limited by \textit{synchrotron radiation}, which describes the radiation produced when a charged particle is accelerated.
+The power radiated is
+\begin{equation}
+P \order \frac{1}{r^2} \begin{pmatrix} E/m \end{pmatrix}^4
+\end{equation}
+where $r$ is the radius of curvature and $E,m$ is the energy (mass) of the charged particle.
+Given an energy which can be produced by a given set of RF cavities (which is \textit{not} limited by the mass of the particle), one then has two options to increase the actual collision energy : increase the radius of curvature or use a heavier particle.
+Practically speaking, the easiest options for particles in a collider are protons and electrons, since they are (obviously) copious in nature and do not decay\footnotemark.
+\footnotetext{Muon colliders are a really cool option at high energies, since the relativistic $\gamma$ factor gives them a relatively long lifetime in the lab frame.}
+Given the dependence on mass, we can see why protons are used to reach the highest energies.
+The tradeoff for this is that protons are not point particles, and we thus we don't know the exact incoming four-vectors of the protons, as discussed in Ch.\ref{ch:sm}.
+
+The primary ``unit'' of a proton collider is the (proton) \textit{bunch}.
+Bunches of protons are induced by the RF cavities; particles are accelerated or deccelerated by the cavities, and pushed together into bunches, which eventually pass through the RF cavities at the frequency of the cavity.
+Besides the energy of the beam, the most important quantity to characterize a beam is known as the \textit{emittance}. \todo{add fig of emittance}
+The emittance is a description of the size of the bunch ellipse.
+The emittance is important mostly due to its influence on the \textit{instaneous luminosity}, which directly effects the rate of a given physics process.
+For process of cross-section $\sigma$, the rate is given by
+\begin{equation}
+R = L \sigma
+\end{equation}
+where $L$ is the instaneous luminosity, given by:
+\begin{equation}
+L = \frac{f_{\text{rev}} N_b^2 R}{4 \pi \sigma^2}= \frac{f_{\text{rev}} n N_b^2 R }{4 \pi \beta^\star \beta_{\text{rel}} \epsilon}
+\end{equation}
+
+\section{Accelerator Complex}
+
+\section{Large Hadron Collider}

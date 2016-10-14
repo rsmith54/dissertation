@@ -4,8 +4,10 @@
 
 \chapter[The Large Hadron Collider][Top of Page Title]{The Large Hadron Collider}
 
+The Large Hadron Collider (LHC) produces high-energy protons which are collided at the center of multiple large experiments at CERN on the outskirts of Geneva, Switzerland \cite{Evans:2008zzb}.
+The LHC produces the highest energy collisions in the world, with design center-of-mass energy of $\sqrt{s} = 14 \GeV$, which allows the experiments to investigate physics far beyond the reach of previous colliders \todo{cite fermilab?}
 This brief chapter will summarize the very basics of accelerator physics.
-We will describe the CERN accelerator complex, with particular focus on the Large Hadron Collider (LHC).
+We will describe the CERN accelerator complex and the LHC.
 
 \section{Basics of Accelerator Physics}
 
@@ -37,20 +39,116 @@ Practically speaking, the easiest options for particles in a collider are proton
 Given the dependence on mass, we can see why protons are used to reach the highest energies.
 The tradeoff for this is that protons are not point particles, and we thus we don't know the exact incoming four-vectors of the protons, as discussed in Ch.\ref{ch:sm}.
 
-The primary ``unit'' of a proton collider is the (proton) \textit{bunch}.
+The primary ``unit'' of a proton-proton collider is the (proton) \textit{bunch}.
+All of the bunches together are called the \textit{beam}.
+An important property of a beam of a particular energy $E$, moving in uniform magnetic field $B$, containing particles of momentum p is the \textit{beam rigidity} :
+\begin{equation}\label{eq:rigidity}
+R \equiv r B = p / c.
+\end{equation}
+The linear relation between $r$ and $p$, or alternatively $B$ and $p$ have important consequences for LHC physics.
+
 Bunches of protons are induced by the RF cavities; particles are accelerated or deccelerated by the cavities, and pushed together into bunches, which eventually pass through the RF cavities at the frequency of the cavity.
-Besides the energy of the beam, the most important quantity to characterize a beam is known as the \textit{emittance}. \todo{add fig of emittance}
-The emittance is a description of the size of the bunch ellipse.
-The emittance is important mostly due to its influence on the \textit{instaneous luminosity}, which directly effects the rate of a given physics process.
+Besides the rigidity of the beam, the most important quantities to characterize a beam are known as the (normalized) \textit{emittance} $\epsilon_N$ and the \textit{betatron function} $\beta$.\todo{cite betatron function} \todo{add fig of emittance}.
+These quantities determine the transverse size $\sigma$ of a relativistic beam $v <\order c$ beam : $\sigma^2 = \beta^* \epsilon_N / \gamma_{\text{rel}}$, where $\beta^*$ is the value of the betatron function at the collision point and $\gamma_{\text{rel}}$ is the standard relativistic $\gamma$ value.
+
+These quantities determine the \textit{instaneous luminosity} of a collider, which combined with the cross-section $\sigma$ of a particular physics process, give the rate of this physics process.
 For process of cross-section $\sigma$, the rate is given by
-\begin{equation}
+\begin{equation} \ref{eq:rate}
 R = L \sigma
 \end{equation}
 where $L$ is the instaneous luminosity, given by:
-\begin{equation}
-L = \frac{f_{\text{rev}} N_b^2 R}{4 \pi \sigma^2}= \frac{f_{\text{rev}} n N_b^2 R }{4 \pi \beta^\star \beta_{\text{rel}} \epsilon}
+\begin{equation}\ref{eq:insta_lumi}
+L = \frac{f_{\text{rev}} N_b^2 F}{4 \pi \sigma^2}= \frac{f_{\text{rev}} n N_b^2 \gamma_{\text{rel}} F }{ 4\pi \beta^* \epsilon_N}.
 \end{equation}
+Here we have introduced the frequency of revolutions $f_{\text{rev}}$, the number of bunches $n$, the number of protons per bunch $N_b^2$, and a geometric factor $F$ related to the crossing angle of the beams.
+
+The \textit{integrated luminosity} $\int_{}^{} L$ gives the total number of a particular physics process $P$, with cross-section $\sigma_{\text{P}}$.
+\begin{equation}
+N_{\text{P}} = \sigma_{\text{P}} \int_{}^{} L.
+\end{equation}
+Due to this simple relation, one can also quantify the ``amount of data delivered'' by a collider simply by $\int_{}^{} L$.
 
 \section{Accelerator Complex}
 
+The Large Hadron Collider is the last accelerator in a chain of accelerators which together form the CERN accelerator complex, which can be seen in \ref{fig:accelerator_complex}.
+\begin{figure}
+\caption{The CERN accelerator complex.}\label{fig:accelerator_complex}
+\includegraphics[width=.9\linewidth]{Cern-Accelerator-Complex}
+\end{figure}
+The protons begin their journey to annilation in a hydrogen source, where they are subsequently ionized.
+The first acceleration occurs in the Linac 2, a linear accelerator composed of RF cavities.
+The protons leave the Linac 2 at an energy of $50 \MeV$ and enter the Proton Synchrotron Booster (PSB).
+The PSB contains four superimposed rings, which accelerate the protons to $1.4 \GeV$.
+The protons are then injected into the Proton Synchrotron (PS).
+This synchrotron increases the energy up to 25 GeV.
+After leaving the PS, the protons enter the Super Proton Synchrotron (SPS).
+This is the last step before entering the LHC ring, and the protons are accelerated to $450 \GeV$.
+From the SPS, the protons are injected into the beam pipes of the LHC.
+The process to fill the LHC rings with proton bunches from start to finish typically takes about four minutes.
+
 \section{Large Hadron Collider}
+
+The Large Hadron Collider is the final step in the CERN accelerator complex, and produces the collisions analyzed in this thesis.
+From the point of view of experimentalists on the general-purpose ATLAS and CMS experiments, the main goal of the LHC is to deliver collisions at the highest possible energy, with the highest possible instaneous luminosity.
+The LHC was installed in the existing 27 km tunnel used by the Large Electron Positron (LEP) collider.\todo{cite}
+This allowed the existing accelerator complex at CERN, described in the previous section, to be used as the injection system to prepare the protons up to $450 \GeV$.
+Many aspects of the LHC design were decided by this very fact, and specified the options allowed to increase the energy or luminosity.
+In particular, the radius of the tunnel was already specified; from Eq.\ref{eq:rigidity}, this implies the momentum (or energy) of the beam is entirely determined by the magnetic field.
+Given the 27 km circumference of the LEP tunnel, one can calculate the required magnetic field to reach the 7 \TeV per proton design energy of the LHC :
+\begin{align}
+r &= C / 2\pi = 4.3 km \\
+\rightarrow B &= \frac{p}{rc} = 5 T
+\end{align}
+In fact, the LHC consists of 8 528 m straight portions consisting of RF cavities, used to accelerate the particles, and 8 circular portions which bend the protons around the LHC ring.
+The circular portions actually have a slightly smaller radius of curvature $r = 2804 $ m, and we require $B = 8.33 T$.
+To produce this large field, we need to use superconducting magnets, as discussed in the next section.
+
+\subsection{Magnets}
+
+There are many magnets used by the LHC machine, but the most important are the 1232 dipole magnets; a schematic is shown in Fig.\ref{fig:dipole_schematic} and a photograph is shown in Fig.\ref{fig:dipole_photo}.
+\begin{figure}
+\caption{Schematic of an LHC dipole magnet.}\label{fig:dipole_schematic}
+\includegraphics[width=.9\linewidth]{lhc_dipole}
+\end{figure}
+\begin{figure}
+\caption{Photograph of a technician connecting an LHC dipole magnet.}\label{fig:dipole_photo}
+\includegraphics[width=.9\linewidth]{dipole_photo}
+\end{figure}
+The magnets are made of Niobium and Titanium.
+The maximum field strength is 10 T when cooled to 1.9 Kelvin.
+The magnets are cooled by superfluid helium, which is supplied by a large cryogenic system.
+Due to heating between the eight helium refrigerators and the beampipe, the helium is cooled in the refrigerators to 1.8 K.
+
+A failure in the cooling system can cause what is known as a \textit{quench}.
+If the temperature goes above the critical superconducting temperature, the metal loses its superconducting properties, which leads to a large resistance in the metal.
+This leads to rapid temperature increases (following $P_{\text{rad}} = I^2 R$), and can cause extensive damages if not controlled.
+
+The dipole magnets are 16.5 meters long with a diameter of 0.57 meters.
+There are two individual beam pipes inside each magnet, which allows the dipoles to house the beams travelling in both directions around the LHC ring.
+They curve slightly, at an angle of 5.1 mrad, which carefully matches the curvature of the ring.
+The beampipes inside of the magnets are held in high vacuum, to avoid stray particles interacting with the beam.
+
+\subsection{Beam parameters}
+
+The beam parameters relevant to the dataset analyzed in this thesis are available in Table \ref{tab:lhc_beam_parameters}.
+\todo {cite??}
+\begin{table}
+\centering
+\caption{Beam parameters of the Large Hadron Collider.}\label{tab:lhc_beam_parameters}
+\begin{tabular}{| l | l | l |}
+Parameter  & Injection & Extraction                           \\ \hhline
+Energy (\GeV)    & 450   & 7000  \\ \hline
+Rigidity (T-m)   & 3.8   & 23353 \\ \hline
+Bunch spacing (ns) & 25 & 25 \\ \hline
+Design Luminosity ($\text{cm}^2 \text{s}^{-1}$) & - & 10 e34 \\ \hline
+Bunches per proton beam & 2808 & 2808\\ \hline
+Protons per bunch       & 1.15 e11 & 1.15 e11 \\ \hline
+Beam lifetime (hr)      & - & 10 \\ \hline
+Normalized Emittance $\epsilon_N$ (mm $\mu$rad) & 3.3 & 3.75 \\ \hline
+Betatron function at collision point $\beta^*$ (cm) & - & 55 \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\section{Dataset Delivered by the LHC}

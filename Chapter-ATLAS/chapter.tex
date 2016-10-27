@@ -117,17 +117,70 @@ Generally, electrons have a much larger Lorentz factor than minimum ionizing par
 This can be used as an additional handle for electron reconstruction.
 \missingfigure{TRT schematic}
 
-\section{Calorimeter}
-
+\section{Calorimetry}
 \begin{figure}
 \caption{The ATLAS calorimeter} \label{fig:atlas_calorimeter}
 \includegraphics[width=.9\linewidth]{atlas_calorimeter}
 \end{figure}
 
+The calorimetry of the ATLAS detector also includes multiple subdetectors; these subdetectors allow precise measurements of the electrons, photons, and hadrons produced by the ATLAS detector.
+Generically, calorimeters work by stopping particles in their material, and measuring the energy deposition.
+This energy is deposited as a cascade particles induce from interactions with the detector material known \textit{showers}.
+ATLAS uses \textit{sampling} calorimeters; these alternate a dense absorbing material, which induces showers, with an active layer which measures energy depositions by the induced showers.
+Since some energy is deposited into the absorption layers as well, the energy depositions must be properly calibrated for the detector.
 
-\subsection{Electromagnetic Calorimeter}
+Electromagnetic objects (electrons and photons) and hadrons have much different interaction properties, and thus we need different calorimeters to accurately measure these different classes of objects; we can speak of the \textit{electromagnetic} and \textit{hadronic} calorimeters.
+ATLAS contains four separate calorimeters : the liquid argon (LAr) electromagnetic barrel calorimeter, the Tile barrel hadronic calorimeter, the LAr endcap electromagnetic calorimeter, the LAr endcap hadronic calorimeter, and the LAr Forward Calorimeter (FCal).
+Combined, these provide full coverage in $\phi$ up to $|\eta| <4.9$, and can be seen in Fig.\ref{fig:atlas_calorimeter}.
 
-\subsection{Hadronic Calorimeter}
+\subsection{Electromagnetic Calorimeters}
+
+The electromagnetic calorimeters of the ATLAS detector consist of the barrel and endcap LAr calorimeters.
+These are arranged into an ingenious ``accordion'' shape, shown in \todo{fig}, which allows full coverage in $\phi$ and exceptional coverage in $\eta$ while still allowing support structures for detector operation.
+The accordion is made of layers with liquid argon (active detection material) and lead (absorber) to induce electromagnetic showers.
+The LAr EM calorimeters are each more than 20 radiation lengths deep, which provides the high stopping power necessary to properly measure the electromagnetic showers.
+
+The barrel component of the LAr EM calorimeter extends from the center of the detector out to $| \eta| <  1.475 $.
+The calorimeter has a presampler, which measures the energy of any EM shower induced before the calorimeter.
+This has segmentation of $\Delta\eta = 0.025, \Delta\phi = .01$
+There are three ``standard'' layers in the barrel, which have decreasing segmentation into calorimeter \textit{cells} as one travels radially outward from the interaction point.
+The first layer has segmentation of $\Delta\eta = 0.003, \Delta\phi = .1$, and is quite thin relative to the other layers at only 4 radiation lengths deep.
+It provides precise $\eta$ and $\phi$ measurements for incoming EM objects.
+The second layer is the deepest at 16 radiation lengths, with a segmentation of $\Delta\eta = 0.025, \Delta\phi = 0.025$.
+It is primarily responsible for stopping the incoming EM particles, which dictates its large relative thickness, and measures most of the energy of the incoming particles.
+The third layer is only 2 radiation lengths deep, with a rough segmentation of $\Delta\eta = 0.05, \Delta\phi = .025$.
+The deposition in this layer is primarily used to distinguish hadrons interacting electromagnetically and entering the hadronic calorimeter from the strictly EM objects which are stopped in the second layer.
+
+The barrel EM calorimeter has a similar overall structure, but extends from $1.4 < |\eta| < 3.2$.
+The segmentation in $\eta$ is better in the endcap than the barrel; the $\phi$ segmentation is the same.
+In total, the EM calorimeters contain about 190000 individual calorimeter cells.
+
+
+\subsection{Hadronic Calorimeters}
+
+The hadronic calorimetry of ATLAS sits directly outside the EM calorimetry.
+It contains three subdetectors : the barrel Tile calorimeter, the endcap LAr calorimeter, and the Forward  LAr Calorimeter.
+Similar to the EM calorimeters, these are sampling calorimeters that alternate steel (dense material) with an active layer (plastic scintillator).
+
+The barrel Tile calorimeter extends out to $|\eta| < 1.7$.
+There are again three layers, which combined give about 10 interactions length of distance, which provides excellent stopping power for hadrons.
+This is critical to avoid excess \textit{punchthrough} to the muon spectrometer beyond the hadronic calorimeters.
+The first layer has a depth of 1.5 interaction lengths.
+The second layer is again the thickest at a depth of 4.1 interaction lengths; most of the energy of incoming particle is deposited here.
+Both the first and second layer have segmentation of about $\Delta\eta = 0.1, \Delta\phi = 0.1$.
+Generally, one does not need as fine of granularity in the hadronic calorimeter, since the energy depositions in the hadronic calorimeters will be summed into the composite objects we know as jets.
+The third layer has a thickness of 1.8 interaction lengths, with a segmentation of $\Delta\eta = 0.2, \Delta\phi = 0.1$.
+The use of multiple layers allows one to understand the induced hadronic shower as it propagates through the detector material.
+
+The endcap LAr hadronic calorimeter covers the region $1.5 < |\eta| < 3.2$.
+It is again a sampling calorimeter; the active material is LAr with a copper absorbed.
+It does not use the accordion shape of the other calorimeters; it has a ``standard'' flat shape perpendicular to the interaction point.
+The segmentation varies with $\eta$.
+For $1.5 < |\eta| < 2.5 $, the cells are $\Delta\eta = 0.1, \Delta\phi = 0.1$; in the region $2.5 < |\eta | < 3.2$, the cells are $\Delta\eta = 0.2, \Delta\phi = 0.2$ in size.
+
+The final calorimeter in ATLAS is the forward LAr calorimeter.
+Of those subdetectors which are used for standard reconstruction techniques, the FCal sits at the most extreme values of $ 3.1 < |\eta| < 4.9$.
+
 
 \section{Muon Spectrometer}
 

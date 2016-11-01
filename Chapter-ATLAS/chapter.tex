@@ -277,7 +277,7 @@ The L1 trigger uses only what is known as \textit{prompt} data to quickly identi
 Only the calorimeters and the triggering detectors (RPCs and TGCs)  of the MS are fast enough to be considered at L1, since the tracking reconstruction algorithms used by the ID and the more precise MS detectors are very slow.
 This allows quick identification of events with the most interesting physical objects : large missing transverse momentum and high-\pt electrons, muons, and jets.
 
-L1 trigger processing is a \textit{local} choice.
+L1 trigger processing is done locally.
 This means that events are selected without considering the entire available event.
 Energy deposits over some threshold are reconstructed as \textit{regions of interest}.
 These RoIs are then compared using pattern recognition hardware to ``expected'' patterns for the given RoIs.
@@ -289,8 +289,23 @@ This step alone lowers the data rate down by about three orders of magnitude.
 The HLT performs the next step, taking the incoming data rate from the L1 trigger of \order 75 kHz down to the \order 1 kHz that can be written to tape.
 The HLT really performs much like a simplified offline reconstruction, using many common quality and analysis cuts to eliminate uninteresting events.
 This is done by using computing farms located close to the detector, which process events in parallel.
+Individually, each event which enters the computing farms takes about 4 seconds to reconstruct; the HLT reconstruction time also has a long tail, which necessitates careful monotoring of the HLT to ensure smooth operation.
 
-In this thesis, we will be primarily concerned with the triggers located in Table \ref{tab:triggers}.
+HLT triggers are targetted to a particular physics process, such as a \met trigger, single muon trigger, or multijet trigger.
+The collection of all triggers is known as the trigger \textit{menu}.
+Since many low-energy particles are produced in collisions, it is necessary to set a \textit{trigger threshold} on the object of interest; this is really just a fancy naming for a trigger \pt cut.
+Due to the changing luminosity conditions of the LHC, these thresholds change constantly, mostly by increasing thresholds with increasing instaneous luminosity.
+This allows an approximately constant number of events to be written for further analysis.
+Triggers which have rates higher than those designated by the menu are \textit{prescaled}.
+This means writing only some fraction of the triggered events.
+Of course, for physics analyses, one wishes to investigate all data events passing some set of analysis cuts, so often one uses the ``lowest threshold unprescaled trigger''.
+\textit{Turn-on curves} allow one to select the needed offline analysis cut to ensure the trigger is fully efficient.
+An example turn-on curve for the \met triggers used in the signal region of this analysis is shown in \ref{fig:met_turnon}.
+
+The full set of the lowest threshold unprescaled triggers considered here can be found in Table \ref{tab:triggers}.
+These are the lowest unprescaled triggers associated to the SUSY signal models and Standard Model backgrounds considered in this thesis.
+More information can be found in \cite{ATL-DAQ-PUB-2016-001}.
+
 
 % SR events are required to pass HLT_xe70 trigger,
 % • CRW, CRT, CRZ events are required to pass HLT_mu24_iloose_L1MU15 || HLT_mu50 for muons
@@ -303,26 +318,58 @@ In this thesis, we will be primarily concerned with the triggers located in Tabl
 % HLT_e24_lhtight_nod0_ivarloose || HLT_e60_lhmedium_nod0 || HLT_e140_lhloose_nod0 for
 % electrons,
 % • CRY events are required to pass HLT_g140_loose trigger.
-
-\begin{table}
+\begin{sidewaystable}[htbp]
+\caption{High-Level Triggers used in this thesis.
+Descriptions of loose, medium, tight, and isolated can be found in \cite{ATL-DAQ-PUB-2016-001}.
+The d$_0$ cut refers to a quality cut on the vertex position; this was removed from many triggers in 2016 to increase sensitivity to displaced vertex signals.
+For most triggers, the increased thresholds in 2016 compared to 2016 were designed to keep the rate approximately equal.
+The exception is the \met triggers; see \ref{subsubsec:razor_triggers}.
+}\label{tab:triggers}
 \centering
-\caption{High-Level Triggers used in this thesis.}\label{tab:triggers}
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{tabularx}{\textwidth}{| X | X | X | X | X | X | X|}
 \hline
-Physics Object & Trigger                                  & Threshold (GeV) & Level-1 Seed    & Additional Requirements & Rate (Hz) \\
-\hhline{|=|=|=|} \\
-\textbf{2015 Data}                                                                                                                  \\
-\met           & \hlttrig{xe70}                           & 70              & todo            &                         & todo      \\
-Muon           & \hlttrig{mu24\_iloose\_L1MU15}           & 24              & \trigtt{L1MU15} & todo                    & todo      \\
-Muon           & \hlttrig{mu50}                           & 50              & -               & -                       & todo      \\
-Electron       & \hlttrig{e24\_lmedium\_iloose\_L1EM20VH} & 24              & L1EM20VH        & -                       & todo      \\
-Electron       & \hlttrig{e60\_lmedium}                   & 60              & -               & -                       & todo      \\
-Electron       & \hlttrig{e120\_lhloose}                  & 120             & -               & -                       & todo      \\
-Photon         & \hlttrig{g120\_loose}                    & 120             & -               & -                       & todo      \\
-\hhline{|=|=|=|} \\
-\end{tabular}
-\end{table}
+Physics Object & Trigger                                   & \pt Threshold (GeV) & Level-1 Seed         & Additional Requirements      & Approximate Rate (Hz) \\
+\hhline{|=|=|=|}                                                                                                                                               \\
+\textbf{2015 Data}                                                                                                                                             \\
+\met           & \hlttrig{xe70}                            & 70                  & \trigtt{L1\_XE50}    & -                            & 60                    \\
+Muon           & \hlttrig{mu24\_iloose\_L1MU15}            & 24                  & \trigtt{L1\_MU15}    & isolated, loose              & 130                   \\
+Muon           & \hlttrig{mu50}                            & 50                  & \trigtt{L1\_MU15}    & -                            & 30                    \\
+Electron       & \hlttrig{e24\_lhmedium\_iloose\_L1EM20VH} & 24                  & \trigtt{L1\_EM20VH}  & medium OR isolated, loose    & 140                   \\
+Electron       & \hlttrig{e60\_lhmedium}                   & 60                  & \trigtt{L1\_EM20VH}  & medium                       & 10                    \\
+Electron       & \hlttrig{e120\_lhloose}                   & 120                 & \trigtt{L1\_EM20VH}  & loose                        & $<$10                   \\
+Photon         & \hlttrig{g120\_loose}                     & 120                 & \trigtt{L1\_EM20VH}  & loose                        & 20                    \\
+\hhline{|=|=|=|}                                                                                                                                               \\
+\textbf{2016 Data}                                                                                                                                             \\
+\met           & \hlttrig{xe100\_mht\_L1XE50}              & 100                 & \trigtt{L1\_XE50}    & -                            & 180                   \\
+Muon           & \hlttrig{mu24\_ivarmedium}                & 24                  & \trigtt{L1\_MU20}    & medium                       & 120                   \\
+Muon           & \hlttrig{mu50}                            & 50                  & \trigtt{L1\_MU20}    & -                            & 40                    \\
+Electron       & \hlttrig{e24\_lhtight\_nod0\_ivarloose}   & 24                  & \trigtt{L1\_EM22VHI} & tight with no d$_0$ or loose & 110                   \\
+Electron       & \hlttrig{e60\_lhmedium\_nod0}             & 60                  & \trigtt{L1\_EM22VHI} & medium with no d$_0$         & 10                    \\
+Electron       & \hlttrig{e140\_lhloose\_nod0}             & 140                 & \trigtt{L1\_EM22VHI} & loose with no d$_0$          & $<$10                   \\
+Photon         & \hlttrig{g140\_loose}                     & 140                 & \trigtt{L1\_EM22VHI} & loose                        & 20                    \\
+\hhline{|=|=|=|}                                                                                                                                          \\
+\end{tabularx}
+\end{sidewaystable}
 
+\subsubsection{Razor Triggers}\label{subsubsec:razor_triggers}
 
-Razor trigger plot.
-Plan to use razor trigger, but replaced due to MET increased threshold.
+For the analysis presented in this thesis, the \textit{razor triggers} were developed.
+These are topological triggers, combining both jet and \met information to select interesting events.
+In particular, they use the razor variable \mdr which will be described in Chapter \ref{ch:rj}.
+
+Based on 2015 run conditions, these triggers would have allowed the use of a lower offline \met cut with a similar rate to the nominal \met triggers.
+This can be seen in the turn-on curves shown in Figure \ref{fig:razor_triggers}.
+The razor triggers are fully efficient at nearly 100 \GeV lower than the corresponding \met triggers in \mdr.
+
+\begin{figure}
+\caption{Turn-on curves for the razor triggers and nominal \met trigger.
+The razor triggers show a much sharper turn-on in \mdr relative to the \met trigger.
+The converse is true for the \met triggers.
+} \label{fig:razor_triggers}
+\includegraphics[width=.9\linewidth]{TurnOn_Met}\\
+\includegraphics[width=.9\linewidth]{TurnOn_MDR}
+\end{figure}
+
+There was a quite big change in the 2016 menu, which increased the rate given to \met triggers drastically.
+This can be seen in the difference in rate shown between \met triggers in 2015 and 2016 in Table \ref{tab:triggers}.
+This allowed the \met triggers to maintain a lower threshold throughout the dataset used in this thesis.

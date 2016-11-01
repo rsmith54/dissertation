@@ -180,15 +180,149 @@ For $1.5 < |\eta| < 2.5 $, the cells are $\Delta\eta = 0.1, \Delta\phi = 0.1$; i
 
 The final calorimeter in ATLAS is the forward LAr calorimeter.
 Of those subdetectors which are used for standard reconstruction techniques, the FCal sits at the most extreme values of $ 3.1 < |\eta| < 4.9$.
-
+The FCal itself is made of three subdetectors; FCal1 is actually an electromagnetic module, while FCal2 and FCal3 are hadronic.
+The absorber in FCal1 is copper, with a liquid argon active medium.
+FCal2 and FCal3 also use a liquid argon active medium, with a tungsten absorber.
 
 \section{Muon Spectrometer}
-
-
 \begin{figure}
 \caption{The ATLAS muon spectrometer} \label{fig:atlas_muon_spectrometer}
 \includegraphics[width=.9\linewidth]{atlas_muon_spectrometer}
 \end{figure}
 
+The muon spectrometer is the final major subdetector of the ATLAS detector.
+The muon spectrometer sits outside the hadronic calorimetry, with pseudorapidity coverage out to $|\eta| < 2.7$.
+The MS is a huge detector, with some detector elements existing as far as 11 m in radius from the interaction point.
+This system is used almost exclusively to measure the momenta of muons; these are the only measured SM particles which consistently exit the hadronic calorimeters.
+These systems provide a rough measurement, which is used in triggering (described in Ch.\ref{sec:trigger}), and a precise measurement to be used in offline event reconstruction as described in Ch.\ref{ch:reconstruction}.
+The MS produces tracks in a similar way to the ID; the hits in each subdetector are recorded and then tracks are produced from these hits.
+Muon spectrometer tracks are largely independent of the ID tracks due to the independent solenoidal and toriodal magnet systems used in the ID and MS respectively.
+The MS consists of four separate subdetectors: the barrel region is covered by the Resistive Plate Chambers (RPCs) and Monitored Drift Tubes (MDTs) while the endcaps are covered by MDTs, Thin Gap Chambers (TGCs), and Cathode Strip Chambers (CSCs).
 
-\section{Trigger System}
+\subsection{Monitored Drift Tubes}
+
+The MDT system is the largest individual subdetector of the MS.
+MDTs provide precision measurements of muon momenta as well as fast measurements used for triggers.
+There are 1088 MDT chambers providing coverage out to pseudorapidity $|\eta| < 2.7 $; each consists of an aluminum tube containing an argon-CO$_2$ gas mixture.
+In the center of each tube there 50$\mu$m diameter tungsten-rhenium wire at a voltage of 3080 V.
+A muon entering the tube will induce ionization in the gas, which will ``drift'' towards the wire due to the voltage.
+One measures this ionization as a current in the wire; this current comes with a time measurement related to how long it takes the ionization to drift to the wire.
+
+These tubes are layered in a pattern shown in \todo{figure}.
+Combining the measurements from the tubes in each layer gives good position resolution.
+The system consists of three subsystems of these layers, at 5 m, 7m, and 9 m from the interaction point.
+The innermost layer is directly outside the hadronic calorimeter.
+The combination of these three measurements gives precise momenta measurements for muons.
+
+\subsection{Resistive Plate Chambers}
+
+The RPC system is alternated with the MDT system in the barrel; the first two layers of RPC detectors surround the second MDT layer while the third is outside the final MDT layer.
+The RPC system covers pseudorapidity $|\eta| < 1.05 $.
+Each RPC consists of two parallel plates at a distance of 2 mm surrounding a C$_2$H$_2$F$_4$ mixture.
+The electric field between these plates is 4.9k kV/mm.
+Just as in the MDTs, an incoming muon ionizes the gas, and the deposited ionization is collected by the detector (in this case on the plates).
+It is quite fast, but with a relatively poor spatial resolution of 1 cm.
+Still, it can provide reasonable $\phi$ resolution due to its large distance from the interaction point.
+This is most useful in triggering, where the timing requirements are quite severe.
+The RPCs are also complement the MDTs by providing a measurement of the non-bending coordinate.
+
+\subsection{Cathode Strip Chambers}
+
+The CSCs are used in place of MDTs in the first layer of the endcaps.
+This region, at $2.0 < |\eta| < 2.7$, has higher particle multiplicity at the close distance to the interaction point from low-energy photons and neutrons.
+The MDTs were not equip to deal with the higher particle rate of this region, so the CSCs were designed to deal with this deficiency.
+
+Each CSC consists multiwire proportional chambers, oriented radially outward from the interaction point.
+These chambers overlap partially in $\phi$.
+The wires contain a gas mixture of argon and CO$_2$, which is ionized when muons enter.
+The detectors operate with a voltage of 1900 V, with much lower drift times than the MDTs.
+They provide less hits than MDTs, but their lower drift times lower uptime and reduce the amount of detector overload.
+
+The CSCs are arranged into four planes on the wheels of the muon spectrometer, as seen in Fig.\ref{fig:csc}.
+There are 32 CSCs in total, with 16 on each side of the detector in $\eta.$
+
+\subsection{Thin Gap Chambers}
+
+The TGCs serve the purpose of the RPCs in the endcap at pseudorapidity of $1.05 < |\eta| < 2.4 $; they provide fast measurements used in triggering.
+The TGCs are also multiwire proportional chambers a la the CSCs.
+The fast readouts necessary for trigger are provided by a high electric field and a small wire-to-wire distance of 1.8 mm.
+These detectors provide both $\eta$ and $\phi$ information, allowing the trigger to use as much information as possible when selecting events.
+
+\section{Trigger System}\label{sec:trigger}
+
+The data rate delivered by the LHC is staggering \cite{ATL-DAQ-PUB-2016-001}.
+In the 2016 dataset, the collision rate was 40 MHz, meaning a \textit{bunch spacing} of 25 ns.
+In each of the event, as we saw in Ch.\ref{ch:lhc}, there are many proton-proton collisions.
+Most of the collisions are uninteresting, such as elastic scattering of protons, or even inelastic scattering leading to low-energy dijet events.
+These types of events have been studied in detail in previous experiments.
+
+Even if one is genuinely interested in these events, it's \textit{impossible} to save all of the information available in each event.
+If all events were written ``to tape'' (as the jargon goes), ATLAS would store terabytes of data per second.
+We are limited to only about 1000 Hz readout by computing processing time and storage space.
+We thus implement a \textit{trigger} which provides fast inspection of events to drastrically reduce the data rate from the 40 MHz provided by the LHC to the 1000 Hz we can write to tape for further analysis.
+
+The ATLAS trigger system consists of a two-level trigger, known as the Level-1 trigger (L1 trigger) and the High-Level Trigger (HLT)\footnotemark.
+\footnotetext{In Run1, ATLAS ran with a three-level trigger system.
+The L1 was essentially as today; the HLT consisted of two separate systems known as the L2 trigger and the Event Filter (EF).
+This was changed to the simpler system used today during the shutdown between Run1 and Run2.
+}
+Trigger selections are organized into \textit{trigger chains}, where events passing a particular L1 trigger are passed to a corresponding HLT trigger.
+For example, one would require a particular high-\pt muon at L1, with additional quality requirements at HLT.
+One can also use HLT triggers as prerequisites for each other, as is done in some triggers requiring both jets and \met.
+
+\subsection{Level-1 Trigger}
+
+The L1 trigger is hardware-based, and provides the very fast rejection needed to quickly select events of interest.
+The L1 trigger uses only what is known as \textit{prompt} data to quickly identify interesting events.
+Only the calorimeters and the triggering detectors (RPCs and TGCs)  of the MS are fast enough to be considered at L1, since the tracking reconstruction algorithms used by the ID and the more precise MS detectors are very slow.
+This allows quick identification of events with the most interesting physical objects : large missing transverse momentum and high-\pt electrons, muons, and jets.
+
+L1 trigger processing is a \textit{local} choice.
+This means that events are selected without considering the entire available event.
+Energy deposits over some threshold are reconstructed as \textit{regions of interest}.
+These RoIs are then compared using pattern recognition hardware to ``expected'' patterns for the given RoIs.
+Events with RoIs matching these expected patterns are then handed to the HLT through the Central Trigger Processor.
+This step alone lowers the data rate down by about three orders of magnitude.
+
+\subsection{High-Level Trigger}
+
+The HLT performs the next step, taking the incoming data rate from the L1 trigger of \order 75 kHz down to the \order 1 kHz that can be written to tape.
+The HLT really performs much like a simplified offline reconstruction, using many common quality and analysis cuts to eliminate uninteresting events.
+This is done by using computing farms located close to the detector, which process events in parallel.
+
+In this thesis, we will be primarily concerned with the triggers located in Table \ref{tab:triggers}.
+
+% SR events are required to pass HLT_xe70 trigger,
+% • CRW, CRT, CRZ events are required to pass HLT_mu24_iloose_L1MU15 || HLT_mu50 for muons
+% and HLT_e24_lmedium_iloose_L1EM20VH (HLT_e24_lhmedium_iloose_L1MU18VH for MC)
+% || HLT_e60_lhmedium || HLT_e120_lhloose for electrons,
+% • CRY events are required to pass HLT_g120_loose trigger.
+% The following triggers are used in this analysis for 2016:
+% • SR events are required to pass HLT_xe100_mht_L1XE50 trigger,
+% • CRW, CRT, CRZ events are required to pass HLT_mu24_ivarmedium || HLT_mu50 for muons and
+% HLT_e24_lhtight_nod0_ivarloose || HLT_e60_lhmedium_nod0 || HLT_e140_lhloose_nod0 for
+% electrons,
+% • CRY events are required to pass HLT_g140_loose trigger.
+
+\begin{table}
+\centering
+\caption{High-Level Triggers used in this thesis.}\label{tab:triggers}
+\begin{tabular}{| l | l | l | l | l | l |}
+\hline
+Physics Object & Trigger                                  & Threshold (GeV) & Level-1 Seed    & Additional Requirements & Rate (Hz) \\
+\hhline{|=|=|=|} \\
+\textbf{2015 Data}                                                                                                                  \\
+\met           & \hlttrig{xe70}                           & 70              & todo            &                         & todo      \\
+Muon           & \hlttrig{mu24\_iloose\_L1MU15}           & 24              & \trigtt{L1MU15} & todo                    & todo      \\
+Muon           & \hlttrig{mu50}                           & 50              & -               & -                       & todo      \\
+Electron       & \hlttrig{e24\_lmedium\_iloose\_L1EM20VH} & 24              & L1EM20VH        & -                       & todo      \\
+Electron       & \hlttrig{e60\_lmedium}                   & 60              & -               & -                       & todo      \\
+Electron       & \hlttrig{e120\_lhloose}                  & 120             & -               & -                       & todo      \\
+Photon         & \hlttrig{g120\_loose}                    & 120             & -               & -                       & todo      \\
+\hhline{|=|=|=|} \\
+\end{tabular}
+\end{table}
+
+
+Razor trigger plot.
+Plan to use razor trigger, but replaced due to MET increased threshold.

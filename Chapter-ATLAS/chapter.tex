@@ -44,7 +44,7 @@ ATLAS contains multiple magnetic systems; primarily, we are concerned with the s
 A schematic is shown in Fig.\ref{fig:atlas_magnets}.
 These magnetic fields are used to bend charged particles under the Lorentz force, which subsequently allows one to measure their momentum.
 
-The ATLAS central solenoid \cite{Yamamoto:2008zze} is a 2.3 m diameter, 5.3 m long solenoid at the center of the ATLAS detector.
+The ATLAS central solenoid is a 2.3 m diameter, 5.3 m long solenoid at the center of the ATLAS detector.
 It produces a uniform magnetic field of 2 T; this strong field is necessary to accurately measure the charged particles in this field.
 An important design constraint for the central solenoid was the decision to place it in between the inner detector and the calorimeters.
 To avoid excessive impacts on measurements in the calorimetry, the central solenoid must be as transparent as possible\footnotemark.
@@ -57,7 +57,7 @@ The magnetic field in this region is non-uniform, due to the prohibitive costs o
 
 \section{Inner Detector}
 
-The ATLAS inner detector consists of three separate tracking detectors, which are known as, in order of increasing distance from the interaction point, the Pixel Detector \cite{Takubo:2014qsa}, Semiconductor Tracker (SCT) \todo{cite}, and the Transition Radiation Tracker (TRT) \todo{cite}.
+The ATLAS inner detector consists of three separate tracking detectors, which are known as, in order of increasing distance from the interaction point, the Pixel Detector, Semiconductor Tracker (SCT), and the Transition Radiation Tracker (TRT).
 \begin{figure}
 \caption{The ATLAS inner detector} \label{fig:atlas_inner_detector}
 \includegraphics[width=.9\linewidth]{atlas_inner_detector}
@@ -67,7 +67,10 @@ Tracks are used as inputs for reconstruction of many higher-level physics object
 Accurate track reconstruction is thus crucial for precise measurements of charged particles.
 
 \subsection{Pixel Detector}
-\todo{schematic}
+\begin{figure}
+\caption{The ATLAS pixel detector} \label{fig:atlas_inner_detector}
+\includegraphics[width=.9\linewidth]{atlas_inner_detector}
+\end{figure}
 
 The ATLAS pixel detector consists four layers of silicon ``pixels''.
 This refers to the segmentation of the active medium into the pixels; compare to the succeeding silicon detectors, which will use silicon ``strips''.
@@ -93,8 +96,11 @@ This smaller granularity was required due to the smaller distance to the interac
 In total, a charged particle passing through the inner detector would expect to leave four hits in the pixel detector.
 
 \subsection{Semiconductor Tracker}
+\begin{figure}
+\caption{A ring of the Semiconductor Tracker} \label{fig:sct_photo}
+\includegraphics[width=.9\linewidth]{sct_photo}
+\end{figure}
 
-\todo{schematic}
 The SCT is directly beyond Layer-2 of the pixel detector.
 This is a silicon strip detector, which do not provide the full 3D information of the pixel detector.
 The dual-sensors of the SCT contain 2 x 768 individual strips; each strip has area 6.4 cm$^2$.
@@ -103,7 +109,10 @@ There are four of these double-layers, at radia of 284 mm, 355 mm, 427 mm, and 4
 These double-layers provide hits comparable to those of the pixel detector, and we have four additional hits to reconstruct tracks for each charged particle.
 
 \subsection{Transition Radiation Tracker}
-
+\begin{figure}
+\caption{A schematic of the Transition Radiation Tracker} \label{fig:trt_schematic}
+\includegraphics[width=.9\linewidth]{trt_schematic}
+\end{figure}
 The Transition Radiation Tracker is the next detector radially outward from the SCT.
 It contains straw drift tubes; these contain a tungsten gold-plated wire of 32 $\mu$m diameter held under high voltage (-1530 V) with the edge of the Kapton-aluminum tube.
 They are filled with a gas mixture of primarily xenon that is ionized when a charged particle passes through the tube.
@@ -115,7 +124,6 @@ Due to the dielectric difference between the gas and tubes, TR is induced.
 This is important for distinguishing electrons from their predominant background of minimum ionizing particles.
 Generally, electrons have a much larger Lorentz factor than minimum ionizing particles, which leads to additional TR.
 This can be used as an additional handle for electron reconstruction.
-\missingfigure{TRT schematic}
 
 \section{Calorimetry}
 \begin{figure}
@@ -134,9 +142,13 @@ ATLAS contains four separate calorimeters : the liquid argon (LAr) electromagnet
 Combined, these provide full coverage in $\phi$ up to $|\eta| <4.9$, and can be seen in Fig.\ref{fig:atlas_calorimeter}.
 
 \subsection{Electromagnetic Calorimeters}
+\begin{figure}
+\caption{A schematic of a subsection of the barrel LAr electromagnetic calorimeter} \label{fig:lar_schematic}
+\includegraphics[width=.9\linewidth]{lar_schematic}
+\end{figure}
 
 The electromagnetic calorimeters of the ATLAS detector consist of the barrel and endcap LAr calorimeters.
-These are arranged into an ingenious ``accordion'' shape, shown in \todo{fig}, which allows full coverage in $\phi$ and exceptional coverage in $\eta$ while still allowing support structures for detector operation.
+These are arranged into an ingenious ``accordion'' shape, shown in \ref{fig:lar_schematic}, which allows full coverage in $\phi$ and exceptional coverage in $\eta$ while still allowing support structures for detector operation.
 The accordion is made of layers with liquid argon (active detection material) and lead (absorber) to induce electromagnetic showers.
 The LAr EM calorimeters are each more than 20 radiation lengths deep, which provides the high stopping power necessary to properly measure the electromagnetic showers.
 
@@ -157,6 +169,10 @@ In total, the EM calorimeters contain about 190000 individual calorimeter cells.
 
 
 \subsection{Hadronic Calorimeters}
+\begin{figure}
+\caption{A schematic of Tile hadronic calorimeter} \label{fig:tile_schematic}
+\includegraphics[width=.9\linewidth]{tile_schematic}
+\end{figure}
 
 The hadronic calorimetry of ATLAS sits directly outside the EM calorimetry.
 It contains three subdetectors : the barrel Tile calorimeter, the endcap LAr calorimeter, and the Forward  LAr Calorimeter.
@@ -190,6 +206,11 @@ FCal2 and FCal3 also use a liquid argon active medium, with a tungsten absorber.
 \includegraphics[width=.9\linewidth]{atlas_muon_spectrometer}
 \end{figure}
 
+\begin{figure}
+\caption{A schematic in $z/\eta$ showing the location of the subdetectors of the muon spectrometer} \label{fig:atlas_schematic_muon_spectrometer}
+\includegraphics[width=.9\linewidth]{atlas_schematic_muon_spectrometer}
+\end{figure}
+
 The muon spectrometer is the final major subdetector of the ATLAS detector.
 The muon spectrometer sits outside the hadronic calorimetry, with pseudorapidity coverage out to $|\eta| < 2.7$.
 The MS is a huge detector, with some detector elements existing as far as 11 m in radius from the interaction point.
@@ -200,6 +221,10 @@ Muon spectrometer tracks are largely independent of the ID tracks due to the ind
 The MS consists of four separate subdetectors: the barrel region is covered by the Resistive Plate Chambers (RPCs) and Monitored Drift Tubes (MDTs) while the endcaps are covered by MDTs, Thin Gap Chambers (TGCs), and Cathode Strip Chambers (CSCs).
 
 \subsection{Monitored Drift Tubes}
+\begin{figure}
+\caption{Schematic of a Muon Drift Tube chamber} \label{fig:mdt_chamber}
+\includegraphics[width=.9\linewidth]{mdt_chamber}
+\end{figure}
 
 The MDT system is the largest individual subdetector of the MS.
 MDTs provide precision measurements of muon momenta as well as fast measurements used for triggers.
@@ -208,7 +233,7 @@ In the center of each tube there 50$\mu$m diameter tungsten-rhenium wire at a vo
 A muon entering the tube will induce ionization in the gas, which will ``drift'' towards the wire due to the voltage.
 One measures this ionization as a current in the wire; this current comes with a time measurement related to how long it takes the ionization to drift to the wire.
 
-These tubes are layered in a pattern shown in \todo{figure}.
+These tubes are layered in a pattern shown in Fig.\ref{fig:mdt_chamber}.
 Combining the measurements from the tubes in each layer gives good position resolution.
 The system consists of three subsystems of these layers, at 5 m, 7m, and 9 m from the interaction point.
 The innermost layer is directly outside the hadronic calorimeter.
@@ -227,6 +252,10 @@ This is most useful in triggering, where the timing requirements are quite sever
 The RPCs are also complement the MDTs by providing a measurement of the non-bending coordinate.
 
 \subsection{Cathode Strip Chambers}
+\begin{figure}
+\caption{Photo of the installation of Cathode Strip Chambers and Monitored Drift Tubes} \label{fig:csc_photo}
+\includegraphics[width=.9\linewidth]{csc_photo}
+\end{figure}
 
 The CSCs are used in place of MDTs in the first layer of the endcaps.
 This region, at $2.0 < |\eta| < 2.7$, has higher particle multiplicity at the close distance to the interaction point from low-energy photons and neutrons.
@@ -242,6 +271,10 @@ The CSCs are arranged into four planes on the wheels of the muon spectrometer, a
 There are 32 CSCs in total, with 16 on each side of the detector in $\eta.$
 
 \subsection{Thin Gap Chambers}
+\begin{figure}
+\caption{Photo of a muon Big Wheel, consisting of Thin Gap Chambers} \label{fig:tgc_photo}
+\includegraphics[width=.9\linewidth]{tgc_photo}
+\end{figure}
 
 The TGCs serve the purpose of the RPCs in the endcap at pseudorapidity of $1.05 < |\eta| < 2.4 $; they provide fast measurements used in triggering.
 The TGCs are also multiwire proportional chambers a la the CSCs.

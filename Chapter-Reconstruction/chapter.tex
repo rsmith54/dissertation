@@ -18,7 +18,7 @@ Calorimeter clusters can be divided into sliding-window clusters and topological
 % In ATLAS, sliding-window is almost exclusively used to reconstruct electromagnetic objects and topological clustering is almost exclusively used for hadronic clustering, so to avoid confusion we will use this terminology here.
 % These choices are entirely based on optimizing the object reconstruction efficiency relative to the fake rate.
 % }
-\subsection{Inner Detector Tracks}
+\subsection{Inner Detector Tracks}\label{sec:id_tracks}
 \todo{cite paper/note}
 
 Inner detector tracks are reconstructed from hits in the inner detector.
@@ -67,7 +67,7 @@ The efficiency is defined as the number of reconstructed tracks divided by the n
 \subfloat[Track reconstruction as a function of $\eta$.]{\includegraphics[width=.45\linewidth]{track_eff_eta}} \\
 \end{figure}
 
-\subsection{Sliding-window clusters}
+\subsection{Sliding-window clusters}\label{sec:sliding_window_cluster}
 
 The sliding-window algorithm is a way to combine calorimeter cells into composite objects (clusters) to be used as inputs for other algorithms\cite{PERF-2013-03}.
 Sliding-window clusters are the primary inputs to electron and photon reconstruction, as described below.
@@ -77,8 +77,7 @@ One translates this window over the space and seeds a cluster whenever the energ
 If the seed energy is greater than 2.5 \GeV, this seed is called a sliding-window cluster.
 This choice was motivated to optimize the reconstruction efficiency of proto-electrons and proto-photons while rejecting fakes from electronic noise and additional particles from pileup vertices.
 
-\subsection{Topological clusters}
-\todo{cite paper/note}
+\subsection{Topological clusters}\label{sec:topoclusters}
 
 Topoclusters are the output of the algorithm used within ATLAS to combine hadronic and electromagnetic calorimeter cells in a way which extracts signal from a background of significant electronic noise\cite{PERF-2014-07}.
 They are the primary input to the algorithms which reconstruct jets.
@@ -108,11 +107,16 @@ An example of this procedure for a simulation dijet event is shown in Fig.\ref{f
 \subfloat[All clustered cells.]{\includegraphics[width=.9\linewidth]{topoclustering_sig0.pdf}}
 \end{figure}
 
-\subsection{Muon Spectrometer Tracks}
+\subsection{Muon Spectrometer Tracks}\label{sec:ms_tracks}
 
-\section{Physics Object Reconstruction}
+Muon spectrometer tracks are fit using the same algorithms as the ID tracks, but different subdetectors.
+The tracks are seeded by hits in the MDTs or CSCs.
+After seeding in the MDTs and CSCs, the hits from all subsystems are refit as the final MS track.
+These tracks are used as inputs to the muon reconstruction, as we will see below.
 
-There are essentially sixe objects used in ATLAS searches for new physics: electrons, photons, muons, $\tau$-jets, jets, and \met.
+\section{Physics Object Reconstruction and Quality Identification}
+
+There are essentially six objects used in ATLAS searches for new physics: electrons, photons, muons, $\tau$-jets, jets, and \met.
 The reconstruction of these objects is described here.
 A very convenient summary plot is shown in Fig.\ref{fig:atlas_interactions}.
 \begin{figure}
@@ -120,6 +124,16 @@ A very convenient summary plot is shown in Fig.\ref{fig:atlas_interactions}.
 Solid lines indicate the particle is interacting with the detector, while dashed lines are shown where the particle does not interact.} \label{fig:atlas_interactions}
 \includegraphics[width=.45\linewidth]{atlas_particle_interactions}
 \end{figure}
+This process produces candidate objects, which are then identified by quality.
+
+One often wishes to understand ``how certain'' we are that a particular object is truly the underlying physics object.
+In ATLAS, we often generically consider, in order, \textit{very loose}, \textit{loose}, \textit{medium}, and \textit{tight} objects\footnotemark.
+\footnotetext{
+These are not all used for all objects, but it's conceptally useful to think of these different categories.
+}
+These are ordered in terms of decreasing object efficiency, or equivalently, decreasing numbers of fake objects.
+We will also describe briefly the classification of objects into these categories.
+
 In this thesis, we present a search for new physics in a zero lepton final state; we will provide additional details about jet and \met reconstruction.
 % \subsection{Vertices}
 
@@ -132,13 +146,37 @@ In this thesis, we present a search for new physics in a zero lepton final state
 % \includegraphics[width=.45\linewdith]{vertex_reconstruction} \\
 % \end{figure}
 
-\subsection{Electrons}
+\subsection{Electrons and Photons}
 
-Electrons are reconstructed by associating electromagnetic showers in the EM calorimeter with charged particle tracks left in the ID\cite{PERF-2013-03}.
-The electromagnetic clusters are reconstructed
+\subsubsection{Reconstruction}
+The reconstruction of electrons and photons (often for brevity called ``electromagnetic objects'') is very similar \cite{Aaboud:2016yuq,PERF-2013-05, PERF-2013-03 }.
+This is because the reconstruction begins with the energy deposit in the calorimeter in the form of an electromagnetic shower.
+For any incoming $e/\gamma$, this induces many more electrons and photons in the shower; the measurement in the calorimeter is similar for these two objects.
 
-\subsection{Photons}
-\todo{cite paper/note}
+One thus begins the reconstruction of electromagnetic objects from the sliding-window clusters reconstructed from the EM calorimeter, as described in Sec.\ref{sec:id_tracks}.
+These $E > 2.5 \GeV$ clusters the the primary seed for electrons and photons.
+One then looks for all ID tracks within $\Delta R < 0.3$.\todo{check delta R defined somewhere}
+We ``match'' the track and cluster if they are within $\Delta \phi < 0.2$ in the direction of track curvature, or $\Delta \phi < 0.05$ in the direction opposite the track curvature.
+Those track-cluster seeds with tracks pointing to the primary vertex are reconstructed as electrons.
+
+For photons, we have two options to consider, known as \textit{converted} and \textit{unconverted} photons.
+Due to the high energy of the LHC collisions, typical photons have energy $\order 1 \GeV$; at this scale, photons interact almost exclusively via pair-production in the presence of the detector material \todo{DIAGRAM}.
+If the track-cluster seed has a track which does not point at the primary vertex, we reconstruct this object as a converted photon.
+This happens since the photon travels a distance before decay into two electrons, and see the tracks coming from this secondary vertex.
+Those clusters which do not have any associated tracks are then reconstruced as an unconverted photon.
+
+The final step in electromagnetic object reconstruction is the final energy value assigned to these objects; this process is different between electrons and photons due to their differing signatures in the EM calorimeter.
+In the barrel, electrons energies are assigned as the sum of the 3 clusters in $\eta$ and 7 clusters in $\phi$ to account for the electron curving in the $\phi$ direction.
+Barrel photons are assigned the energy sum of $(3,5)$ clusters in $(\eta, \phi)$ space.
+In the endcap, the effect of the magnetic field on the electrons is smaller, and there is a coarser granularity.
+Both objects sum the $(5,5)$ clusters for their final energy value.
+
+\subsubsection{Quality Identification}
+
+Electrons have a number of important backgrounds which can give fakes.
+Fake electrons come primarily from secondary vertices in hadron decays or misidentified hadronic jets.
+To reduce these backgrounds, quality requirements are imposed on electron candidates.
+Loose electrons
 
 \subsection{Muons}
 \todo{cite paper/note}

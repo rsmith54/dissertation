@@ -117,7 +117,7 @@ These tracks are used as inputs to the muon reconstruction, as we will see below
 \section{Physics Object Reconstruction and Quality Identification}
 
 There are essentially six objects used in ATLAS searches for new physics: electrons, photons, muons, $\tau$-jets, jets, and \met.
-The reconstruction of these objects is described here.
+The reconstruction of these objects is described here; in this thesis, $\tau$ lepton jets are not treated differently from other hadronic jets.
 A very convenient summary plot is shown in Fig.\ref{fig:atlas_interactions}.
 \begin{figure}
 \caption{The interactions of particles with the ATLAS detector.
@@ -176,13 +176,136 @@ Both objects sum the $(5,5)$ clusters for their final energy value.
 Electrons have a number of important backgrounds which can give fakes.
 Fake electrons come primarily from secondary vertices in hadron decays or misidentified hadronic jets.
 To reduce these backgrounds, quality requirements are imposed on electron candidates.
-Loose electrons
+Loose electrons have requirements imposed on the shower shapes in the electromagnetic calorimeter and on the quality of the associated ID track.
+There is also a requirement that there is a small energy deposition in the hadronic calorimeter behind the electron, to avoid jets being misidentified as electrons (low hadronic leakage).
+Medium and tight electrons have increasingly stronger requirements on these variables, and additional requirements on the isolation (as measured by $\Delta R$) and matching of the ID track momentum and the calorimeter energy deposit.
+
+Photons are relatively straightforward to measure, since there are few background processes\cite{ATL-PHYS-PUB-2016-015}.
+The primary one is pion decays to two photons, which can cause a jet to be misidentified as photon.
+Loose photons have requirements on the shower shape and hadronic leakage.
+Tight photons have tighter shower shape cuts, especially on the high granularity first layer of the EM calorimeter.
+The efficiency for unconverted tight photons as a function of $\pt$ is should in
+\begin{figure}
+\caption{Unconverted photon efficiency as measured in \cite{ATL-PHYS-PUB-2016-015}.} \label{fig:photon_eff}
+\includegraphics[width=.45\linewidth]{photon_efficiency}
+\end{figure}
 
 \subsection{Muons}
-\todo{cite paper/note}
+
+\subsubsection{Reconstruction}
+
+Muons are reconstructed using measurements from all levels of the ATLAS detector\cite{PERF-2015-10}.
+They leave a ID track, a small, characteristic deposition in the EM calorimeter, and then a track in the muon spectrometer.
+The primary reconstruction technique produces a so-called \textit{combined} muon.
+``Combined'' means using a combination of the ID and MS tracks to produce the final reconstruced muon kinematics.
+This is done by refitting the hits associated to both tracks, and using this refit track for the muon kinematics.
+This process produces the best measured muons, although several other worse algorithms are used when the full detector information is missing.
+An example is in the region $2.5 < |\eta| < 2.7$ outside the ID acceptance; in this region, MS tracks are used without the corresponding ID tracks.
+
+\subsubsection{Quality Identification}
+
+Several additional criteria are used to assure muon measurements are free of significant background contributions, especially from pion and kaon decays to muons.
+Muons produced via these decay processes are often characterized by a ``kink''.
+Candidate muons with a poor fit quality, characterized by $\chi^2/\text{n.d.f.}$, are thus rejected.
+Additionally, the absolute difference in momentum measurements between the ID and MS provide another handle, since the other decay products from hadron decays carry away some amount of the initial hadron momentum.
+This is measured by
+\begin{equation}
+\rho' = \frac{|\pt^{\text{ID}} - \pt^{\text{MS}} |}{\pt^{\text{Combined}}}.
+\end{equation}
+Additionally, there is a requirement on the $q/p$ significance, defined as
+\begin{equation}\label{eq:muon_sig}
+S_{q/p} = \frac{|(q/p)^{\text{ID}} - (q/p)^{\text{MS}} |}{\sqrt{\sigma_{\text{ID}}^2 + \sigma_{\text{MS}}^2  }}.
+\end{equation}
+The $\sigma_{\text{ID,MS}}$ in the denominator of Eq.\ref{eq:muon_sig} are the uncertainties on the corresponding quantity from the numerator.
+Finally, cuts are placed on the number of hits in the various detector elements.
+
+Subsequently tighter cuts on these variables allow one to define the different muon identification criteria.
+Loose muons have the highest reconstruction efficiency, but the highest number of fake muons, since there are no requirements on the number of subdetector hits and the loosest requirements on the suite of quality variables.
+Medium muons consist of Loose muons with tighter cuts on the quality variables; they also require more than three MDT hits in at least two MDT layers.
+These are the default used by ATLAS analyses.
+Tight muons have stronger cuts than those of the medium selection, and reducing the reconstruction efficiency.
+The reconstruction efficiency as a function of \pt can be seen for Medium muons in Fig.\ref{fig:muon_eff}.
+
+\begin{figure}
+\caption{Medium muon efficiency as measured in \cite{PERF-2015-10}.} \label{fig:muon_eff}
+\includegraphics[width=.45\linewidth]{muon_efficiency}
+\end{figure}
 
 \subsection{Jets}
 \todo{cite paper/note}
+
+Jets are composite objects corresponding to many physical particles.
+This is a striking difference from the earlier particles.
+Fortunately, we normally (and in this thesis) care about the original particle produced in primary collision.
+In the SM, this corresponds to quarks and gluons; due to the hadronization process described in \ref{ch:sm}, free quarks and gluons spontaneously hadronize and produce a hadronic shower, which we call a jet.
+These showers can be measured by the EM and hadronic calorimeters, and the charged portions can be measured in the ID.
+The first question is how to combine these measurements into a composite object representing the underlying physical parton.
+This is done via jet algorithms.
+
+\subsection{Jet Algorithms}
+
+It might seem straightforward to combine the underlying physical particles into a jet.
+There are three important characteristics required for any jet reconstruction algorithm to be used by ATLAS.
+\begin{itemize}
+\item Collinear safety - if any particle with four-vector $p$ is replaced by two particles of $p_1, p_2$ with $p = p_1 + p_2$, the subsequent jet should not change
+\item Radiative (infrared) safety - if any particle with four-vector $p$ radiates a particle of energy $\alpha \rightarrow 0$, the subsequent jet should not change
+\item Fast - the jet algorithm should be ``fast enough'' to be useable by ATLAS computing resources
+\end{itemize}
+The first two requirements can be seen in terms of requirements on soft gluon emission.
+Since partons emit arbitrarily soft gluons freely, one should expect the algorithms to not be affected by this emission.
+The final requirement is of course a practical limitation.
+
+The algorithms in use by ATLAS (and CMS) which satisfies these requirements are collectively known as the \kt algorithms \cite{Ellis:1993tq,Cacciari:2005hq,Cacciari:2008gp}.
+These algorithms iteratively combine the ``closest'' objects, defined using the following distance measures :
+\begin{equation}
+\begin{aligned}\label{eq:kt}
+d_{ij} &= \text{min}(k_{T,i}^{2p} , k_{T,j}^{2p} )  \frac{\Delta_{ij}^2 }{R^2} \\
+d_{iB} &= k_{T_i}^{2p}
+\end{aligned}
+\end{equation}
+In Eq.\ref{eq:kt}, $k_T,i$ is the transverse momentum of $i$-th jet \textit{constituent}, $\Delta_{ij}$ is the angular distance between the constituents.
+Both $R$ and $p$ are adjustable parameters; $R$ is known as the (jet) \textit{cone size} and $p$ regulates the power of the energy vs the geometrical scales.
+The algorithm sequence, for a given set of objects $i$ with four-vector $k$ :
+\begin{enumerate}
+\item Find the minimum distance in the set of all $d_{ij}$ and $d_{iB}$.
+\item If the distance is one of the $d_{ij}$, combine the input pair of object $i,j$ and return to (1).
+If the distance is one of the $d_{iB}$, remove the object from the list, call it a jet, and return to (1).
+\end{enumerate}
+This process ends when all objects $i$ have been added to a jet.
+
+Any choice of $(p,R)$ has the requirements of collinear and radiative safety.
+In essence, the choice is then to optimize based on speed and the potential for new physics discoveries.
+In ATLAS, we make the choice of $p = -1$; this is also known as the \textit{anti-}\kt algorithm.
+The choice of $R = 0.4$ is used for the distance parameter of the jets.
+
+The primary ``nice'' quality of this algorithm can be seen with the following example.
+Consider three inputs to an anti-\kt algorithm, all with $\eta = 0$ :
+\begin{itemize}
+\item Object 1 : (\pt, $\phi$) = (30 \GeV, 0)
+\item Object 2 : (\pt, $\phi$) = (20 \GeV, -0.2)
+\item Object 3 : (\pt, $\phi$) = (10 \GeV, 0.2)
+\item Object 4 : (\pt, $\phi$) = (1  \GeV, 0.5)
+\end{itemize}.
+In the case shown, it seems natural to first combine the ``bigger'' objects 1 and 2.
+These then pick up the extra small object 3, and object 4 is not included in the jet.
+This is exactly what is done by the anti-\kt algorithm.
+The (normal) \kt algorithm with $p = 1$ instead combines the smallest objects, 3 and 4, first.
+Object 1 and 2 combine to form their own jet, instead of these jets picking up object 3.
+This behavior is not ideal due to the effects of pileup.
+
+In ATLAS, jets are reconstructed using the  calorimeter topoclusters using the anti-\kt algorithm with $R = 0.4$.
+The collection of all topoclusters reconstructed as in Sec.\ref{sec:topoclusters}, and used as the general object
+
+\subsection{Jet Reconstruction and Calibration}
+
+Jets are reconstructed from the
+
+\subsection{Jet Calibration}
+
+\subsection{B-jets}
+
+
+
 
 \subsection{Missing Transverse Momentum}
 \todo{cite paper/notes}

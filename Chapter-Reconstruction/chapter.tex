@@ -107,6 +107,16 @@ An example of this procedure for a simulation dijet event is shown in Fig.\ref{f
 \subfloat[All clustered cells.]{\includegraphics[width=.9\linewidth]{topoclustering_sig0.pdf}}
 \end{figure}
 
+There are two calibrations used for clusters.\todo{cite}
+These are known as the electromagnetic (EM) scale and the local cluster weighting (LCW) scale.
+The EM scale is the energy read directly out of the calorimeters as described.
+This scale is appropriate for electromagnetic processes.
+The LCW scale applies additional scaling to the clusters based on the shower development.
+This allows the cluster energy to be corrected for calorimeter non-compensation and the differences in the hadronic and electromagnetic calorimeters' responses.
+This scale provides additional corrections that improve the accuracy of hadronic energy measurements.
+This thesis only uses the EM scale corrections unfortunately; LCW scaling requires additional measurements that only became available with additional data.
+Due to the jet calibration procedure that we will describe below, it is also a relatively complicated procedure to rederive the ``correct'' jet energy.
+
 \subsection{Muon Spectrometer Tracks}\label{sec:ms_tracks}
 
 Muon spectrometer tracks are fit using the same algorithms as the ID tracks, but different subdetectors.
@@ -122,7 +132,7 @@ A very convenient summary plot is shown in Fig.\ref{fig:atlas_interactions}.
 \begin{figure}
 \caption{The interactions of particles with the ATLAS detector.
 Solid lines indicate the particle is interacting with the detector, while dashed lines are shown where the particle does not interact.} \label{fig:atlas_interactions}
-\includegraphics[width=.45\linewidth]{atlas_particle_interactions}
+\includegraphics[width=.9\linewidth]{atlas_particle_interactions}
 \end{figure}
 This process produces candidate objects, which are then identified by quality.
 
@@ -187,7 +197,7 @@ Tight photons have tighter shower shape cuts, especially on the high granularity
 The efficiency for unconverted tight photons as a function of $\pt$ is should in
 \begin{figure}
 \caption{Unconverted photon efficiency as measured in \cite{ATL-PHYS-PUB-2016-015}.} \label{fig:photon_eff}
-\includegraphics[width=.45\linewidth]{photon_efficiency}
+\includegraphics[width=.9\linewidth]{photon_efficiency}
 \end{figure}
 
 \subsection{Muons}
@@ -228,7 +238,7 @@ The reconstruction efficiency as a function of \pt can be seen for Medium muons 
 
 \begin{figure}
 \caption{Medium muon efficiency as measured in \cite{PERF-2015-10}.} \label{fig:muon_eff}
-\includegraphics[width=.45\linewidth]{muon_efficiency}
+\includegraphics[width=.9\linewidth]{muon_efficiency}
 \end{figure}
 
 \subsection{Jets}
@@ -291,16 +301,74 @@ These then pick up the extra small object 3, and object 4 is not included in the
 This is exactly what is done by the anti-\kt algorithm.
 The (normal) \kt algorithm with $p = 1$ instead combines the smallest objects, 3 and 4, first.
 Object 1 and 2 combine to form their own jet, instead of these jets picking up object 3.
-This behavior is not ideal due to the effects of pileup.
+This behavior is not ideal due to the effects of pileup, as we will see in the next section.
 
-In ATLAS, jets are reconstructed using the  calorimeter topoclusters using the anti-\kt algorithm with $R = 0.4$.
-The collection of all topoclusters reconstructed as in Sec.\ref{sec:topoclusters}, and used as the general object
+\subsection{Jet Reconstruction}
 
-\subsection{Jet Reconstruction and Calibration}
+In ATLAS, jets are reconstructed using multiple different objects as inputs, including tracks, ``truth'' objects, calorimeter clusters, and \textit{particle flow objects} (PFOs) \todo{cite pflow paper}.
+For physics analyses, ATLAS primarily uses jets reconstructed from calorimeter clusters, but we will describe the others here, as they are often used for derivations of systematic uncertainties or future prospects.
 
-Jets are reconstructed from the
+Calorimeter jets are reconstructed using topoclusters using the anti-\kt algorithm with $R = 0.4$.
+The jet reconstruction algorithm is run on the collection of all topoclusters reconstructed as in Sec.\ref{sec:topoclusters}.
+Both EM and LCW scale clusters are used in the ATLAS reconstruction software and produce two sets of jets for analysis.
+As stated above, this thesis presents an analysis using jets reconstructed using EM scale clusters; we refer to these as \textit{EM jets}.
+
+Tracks can be used as inputs to jet reconstruction algorithms.
+Jets reconstructed from tracks are known as \textit{track jets}.
+Since the ID tracks do not measure neutral objects, these jets measure an incorrect energy.
+However, these are still useful for checks and derivations of systematic uncertainties.
+
+\textit{Truth} jets are reconstructed from \textit{truth} particles.
+In this case, truth is jargon for simulation; in simulation, the actual simulated particles are available and used as inputs to the jet reconstruction algorithms.
+Similarly to track jets, these are not useful in and of themselves.
+Instead, truth jets are used for comparisons and derivations of systematic uncertainties.
+
+The last object generally used as inputs to jet reconstruction algorithms are \textit{particle flow objects} (PFOs) \todo{cite atlas paper and theory paper maybe?}
+Particle flow objects are reconstructed by associating tracks and clusters through a combination of angular distance measures and detector response measurements to create a composite object which contains information from both the ID and the calorimeters.
+For calorimeter clusters which do not have any associated ID track, the cluster is simply the PFO.
+The natural association between tracks and clusters provides easy pileup subtraction since tracks are easily associated to the primary vertex.
+This technique is generally used in CMS, and ATLAS has been slow to adopt the same.
+As pileup has increased, the utility of using PFOs as inputs to jet reconstruction has increased as well.
 
 \subsection{Jet Calibration}
+
+Jets as described in the last section are still \textit{uncalibrated}.
+Even correcting the cluster energies using the LCW does not fully correct the jet energy, due to particles losing energy in the calorimeters.
+The solution to this is the \textit{jet energy scale} (JES).
+The JES is a series of calibrations which on average restore the correct truth jet energy for a given reconstructed jet.
+These steps are shown in Fig.\ref{fig:jes_correction_steps} and described here.
+
+The first step is the origin correction; this adjusts the jet to point at the primary vertex.
+Next, is the jet-area based pileup correction.
+This step subtracts the ``average'' pileup as measured by the energy density $\rho$ outside of the jets and assumes this is a good approximation for the pileup inside the jet.
+One then removes energy $\Delta E = \rho \times A_{\text{jet}}$ in this step.
+The residual pileup correction makes a final offset correction by parametrizing the change in jet energy as a function of the number of primary vertices $N_{\text{PV}}$ and the average number of interactions $\mu.$
+
+The next step is the most important single correction; it is known as the AbsoluteEtaJES step.
+Due to the use of non-compensation and sampling calorimeters in ATLAS, the measured energy of a jet is a fraction of the true energy of the outgoing parton.
+Additionally, due to the use of different technologies and calorimeters throughout the detector, there are directional biases induced by these effects.
+The correction bins a multiplicative factor in \pt and $\eta$ which scales the reconstructed jets to corresponding truth jet \pt.
+This step does not entirely correct the jets, since it is entirely a simulation-based approach.
+
+The final steps are known as the global sequential calibration (GSC) and the residual in-situ calibration.
+The GSC uses information about the jet showering shape to apply additional corrections based on the expected shape of gluon or quark jets.
+The final step is the residual in-situ calibration, which is only applied to data.
+This step uses well-measured objects recoiling off a jet to provide a final correction to the jets in data.
+In the low \pt region ($20 \GeV \order< p_{T,\text{jet}}  \order < 200 \GeV $ ), $Z \rightarrow ll$ events are used as a reference object.
+In the middle \pt region ($100 \GeV \order< p_{T,\text{jet}}  \order< 600 \GeV $), the reference object is a photon, while in the high \pt region ($p_{T,\text{jet}} \order> 200 \GeV $), the high \pt jet is compared to multiple smaller \pt jets; the reference object is this group of multijets.
+After this final correction, the data and MC scales are identical up to the corresponding uncertainties; the combined JES uncertainty as a function of \pt is shown in Fig.\ref{jes_uncertainties}.
+
+\begin{figure}
+\caption{The steps used by ATLAS to calibrate jets} \label{fig:jes_correction_steps}
+\includegraphics[width=.9\linewidth]{jes_correction_steps}
+\end{figure}
+
+
+\begin{figure}
+\caption{Combined jet energy scale uncertainty as a function of \pt at \eta = 0.} \label{fig:jes_uncertainties}
+\includegraphics[width=.9\linewidth]{jes_uncertainties}
+\end{figure}
+
 
 \subsection{B-jets}
 

@@ -18,3 +18,148 @@
 \newcommand{\mdr}{\ensuremath{M_{\Delta}^{R}}}
 \newcommand{\calosig}{\ensuremath{\xi_{\text{cell}}}}
 \newcommand{\kt}{\ensuremath{k_T}}
+\newcommand{\Emiss}[1]{\ensuremath{E^\text{miss}_{#1}}}
+\newcommand{\Emisscomp}[2]{\ensuremath{E^{\text{miss, }{#2}}_{#1}}}
+
+\usepackage{xspace}
+
+%\def\todoi#1{\todo[inline]{#1}}
+\def\todo#1{\noindent{\color{magenta}TODO: #1}}
+
+\def\redcomment#1#2{\emph{\color{red}#1: #2}}
+\def\bluecomment#1#2{\emph{\color{blue}#1: #2}}
+
+\def\MRF{{\tt MET\_RefFinal}\xspace}
+
+\def\mediumpp{{\tt medium++}\xspace}
+\def\tight{{\tt tight}\xspace}
+
+\def\deltaPhi{\ensuremath{\Delta\phi}\xspace}
+\def\deltaEta{\ensuremath{\Delta\eta}\xspace}
+\def\deltaR{\ensuremath{\Delta R}\xspace}
+
+\def\ptconetwenty{{\tt ptcone20}}
+\def\etconeten{{\tt Etcone10}}
+\def\etconetwenty{{\tt Etcone20}}
+
+\newcommand{\ETmisssoft}{\ensuremath{E_{\text{T,soft}}^{\text{miss}}}}
+
+\newcommand{\mettrue}{\ensuremath{E_{\mathrm T}^\text{miss,Truth}}}
+\newcommand{\mettruevec}{\ensuremath{\vec{E}_{\mathrm T}^\text{miss,Truth}}}
+\def\metvec{\ensuremath{\vec{E}_{\mathrm{T}}^{\mathrm{miss}}}}
+\def\metsoft{\ensuremath{E_{\mathrm T}^{\mathrm miss,Soft Term}}}
+\def\metsoftvec{\ensuremath{\vec{E}_{\mathrm T}^{\mathrm miss,Soft Term}}}
+\def\metsoftpara{\ensuremath{E_{\parallel}^{\mathrm{miss,Soft Term}}}}
+\def\metsoftperp{\ensuremath{E_{\perp}^{\mathrm{miss,Soft Term}}}}
+\def\metsoftparaperp{\ensuremath{E_{\parallel (\perp)}^{\mathrm{miss,Soft Term}}}}
+\def\metsoftxy{\ensuremath{E_{x (y)}^{\mathrm{miss,Soft Term}}}}
+\def\metsoftsysreso{\ensuremath{E_{\parallel (\perp), {\mathrm reso}}^{\mathrm{miss,Soft Term}}}}
+\def\mexysoftsysreso{\ensuremath{E_{x (y), {\mathrm reso}}^{\mathrm{miss,Soft Term}}}}
+\def\metsoftsysscale{\ensuremath{E_{\parallel, {\mathrm scale}\pm}^{\mathrm{miss,Soft Term}}}}
+\def\metv{$\textbf{\textit{E}}_{\mathrm T}^{\mathrm miss}$}
+\def\sumve{\ensuremath{\sum\vec{E}_{\mathrm T}^{\mathrm e}}\xspace}
+\def\sumvtrk{\ensuremath{\sum\vec{E}_{\mathrm T}^{\mathrm trk}}\xspace}
+\def\sumvnu{\ensuremath{\sum\vec{E}_{\mathrm T}^{\mathrm \nu}}\xspace}
+\def\sumvmu{\ensuremath{\sum\vec{E}_{\mathrm T}^{\mathrm \mu}}\xspace}
+\def\sumvtau{\ensuremath{\sum\vec{E}_{\mathrm T}^{\mathrm \tau}}\xspace}
+\def\sumvgamma{\ensuremath{\sum\vec{E}_{\mathrm T}^{\mathrm      \gamma}}\xspace}
+\def\sumvjet{\ensuremath{\sum \vec{E}_{\mathrm T}^{\text{jet}}}\xspace}
+\def\dphimettruth{\ensuremath{\Delta\phi(\metvec,\mettruevec)}\xspace}
+\def\sigmadphimettruth{\ensuremath{RMS(\Delta\phi(\metvec,\mettruevec))}\xspace}
+\def\dphimetlep{\ensuremath{\Delta\phi(\metvec, \ell))}\xspace}
+\def\dphimettruelep{\ensuremath{\Delta\phi(\mettruevec, \ell))}\xspace}
+\def\sigmadphimetlep{\ensuremath{\sigma(\Delta\phi(\metvec,   \ell))}\xspace}
+
+\def\stvf{\ensuremath{\alpha_{\text{STVF}}}\xspace}
+
+\def \ptmis{$p^{\mathrm{miss}}_{\mathrm{T}}\;$}
+\def \ptsoft{$p^{\mathrm{soft}}_{\mathrm{T}}\;$}
+\def \ptmisSoft{$p^{\mathrm{miss}}_{\mathrm{T,soft}}\;$}
+\def \ptmisSoftL{$p^{\mathrm{miss}}_{\mathrm{T,soft,L}}\;$}
+\def \ptmisSoftP{$p^{\mathrm{miss}}_{\mathrm{T,soft,P}}\;$}
+\def \ptLep{$p^{\mathrm{Lep}}_{\mathrm{T}}\;$}
+\def \ptTrkHard{$p^{\mathrm{hard,trk}}_{\mathrm{T}}\;$}
+\def \sumpt{$\sum p_{\mathrm{T}}\;$}
+\def\phimiss{\ensuremath{\phi^{\text{miss}}}}
+\def \EtmisT{$E^{\mathrm{miss,\; track}}_{\mathrm{T}}\;$}
+\def \EtmisC{$E^{\mathrm{miss, \; calo}}_{\mathrm{T}}\;$}
+
+\def\metx{\ensuremath{E_{\text{x}}^{\text{miss}}}\xspace}
+\def\mety{\ensuremath{E_{\text{y}}^{\text{miss}}}\xspace}
+%% \def\metx{\ensuremath{E_{\mathrm x}^{\mathrm miss}}}
+%% \def\mety{\ensuremath{E_{\mathrm y}^{\mathrm miss}}}
+\def\metphi{\ensuremath{E_{\mathrm \phi}^{\mathrm miss}}}
+\def \ptZ{\ensuremath{p_{\mathrm{T}}^{Z}}}
+\def \ptW{\ensuremath{p_{\mathrm{T}}^{W}}}
+\def \ptZvec{\ensuremath{\mathbf{p}_{\mathrm{T}}^{Z}\xspace}}
+\def \ptmisparl{\ensuremath{p^{\mathrm{miss}}_{\mathrm{T,||}}\;}}
+\def \sumpt{\ensuremath{\Sigma p_{T}}\xspace}
+\def \sumetsoft{\ensuremath{\Sigma E_{T}^{\text{Soft Term}}}\xspace}
+\def \sumetevt{\ensuremath{\Sigma E_{T}}\xspace}
+\def \sumjetet{\ensuremath{\Sigma E_{T}^{\mathrm jets}}\xspace}
+\def \summuonet{\ensuremath{\Sigma E_{T}^{\mathrm \mu}}\xspace}
+\def \sumelecet{\ensuremath{\Sigma E_{T}^{\mathrm \text{e}}}\xspace}
+\def \dphi{$\Delta \phi\;$}
+\def \central{$\abseta < 2.0\;$}
+\def \forward{$\abseta > 3.0\;$}
+\def \dET{$\Delta E_{T}\;$}
+\def\Npv{$N_{\mathrm{PV}}$}
+\def\muav{\ensuremath{\langle \mu \rangle}}
+\def\muavno{$\mu$}
+\def\mT{\ensuremath{m_{\mathrm{T}}}}
+\def\mTtrue{\ensuremath{m_{\mathrm{T}}^{\mathrm{Truth}}}}
+\def\pthard{\ensuremath{ p_{\mathrm{T}}^{\mathrm{hard}}}}
+\def\ptvec{\ensuremath{\vec{\pt}}\xspace}
+\def\pthardvec{\ensuremath{\vec{p}_{\mathrm T}^\text{hard}}\xspace}
+\def\pthardhat{\ensuremath{\hat{\vec{p}}_{\mathrm T}^\text{hard}}\xspace}
+
+\newcommand{\zzero}{\ensuremath{z_{0}\xspace}}
+
+\def\recoil{\ensuremath{\textbf{\textit{Recoil}}}}
+\def\Az{\ensuremath{\mathbf { \textbf{ \textit {A}}}_Z}}
+
+\newcommand{\ptmiss}{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss,track}}}}
+\newcommand{\jcorrptmiss}{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss,track,jetCorr}}}}
+\newcommand{\ptmissRel}{\ensuremath{E_{\mathrm{T, Rel}}^{\mathrm{miss,trk}}}}
+\newcommand{\njet}{\ensuremath{N_{\text{jets}}}}
+\def\ptsofttrk{\ensuremath{p_{\mathrm{T,soft}}^{\mathrm{miss,trk}}}}
+\def\pthardtrk{\ensuremath{p_{\mathrm{T,hard}}^{\mathrm{miss,trk}}}}
+\def\trkmetx{\ensuremath{p_{\mathrm{x,soft}}^{\mathrm{miss,trk}}}}
+\def\trkmety{\ensuremath{p_{\mathrm{y,soft}}^{\mathrm{miss,trk}}}}
+\def\trkmet{\ensuremath{p_{\mathrm{T,soft}}^{\mathrm{miss,trk}}}}
+\def\trkmetori{\ensuremath{E_{\mathrm{T}}^{\mathrm{miss,trk}}}}
+\def\trkmetrel{\ensuremath{E_{\mathrm{T,rel}}^{\mathrm{miss,trk}}}}
+\def\trkmetv{\ensuremath{\textbf{\textit{p}}_{\mathrm T,soft}^{\mathrm miss,trk}}}
+\def\trkmetL{\ensuremath{p_{\mathrm{T,soft}}^{\mathrm{L,miss,trk}}}}
+\def\trkmetT{\ensuremath{p_{\mathrm{T,soft}}^{\mathrm{T,miss,trk}}}}
+\def\trkmetLT{\ensuremath{p_{\mathrm{L,P,soft}}^{\mathrm{L,miss,trk}}}}
+\def\trkmetLTcorr{\ensuremath{p_{\mathrm{L,P,soft}}^{\mathrm{miss,trk\pm}}}}
+\def\trkmetLcorr{\ensuremath{p_{\mathrm{L,soft}}^{\mathrm{miss,trk\pm}}}}
+\def\mll{\ensuremath{m_{\ell\ell}}}
+\def\mtt{\ensuremath{m_{\tau\tau}}}
+\newcommand{\sumpTsq}{\ensuremath{\Sigma \pt^2}}
+\newcommand{\Zjets}{\ensuremath{Z\mathrm{+jets}}}
+\newcommand{\Wjets}{\ensuremath{W\mathrm{+jets}}}
+\newcommand{\jvf}{\ensuremath{\text{JVF}}}
+\newcommand{\absjvf}{\ensuremath{\lvert \text{JVF} \rvert}}
+
+\newcommand{\PYTHIASix}{\textsc{Pythia6}}
+\newcommand{\PYTHIAEight}{\textsc{Pythia8}}
+\newcommand{\POWHEGPYTHIA}{\textsc{Powheg+Pythia}}
+\newcommand{\POWHEGPYTHIAEight}{\textsc{Powheg+Pythia8}}
+\newcommand{\HERWIGPP}{\textsc{Herwig++}}
+%\newcommand{\MADGRAPH}{MadGraph}
+\newcommand{\MCATNLO}{M\textsc{C@NLO}}
+\newcommand{\aMCATNLO}{aMC@NLO}
+\newcommand{\GGTOWW}{G\textsc{G2WW}}
+\newcommand{\HDECAY}{H\textsc{decay}}
+\newcommand{\GEANTFour}{\textsc{Geant4}\xspace}
+%\newcommand{\ACERMC}{{\textsc{acermc}}}
+
+\newcommand\CTEQ         {{\textsc{CTEQ}}}
+\newcommand\CTTen        {{\textsc{CT10}}}
+\newcommand\CTEQSix      {{\textsc{CTEQ6L1}}}
+
+\newcommand{\resopara}{\ensuremath{\sigma_\mathrm{L}}}
+\newcommand{\resoperp}{\ensuremath{\sigma_\mathrm{T}}}
+\newcommand{\shiftpara}{\ensuremath{\Delta_\mathrm{L}}}

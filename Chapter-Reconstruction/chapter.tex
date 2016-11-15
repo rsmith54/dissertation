@@ -369,13 +369,85 @@ After this final correction, the data and MC scales are identical up to the corr
 \includegraphics[width=.9\linewidth]{jes_uncertainties}
 \end{figure}
 
+\subsection{Jet Vertex Tagger}
+
+The \textit{jet vertex tagger} (JVT) \todo{cite} technique is used to separate pileup jets from those associated to the hard primary vertex.
+The technique for doing so first involves \textit{ghost association}\todo{cite}.
+Ghost association runs the anti-\kt jet clustering algorithm on a combined collection of the topoclusters and tracks.
+The tracks \textit{only} momenta are set to zero\footnotemark; only the directional information is included.
+\footnotetext{Well, not exactly zero, since zero momentum tracks wouldn't have a well-defined $(\eta,\phi)$ coordinate, but set to a value obeying $p_{\text{T,track}}  << 400 MeV = p_{\text{track,min}}$.
+This is the minimum momentum for a track to reach the ATLAS inner detector.}
+As discussed above, the anti-\kt algorithm is ``big to small''; this allows the tracks to be associated to the ``biggest'' jet near them in ($\eta, \phi$).
+This method uniquely associates each track to a jet, without changing the final jet kinematics.
+
+The JVT technique uses a combination of these track variables to determine the likelihood that the jet originated at the primary vertex.
+
+This
 
 \subsection{B-jets}
 
-
-
-
 \subsection{Missing Transverse Momentum}
 \todo{cite paper/notes}
+
+Missing transverse momentum \met is a key observable in searches for new physics, especially in SUSY searches.
+However, \met is not a uniquely defined object when considered from the detector perspective (as compared to the Feynamnn diagram), and it is useful to understand the choices that affect the performance of this observable in searches for new physics.
+
+\subsubsection{\met Definitions}
+
+\textit{Hard} objects refers to all physical objects as defined in the previous sections
+The \met reconstruction procedure uses these hard objects and the \textit{soft term} to provide a value and direction of the missing transverse momentum.
+The $E^{\text{miss}}_{x(y)}$ components are calculated as:
+\begin{equation}
+  \Emiss{x(y)} = \Emisscomp{x(y)}{\text{\textit{e}}}
+               + \Emisscomp{x(y)}{\gamma}
+               + \Emisscomp{x(y)}{\text{jets}}
+               + \Emisscomp{x(y)}{\mu}
+               + \Emisscomp{x(y)}{\text{soft}},
+  \label{eq:met-sum}
+\end{equation}
+where each value \Emisscomp{x(y)} is the negative vectorial sum of the calibrated objects defined in the previous sections.
+
+For purposes of \met reconstruction, we must assign an ordering of \textit{overlap removal}.
+This is to avoid double counting of the underlying primitive objects (clusters and tracks) which are inputs to the reconstruction of the physics objects.
+We resolve this in the following order : electrons, photons , jets and muons.
+This is motivated by the performance of the reconstruction of these objects in the calorimeters.
+
+The soft term $\Emisscomp{x(y)}{\text{soft}}$ contains all of the primitive objects which are not associated to any of the reconstructed physics objects.
+Of course, we need to choose which primitive object to use.
+The primary choices which have been used within ATLAS are the \textit{ calorimeter-based soft term} (CST) and the \textit{track-based soft term} (TST).
+Based on the soft term choice, we then call \met built with a CST (TST) soft term simply CST (TST) \met.
+An additional option, which will be important as pileup continues to increase, particle flow \met (PFlow \met).
+
+The CST \met was used for much of the early ATLAS data-taking.
+CST \met is built from the calibrated hard objects, combined with the calorimeter clusters which are \textit{not} assigned to any of those hard objects.
+In the absence of pileup, it provides the best answer for the ``true'' \met in a given event, due to the impressive hermiticity of the calorimeters.
+Unfortunately, the calorimeters do not know ``where'' from where their energy deposition came, and thus CST is susceptible to drastically reduced performance as pileup is increased.
+
+TST \met is the standard for ATLAS searches as currently performed by ATLAS.
+TST \met is built by using the calibrated hard objects and the soft term is built from the tracks which are not assigned to any of those hard objects.
+In particular, due to the impressive track-vertex association efficiency, one chooses tracks which only come from the primary vertex.
+This drastically reduces the pileup contributions to the \met measurement.
+However, since the ID tracking system is unable to measure neutral objects, the TST \met is ``wrong''.
+This bias is important to understand; however, in most searches for new physics, the soft \met is generally a small fraction of the total \met, and thus this bias is not particularly hurtful.
+
+PFlow \met uses the PFOs described above to build the \met.
+The PFOs which are assigned to hard objects are calibrated, and the PFOs which are not assigned to any hard object are added to the soft term.
+In this context, it is convenient to distinguish between ``charged'' and ``neutral'' PFOs.
+Charged PFOs can be seen as a topocluster which has an associated track, while neutral PFOs do not.
+This charged PFO is essentially a topocluster that we are ``sure'' comes from the primary vertex.
+The neutral PFOs are in the same status as the original topoclusters.
+Thus a ``full'' PFlow \met should have performance somewhere between TST \met and CST \met\footnotemark.
+\footnotetext{Naively, due to approximate isospin symmetry, about 2/3 of the hadrons will be charged and 1/3 will be neutral.}
+A \textit{charged} PFlow \met should for sanity be the same as TST.
+
+\subsubsection{\met Performance Metrics}
+
+The question is now straightforward; how do we compare these different algorithms?
+There are two main ingredients to investigate : the \met resolution and the \met scale.
+These components are measured in \Zll and \Wln events.
+These two ``standard candles'' are well-m
+
+The \met resolution relies on the fact that the bulk of the distributions associated to \Emiss{x(y)} are Gaussian distributed.
+
 
 \section{Maybe PFlow?}

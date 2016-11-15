@@ -440,14 +440,46 @@ Thus a ``full'' PFlow \met should have performance somewhere between TST \met an
 \footnotetext{Naively, due to approximate isospin symmetry, about 2/3 of the hadrons will be charged and 1/3 will be neutral.}
 A \textit{charged} PFlow \met should for sanity be the same as TST.
 
-\subsubsection{\met Performance Metrics}
+
+\subsubsection{Measuring \met Performance : event selection}
 
 The question is now straightforward; how do we compare these different algorithms?
-There are two main ingredients to investigate : the \met resolution and the \met scale.
-These components are measured in \Zll and \Wln events.
-These two ``standard candles'' are well-m
+We compare these algorithms in \Zll+jets and \Wln+jets events.
+Due to the presence of leptons, these events are well-measured ``standard candles''.
+Here we present the results in early 2015 data with \Zmm and \Wen events, as shown in \cite{PHYS-PUB-2015-023}.
+\todo{integrate luminosity?, something about important test of early results?}
 
-The \met resolution relies on the fact that the bulk of the distributions associated to \Emiss{x(y)} are Gaussian distributed.
+The \Zll selection is used to measure the intrinsic \met resolution of the detector.
+The only possible source of neutrinos in these decays is from heavy-flavor decays inside of jets; they have very low \met.
+This provides an ideal event topology to understand the modelling of \met mismeasurement.
+Candidate \Zmm events are first required to pass a muon or electron trigger, as described in Table \ref{tab:triggers}.
+Offline, the selection of \Zmm events requires exactly two medium muons.
+The muons are required to have opposite charge and $\pt > 25 \GeV$, and mass of the dimuon system is required to be consistent with the $Z$ mass $|m_{ll} - m_Z | < 25 \GeV$.
+
+\Wln events are an important topology to evaluate the \met modelling in an event with real \met.
+This \met is from the neutrino, which is not detected.
+The \met in these events has a characteristic distribution with a peak at $\frac{1}{2} m_W$.
+The selection of \Wen events begins with the selection of exacly one electron of medium quality.
+A selection on TST $\met > 25 \GeV$  drastically reduces the background from multijet events where the jet fakes an electron.
+The transverse mass is used to select the \Wen events :
+\begin{equation}
+  \mT = \sqrt{ 2\pt^{\ell} \met (1-\cos{\deltaPhi}) },
+\label{eq:mT}
+\end{equation}
+where \deltaPhi is the difference in the $\phi$ between the \met and the electron.
+\mT is required to be greater than 50 \GeV.
+
+There are two main ingredients to investigate : the \met resolution and the \met scale.
+
+\subsubsection{\met Performance Metrics}
+
+To compare these algorithms we use the \met resolution and the \met scale.
+
+The \met resolution is an important variable due to the fact that the bulk of the distributions associated to \Emiss{x(y)} are Gaussian distributed \cite{7 tev \met paper}.
+However, to properly measure the tails of this distribution, especially when considering non-calorimeter based soft terms, it is important to use the root-mean square as the proper measure of the resolution.
+This is strictly larger than a fit to a Gaussian, due to the long tails from i.e. track mismeasurements.
+The distribution of the sum of \Emiss{x} and \Emiss{y}\footnotemark is shown in Fig.\ref{}
+\footnotetext{Due to the very close to exact U(1)$_\phi$ symmetry of ATLAS, the $x$ and $y$ components can be considered independent, and they are added in this plot.}
 
 
 \section{Maybe PFlow?}

@@ -81,6 +81,17 @@
 \usepackage{lineno}
 \linenumbers
 
+\let\newfloat\undefined
+\usepackage{floatrow}
+\floatsetup[table]{capposition=bottom}
+\floatsetup[figure]{capposition=bottom}
+
+
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
+
+
 %-------------------------------------------------------------------------------
 % Generic document information
 %-------------------------------------------------------------------------------

@@ -442,7 +442,7 @@ A \textit{charged} PFlow \met should for sanity be the same as TST.
 
 
 \subsubsection{Measuring \met Performance : event selection}
-
+\label{subsubsec:met_event_selection}
 The question is now straightforward; how do we compare these different algorithms?
 We compare these algorithms in \Zll+jets and \Wln+jets events.
 Due to the presence of leptons, these events are well-measured ``standard candles''.
@@ -471,15 +471,85 @@ where \deltaPhi is the difference in the $\phi$ between the \met and the electro
 
 There are two main ingredients to investigate : the \met resolution and the \met scale.
 
-\subsubsection{\met Performance Metrics}
+\subsubsection{Measuring \met Performance in early 2015 data : metrics}
 
 To compare these algorithms we use the \met resolution and the \met scale.
+Representative distributions of TST \Emiss{x}, \Emiss{y}, and  \met from early 2015 datataking are shown in Fig.\ref{fig:tst_met_zmumu}.
 
 The \met resolution is an important variable due to the fact that the bulk of the distributions associated to \Emiss{x(y)} are Gaussian distributed \cite{7 tev \met paper}.
 However, to properly measure the tails of this distribution, especially when considering non-calorimeter based soft terms, it is important to use the root-mean square as the proper measure of the resolution.
-This is strictly larger than a fit to a Gaussian, due to the long tails from i.e. track mismeasurements.
-The distribution of the sum of \Emiss{x} and \Emiss{y}\footnotemark is shown in Fig.\ref{}
-\footnotetext{Due to the very close to exact U(1)$_\phi$ symmetry of ATLAS, the $x$ and $y$ components can be considered independent, and they are added in this plot.}
+This is strictly larger than a resolution as measured using a fit to a Gaussian, due to the long tails from i.e. track mismeasurements.
+The resolution is measured with respect to two separate variables : \sumET and \npv.
+\sumET is an important measure of the ``total event activity; it is defined as
+\begin{equation}
+  \sumET =
+  \sum \pT^{\text{\textit{e}}}       +
+  \sum \pT^{\mathrm{\gamma}}   +
+  \sum \pT^{\mathrm{\tau}}        +
+  \sum \pT^{\text{jets}}      +
+  \sum \pT^{\mathrm{\mu}}     +
+  \sum \pT^{\text{soft}}.
+ \label{eq:sumet}
+\end{equation}
+The measurement as a function of \npv is useful to understand the degradation of \met performance with increasing pileup.
+Figure \ref{fig:tst_met_resolution_zmumu} shows the \met resolution in the early 2015 data.
+The degradation of the \met performance is shown as a function of pileup \npv and total event activity \sumET.
+
+The other important performance metric is the \met scale, or how ``right'' we are in our \met calculation.
+This can be off in various directions; CST \met contains additional particles from pileup, while soft neutral particles\footnotemark are ignored by TST \met.
+\footnotetext{``Soft`` here means those particles which are not hard enough to be reconstructed as their own particle, using the reconstruction algorithms above.}
+To measure this in data, we again use \Zmm events, where the \Zmm system is treated as a well-measured reference object.
+The component of \met which is in the same direction as the reconstructed \Zmm system is sensitive to potential biases in the detector response.
+The unit vector \Az of the $Z$ system is defined as
+\begin{equation}
+\Az =\frac{\vec{p_T}^{\ell^+}+\vec{p_T}^{\ell^-}}{|\vec{p_T}^{\ell^+}+\vec{p_T}^{\ell^-}|},
+\end{equation}
+where $\vec{p_T}^{\ell^+}$ and $\vec{p_T}^{\ell^-}$ are the transverse momenta of the leptons from the $Z$ boson decay.
+The relevant scale metric is then the mean value of the \metvec projected onto $\Az$ :  $\langle\metvec\cdot \Az \rangle$.
+In Figure \ref{fig:tst_met_scale_zmumu}, the scale is shown for the early 2015 dataset.
+The negative bias, which is maximized at about 5 \GeV, is a a likely reflection of two separate effects.
+The soft neutral particles are missed by the tracking system, and thus ignored in TST \met.
+Missed particles due to the limited ID acceptance can also affect the scale.
+
+%\footnotetext{Due to the very close to exact U(1)$_\phi$ symmetry of ATLAS, the $x$ and $y$ components can be considered independent, and they are added in this plot.}
+\begin{figure}
+\caption{TST \Emiss{x}, \Emiss{y}, and \met distributions of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}. The data sample consists of 6 \ipb.} \label{fig:tst_met_zmumu}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_01c}}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_01d}} \\
+\subfloat[ ]{\includegraphics[width=.9\linewidth] {ATL-PHYS-PUB-2015-027/fig_01a}}
+\end{figure}
+
+\begin{figure}
+\caption{Resolution of TST \met of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}. The data sample consists of 6 \ipb.} \label{fig:tst_met_resolution_zmumu}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_04a}}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_04b}}
+\end{figure}
+
+\begin{figure}
+\caption{Scale of TST \met of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}. The data sample consists of 6 \ipb.} \label{fig:tst_met_scale_zmumu}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_05}}
+\end{figure}
+
+
+\subsubsection{Particle Flow Performance}
+
+As described above, the resolution and scale are the most important metrics to understand the performance of the different \met algorithms.
+In this section, we present comparisons of the different algorithms, including particle flow, in a data sample from 2015 of 80 \ipb.
+
+\begin{figure}
+\caption{Comparison of \met distributions using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:algs_met_resolution_zmumu}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_PFlow_ch_weight_zmumu}}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_PFlow_weight_zmumu}} \\
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_TST_weight_zmumu}}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_CST_weight_zmumu}}
+\end{figure}
+
+
+\begin{figure}
+\caption{Comparison of resolution using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:algs_met_resolution_zmumu}
+%\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/fig_04a}}
+%\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/fig_04b}}
+\end{figure}
 
 
 \section{Maybe PFlow?}

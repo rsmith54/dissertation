@@ -473,7 +473,7 @@ There are two main ingredients to investigate : the \met resolution and the \met
 
 \subsubsection{Measuring \met Performance in early 2015 data : metrics}
 
-To compare these algorithms we use the \met resolution and the \met scale.
+To compare these algorithms we use the \met resolution, \met scale, and the linearity.
 Representative distributions of TST \Emiss{x}, \Emiss{y}, and  \met from early 2015 datataking are shown in Fig.\ref{fig:tst_met_zmumu}.
 
 The \met resolution is an important variable due to the fact that the bulk of the distributions associated to \Emiss{x(y)} are Gaussian distributed \cite{7 tev \met paper}.
@@ -495,7 +495,7 @@ The measurement as a function of \npv is useful to understand the degradation of
 Figure \ref{fig:tst_met_resolution_zmumu} shows the \met resolution in the early 2015 data.
 The degradation of the \met performance is shown as a function of pileup \npv and total event activity \sumET.
 
-The other important performance metric is the \met scale, or how ``right'' we are in our \met calculation.
+Another important performance metric is the \met scale, or how ``right'' we are in our \met calculation.
 This can be off in various directions; CST \met contains additional particles from pileup, while soft neutral particles\footnotemark are ignored by TST \met.
 \footnotetext{``Soft`` here means those particles which are not hard enough to be reconstructed as their own particle, using the reconstruction algorithms above.}
 To measure this in data, we again use \Zmm events, where the \Zmm system is treated as a well-measured reference object.
@@ -510,6 +510,14 @@ In Figure \ref{fig:tst_met_scale_zmumu}, the scale is shown for the early 2015 d
 The negative bias, which is maximized at about 5 \GeV, is a a likely reflection of two separate effects.
 The soft neutral particles are missed by the tracking system, and thus ignored in TST \met.
 Missed particles due to the limited ID acceptance can also affect the scale.
+
+For events with real \met, one can also look at the linearity in simulation
+This is defined as
+\begin{equation}
+\text{linearity} = \langle \frac{\met - \mettrue}{\mettrue}  \rangle.
+\end{equation}
+\mettrue refers to ``truth'' particles as defined before, or the magnitude of the vector sum of all noninteracting particles.
+The linearity is expected to be zero if the \met is reconstructed at the correct scale.
 
 %\footnotetext{Due to the very close to exact U(1)$_\phi$ symmetry of ATLAS, the $x$ and $y$ components can be considered independent, and they are added in this plot.}
 \begin{figure}
@@ -533,11 +541,61 @@ Missed particles due to the limited ID acceptance can also affect the scale.
 
 \subsubsection{Particle Flow Performance}
 
-As described above, the resolution and scale are the most important metrics to understand the performance of the different \met algorithms.
-In this section, we present comparisons of the different algorithms, including particle flow, in a data sample from 2015 of 80 \ipb.
+As described above, the resolution, scale, and linearity are the most important metrics to understand the performance of the different \met algorithms.
+In this section, we present comparisons of the different algorithms, including particle flow, in simulation and using a data sample from 2015 of 80 \ipb.
+In these plots, ``MET\_PFlow\_TST'' refers to charged PFlow \met, while the other algorithms are as described above.
+
+Figures \ref{fig:mc_algs_met_resolution_zmumu,fig:mc_algs_met_scale_zmumu} show the resolution and scale in simulated \Zmm events.
+The resolution curves follow the ``intuitive'' behavior discussed before.
+Due to the high pileup in 2015 run conditions, the CST \met resolution is poor, and becomes even poorer with increasing pileup and event activity.
+The ``regular'' PFlow \met shows reduces pileup and event activity dependence as compared to the CST.
+As stated earlier, the \met from the PFlow algorithm can be seen as a hybrid of TST \met and CST \met; the charged PFOs (\order 2/3) are pileup supressed, while the neutral PFOs (or topoclusters) are not.
+Both charged PFlow and TST \met show only a small residual dependence on \npv and \sumET, since they have fully pileup supressed inputs through the track associations.
+
+The scale plots are shown for $Z$+jets events and $Z$ events with no jets.
+For the nonsuppressed CST, the scale continues to worsen with increasing \ptZ; it is almost always the worst performing algorithm.
+The standard PFlow algorithm performs the second worst in the region of high \ptZ, but is the best at low \ptZ.
+The most exciting note in this plot is the improved scale of the charged PFlow \met compared to the TST \met.
+Considering the resolution is essentially identical, the PFlow algorithm is better picking up the contributions from additional neutral particles.
+In events with no jets, the soft term is essentially the only indication of the \met mismeasurement, since the muons will be well-measured.
+In this case, the pileup effects cancel, on average, due to the U$(1)_\phi$ symmetry of the ATLAS detector, and CST performs rather well compared to the more complicated track-based algorithms.\todo{check}
+The full PFlow algorithm performs best, since it provides a small amount of pileup suppression on the neutral components from CST.
+
+The resolution and linearity are shown in simulated \Wen events in Figure \ref{fig:mc_algs_met_resolution_wenu,}.
+The resolution in \Wen events shows a similar qualitative behavior to that shown in \Zmm events.
+The CST \met has the worst performance, with charged PFlow \met performing best.
+The surprise here is that the scale associated to TST \met in these events is best throughout the space parameterized by \mettrue, except for one bin at $40 \GeV < \mettrue < 50 \GeV$.
+The scale in these events is best measured using a track-based soft term \todo{why???}.
+
+The resolution also investigated in real data passing the \Zmm selection described above.
+A comparison of the \met between real data and simulation for each algorithm is presented in Figure \ref{fig:data_algs_met_zmumu}.
+The resolution as a function of \sumET and \npv is shown in Figure \ref{fig:data_algs_met_resolution_zmumu} for this dataset.
+Overall, this plot shows the same general features as the simulation dataset in terms of algorithm performance.
+However, the performance of all algorithms seems to be significantly worse in data.
+This is likely due to simplifications made in the simulation; soft interactions that cannot be simulated can have a significant effect on an event level variable such as the \met resolution.\todo{check or think?}.
 
 \begin{figure}
-\caption{Comparison of \met distributions using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:algs_met_resolution_zmumu}
+\caption{Comparison of \met resolution and linearity using different \met algorithms with simulated \Wen events.} \label{fig:mc_algs_met_resolution_wenu}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/mc_algs_met_resolution_wenu}}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/mc_algs_met_linearity_wenu}}
+\end{figure}
+
+\begin{figure}
+\caption{Comparison of \met resolution using different \met algorithms with simulated \Zmm events.} \label{fig:mc_algs_met_resolution_zmumu}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/resol_sumet_mc}}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/resol_npv_mc}}
+\end{figure}
+
+\begin{figure}
+\caption{Comparison of \met scale using different \met algorithms with simulated \Zmm events.} \label{fig:mc_algs_met_scale_zmumu}
+\subfloat[Inclusive in number of jets ]{\includegraphics[width=.45\linewidth]{HCW_plots/scale_ptz}}
+\subfloat[Zero jet events ]{\includegraphics[width=.45\linewidth]            {HCW_plots/scale_ptz_no_jets}}
+\end{figure}
+
+
+
+\begin{figure}
+\caption{Comparison of \met distributions using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:data_algs_met_zmumu}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_PFlow_ch_weight_zmumu}}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_PFlow_weight_zmumu}} \\
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_TST_weight_zmumu}}
@@ -546,10 +604,11 @@ In this section, we present comparisons of the different algorithms, including p
 
 
 \begin{figure}
-\caption{Comparison of resolution using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:algs_met_resolution_zmumu}
-%\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/fig_04a}}
-%\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/fig_04b}}
+\caption{Comparison of \met resolution using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:data_algs_met_resolution_zmumu}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/resol_sumet}}
+\subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/resol_npv}}
 \end{figure}
+
 
 
 \section{Maybe PFlow?}

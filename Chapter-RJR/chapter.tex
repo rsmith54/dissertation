@@ -53,9 +53,9 @@ This is the frame where each sparticle is at rest.
 In the \rframe, the decay is straightforward to analyze.
 By construction, there are in fact two \rframe s, and they have identical kinematics.
 Each megajet has energy $E_1^R, E_2^R$ in the frame of its parent sparticle, and we define a characteristic mass $M_R$:
-\begin{align}
+\begin{align}\label{eq:mr}
 E_1^R &= E_2^R &= \frac{\mheavy^2 - \mlsp^2}{ 2 \mheavy } \\
-M_R &= 2 \times E_1^R &= 2 \times E_2^R = \frac{\mheavy^2 - \mlsp^2}{\mheavy }.
+M_R &= 2 \times E_1^R = 2 \times E_2^R &= \frac{\mheavy^2 - \mlsp^2}{\mheavy }.
 \end{align}
 For cases where $\mheavy >> \mlsp$, $M_R$ is an estimator of \mheavy.
 This scenario happens in the SM, such as in \ttbar and \WW events, where the \lsp is instead a neutrino.
@@ -78,8 +78,8 @@ This is a two-step procedure.
 We perform two \textit{boosts}: a longitudinal boost $\beta_L$ and a transverse boost $\beta_T$.
 Schematically,
 \begin{align}
-J_1^R &\xrightarrow[\beta_T]{}  J_1^{CM} &\xrightarrow[\beta_T]{} J_1^{\text{lab}} \\
-J_2^R &\xrightarrow[-\beta_T]{} J_2^{CM} &\xrightarrow[\beta_T]{} J_2^{\text{lab}} \\
+J_1^R &\xrightarrow[]{\beta_T } J_1^{CM} &\xrightarrow[]{\beta_L} J_1^{\text{lab}} \\
+J_2^R &\xrightarrow[]{-\beta_T} J_2^{CM} &\xrightarrow[]{\beta_L} J_2^{\text{lab}} \\
 \end{align}
 The $J_{1,2}^{\text{lab}}$ correspond directly to those in the megajet construction.
 We drop the ``$\text{lab}$'' designation for the rest of the discussion.
@@ -87,15 +87,69 @@ The question is how to compute the magnitudes of these boosts, given the missing
 
 For the transverse boost $\beta_T$, recall the two megajets have equal energies in their \rframe by construction.
 This constraint can be reexpressed as a constraint on the magnitude of this boost, in terms of the boost velocity $\beta_L$ (and Lorentz factor $\gamma_L$):
-\begin{align}
-\beta_T = \frac{ \gamma_L (E_1^ - E_2) - \gamma_L \beta_L (p_{1,z} - p_{2,z})}
-               { \hat{\beta}_T \cdot (\vec{p_{1,T}} - \vec{p_{2,T}} )}
+\begin{align}\label{eq:beta_t}
+\beta_T = \frac{ \gamma_L (E_1 - E_2) - \gamma_L \beta_L (p_{1,z} - p_{2,z})}
+               { \hat{\beta}_T \cdot (\vec{p_{1,T}} + \vec{p_{2,T}} )}
 \end{align}
 where we have denoted the lab frame four-vectors as  $p_i = (E_i , \vec{p_{i,T}} , p_z)$.
+We now make the \textit{choice} for the direction of the transverse boost $\hat{\beta}_T$:
+\begin{align}
+\hat{\beta}_T =  \frac{\vec{p_{1,T}} +  \vec{p_{2,T}}}{ | \vec{p_{1,T}} +  \vec{p_{2,T}}  | }.
+\end{align}
+This choice forces the denominator of \ref{eq:beta_t} to unity, and corresponds to aligning the transverse boost direction with the sum of the two megajets transverse directions.
+
+For the longitudinal boost, we choose $\vec{\beta_L}$ along the $z$-direction, with magnitude:
+\begin{align} \label{eq:beta_l}
+\beta_L = \frac{p_{1,z} + p_{2,z}}{E_1+E_2}.
+\end{align}
+Viewed in terms of the original parton-parton interactions, this is the choice which ``on average'' gives $p_{z,\text{CM}} = 0$, as we would expect.
+This well-motivated choice due to the total $z$ symmetry.
+
+We now have well-motivated guesses for both boosts, which allow us write our original characteristic mass $M_R$ in terms of the lab frame variables, by application of these two (inverse) Lorentz boosts to the energies of \ref{eq:mr}:
+\begin{align}
+M_R^2 &\xrightarrow[]{\beta_T } M_{R,\text{CM}}^{2} \xrightarrow[]{\beta_L } M_{R,\text{lab}}^{2}
+      &=(E_1 + E_2)^2 - (p_{1,z} + p_{1,z})^2.
+\end{align}
+
+Finally, we define an additional mass variable, which include the missing transverse energy \met.
+Importantly, note that we did not use the \met in the definition of $M_R$, which depends only on the energies of the megajets.
+Backgrounds with no invisible particles (such as multijet events) must have $J_1$ and $J_2$ back to back.
+Thus, we define the transverse mass:
+\begin{align}
+(M_R^T)^2 = \frac{1}{2} \begin{bmatrix} \met(p_{1,T}  + p_{2,T}) - \metvec \cdot (\vec{p_{1,T}}  + \vec{p_{2,T} })  \end{bmatrix}.
+\end{align}
+Generally, we have $M_R^T < M_R$, so we define a dimensionless ratio (``the razor''):
+\begin{align}
+R^2 = \begin{pmatrix} \frac{M_R^T}{M_R} \end{pmatrix}^2.
+\end{align}
+For signal events, we expect $R$ to peak around $R \order 1/4$, while backgrounds without real \met are expected to have $R \order 0$.
+\todo{figure for razor}
 
 
 \section{Recursive Jigsaw Reconstruction}
 
+Recursive Jigsaw Reconstruction is an algorithm allowing the imposition of a decay tree interpretation on an particular event\cite{Jackson:2016mfb,ATLAS-CONF-2016-078}.
+The idea is to construct the underlying kinematic variables (the masses and decay angles) on an event-by-event level.
+In events where all objects are fully reconstructed, this is straightforward, and of course has been used for many years in particle physics experiments.
+Events which contain \met are more difficult, due to the loss of information, both from the lack of longitudinal information and the potential for multiple mismeasured or simply unmeasureable objects.
+There can also be combinatoric ambiguities in deciding how to group objects of the same type; specifically here, we will be concerned with the rule to associate jets to a particular branch of decay tree.
+
+\todo{hemisphere, show how we make the decay tree}
+
+The only possible solution to fully define the event kinematics in terms of the frames of the hypothesized decays is the imposition of external constraints to eliminate these additional degrees of freedom.
+We call this a \textit{jigsaw}.
+More explicitly, a jigsaw (rule) is a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
+As we saw, this is the way the razor technique was the predecessor for RJR.
+The minimization of $\beta_L$ was in effect the imposition of longitudinal boost invariance, and allows a unique boost definition in the $z-$ direction.
+This was a jigsaw rule.
+An additional jigsaw we have already seen is the megajet construction.
+The minimization of
+\begin{align}
+m_{J_1}^2 + m_{J_2}^2.
+\end{align}
+was a jigsaw rule to deal with the combinatoric ambiguity when assigning jets to a particular megajet.
+The other important jigsaw for this thesis is how we associate the \met to a particular hemisphere after constructing the associated megajets.
+One can see our
 
 The algorithm proceeds by the imposition of a particular \textit{decay tree}, which corresponds to a simplified Feynmann diagram.
 At each step in this decay tree, we can calculate variables of interest, through a series of simplifying assumptions.

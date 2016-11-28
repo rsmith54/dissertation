@@ -12,6 +12,7 @@ After the description of the algorithm, we will describe the precise RJR variabl
 
 \section{Razor variables}
 
+\subsection{Motivation}
 In this thesis, we consider SUSY models where gluinos and squarks are pair-produced.
 Pair-production is a consequence of the $R$-parity imposed in many SUSY models.
 $R-$parity violation is highly constrained by limits on proton decay\todo{CitE}, and is often assumed in SUSY model building.
@@ -25,7 +26,6 @@ The Feynmann diagrams considered are shown in Fig.\ref{fig:feynmann_signal}.\tod
 
 As discussed previously, the consequences of this $\mathbb{Z}_2$ symmetry are drastic.
 To understand the utility of the razor variables, the stability of the lightest supersymmetric particle is very important.
-The stability of the \textit{lightest supersymmetric particle} is very important.
 In many SUSY models, including the ones considered in this thesis, this is the lightest neutralino \lsp.
 This means that on either side of a SUSY decay process, where we begin with disparticle production, we have a final state particle which is not detected.
 Generically, this leads to \met.
@@ -37,14 +37,61 @@ An additional limitation is the complete lack of longitudinal information.
 As events from i.e. QCD backgrounds tend to have higher boosts along the $z$-direction, this is ignoring an important handle in searches for new physics.
 Finally, \met is only one object, which is a measurement for \textit{two} separate LSPs.
 \todo{say somethign else here}
-
+The \textit{razor variables} $(\mdr, R^2)$ are more robust than standard variables against these effects.
 
 \subsection{Derivation of the razor variables}
 
-The ``razor'' variables $(M_R, R^2)$ are one of many attempts to alleviate these shortcomings of the \met variable\footnotemark
+To derive the razor variables $(\mdr, R^2)$, we start with a generic situation of the pair production of heavy sparticles with mass $\mheavy$.\footnotemark
 \footnotetext{The razor variables have undergone confusing notational changes over the years.
 We will be self-consistent, but the notation used here may be different from references.
 }
+Each sparticle decays to a number of observable objects (in this thesis, jets), and an unobservable \lsp of mass \mlsp.
+We will combine all of the jets into a \textit{megajet}; this process will be described below.
+We begin by analyzing the decay in the ``rough-approximation'', or in modern parlance, \textit{razor frame} (\rframe).
+This is the frame where each sparticle is at rest.
+
+In the \rframe, the decay is straightforward to analyze.
+By construction, there are in fact two \rframe s, and they have identical kinematics.
+Each megajet has energy $E_1^R, E_2^R$ in the frame of its parent sparticle, and we define a characteristic mass $M_R$:
+\begin{align}
+E_1^R &= E_2^R &= \frac{\mheavy^2 - \mlsp^2}{ 2 \mheavy } \\
+M_R &= 2 \times E_1^R &= 2 \times E_2^R = \frac{\mheavy^2 - \mlsp^2}{\mheavy }.
+\end{align}
+For cases where $\mheavy >> \mlsp$, $M_R$ is an estimator of \mheavy.
+This scenario happens in the SM, such as in \ttbar and \WW events, where the \lsp is instead a neutrino.
+
+The question now is how to use this simple derivation in the lab frame, where we actually have measurements.
+There are two related issues: how to combine the jets into the megajets, and how to ``transform'' to the \rframe.
+
+To construct the megajets, the procedure is the following.
+For a given set of jets $j_i, i = 0 , ... , n_{\mathrm{jet}}$, we construct \textit{all} combinations of their four-momenta such that there is at least one jet inside each megajet.
+Among this set of possible megajets $\{J_{1,2}\}$, we make the following unique choice for the megajets.
+We minimize the following quantity:
+\begin{align}
+m_{J_1}^2 + m_{J_2}^2.
+\end{align}
+In modern parlance, this is known as a \textit{jigsaw}.
+It is important to note, this is a \textit{choice}.
+
+We now describe how we translate our megajet kinematics, measured in the lab frame, to the \rframe.
+This is a two-step procedure.
+We perform two \textit{boosts}: a longitudinal boost $\beta_L$ and a transverse boost $\beta_T$.
+Schematically,
+\begin{align}
+J_1^R &\xrightarrow[\beta_T]{}  J_1^{CM} &\xrightarrow[\beta_T]{} J_1^{\text{lab}} \\
+J_2^R &\xrightarrow[-\beta_T]{} J_2^{CM} &\xrightarrow[\beta_T]{} J_2^{\text{lab}} \\
+\end{align}
+The $J_{1,2}^{\text{lab}}$ correspond directly to those in the megajet construction.
+We drop the ``$\text{lab}$'' designation for the rest of the discussion.
+The question is how to compute the magnitudes of these boosts, given the missing degrees of freedom.
+
+For the transverse boost $\beta_T$, recall the two megajets have equal energies in their \rframe by construction.
+This constraint can be reexpressed as a constraint on the magnitude of this boost, in terms of the boost velocity $\beta_L$ (and Lorentz factor $\gamma_L$):
+\begin{align}
+\beta_T = \frac{ \gamma_L (E_1^ - E_2) - \gamma_L \beta_L (p_{1,z} - p_{2,z})}
+               { \hat{\beta}_T \cdot (\vec{p_{1,T}} - \vec{p_{2,T}} )}
+\end{align}
+where we have denoted the lab frame four-vectors as  $p_i = (E_i , \vec{p_{i,T}} , p_z)$.
 
 
 \section{Recursive Jigsaw Reconstruction}

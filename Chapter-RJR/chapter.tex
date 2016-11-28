@@ -6,7 +6,7 @@
 
 \textit{Recursive Jigsaw Reconstruction} (RJR) \cite{Jackson:2016mfb,ATLAS-CONF-2016-078} is a novel algorithm used for the analysis presented in this thesis.
 RJR is the conceptual successor to the razor technique \cite{Rogan:2010kb,Buckley:2013kua}, which has been used successfully in many new physics searches \cite{SUSY-2014-05,SUSY-2014-06,CMS-SUS-13-004,CMS-SUS-12-005,CMS-SUS-11-024,SUSY-2011-22}.
-In this chapter, we will first present the razor technique, and describe razor variables.
+In this chapter, we will first present the razor technique, and describe the razor variables.
 We will then present the RJR algorithm.
 After the description of the algorithm, we will describe the precise RJR variables used by this thesis and attempt to provide some physical intuition of what they describe.
 
@@ -19,8 +19,8 @@ $R-$parity violation is highly constrained by limits on proton decay\todo{CitE},
 The Feynmann diagrams considered are shown in Fig.\ref{fig:feynmann_signal}.\todo{Check on W production thing, LO naming}.
 \begin{figure}
 \caption{Leading order Feynman diagrams for the SUSY signals considered in this thesis} \label{fig:feynmann_signal}
-\subfloat[Disquark production]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01a}}
-\subfloat[Digluino production]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01b}}
+\subfloat[Disquark production]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01a}} \\
+\subfloat[Digluino production]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01b}} \\
 \subfloat[Digluino production with associated W bosons.]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01c}}
 \end{figure}
 
@@ -105,7 +105,7 @@ For the longitudinal boost, we choose $\vec{\beta_L}$ along the $z$-direction, w
 Viewed in terms of the original parton-parton interactions, this is the choice which ``on average'' gives $p_{z,\text{CM}} = 0$, as we would expect.
 This well-motivated choice due to the total $z$ symmetry.
 
-We now have well-motivated guesses for both boosts, which allow us write our original characteristic mass $M_R$ in terms of the lab frame variables, by application of these two (inverse) Lorentz boosts to the energies of \ref{eq:mr}:
+We now have well-motivated guesses for both boosts, which allow us write our original characteristic mass $M_R$ in terms of the lab frame variables, by application of these two Lorentz boosts to the energies of \ref{eq:mr}:
 \begin{align}
 M_R^2 &\xrightarrow[]{\beta_T } M_{R,\text{CM}}^{2} \xrightarrow[]{\beta_L } M_{R,\text{lab}}^{2}
       &=(E_1 + E_2)^2 - (p_{1,z} + p_{1,z})^2.
@@ -130,29 +130,89 @@ For signal events, we expect $R$ to peak around $R \order 1/4$, while background
 
 Recursive Jigsaw Reconstruction is an algorithm allowing the imposition of a decay tree interpretation on an particular event\cite{Jackson:2016mfb,ATLAS-CONF-2016-078}.
 The idea is to construct the underlying kinematic variables (the masses and decay angles) on an event-by-event level.
+This is done ``recursively'' through a decay tree which corresponds (sometimes approximately) to the Fenymann diagram for the signal process of interest.
+The imposition of these decay trees is done by \textit{jigsaw} rule: a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
+\todo{cite RestFrames}
+
 In events where all objects are fully reconstructed, this is straightforward, and of course has been used for many years in particle physics experiments.
-Events which contain \met are more difficult, due to the loss of information, both from the lack of longitudinal information and the potential for multiple mismeasured or simply unmeasureable objects.
-There can also be combinatoric ambiguities in deciding how to group objects of the same type; specifically here, we will be concerned with the rule to associate jets to a particular branch of decay tree.
+Events which contain \met are more difficult, due to the loss of information: the potential for multiple mismeasured or simply unmeasureable objects, such as neutrinos or the LSP in SUSY searches.
+There can also be combinatoric ambiguities in deciding how to group objects of the same type; specifically here, we will be concerned with the jigsaw rule to associate jets to a particular branch of a decay tree.
+\todo{more}
 
-\todo{hemisphere, show how we make the decay tree}
+\subsection{Decay Trees}
 
-The only possible solution to fully define the event kinematics in terms of the frames of the hypothesized decays is the imposition of external constraints to eliminate these additional degrees of freedom.
-We call this a \textit{jigsaw}.
-More explicitly, a jigsaw (rule) is a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
-As we saw, this is the way the razor technique was the predecessor for RJR.
-The minimization of $\beta_L$ was in effect the imposition of longitudinal boost invariance, and allows a unique boost definition in the $z-$ direction.
-This was a jigsaw rule.
-An additional jigsaw we have already seen is the megajet construction.
+The decay trees imposed in this thesis are shown in \todo{ref figures}.
+\begin{figure}
+\caption{RJR decay trees imposed in this thesis} \label{fig:decay_trees}
+\subfloat[Disquark decay tree]  {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_02a}}\ref{subfig:disquark_decay_tree}
+\subfloat[Digluino decay tree]  {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_02b}}\ref{subfig:digluino_decay_tree}
+\subfloat[Compressed decay tree]{\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_02c}}\ref{subfig:compressed_decay_tree}
+\end{figure}
+Leaving temporarily the question of ``how'' we apply the jigsaw rules, let us compare these trees to the signal processes of interest.
+In particular, we want to compare the Feynmann diagrams of \ref{fig:feynmann_signal} with the decay trees of \ref{fig:decay_trees}.
+The decay tree in \ref{subfig:disquark_decay_tree} corresponds exactly to that expected from disquark production, and matches very closely with the principles of the razor approach.
+We first apply a jigsaw rule, indicated by a line, to the kinematics of the objects in the \textit{LAB} frame.
+This outputs the kinematics of our event in the \textit{parent-parent} (\PP) frame, or in the razor terminology, the CM frame.
+That is, the kinematics of this frame are an estimator for the kinematics in the center of mass frame of the disquark system.
+We apply another jigsaw, which splits the objects in the \PP frame into two new frames, known as the \Pa and \Pb systems.
+These are equivalent to the razor frames of the razor technique, and represent proxy frames where each squark is at rest.
+In \Pa (\Pb), the decay is symmetric between the visible \Va (\Vb) objects and the invisible system \Ia (\Ib).
+To generate the estimator of the kinematics of the \Va, \Vb, \Ia, and \Ib systems in the \Pa and \Pb systems, we apply another jigsaw rule to split the total \met between \Pa and \Pb, which allows calculations of these kinematics in these frames.
+For the case of disquark production, this is the expected decay tree, and we stop the recursive calculation at that level.
+
+In the case of digluino production, we expect two additional jets, and we can perform an additional boost in each of \Pa and \Pb, to what we call the \Ca and \Cb frames.
+The decay tree is shown in \ref{subfig:digluino_decay_tree}.
+In this case we apply a jigsaw at the level of \Pa (\Pb) which separates a single visible object $V_{1a}$ ($V_{2a}$) from the child frame \Ca (\Cb).
+This child frame represents the hypothesized squark after the decay $\supe{g} \rightarrow g \supe{q}$, which then decays as in the squark case.
+This gives additional information which will be exploited for the gluino specific search regions.
+
+The final decay tree used in this thesis is the \textit{compressed} decay tree.
+Compressed refers to signal models which have a small splitting between the mass of the proposed sparticle and the \lsp.
+In this case, the sparticle decay products (i.e. the jets and \met) do not generally have large scale\cite{Jackson:2016mfb}.
+Instead, the strategy is generally to look for a large-scale initial state radiation (ISR) jet which is recoiling off the disparticle system.
+In the case where the LSPs receive no momentum from the sparticle decays, the following approximation holds:
+\begin{align}
+met \order -p_T^{\text{ISR}} \times \frac{m_\lsp }{m_{\text{sparticle}}}
+\end{align}
+where $\pt^{\text{ISR}}$ is the transverse momentum associated to the entire ISR system.
+
+RJR offers a natural and straightforward way to exploit this feature in events containing ISR.
+One imposes the simple decay tree in \ref{subfig:compressed_decay_tree} with associated jigsaw rules.
+With suitable jigsaw rules, this decay tree ``picks out'' the large \pt ISR jet, recoiling off the \met and additional radiation from the sparticle decays.
+This provides a convenient set of variables to understand compressed scenarios.
+
+In this section, we have seen how one imposes particular decay trees on an event to produce a basis of kinematic variables in the approximated frames relevant to the hypothesized sparticle decay chain.
+This explains why we call this procedure ``recursive'': we can continue the procedure through as many steps of a decay tree as we want, and each application of a jigsaw rule is dependent on the variables produced in the last step.
+The question, of course, is \textit{what are these jigsaw rules?}.
+
+\subsection{Jigsaw Rules}
+
+Jigsaw rules are the fundamental step that allow the recursive definitions of the variables of interest.
+In principle, we want rules which allow us to fully define kinematic variables at each step in a decay tree.
+The only possible solution to fully define the event kinematics in terms of the frames of the hypothesized decays is the imposition of external constraints to eliminate additional degrees of freedom.
+
+In the original razor point of view, some jigsaw rules can be seen as the definitions of the boosts which relate the different frames of interest, while other rules allow one to combine multiple objects and place them into a particular hemisphere (previously megajet).
+These are the two forms of jigsaw rules: combinatoric and kinematic.
+As we have stressed before, the jigsaw rules are a \textit{choice}; as long as a particular jigsaw rule allows the definition of variables at each step in a decay tree, it is ``as valid'' as any other rule.
+
+Practically speaking, in this thesis we use only a small subset of possible jigsaw rules.
+The combinatoric jigsaw rule we use has already been introduced as megajet construction above.
 The minimization of
 \begin{align}
 m_{J_1}^2 + m_{J_2}^2.
 \end{align}
-was a jigsaw rule to deal with the combinatoric ambiguity when assigning jets to a particular megajet.
-The other important jigsaw for this thesis is how we associate the \met to a particular hemisphere after constructing the associated megajets.
-One can see our
+is a jigsaw rule to deal with the combinatoric ambiguity implicit in which jets go in which hemisphere.
+This is the jigsaw rule used in the decay trees when going from one frame to two frames such as \PP $\rightarrow$ \Pa,\Pb.
 
-The algorithm proceeds by the imposition of a particular \textit{decay tree}, which corresponds to a simplified Feynmann diagram.
-At each step in this decay tree, we can calculate variables of interest, through a series of simplifying assumptions.
-In order to
+We will use two other jigsaw rules, which are both kinematic jigsaw rules.
+One has already been used in the razor technique.
+The minimization of $\beta_L$ will be used as the jigsaw rule in the first step of each decay tree: the LAB frame to the \PP/CM frame.
+This is in effect the imposition of longitudinal boost invariance, as we expect on average $p_{z,\text{\PP,CM}} = 0$.
+One defines a unique longitudinal boost by imposition of this external constraint.
+
+The final jigsaw used in this thesis was not used in the razor technique.
+We describe it here.
+It can be seen as the resolution of the ``amount'' of \met that ``belongs'' to each hemisphere, and therefore how to impose the transverse boost onto each of i.e. \Pa and \Pb.
+Equivalently, it can be seen as the resolution of the kinematics of the \Ia and \Ib objects in the disquark and digluino decay trees.
 
 \section{Variables used in the search for zero lepton SUSY}

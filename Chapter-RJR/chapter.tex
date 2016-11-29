@@ -190,6 +190,9 @@ The question, of course, is \textit{what are these jigsaw rules?}.
 Jigsaw rules are the fundamental step that allow the recursive definitions of the variables of interest.
 In principle, we want rules which allow us to fully define kinematic variables at each step in a decay tree.
 The only possible solution to fully define the event kinematics in terms of the frames of the hypothesized decays is the imposition of external constraints to eliminate additional degrees of freedom.
+In principle, these need to have any particular physical motivation.
+Instead, the jigsaw rules are a way to resolve the mathematical ambiguities to fully reconstruct the full decay chain kinematics.
+However, most practical jigsaw rules also have some reasonable physical motivation, which we will also elucidate.
 
 In the original razor point of view, some jigsaw rules can be seen as the definitions of the boosts which relate the different frames of interest, while other rules allow one to combine multiple objects and place them into a particular hemisphere (previously megajet).
 These are the two forms of jigsaw rules: combinatoric and kinematic.
@@ -204,15 +207,33 @@ m_{J_1}^2 + m_{J_2}^2.
 is a jigsaw rule to deal with the combinatoric ambiguity implicit in which jets go in which hemisphere.
 This is the jigsaw rule used in the decay trees when going from one frame to two frames such as \PP $\rightarrow$ \Pa,\Pb.
 
-We will use two other jigsaw rules, which are both kinematic jigsaw rules.
+We will use three other jigsaw rules, which are both kinematic jigsaw rules.
 One has already been used in the razor technique.
 The minimization of $\beta_L$ will be used as the jigsaw rule in the first step of each decay tree: the LAB frame to the \PP/CM frame.
 This is in effect the imposition of longitudinal boost invariance, as we expect on average $p_{z,\text{\PP,CM}} = 0$.
 One defines a unique longitudinal boost by imposition of this external constraint.
 
-The final jigsaw used in this thesis was not used in the razor technique.
-We describe it here.
-It can be seen as the resolution of the ``amount'' of \met that ``belongs'' to each hemisphere, and therefore how to impose the transverse boost onto each of i.e. \Pa and \Pb.
+The final two jigsaw rules used in this thesis was not used in the razor technique.
+We describe them here.
+
+The first kinematic ambiguity is the total mass of the invisible system $M_I$.
+We guess this to be:
+\begin{align}
+M_I^2 = M_V^2 - 4 M_{\Va} M_{\Vb}.
+\end{align}
+As we stated above, there is no need to ``justify'' the jigsaw rules, as they are in some ways a mathematical trick to fully resolve the event kinematics.
+However in this case, there is a nice property of this guess.
+The symmetry of the production mechanism, where we have two decay products $V_i$ and $I_i$ produced from the decay of the same heavy sparticle, is explicit with this jigsaw choice.
+
+The final jigsaw rule we employ in this thesis is used to resolve the ``amount'' of \met that ``belongs'' to each hemisphere, and therefore how to impose the transverse boost onto each of i.e. \Pa and \Pb from \PP.
 Equivalently, it can be seen as the resolution of the kinematics of the \Ia and \Ib objects in the disquark and digluino decay trees.
+Recall that at this point, we have already approximated the boost of the \PP frame.
+The choice we use is to minimize the masses $\Pa$ and $\Pb$, while simultaneously constraining $\Pa = \Pb$.
+As is the case in the last step, there is a straightforward physical interpretation of this choice.
+In the signal models we are considering, \Pa and \Pb are the estimated frames of the squark or gluino pair-produced as a heavy resonance.
+We then of course expect $M_{\Pa} = M_{\Pb}$.
+
+\todo{check if I need to say anything else about the compressed case}
+
 
 \section{Variables used in the search for zero lepton SUSY}

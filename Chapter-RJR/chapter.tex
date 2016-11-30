@@ -131,6 +131,7 @@ For signal events, we expect $R$ to peak around $R \order 1/4$, while background
 Recursive Jigsaw Reconstruction is an algorithm allowing the imposition of a decay tree interpretation on an particular event\cite{Jackson:2016mfb,ATLAS-CONF-2016-078}.
 The idea is to construct the underlying kinematic variables (the masses and decay angles) on an event-by-event level.
 This is done ``recursively'' through a decay tree which corresponds (sometimes approximately) to the Fenymann diagram for the signal process of interest.
+After each step of the recursive procedure, the objects are ``placed'' into one bucket (or branch) of the decay tree, and the process is repeated on each frame we have imposed.
 The imposition of these decay trees is done by \textit{jigsaw} rule: a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
 \todo{cite RestFrames}
 
@@ -151,7 +152,7 @@ The decay trees imposed in this thesis are shown in \todo{ref figures}.
 Leaving temporarily the question of ``how'' we apply the jigsaw rules, let us compare these trees to the signal processes of interest.
 In particular, we want to compare the Feynmann diagrams of \ref{fig:feynmann_signal} with the decay trees of \ref{fig:decay_trees}.
 The decay tree in \ref{subfig:disquark_decay_tree} corresponds exactly to that expected from disquark production, and matches very closely with the principles of the razor approach.
-We first apply a jigsaw rule, indicated by a line, to the kinematics of the objects in the \textit{LAB} frame.
+We first apply a jigsaw rule, indicated by a line, to the kinematics of the objects in the \textit{lab} frame.
 This outputs the kinematics of our event in the \textit{parent-parent} (\PP) frame, or in the razor terminology, the CM frame.
 That is, the kinematics of this frame are an estimator for the kinematics in the center of mass frame of the disquark system.
 We apply another jigsaw, which splits the objects in the \PP frame into two new frames, known as the \Pa and \Pb systems.
@@ -209,7 +210,7 @@ This is the jigsaw rule used in the decay trees when going from one frame to two
 
 We will use three other jigsaw rules, which are both kinematic jigsaw rules.
 One has already been used in the razor technique.
-The minimization of $\beta_L$ will be used as the jigsaw rule in the first step of each decay tree: the LAB frame to the \PP/CM frame.
+The minimization of $\beta_L$ will be used as the jigsaw rule in the first step of each decay tree: the lab frame to the \PP/CM frame.
 This is in effect the imposition of longitudinal boost invariance, as we expect on average $p_{z,\text{\PP,CM}} = 0$.
 One defines a unique longitudinal boost by imposition of this external constraint.
 
@@ -235,5 +236,101 @@ We then of course expect $M_{\Pa} = M_{\Pb}$.
 
 \todo{check if I need to say anything else about the compressed case}
 
+The imposition of the decay trees, with ambiguities resolved through the jigsaw rules, give a full set of boosts relating the frames of each decay tree.
+In each frame, we have estimates for the frame mass and decay angles, which can be used in searches for new physics.
+In the next section, we describe the variables that are used in this thesis in more details.
 
 \section{Variables used in the search for zero lepton SUSY}
+
+\todo{signal distributions???}
+
+We describe here the variables used in the search described in \ref{ATLAS-CONF-2016-078}.
+These were reconstructed using the RJR algorithm as just described, using the RestFrames packages.\todo{cite}
+In these frames, the momenta of all objects placed into that branch of the decay tree are available (after application of the approximated boost), and in principle we can calculate any variable of interest such as invariant masses or the angles between these objects.
+The truly useful set of variables are highly dependent on the signal process, and we leave their discussion to the subsequent chapters.
+It is useful to understand the philosophy employed in the construction of these variables.
+
+In general, we can split variables useful for searches for new physics into two categories: \textit{scaleful} and \textit{scaleless} variables.
+In this search, we will use a set of scaleful variables called the $H$ variables.
+The scaleless variables will consists of ratios and angles.
+In general, we want to limit the number of scaleful cuts we apply, for two reasons.
+Different scaleful variables are often highly correlated, and this of course limts the utility of additional cuts.
+Addtionally, selections based on many scaleful variables often ``over-optimize'' for particular signal model of interest, especially as related to the mass difference chosen between the sparticle and the LSP.
+To avoid this, each decay tree will only use two scale variables, one of which quantifies the overall mass scale of the event, and another which acts as a measure of the event balance.
+
+\subsubsection{Squark and gluino variables}
+
+Taking our general philosophy to a particular case, we here describe the variables used by the squark and gluino searches.
+We have a suite of scale variables which we will call the $H$ variables, and a suite of angles and ratios.
+
+As we have described above, the RJR algorithm gives us access to the masses of each frame of interest.
+It maybe seem natural, then, that these variables would be the most useful for discrimation of the signal from background processes.
+However, due to the all hadronic state considered in this thesis, the that can be constructed such as $M_{\PP}$ can be affected by extra QCD radiation, which can promote the background processes to large scales.
+The $H$ variables show a resilience to this effect.
+They take their name from the commonly used variable \HT, which is the scalar sum of the visible momentum.
+However, due to the RJR technique, we can evaluate these variables in the non-lab frame, including longitudinal information.
+They are also constructed with \textit{aggregrate} momenta using a similar mass minimization procedure as we have already described.
+
+We label these variables as $H_{n,m}^F$.\todo{get the figure for H variables}
+The frame from where they are evaluated is denoted $F$; practically, this means $F \epsilon \{$lab, \PP, \Pa, \Pb$\}$.
+When the discussion applies to both \Pa and \Pb, we will write $P_i$.
+The subscripts $n$ and $m$ denote the number of visible and invisible vectors considered, respectively.
+When there are more vectors available than $n$ or $m$, we add up vectors using the hemisphere (megajet) jigsaw rule until there are $n$ ($m$) objects.\footnotemark
+\footnotetext{Recall that these vectors are constructed by the imposition of the decay tree with the relevant jigsaw rules.}
+In the opposite case, where $n$ or $m$ is greater than the number of available objects, one simply considers the available objects.
+The \HFnm{F}{n}{m} variables are then defined as
+\begin{align}
+\HFnm{F}{n}{m} = \sum_i^n | \vec{p_{\text{vis},i}}^F | + \sum_j^m | \vec{p_{\text{inv},i}}^F |.
+\end{align}
+It may not be clear that these variables encode independent information.
+Fundamentally, this is just an expression of the triangle inequality $\sum |\vec{p}| \geq |\sum \vec{p}|$.
+The different combinations can then include independent information.
+The final note on the $H$ variables is that we can also consider purely transverse versions of these variables, which we will denote \HTFnm{F}{n}{m}.
+Including this view, it is easy to see how the $H$ variables are extensions of the normal \HT variables, as
+\begin{align}
+\HT = \HTFnm{\text{lab}}{\infty}{0}.
+\end{align}
+
+Although the $H$ variables are interesting in their own right, the true power of the RJR technique comes from the construction of scaleless variables with the technique.
+This is because the scaleless ratios and angles are in fact measured in the ``right'' frame, where right here means an approximation of the correct frame.
+This provides a less correlated set of variables than those measured in the lab frame, due to the corrections to the disparticle or sparticle system boosts from the RJR technique.
+
+For the search for noncompressed disquark production, we use will use the following set of RJR variables.
+\begin{itemize}
+\item \HFnm {\PP}{1}{1} - scale variable useful for discrimination against QCD backgrounds and used in a similar way to \met
+\item \HTFnm{\PP}{2}{1} - scale variable providing information on the overall mass scale of the event for disquark signal production.  We will often call this the \textit{full} scale variable.
+\item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{2}{1} $ - ratio used to prevent imbalanced events where the scale variable is dominated by one high \pT jet or high \met
+\item \pzlabratioTwo - ratio to used to prevent significant boosts in the $z-$direction.  \pzlab is a measure of the total boost of the \PP system from the lab frame
+\item \ptjTworatio - ratio to force the second leading jet in the \PP frame to carry a significant portion of the total scalar sum in that frame.  This requirement is another balance requirement, on the total \pT of that second jet in the \PP frame.
+\end{itemize}
+First, we note that there is an implicit requirement that each hemisphere has at least one jet (to even reconstruct the \Pa and \Pb frames), these variables are implicitly using two or more jets, as we expect in disquark production.
+The other important thing to note is that all of the ratios use the full scale variable as the denominator.
+This is sensible, as we expect all of these effects to be scaled with the full scale variable \HTFnm {\PP}{2}{1}.
+We will see a similar behavior for the gluino regions, with a new full scale variable.
+
+For the search for noncompressed digluino production, we use will use the following set of RJR variables.
+Due to the increased complexity of the event topology with four jets, there are additional handles we can exploit:
+\begin{itemize}
+\item \HFnm {\PP}{1}{1} - same as disquark production
+\item \HTFnm{\PP}{4}{1} - scale variable providing information on the overall mass scale of the event for digluino signal production.  As before, we often call this the \textit{full} scale variable.  Since this variable allows the jets to be separated in the \PP frame, it is more appropriate for digluino production.
+\item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{4}{1} $ - ratio used to prevent imbalanced events where the scale variable is dominated by one high \pT jet or high \met
+\item $\HTFnm{\PP}{4}{1}/\HFnm{\PP}{4}{1} $ - ratio used to measure the fraction of the total scalar sum of the momentum in the transverse plane.  Digluino production is expected to be fairly central
+\item \pzlabratioFour - ratio to used to prevent significant boosts in the $z-$direction
+\item \minjTwoGuy - ratio to require the second leading jet in \textit{both} squark-like hemispheres \Ca and \Cb to contain a significant portion of \textit{that frame's} momenta.  This is similar to the \ptjTworatio disquark discriminator, but applied to both hemispheres \Ca and \Cb.
+\item \maxjTwoGuy - ratio requiring one jet in each of the $P_i$ to not take too much of the total momentum of that frame.  This ratio is generally a very loose cut.
+\end{itemize}
+
+\subsection{Compressed variables}
+
+As we saw above, the decay tree imposed for compressed spectra is simpler.
+We do not attempt to fully reconstruct the details of the system recoiling of the ISR system, but use a straightforward set of variables in this case.
+One additional simplification is that all variables are force to be transverse in this case; we simply do not include the $\eta/z$ information of the objects as inputs to the RJR reconstruction.
+We still use the philosophy of limiting our scaleful variables to just two.
+The compressed scenario uses the following set of RJR variables:
+\begin{itemize}
+\item \ptisr - scale variable that is the magnitude of the total transverse momenta of all jets associated to the ISR system, as evaluated in the CM frame
+\item $\risr \equiv \vec{p_I^{\text{CM}}} \cdot \hat{p_{T,S}^{\text{CM}}} / p_{T,S}^{\text{CM}} $  - this ratio is our measurement for the ratio of the LSP mass to the compressed sparticle mass.  These are the values in the CM frame  In compressed cases, this should be large, as this estimates the amount of the total CM $\rightarrow S$ boost is carried by the invisible system.
+\item \MTS - the transverse mass of the S system
+\item \NVjet - the number of jets associated to the visible system V
+\item \dphiISR - the opening angle between the ISR system and the invisible system measured in the lab frame.  As the invisible system is expected to carry much of the total $S$ system momentum, this should be large, as we expect the ISR system to recoil directly opposite the $I$ system in that case.
+\end{itemize}

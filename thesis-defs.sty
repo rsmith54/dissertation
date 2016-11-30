@@ -21,18 +21,37 @@
 \newcommand{\kt}{\ensuremath{k_T}}
 \newcommand{\Emiss}[1]{\ensuremath{E^\text{miss}_{#1}}}
 \newcommand{\Emisscomp}[2]{\ensuremath{E^{\text{miss, }{#2}}_{#1}}}
+\newcommand{\HFnm}[3]{\ensuremath{H^{{#1}}_{#2,#3}}}
+\newcommand{\HTFnm}[3]{\ensuremath{H^{{#1}}_{T,#2,#3}}}
 \newcommand{\mheavy}{\ensuremath{m_{\mathrm{Heavy}}}}
 \newcommand{\rframe}{\ensuremath{R}-frame}
+
 
 \newcommand{\PP}{\ensuremath{PP}}
 \newcommand{\Pa}{\ensuremath{P_a}}
 \newcommand{\Pb}{\ensuremath{P_b}}
+
 \newcommand{\Ca}{\ensuremath{C_a}}
 \newcommand{\Cb}{\ensuremath{C_b}}
 \newcommand{\Va}{\ensuremath{V_a}}
 \newcommand{\Vb}{\ensuremath{V_b}}
 \newcommand{\Ia}{\ensuremath{I_a}}
 \newcommand{\Ib}{\ensuremath{I_b}}
+
+
+\newcommand{\ptisr}{\ensuremath{p_{T,S}^{\text{ISR}}}}
+\newcommand{\risr} {\ensuremath{R_{\text{ISR}}}}
+\newcommand{\MTS} {\ensuremath{M_{T,S}}}
+\newcommand{\NVjet} {\ensuremath{N_{\text{jet}}^V}}
+\newcommand{\dphiISR}{\ensuremath{\Delta \phi_{ISR,I}}}
+
+\newcommand{\pzlab}{\ensuremath{p_{PP,z}^{\text{LAB}}}}
+\newcommand{\pzlabratioTwo} {\ensuremath{ \pzlab / (\pzlab + \HTFnm{PP}{2}{1}  ) } }
+\newcommand{\pzlabratioFour}{\ensuremath{ \pzlab / (\pzlab + \HTFnm{PP}{4}{1}  ) } }
+\newcommand{\ptjTworatio}{\ensuremath{p_{T,j2}^{PP}}/\HTFnm{PP}{2}{1}}
+
+\newcommand{\minjTwoGuy}{\ensuremath{ \mathrm{min} ( {p_{T,j2}^{PP}}_i /{\HTFnm{PP}{2}{1}}_i)}}
+\newcommand{\maxjTwoGuy}{\ensuremath{ \mathrm{max} ( \HFnm{P_i}{1}{0} / \HFnm{P_i}{2}{0} )}}
 
 \usepackage{xspace}
 
@@ -158,6 +177,8 @@
 \newcommand{\jvf}{\ensuremath{\text{JVF}}}
 \newcommand{\absjvf}{\ensuremath{\lvert \text{JVF} \rvert}}
 
+\newcommand{\RestFrames}{\textsc{RestFrames}}
+
 \newcommand{\PYTHIASix}{\textsc{Pythia6}}
 \newcommand{\PYTHIAEight}{\textsc{Pythia8}}
 \newcommand{\POWHEGPYTHIA}{\textsc{Powheg+Pythia}}
@@ -178,3 +199,98 @@
 \newcommand{\resopara}{\ensuremath{\sigma_\mathrm{L}}}
 \newcommand{\resoperp}{\ensuremath{\sigma_\mathrm{T}}}
 \newcommand{\shiftpara}{\ensuremath{\Delta_\mathrm{L}}}
+% Shorthand for \phantom to use in tables
+\newcommand{\pho}{\phantom{0}}
+\newcommand{\bslash}{\ensuremath{\backslash}}
+\newcommand{\BibTeX}{{\sc Bib\TeX}}
+
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\figsref}[1]{Figures.~\ref{#1}}
+%\newcommand{\partref}[1]{part~\ref{#1}}
+\newcommand{\Secref}[1]{Section~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+
+% susy-specific variables
+\newcommand{\meff}{\ensuremath{m_{\mathrm{eff}}}} % This was an M, but all our other m's are in lower case and M_eff sticks out like a sore thumb.  So I've changed it to something more relaxing.
+\newcommand{\meffincl}{\ensuremath{m_{\mathrm{eff}}^{\mathrm{inc}}}}
+\newcommand{\meffexcl}{\ensuremath{m_{\mathrm{eff}}^{\mathrm{excl}}}}
+\newcommand{\mt}{\ensuremath{m_\mathrm{T}}}
+\newcommand{\mttwo}{\ensuremath{m_\mathrm{T2}}}
+\newcommand{\amttwo}{\ensuremath{m_\mathrm{T2}^{a}}}
+\newcommand{\mc}{\ensuremath{m_\mathrm{C}}}
+\newcommand{\mct}{\ensuremath{m_\mathrm{CT}}}
+
+\def\ptl{\ensuremath{p_{\mathrm{T}}^\ell}}
+\def\ptlone{\ensuremath{p_{\mathrm{T}}^{\ell_1}}}
+\def\ptltwo{\ensuremath{p_{\mathrm{T}}^{\ell_2}}}
+\def\ptj{\ensuremath{p_{\mathrm{T}}^{jet}}}
+%\newcommand{\alphat}{\ensuremath{\ensuremath{\alpha_{T}}}}
+%\newcommand{\etmiss}{\ensuremath{\slashed{E}_T}}
+%\newcommand{\pmiss}{\ensuremath{\slashed{p}}}
+%\newcommand{\ptmiss}{\ensuremath{\slashed{p}_T}}
+%\newcommand{\Ptmiss}{\ensuremath{{\slashed{\bf p}}_T}}
+\def\Ptmiss{\ensuremath{\bm{E}\mathrm{^{miss}_T}}}
+
+\def\lsim{\mathrel{\rlap{\lower4pt\hbox{\hskip1pt$\sim$}}
+    \raise1pt\hbox{$<$}}}                % less than or approx. symbol
+\def\gsim{\mathrel{\rlap{\lower4pt\hbox{\hskip1pt$\sim$}}
+    \raise1pt\hbox{$>$}}}                % greater than or approx. symbol
+
+%\renewcommand{\thesubfigure}{\alpha{subfigure}}
+%\makeatletter
+%\renewcommand{\p@subfigure}{\arabic{figure}}
+%\renewcommand{\thesubfigure}{\alph{subfigure}}
+%\renewcommand{\@thesubfigure}{(\thesubfigure)}
+%\makeatother
+\newcommand{\alpgen}{\textsc{Alpgen}}
+\newcommand{\powheg}{\textsc{Powheg}}
+\newcommand{\prospino}{\textsc{Prospino}}
+\newcommand{\herwig}{\textsc{Herwig}}
+\newcommand{\pythia}{\textsc{Pythia}}
+\newcommand{\mcatnlo}{\textsc{Mc@Nlo}}
+\newcommand{\fewz}{\textsc{Fewz}}
+\newcommand{\mcfm}{\textsc{Mcfm}}
+\newcommand{\isajet}{\textsc{Isajet}}
+\newcommand{\madgraph}{\textsc{Madgraph}}
+\newcommand{\isasugra}{\textsc{Isasugra}}
+\newcommand{\isasusy}{\textsc{Isasusy}}
+\newcommand{\jimmy}{\textsc{Jimmy}}
+\newcommand{\sherpa}{\textsc{Sherpa}}
+\newcommand{\cteqVER}[1]{\textsc{CTEQ#1}}
+\newcommand{\mrstVER}[1]{\textsc{MRST#1}}
+\newcommand{\cteq}{\textsc{CTEQ6.6}}
+\newcommand{\mstw}{\textsc{Mstw2008}}
+\newcommand{\Perugia}{{\textsc{Perugia2011C}}}
+\newcommand{\AcerMC}{{\textsc{AcerMC}}}
+\newcommand{\Madgraph}{{\textsc{Madgraph}}}
+\newcommand{\Tauola}{{\tt Tauola}}
+
+
+\newcommand{\lumi}[2]{$#1 \times 10^{#2} \mathrm{cm}^{-2} \mathrm{s}^{-1}$}
+\newcommand{\mettopo}{MET\_Topo\xspace}
+\newcommand{\metlhtopo}{MET\_Loc\-Had\-Topo\xspace}
+\newcommand{\metsrf}{Simplified MET\_Ref\-Final\xspace}
+\newcommand{\metrf}{MET\_Ref\-Final\xspace}
+\newcommand{\wen}{W $\rightarrow$ e$\nu$ }
+\newcommand{\wmn}{W $\rightarrow$ $\mu\nu$ }
+\newcommand{\wln}{W $\rightarrow$ $\ell\nu$ }
+\newcommand{\jetmet}{{jet + \met}\xspace}
+\newcommand{\jetmetj}[1]{EF\_j75\_jetNoEF\_EFxe#1\_noMu\xspace}
+\newcommand{\jetmetf}[1]{EF\_j50\_jetNoEF\_xe#1\_noMu\xspace}
+
+\newcommand{\mvetmiss}{\ensuremath{\vec{E}_{\rm T}^{\rm miss}}}
+\newcommand{\trackmet}{\ensuremath{E_{\mathrm{T,track}}^{\mathrm{miss}}}}
+\newcommand{\dphitrackmet}{\ensuremath{\Delta\phi(\met,\trackmet)}}
+
+\newcommand{\anactualptmissvecwithapinit}{{\vec{P}}_\mathrm{T}^\mathrm{\; miss}}
+\newcommand{\anactualptmissmagwithapinit}{P_\mathrm{T}^\mathrm{\; miss}}
+
+\newcommand{\ourvecptmiss}{\ensuremath{\bm{E}\mathrm{^{miss}_T}}}
+\newcommand{\ourmagptmiss}{\MET}
+\newcommand{\peoplecallit}{\MET}
+
+\newcommand{\ourdeltaphishort}{\Delta\phi}
+\newcommand{\ourdeltaphifull}{\Delta\phi(\textrm{jet},\ourvecptmiss)_\mathrm{min}}
+\newcommand{\ourpt}{p_\mathrm{T}}
+
+\def\mean#1{\left< #1 \right>}

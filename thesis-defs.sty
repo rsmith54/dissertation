@@ -12,8 +12,8 @@
 \newcommand{\sigmatwo}{\ensuremath{\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}}}
 \newcommand{\sigmathree}{\ensuremath{\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}}}
 \newcommand{\supe}[1]{\ensuremath{\tilde{#1}}\xspace}
-\newcommand{\lsp}{\ensuremath{\supe{chi^0_1}}}
-\newcommand{\mlsp}{\ensuremath{m_{\supe{chi^0_1}}}}
+\newcommand{\lsp}{\ensuremath{\supe{\chi^0_1}}}
+\newcommand{\mlsp}{\ensuremath{m_{\supe{\chi^0_1}}}}
 \newcommand{\hlttrig}[1]{\ensuremath{{\texttt{ \small HLT\_{#1}}}}}
 \newcommand{\trigtt}[1] {\ensuremath{{\texttt{ \small #1}}}}
 \newcommand{\mdr}{\ensuremath{M_{\Delta}^{R}}}
@@ -27,16 +27,19 @@
 \newcommand{\rframe}{\ensuremath{R}-frame}
 
 
-\newcommand{\PP}{\ensuremath{PP}}
-\newcommand{\Pa}{\ensuremath{P_a}}
-\newcommand{\Pb}{\ensuremath{P_b}}
 
-\newcommand{\Ca}{\ensuremath{C_a}}
-\newcommand{\Cb}{\ensuremath{C_b}}
-\newcommand{\Va}{\ensuremath{V_a}}
-\newcommand{\Vb}{\ensuremath{V_b}}
-\newcommand{\Ia}{\ensuremath{I_a}}
-\newcommand{\Ib}{\ensuremath{I_b}}
+\usepackage{xspace}
+
+\newcommand{\PP}{\ensuremath{PP\xspace}}
+\newcommand{\Pa}{\ensuremath{P_a\xspace}}
+\newcommand{\Pb}{\ensuremath{P_b\xspace}}
+
+\newcommand{\Ca}{\ensuremath{C_a\xspace}}
+\newcommand{\Cb}{\ensuremath{C_b\xspace}}
+\newcommand{\Va}{\ensuremath{V_a\xspace}}
+\newcommand{\Vb}{\ensuremath{V_b\xspace}}
+\newcommand{\Ia}{\ensuremath{I_a\xspace}}
+\newcommand{\Ib}{\ensuremath{I_b\xspace}}
 
 
 \newcommand{\ptisr}{\ensuremath{p_{T,S}^{\text{ISR}}}}
@@ -53,10 +56,8 @@
 \newcommand{\minjTwoGuy}{\ensuremath{ \mathrm{min} ( {p_{T,j2}^{PP}}_i /{\HTFnm{PP}{2}{1}}_i)}}
 \newcommand{\maxjTwoGuy}{\ensuremath{ \mathrm{max} ( \HFnm{P_i}{1}{0} / \HFnm{P_i}{2}{0} )}}
 
-\usepackage{xspace}
 
 %\def\todoi#1{\todo[inline]{#1}}
-\def\todo#1{\noindent{\color{magenta}TODO: #1}}
 
 \def\redcomment#1#2{\emph{\color{red}#1: #2}}
 \def\bluecomment#1#2{\emph{\color{blue}#1: #2}}

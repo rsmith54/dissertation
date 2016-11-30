@@ -15,13 +15,12 @@ After the description of the algorithm, we will describe the precise RJR variabl
 \subsection{Motivation}
 In this thesis, we consider SUSY models where gluinos and squarks are pair-produced.
 Pair-production is a consequence of the $R$-parity imposed in many SUSY models.
-$R-$parity violation is highly constrained by limits on proton decay\todo{CitE}, and is often assumed in SUSY model building.
-The Feynmann diagrams considered are shown in Fig.\ref{fig:feynmann_signal}.\todo{Check on W production thing, LO naming}.
+$R-$parity violation is highly constrained by limits on proton decay\cite{susyPrimer}, and is often assumed in SUSY model building.
+The Feynman diagrams considered are shown in Fig.\ref{fig:feynman_signal}.
 \begin{figure}
-\caption{Leading order Feynman diagrams for the SUSY signals considered in this thesis} \label{fig:feynmann_signal}
-\subfloat[Disquark production]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01a}} \\
-\subfloat[Digluino production]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01b}} \\
-\subfloat[Digluino production with associated W bosons.]   {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_01c}}
+\caption{Feynman diagrams for the SUSY signals considered in this thesis} \label{fig:feynman_signal}
+\subfloat[Disquark production]   {\includegraphics[width=.7\linewidth]{ATLAS-CONF-2016-078/fig_01a}} \\
+\subfloat[Digluino production]   {\includegraphics[width=.7\linewidth]{ATLAS-CONF-2016-078/fig_01b}} \\
 \end{figure}
 
 As discussed previously, the consequences of this $\mathbb{Z}_2$ symmetry are drastic.
@@ -36,8 +35,8 @@ Due to jet mismeasurements, instrumental failures, finite detector acceptance, n
 An additional limitation is the complete lack of longitudinal information.
 As events from i.e. QCD backgrounds tend to have higher boosts along the $z$-direction, this is ignoring an important handle in searches for new physics.
 Finally, \met is only one object, which is a measurement for \textit{two} separate LSPs.
-\todo{say somethign else here}
-The \textit{razor variables} $(\mdr, R^2)$ are more robust than standard variables against these effects.
+If one could factorize this information somehow, this would provide additional information to potentially discriminate against backgrounds.
+The \textit{razor variables} $(\mdr, R^2)$ are more robust than standard variables against these effects\cite{Rogan:2010kb,Buckley:2013kua}.
 
 \subsection{Derivation of the razor variables}
 
@@ -45,23 +44,29 @@ To derive the razor variables $(\mdr, R^2)$, we start with a generic situation o
 \footnotetext{The razor variables have undergone confusing notational changes over the years.
 We will be self-consistent, but the notation used here may be different from references.
 }
-Each sparticle decays to a number of observable objects (in this thesis, jets), and an unobservable \lsp of mass \mlsp.
+Each sparticle decays to a number of observable objects (in this thesis, jets), and an unobservable \lsp~ of mass \mlsp.
 We will combine all of the jets into a \textit{megajet}; this process will be described below.
 We begin by analyzing the decay in the ``rough-approximation'', or in modern parlance, \textit{razor frame} (\rframe).
 This is the frame where each sparticle is at rest.
+The complete set of frames considered in the case of the razor variables is shown in \ref{fig:razor_frames}.
+\begin{figure}
+\caption{Frames considered when applying the razor technique, from \cite{Buckley:2013kua}.} \label{fig:razor_frames}
+\includegraphics[width=.9\linewidth]{superrazor/fig/sectionII/frames2}
+\end{figure}
+
 
 In the \rframe, the decay is straightforward to analyze.
-By construction, there are in fact two \rframe s, and they have identical kinematics.
+By construction, there are in fact two \rframe~ s, and they have identical kinematics.
 Each megajet has energy $E_1^R, E_2^R$ in the frame of its parent sparticle, and we define a characteristic mass $M_R$:
 \begin{align}\label{eq:mr}
 E_1^R &= E_2^R &= \frac{\mheavy^2 - \mlsp^2}{ 2 \mheavy } \\
 M_R &= 2 \times E_1^R = 2 \times E_2^R &= \frac{\mheavy^2 - \mlsp^2}{\mheavy }.
 \end{align}
 For cases where $\mheavy >> \mlsp$, $M_R$ is an estimator of \mheavy.
-This scenario happens in the SM, such as in \ttbar and \WW events, where the \lsp is instead a neutrino.
+This scenario happens in the SM, such as in \ttbar and \WW events, where the \lsp~ is instead a neutrino.
 
 The question now is how to use this simple derivation in the lab frame, where we actually have measurements.
-There are two related issues: how to combine the jets into the megajets, and how to ``transform'' to the \rframe.
+There are two related issues: how to combine the jets into the megajets, and how to ``transform'' (or \textit{boost}) to the \rframe.
 
 To construct the megajets, the procedure is the following.
 For a given set of jets $j_i, i = 0 , ... , n_{\mathrm{jet}}$, we construct \textit{all} combinations of their four-momenta such that there is at least one jet inside each megajet.
@@ -72,20 +77,21 @@ m_{J_1}^2 + m_{J_2}^2.
 \end{align}
 In modern parlance, this is known as a \textit{jigsaw}.
 It is important to note, this is a \textit{choice}.
+It may have nice physical qualities or satisfy some convenient intuition about the events, but as we will see later, other choices are possible.
 
 We now describe how we translate our megajet kinematics, measured in the lab frame, to the \rframe.
 This is a two-step procedure.
 We perform two \textit{boosts}: a longitudinal boost $\beta_L$ and a transverse boost $\beta_T$.
 Schematically,
 \begin{align}
-J_1^R &\xrightarrow[]{\beta_T } J_1^{CM} &\xrightarrow[]{\beta_L} J_1^{\text{lab}} \\
-J_2^R &\xrightarrow[]{-\beta_T} J_2^{CM} &\xrightarrow[]{\beta_L} J_2^{\text{lab}} \\
+J_1^R & \xrightarrow[]{\beta_T } J_1^{CM} & \xrightarrow[]{\beta_L} J_1^{\text{lab}} \\
+J_2^R & \xrightarrow[]{-\beta_T} J_2^{CM} & \xrightarrow[]{\beta_L} J_2^{\text{lab}} \\
 \end{align}
 The $J_{1,2}^{\text{lab}}$ correspond directly to those in the megajet construction.
 We drop the ``$\text{lab}$'' designation for the rest of the discussion.
 The question is how to compute the magnitudes of these boosts, given the missing degrees of freedom.
 
-For the transverse boost $\beta_T$, recall the two megajets have equal energies in their \rframe by construction.
+For the transverse boost $\beta_T$, recall the two megajets have equal energies in their \rframe~ by construction.
 This constraint can be reexpressed as a constraint on the magnitude of this boost, in terms of the boost velocity $\beta_L$ (and Lorentz factor $\gamma_L$):
 \begin{align}\label{eq:beta_t}
 \beta_T = \frac{ \gamma_L (E_1 - E_2) - \gamma_L \beta_L (p_{1,z} - p_{2,z})}
@@ -123,8 +129,6 @@ Generally, we have $M_R^T < M_R$, so we define a dimensionless ratio (``the razo
 R^2 = \begin{pmatrix} \frac{M_R^T}{M_R} \end{pmatrix}^2.
 \end{align}
 For signal events, we expect $R$ to peak around $R \order 1/4$, while backgrounds without real \met are expected to have $R \order 0$.
-\todo{figure for razor}
-
 
 \section{Recursive Jigsaw Reconstruction}
 
@@ -133,24 +137,26 @@ The idea is to construct the underlying kinematic variables (the masses and deca
 This is done ``recursively'' through a decay tree which corresponds (sometimes approximately) to the Fenymann diagram for the signal process of interest.
 After each step of the recursive procedure, the objects are ``placed'' into one bucket (or branch) of the decay tree, and the process is repeated on each frame we have imposed.
 The imposition of these decay trees is done by \textit{jigsaw} rule: a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
-\todo{cite RestFrames}
+This procedure is performed by the \texttt{RestFrames} software packages \cite{RestFrames}
 
 In events where all objects are fully reconstructed, this is straightforward, and of course has been used for many years in particle physics experiments.
 Events which contain \met are more difficult, due to the loss of information: the potential for multiple mismeasured or simply unmeasureable objects, such as neutrinos or the LSP in SUSY searches.
 There can also be combinatoric ambiguities in deciding how to group objects of the same type; specifically here, we will be concerned with the jigsaw rule to associate jets to a particular branch of a decay tree.
-\todo{more}
+The jigsaw rules we impose will remove these ambiguities.
+First, we will describe the decay trees used in this thesis, and then describe the jigsaw rules we will use.
+Finally, we will describe the variables used in the all-hadronic SUSY search presented in this thesis.
 
 \subsection{Decay Trees}
 
-The decay trees imposed in this thesis are shown in \todo{ref figures}.
+The decay trees imposed in this thesis are shown in \ref{fig:decay_trees}.
 \begin{figure}
 \caption{RJR decay trees imposed in this thesis} \label{fig:decay_trees}
-\subfloat[Disquark decay tree]  {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_02a}}\ref{subfig:disquark_decay_tree}
-\subfloat[Digluino decay tree]  {\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_02b}}\ref{subfig:digluino_decay_tree}
-\subfloat[Compressed decay tree]{\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_02c}}\ref{subfig:compressed_decay_tree}
+\subfloat[Disquark decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02a}}\ref{subfig:disquark_decay_tree}
+\subfloat[Digluino decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02b}}\ref{subfig:digluino_decay_tree} \\
+\subfloat[Compressed decay tree]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02c}}\ref{subfig:compressed_decay_tree}
 \end{figure}
 Leaving temporarily the question of ``how'' we apply the jigsaw rules, let us compare these trees to the signal processes of interest.
-In particular, we want to compare the Feynmann diagrams of \ref{fig:feynmann_signal} with the decay trees of \ref{fig:decay_trees}.
+In particular, we want to compare the Feynman diagrams of \ref{fig:feynman_signal} with the decay trees of \ref{fig:decay_trees}.
 The decay tree in \ref{subfig:disquark_decay_tree} corresponds exactly to that expected from disquark production, and matches very closely with the principles of the razor approach.
 We first apply a jigsaw rule, indicated by a line, to the kinematics of the objects in the \textit{lab} frame.
 This outputs the kinematics of our event in the \textit{parent-parent} (\PP) frame, or in the razor terminology, the CM frame.
@@ -189,9 +195,9 @@ The question, of course, is \textit{what are these jigsaw rules?}.
 \subsection{Jigsaw Rules}
 
 Jigsaw rules are the fundamental step that allow the recursive definitions of the variables of interest.
-In principle, we want rules which allow us to fully define kinematic variables at each step in a decay tree.
+We want rules which allow us to fully define kinematic variables at each step in a decay tree.
 The only possible solution to fully define the event kinematics in terms of the frames of the hypothesized decays is the imposition of external constraints to eliminate additional degrees of freedom.
-In principle, these need to have any particular physical motivation.
+In principle, these need not have any particular physical motivation.
 Instead, the jigsaw rules are a way to resolve the mathematical ambiguities to fully reconstruct the full decay chain kinematics.
 However, most practical jigsaw rules also have some reasonable physical motivation, which we will also elucidate.
 
@@ -234,18 +240,14 @@ As is the case in the last step, there is a straightforward physical interpretat
 In the signal models we are considering, \Pa and \Pb are the estimated frames of the squark or gluino pair-produced as a heavy resonance.
 We then of course expect $M_{\Pa} = M_{\Pb}$.
 
-\todo{check if I need to say anything else about the compressed case}
-
 The imposition of the decay trees, with ambiguities resolved through the jigsaw rules, give a full set of boosts relating the frames of each decay tree.
 In each frame, we have estimates for the frame mass and decay angles, which can be used in searches for new physics.
 In the next section, we describe the variables that are used in this thesis in more details.
 
 \section{Variables used in the search for zero lepton SUSY}
 
-\todo{signal distributions???}
-
 We describe here the variables used in the search described in \ref{ATLAS-CONF-2016-078}.
-These were reconstructed using the RJR algorithm as just described, using the RestFrames packages.\todo{cite}
+These were reconstructed using the RJR algorithm as just described, using the RestFrames packages\cite{RestFrames}.
 In these frames, the momenta of all objects placed into that branch of the decay tree are available (after application of the approximated boost), and in principle we can calculate any variable of interest such as invariant masses or the angles between these objects.
 The truly useful set of variables are highly dependent on the signal process, and we leave their discussion to the subsequent chapters.
 It is useful to understand the philosophy employed in the construction of these variables.
@@ -271,7 +273,7 @@ They take their name from the commonly used variable \HT, which is the scalar su
 However, due to the RJR technique, we can evaluate these variables in the non-lab frame, including longitudinal information.
 They are also constructed with \textit{aggregrate} momenta using a similar mass minimization procedure as we have already described.
 
-We label these variables as $H_{n,m}^F$.\todo{get the figure for H variables}
+We label these variables as $H_{n,m}^F$.%\todo{get the figure for H variables}
 The frame from where they are evaluated is denoted $F$; practically, this means $F \epsilon \{$lab, \PP, \Pa, \Pb$\}$.
 When the discussion applies to both \Pa and \Pb, we will write $P_i$.
 The subscripts $n$ and $m$ denote the number of visible and invisible vectors considered, respectively.

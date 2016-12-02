@@ -1,0 +1,20 @@
+This is METAFONT, Version 2.7182818 (TeX Live 2014) (preloaded base=mf 2016.4.13)  25 JUL 2016 09:26
+**mf
+(/usr/local/texlive/2014/texmf-dist/metafont/base/mf.mf
+(/usr/local/texlive/2014/texmf-dist/metafont/base/plain.mf
+Preloading the plain base, version 2.71: preliminaries,
+ basic constants and mathematical macros,
+! Missing `)' has been inserted.
+<to be read again> 
+                   (future pen)
+l.88 capsule_def(pensquare
+                          ) makepen(unitsquare shifted -(.5,.5));
+? 
+! Emergency stop.
+<to be read again> 
+                   (future pen)
+l.88 capsule_def(pensquare
+                          ) makepen(unitsquare shifted -(.5,.5));
+End of file on the terminal!
+
+

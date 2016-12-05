@@ -2,8 +2,6 @@
 
 %The following command starts your chapter. If you want different titles used in your ToC and at the top of the page throughout the chapter, you can specify those values here. Since Columbia doesn't want extra information in the headers and footers, the "Top of Page Title" value won't actually appear.
 
-\chapter[Table of Contents Title][Top of Page Title]{Title of Chapter 1}
-
 \chapter[A search for supersymmetric particles in zero lepton final states with the Recursive Jigsaw Technique][Top of Page Title]{Title of Chapter 1}
 
 This section presents the details of the first search employing RJR variables as discriminating variables, as described in \ref{ATLAS-CONF-2016-078}.
@@ -38,6 +36,7 @@ Signal (digluino and disquark) samples are generated with up to two extra parton
 The nominal cross-section is taken from an envelope of cross-section predictions using different PDF sets and factorization and renormalization scales, as described in Ref.~\cite{Kramer:2012bx}, considering only light-flavour quarks ($u$, $d$, $s$, $c$).
 For the light-flavour squarks (gluinos) in case of gluino- (squark-) pair production, cross-sections are evaluated assuming masses of 450 \TeV.
 The free parameters are $m_{\lsp}$ and $m_{\gluino}$ ($m_{\squark}$) for gluino-pair (squark-pair) production models.
+\todo{explain we have a ``grid'' of these signal models samples}
 %The {\textsc EvtGen}~v1.2.0 program~\cite{evtgen} is used to describe the properties of the $b$- and $c$- hadron decays in the signal samples, and the background samples except those produced with \sherpa~\cite{sherpa2}.
 
 Boson ($W$, $Z$, $\gamma$) plus jet events are simulated using different \sherpa generators, with \textsc{Comix} and \textsc{OpenLoops} matrix-element generators\cite{ATL-PHYS-PUB-2016-003, comix, openloops}.
@@ -89,22 +88,60 @@ All simulated events are overlaid with multiple $pp$ collisions simulated with t
 
 %Differing pile-up (multiple $pp$ interactions in the same or neighbouring bunch-crossings) conditions as a function of the instantaneous luminosity are taken into account by overlaying simulated minimum-bias events (simulated using \pythia~8 with the MSTW2008LO PDF set~\cite{Sherstnev:2007nd} and the A2 tune \cite{ATL-PHYS-PUB-2011-014})  onto the hard-scattering process and reweighting events according to the distribution of the mean number of interactions observed in data.
 
-\input{Chapter-Analysis/mc-samples}
+\section{Event selection}
 
-\section{Signal regions}
+\subsection{Preselection}
+
+
+
+\subsection{Signal regions}
+We define a set of of signal regions using the RJR variables previously described.
+These signal regions are split into three general categories: squark pair production SRs, gluino pair production SRs, and compressed production SRs.
+Within these general SRs, we have a set of signal regions targetting different mass splittings of the sparticle and LSP.
+\begin{figure}
+\caption{Schematic leading the development of the SUSY signal regions in this thesis.
+A variant of this schematic is used for most SUSY searches on ATLAS and CMS.
+} \label{fig:sr_schematic}
+\includegraphics[width=.9\linewidth]{sr_schematic}
+\end{figure}
+
+A schematic of this strategy is shown in \ref{sr_schematic}.
+This type of plane is how most ($R-$ parity conserving) SUSY searches are organized in both ATLAS and CMS.
+The horizontal axis is the mass of the sparticle considered.
+In the case of this thesis, this will the squark or gluino mass.
+On the horizontal axis, we place the LSP mass.
+These are the two free parameters of the simplified models considered here.
+Our search occurs in this two-parameter space.
+Each signal region targets some portion of this plane.
+As shown in the figure, a new iteration of a search will use a set of signal regions which have sensitivity just beyond those of the previous exclusions.
+The choice of how many signal regions to use to fully cover this plane is in many ways a matter of judgment, as it is essentially a matter of under/over-fitting to the signal models of interest.
+One signal region will obscure the different phenomena in signal events with large versus small mass splittings, leading to underfitting.
+Binning as finely as possible\footnotemark leads to overfitting due to the fluctuations present in the signal and background events passing this selection.
+\footnotetext{This can be defined as having a signal region for each simulated signal sample, which for this analysis is \order 100.}
+In this thesis, we use six squark signal regions, six gluino signal regions, and five compressed regions, which we describe here.
+The full table defining all signal regions is shown in \ref{tab:RJsrdefs}.
+In all cases, the signal region selections contain a combination of scaleful and scaleless cuts.
+Emphasis on cuts on scaleful variables provide stronger sensitivity to larger mass splittings, while additional sensitivity to smaller mass splittings is found using stronger cuts on scaleless variables.
+One envisions walking from SR1 (with tight scaleless cuts and loose scaleful cuts) in \ref{fig:sr_schematic} towards SR3 by loosening the scaleless cuts and tightening the scaleful cuts.
+We will see this strategy at work in each set of signal regions.
+
+The compressed selections are split into five regions (SRC1-5), and due to the simplified nature of the compressed decay tree, has sensitivity in both the gluino and squark planes.
+The compressed regions target mass splittings with $m_{\text{sparticle}} - m_{\text{LSP}} \tilde{<} 200 \GeV$.
+
+
+The squark regions (for noncompressed spectra) are organized into six signal regions.
+The SRS1 regions are targer
+
+The selection
 
 \input{Chapter-Analysis/signal-region-table}
-
-\subsection{Gluino signal regions}
-\subsection{Squark signal regions}
-\subsection{Compressed signal regions}
 
 \section{Background estimation}
 
 \subsection{Control and Validation Regions}
 
-\subsection{Z vv  }
-\subsection{W ev  }
-\subsection{ttbar}
+CRT,CRW,CRY,CRQ
+
+\subsection{R Z/$\gamma$ method}
 
 \subsection{Systematic Uncertainties}

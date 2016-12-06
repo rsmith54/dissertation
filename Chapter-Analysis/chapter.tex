@@ -90,9 +90,33 @@ All simulated events are overlaid with multiple $pp$ collisions simulated with t
 
 \section{Event selection}
 
+This section describes the selection of events.
+We begin by describing the \textit{preselection}, which is used to remove problematic events and reduce the dataset to a manageable size.
+We then describe the signal region strategy, and present the signal regions used in the analysis.
+
 \subsection{Preselection}
 
+The preselection is used to reduce the dataset to that of interest in this thesis.
+The table containing the preselection cuts is shown in \ref{tab:preselection}.
+This selection is also used for the samples used for background estimation, except for the lepton veto.
 
+The cuts [1] and [4] are a set of cleaning cuts to remove problematic events.
+The \textit{Good Runs List} is a centrally-maintained list of data runs which have been determined to be ``good for physics''.
+This determination is made by analysis of the various subdetectors, and monitoring of their status.
+Event cleaning is used to veto events which could be affected by noncollision background, noise bursts, or cosmic rays.
+
+
+We require the lowest unprescaled \met trigger for the data run of interest, as described previously, in cut [2].
+The lepton veto is applied in cut [5].
+These two cuts are only used for the signal region selection.
+
+The rest of the preselection is used for the signal region and background estimation samples.
+These cuts are mostly used for the reduction of the dataset to a manageable
+Signal models with sensitivity to lower values of these scale variables have been ruled out by previous searches \todo{cite}.
+The final cut is on \meff, which is the scalar sum of all jets and \met.
+This is the final discriminating variable used in the complementary search to this thesis, which is also presented in \ref{ATLAS-CONF-2016-078}.
+
+\input{Chapter-Analysis/preselection-table}
 
 \subsection{Signal regions}
 We define a set of of signal regions using the RJR variables previously described.
@@ -118,16 +142,34 @@ The choice of how many signal regions to use to fully cover this plane is in man
 One signal region will obscure the different phenomena in signal events with large versus small mass splittings, leading to underfitting.
 Binning as finely as possible\footnotemark leads to overfitting due to the fluctuations present in the signal and background events passing this selection.
 \footnotetext{This can be defined as having a signal region for each simulated signal sample, which for this analysis is \order 100.}
-In this thesis, we use six squark signal regions, six gluino signal regions, and five compressed regions, which we describe here.
+In this thesis, we use six squark signal regions, six gluino signal regions, and five compressed regions, which we describe below.
+
 The full table defining all signal regions is shown in \ref{tab:RJsrdefs}.
 In all cases, the signal region selections contain a combination of scaleful and scaleless cuts.
 Emphasis on cuts on scaleful variables provide stronger sensitivity to larger mass splittings, while additional sensitivity to smaller mass splittings is found using stronger cuts on scaleless variables.
 One envisions walking from SR1 (with tight scaleless cuts and loose scaleful cuts) in \ref{fig:sr_schematic} towards SR3 by loosening the scaleless cuts and tightening the scaleful cuts.
 We will see this strategy at work in each set of signal regions.
 
+We have already described the useful variables in the previous chapter.
+The question is how to choose the optimal cuts for a given set of signal models, which are grouped in the mass splitting space.
+This was done by a brute force scan over the cut values, using a guess of integrated luminosity with a fixed systematic uncertainty scenario, motivated by that from previous analyses.
+We choose the lowest cut value that maximizes the $Z_{\text{Bi}}$, as described in \cite{Cousins:2008zz}.
+This figure of merit gives conservative estimates, as compared to i.e. $S/\sqrt{B}$.
+A figure showing an example of this selection tuning procedure is shown in \ref{fig:sr_optimization}.
+
+\begin{figure}
+\caption{Optimization of the \HTFnm{PP}{4}{1} cut for a gluino signal model with $(m_{\gluino}, m_{\lsp} ) = (1500,700) \GeV $ assuming 10 \ifb and an uncertainty of 20\% on the background estimate.
+} \label{fig:sr_optimization}
+\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078_INT/OPT_gluino/HT5PP_10fb_20sys_gg1500_700}
+\end{figure}
+
 The compressed selections are split into five regions (SRC1-5), and due to the simplified nature of the compressed decay tree, has sensitivity in both the gluino and squark planes.
 The compressed regions target mass splittings with $m_{\text{sparticle}} - m_{\text{LSP}} \tilde{<} 200 \GeV$.
-
+For the compressed region, $M_{T, S}$ is the primary scaleful variable.
+We can see the general strategy of lowering increasing scale cuts while decreasing the scaleless cuts here.
+SRC1 targets the most compressed scenarios, with mass splittings of less than 25 \GeV, and has the loosest $M_{T, S}$ cut coupled with the tightest \risr and \dphiISR cuts.
+SRC4 and SRC5 target mass splittings of $\tilde{~} 200 \GeV$, and are coupled with the loosest scaleless cuts on \risr and \dphiISR.
+We also note that SRC4 and SRC5 have differing cuts on \NVjet, since these SRs are closest to the regions we will describe below, and can be see as the ``cross-over'' where the differences between squark and gluino production begins to become manifest.
 
 The squark regions (for noncompressed spectra) are organized into six signal regions.
 The SRS1 regions are targer

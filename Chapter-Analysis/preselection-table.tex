@@ -2,41 +2,22 @@
 \begin{table}[htbp]
   {\small
   \begin{center}\renewcommand\arraystretch{1.4}
-   \hspace*{-0.05\textwidth}\begin{tabular}{|c|l|c|c|c|c|c|}
+   \hspace*{-0.05\textwidth}
+   \begin{tabular}{|c|l|c|}
       \hline
-      Cut           & Description              & \multicolumn{5}{|c|}{}                                                                                                                              \\
+      Cut           & Description              & \\
       \hline
       \hline
-1                   & GRL                      & \multicolumn{5}{|c|}{{\tiny \texttt data15\_13TeV.periodAllYear\_DetStatus-v79-repro20-02\_DQDefects-00-02-02\_PHYS\_StandardGRL\_All\_Good\_25ns.xml}} \\
-                    &                          & \multicolumn{5}{|c|}{{\tiny \texttt data16\_13TeV.periodAllYear\_DetStatus-v80-pro20-08\_DQDefects-00-02-02\_PHYS\_StandardGRL\_All\_Good\_25ns.xml}}   \\ \hline
-%\multirow{1}{*}{2} & \multirow{1}{*}{Trigger} & \multicolumn{5}{|c|}{HLT\_xe70 (2015), HLT\_xe80\_tclcw\_L1XE50 (2016)}                                                                             \\ \hline
-\multirow{1}{*}{2}  & \multirow{1}{*}{Trigger} & \multicolumn{5}{|c|}{\footnotesize HLT\_xe70 (2015), HLT\_xe80\_tclcw\_L1XE50 or HLT\_xe100\_mht\_L1XE50 (2016)}                                    \\ \hline
-
-
-3 & Prim. vtx. & \multicolumn{5}{|c|}{At least one vertex} \\ \hline
-
-
-\multirow{2}{*}{4}    & \multirow{2}{*}{Ev. clean - jets} & \multicolumn{5}{|c|}{No {\texttt LooseBad} bad jets after jet-lepton overlap removal with $\pt$ $>$ 20 GeV and any $\eta$}       \\
-                      &                                   & \multicolumn{5}{|c|}{No leading {\texttt TightBad} jet}                                                                          \\
-                      &                                   & \multicolumn{5}{|c|}{No jet in dead tile region (2015 data only))}                                                           \\ \hline
-%                     &                                   & \multicolumn{5}{|c|}{Veto event if $\frac{\mymet{}{SoftClus}}{\mymet{}{}}\cos(\phi(\mymet{}{SoftClus})-\phi\mymet{}{})>$0.5} \\
-%                     & data corruption                   & \multicolumn{5}{|c|}{}                                                                                                       \\ \hline
-   \multirow{2}{*}{5} & Ev. clean                         & \multicolumn{5}{|c|}{no selected muons after overlap removal with}                                                           \\
-                      & - cosmics                         & \multicolumn{5}{|c|}{ $|z_{0}^{PV}| > 1$ mm or $|d_{0}^{PV}| > 0.2$ mm}                                                      \\ \hline
-   \multirow{2}{*}{6} & Ev. clean                         & \multicolumn{5}{|c|}{Veto event if $\frac{\mymet{}{Muon}}{\mymet{}{}}\cos(\phi(\mymet{}{Muon})-\phi\mymet{}{})>$0.5}         \\
-                      & Bad muon veto                     & \multicolumn{5}{|c|}{}                                                                                                       \\ \hline
-
-%   \multirow{2}{*}{6} & Ev. clean & \multicolumn{5}{|c|}{Veto event if any selected jet with $\pt>50$ GeV and $B^{corr}_{jet}>0.05$ } \\
- %                                 & Dead tile drawers & \multicolumn{5}{|c|}{satisfies $\Delta\phi(j,\met)<0.3$} \\ \hline
-
-7 & Lepton veto & \multicolumn{5}{|c|}{No selected baseline lepton after overlap removal with $\pt>$10~GeV } \\ \hline
-8               & \met [GeV] $>$                                      & \multicolumn{5}{|c|}{ 250 }          \\ \hline
-9               & $\pt(j_1)$ [GeV] $>$                                & \multicolumn{5}{|c|}{ 200 }          \\ \hline
-10              & $\pt(j_2)$ [GeV] $>$                                & \multicolumn{5}{|c|}{ 50 }           \\ \hline
-11              & $\Delta\phi(j_{1,2,(3)},\met)_{\rm min}$ [rad.] $>$ & \multicolumn{5}{|c|}{ 0.4 }          \\ \hline
-12              & $\meff$ [GeV] $>$                                   & \multicolumn{5}{|c|}{ 800 }          \\ \hline
-
-\end{tabular}
+     1 &Good Runs List& Veto events with intolerable detector errors \\
+     \hline
+     \multirow{1}{*}{2}  & \multirow{1}{*}{Trigger} & {\footnotesize HLT\_xe70 (2015), HLT\_xe80\_tclcw\_L1XE50, \text{or} HLT\_xe100\_mht\_L1XE50 (2016)} \\ \hline
+     3  & Event cleaning                                            & Veto for noncollision background, noise bursts,  and cosmic rays \\ \hline
+     4  & Lepton veto                                               & No leptons with $\pt>$10~GeV after overlap removal  \\ \hline
+     5  & \met [GeV] $>$                                            &  250                                                \\ \hline
+     6  & $\pt(j_1)$ [GeV] $>$                                      &  200                                                \\ \hline
+     7 & $\pt(j_2)$ [GeV] $>$                                      &   50                                                  \\ \hline
+     8 & $\meff$ [GeV] $>$                                         &  800                                                \\ \hline
+   \end{tabular}
 \caption{\label{tab:preselection} Preselection for the various event topologies used in the analysis.}
   \end{center}
 }

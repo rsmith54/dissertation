@@ -172,11 +172,39 @@ SRC4 and SRC5 target mass splittings of $\tilde{~} 200 \GeV$, and are coupled wi
 We also note that SRC4 and SRC5 have differing cuts on \NVjet, since these SRs are closest to the regions we will describe below, and can be see as the ``cross-over'' where the differences between squark and gluino production begins to become manifest.
 
 The squark regions (for noncompressed spectra) are organized into six signal regions.
-The SRS1 regions are targer
+These are labeled by a numeral 1-3 and letter a/b.
+SRs sharing a common numeral i.e. SRS1a and SRS1b share a common set of scaleless cuts, while differing in the main scale variable \HTFnm{PP}{2}{1}.
+The two SRs for each set of scaless cuts, only differing in the main scale variable, can be seen in \todo{naive} way as providing sensitivity to a range of luminosity scenarios\footnotemark.
+\footnotetext{These SRs were defined before the entire collision dataset was produced, and thus need to be robust in cases where the LHC provides significantly different than expected performance.}
+As before, we see that the scaleless cuts are loosened as we tighten the scaleful cuts, as we move across the table from SRS1a to SRS3b.
+This provides strong sensivity to signal models with intermediate mass splittings with SRS1a to large mass splittings with SR3b.
 
-The selection
+The gluino signal regions are organized entirely analogously to the squark signal regions.
+There are six gluino signal regions, again labeled via a numeral 1-3 and letter a/b.
+Those SRs sharing a common numeral have a common set of scaleless cuts, but differ in their main scale variable \HTFnm{PP}{4}{1}.
+The SRs follow the strategy, with SRG1 having the loosest scaleful cut cuts coupled with the strongest scaleless cuts, and the converse being true in SRG3.
+As in the squark case, this strategy provides strong expected sensitivity throughout the gluino-LSP plane.
+\todo{PLOT expected sensitivity with these assumptions?}
 
 \input{Chapter-Analysis/signal-region-table}
+
+\subsection{Scale variable distributions in the signal regions}
+
+In \ref{fig:srs_scale,fig:srg_scale,fig:src_scale}, we can see the distributions of the last scale cut used for each signal region.
+These distributions include scale factors derived via the fitting procedure the Standard Model background, which we will describe later in this chapter.
+These scale factors are all $\order 1$.
+The systematic uncertainties, shown in the banded stripe, are also described later in this section.
+Each plot shows the distribution from a signal model which is targetted by the given signal region.
+
+These distributions have all cuts applied except for the cut on this scale variable, which allows us to see the additional discrimination provided by the given variable.
+Since signal regions with the same numeral have identical cuts on all cuts other than the main scale variable, we show (a) and (b) on the same figure.
+The left-most (right-most) arrow shown is the location of the a (b) cut applied in the analysis.
+We call these plot \textit{$N-1$} plots, where $N$ refers to the number of cuts applied in the analysis.
+The full set of $N-1$ plots in the signal regions for the other variables used in the analysis are shown in \ref{app:n-1_plots}.
+We can see that for the signal models targeted by each signal region, each cut provides unique discrimination against the Standard Model backgrounds.
+
+\todo{captions for these figures}
+\input{Chapter-Analysis/scale-cut-figures}
 
 \section{Background estimation}
 

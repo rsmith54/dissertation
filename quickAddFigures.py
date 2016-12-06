@@ -35,11 +35,13 @@ for root, dirs, files in os.walk(sys.argv[1], topdown=False):
 
    files = [f for f in files if not 'converted-to' in f and matchString in f ]
 
-   chunks = [files[x:x+6] for x in xrange(0, len(files), 6)]
+   chunks = [files[x:x+6] for x in range(0, len(files), 6)]
    for chunk in chunks:
        counter = counter + 1
        pathname = [ os.path.join(root, path).replace('./','') for path in chunk]
-       if len(pathname) > 0 and ('.eps' in pathname[0] or '.pdf' in pathname[0]):
+       if len(pathname) > 0 and ('.eps' in pathname[0] or
+                                 '.pdf' in pathname[0] or
+                                 '.png' in pathname[0]):
            if counter % 4 == 0 :
              print('\clearpage')
              counter = 0

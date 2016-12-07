@@ -245,10 +245,36 @@ As was hinted at in the discussion of Monte Carlo generators, the primary backgr
 There is also a minor background from diboson events which is taken directly from MC with an uncertainty of 50\%.
 We describe the strategy to estimate these various backgrounds here.
 A summary table is shown in \ref{tab:crdefs}.
+\input{Chapter-Analysis/background-estimation-table}
 
 Events with a $Z$ boson decaying to neutrinos in association with jets are the primary irreducible background in the analysis.
 These events have true \met from the decaying neutrinos, and can have significant values of the scale variables of interest.
-The determination of the $\Zvv$ background is performed using a photon control region.
+Naively, one might expect us to use \Zll as the control process of interest, as \Zll events are quite well-measure.
+Unfortunately, the \Zll branching ratio is about half of from \Zvv, which necessitates loosening the control region selection significantly.
+This leads to large systematic uncertainties in the transfer factor to account for the separation in phase space.
+
+Instead, photon events are used as the control for the \Zvv events.
+We label this photon control region as CRY.
+The kinematic properties of photon events strongly resemble those of $Z$ events when the boson \pt is significantly above the mass of the $Z$ boson.
+In this regime, the neutral boson properties are scaleless, and can be treated interchangeably, up to the differences in coupling strengths.
+%There are some residual effects due to the differing spin states, which should be identifiable in events with
+Additionally, the cross-section for \gammajets events is significantly larger than \zjets events above the $Z$ mass.
+These features are shown in \ref{fig:boson_pt_ratio} in simulated \Zvv truth and reconstructed events.
+The reconstructed \Zvv events define the boson \pt as simply the \met.
+In truth events, one clearly sees the effect of the $Z$ mass below \order 100 \GeV, with a flattening of the ratio above \order 300 \GeV.
+In reconstructed events, the effects are less clear at low boson \pt, primarily due to cut sculpting from i.e. the trigger requirement on photon events, which necessitates a higher \pt cut on photon events for the trigger to remain fully efficient.
+It is clear that the ratio flattens out at high boson \pt, and we are justified in the use of CRY to model the \zjets background.
+\begin{figure}
+\caption{} \label{fig:boson_pt_ratio}
+\subfloat[Boson \pt ratio as a function of true boson \pt]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078_INT/GammaReweighting/Znunu_truth_bosonPt_dPhi/c1_bosonPt_no_cuts}}
+\subfloat[Boson \pt ratio as a function of reconstructed boson \pt]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078_INT/GammaReweighting/Znunu_reco/c1_bosonPt_no_cuts}}
+\end{figure}
+
+One additional correction scale factor is applied to \gammajets events before processing the transfer factors.
+This is known as the $\kappa$ method, which is used to determine the disagreement arising from the use of a LO generator for photon events vs. a NLO generator for \zjets events, which can reduce the theoretical uncertainties from this disagreement. \todo{cite what they are}
+This is effectively done with an auxiliary CRZ region, defined using two leptons associated to the Z mass.
+The correction factor derived for this purpose is $\kappa = 1.39 \pm 0.05$.
+
 
 
 CRT,CRW,CRY,CRQ

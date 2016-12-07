@@ -191,7 +191,7 @@ As in the squark case, this strategy provides strong expected sensitivity throug
 \subsection{Scale variable distributions in the signal regions}
 
 In \ref{fig:srs_scale,fig:srg_scale,fig:src_scale}, we can see the distributions of the last scale cut used for each signal region.
-These distributions include scale factors derived via the fitting procedure the Standard Model background, which we will describe later in this chapter.
+These distributions include scale factors derived via the fitting procedure which are applied to the Standard Model background, which we will describe later in this chapter.
 These scale factors are all $\order 1$.
 The systematic uncertainties, shown in the banded stripe, are also described later in this section.
 Each plot shows the distribution from a signal model which is targetted by the given signal region.
@@ -208,7 +208,48 @@ We can see that for the signal models targeted by each signal region, each cut p
 
 \section{Background estimation}
 
+We describe here the method of background estimation.
+In this thesis, we detail what is colloquially called a ``cut-and-count'' analysis.
+This is in contrast to a ``shape fit'' analysis, where one needs to consider the details of the variable distribution shapes.
+Instead, we must ensure the overall normalization of the Standard Model backgrounds are correct in the regions of phase space considered in the analysis.
+In order to do this, we define a set of \textit{control regions} which are free of SUSY contamination based on the previously excluded analysis.
+We compare the number of events present in the control regions in simulation with that in data to define a \textit{transfer factor} (TF).
+We extrapolate the number of expected events from each background using this transfer factor to translate from the , which provides our final estimate of the SM background in the various signal regions.
+
+More precisely, for a given signal region, we are attempting to estimate the value $\ntext{SR}{data}$ for a given background.
+This value is estimated using the following equation:
+\begin{align}\label{eq:bkg_est}
+\ntext{SR}{data,est} = \ntext{CR}{data,obs} \times \text{TF}_{\text{CR}} \equiv \ntext{CR}{data,obs} \times  \begin{pmatrix} \frac{ \ntext{SR}{MC} }{ \ntext{CR}{MC} } \end{pmatrix}
+\end{align}
+where the transfer factor TF is taken directly from MC.
+The two ingredients to our estimation of \ntext{SR}{data,obs} is thus \ntext{CR}{data,obs} and the transfer factor taken from MC.
+The CR definitions are motivated and designed according to two (generally competing) requirements:
+\begin{enumerate}
+\item Statistical uncertainties due to low CR statistics
+\item Systematic uncertainties related to the extrapolation from the CR to the SR.  This motivates the desire to make the control regions as similar as possible to the signal regions without risking signal contamination and while ensuring high purity in the targeted SM background.
+\end{enumerate}
+In principle, we can also apply data-driven corrections to the TF obtained for each CR.
+
+In order to validate the transfer factors obtained from MC, we also develop a series of \textit{validation regions} (VRs).
+These regions are generally designed to be ``in between'' the control region and signal region selections in phase space, and thus provide a check on the extrapolation from the control regions into the signal regions.
+Despite their closeness in phase space to the signal regions, they are also designed to have low signal contamination.
+
+In practice, we perform this estimation procedure simultaneously across all control regions; we describe this later.
+We only note this here since in principle, we can apply Eq.\ref{eq:bkg_est} to measure the contamination of backgrounds within control regions as well.
+This procedure also accounts for the correlations between regions due to correlated systematic uncertainties.
+We next describe the control region selection for the major SM backgrounds for the analysis.
+
 \subsection{Control and Validation Regions}
+
+As was hinted at in the discussion of Monte Carlo generators, the primary backgrounds of note in this analysis are \zjets,\wjets,\ttbar, and QCD events.
+There is also a minor background from diboson events which is taken directly from MC with an uncertainty of 50\%.
+We describe the strategy to estimate these various backgrounds here.
+A summary table is shown in \ref{tab:crdefs}.
+
+Events with a $Z$ boson decaying to neutrinos in association with jets are the primary irreducible background in the analysis.
+These events have true \met from the decaying neutrinos, and can have significant values of the scale variables of interest.
+The determination of the $\Zvv$ background is performed using a photon control region.
+
 
 CRT,CRW,CRY,CRQ
 

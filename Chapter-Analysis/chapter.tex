@@ -214,7 +214,9 @@ This is in contrast to a ``shape fit'' analysis, where one needs to consider the
 Instead, we must ensure the overall normalization of the Standard Model backgrounds are correct in the regions of phase space considered in the analysis.
 In order to do this, we define a set of \textit{control regions} which are free of SUSY contamination based on the previously excluded analysis.
 We compare the number of events present in the control regions in simulation with that in data to define a \textit{transfer factor} (TF).
-We extrapolate the number of expected events from each background using this transfer factor to translate from the , which provides our final estimate of the SM background in the various signal regions.
+We extrapolate the number of expected events from each background using this transfer factor to translate from the , which provides our final estimate of the SM background in the corresponding signal region.\todo{yes?}\footnotemark
+\footnotetext{To be explicit, each signal region SR has a corresponding set of control regions.
+}
 
 More precisely, for a given signal region, we are attempting to estimate the value $\ntext{SR}{data}$ for a given background.
 This value is estimated using the following equation:
@@ -266,7 +268,8 @@ In truth events, one clearly sees the effect of the $Z$ mass below \order 100 \G
 In reconstructed events, the effects are less clear at low boson \pt, primarily due to cut sculpting from i.e. the trigger requirement on photon events, which necessitates a higher \pt cut on photon events for the trigger to remain fully efficient.
 Still, it is clear that the ratio flattens out at high boson \pt, and we are justified in the use of CRY to model the \zjets background.
 
-For the \gammajets events, the control region kinematic selection is identical to that of the corresponding signal region.\todo{is scale var loosened?}
+The CRY kinematic selection is slightly looser in the scale variables for the noncompressed regions to provide sufficient control region statistics.
+This is chosen to be $\HFnm{PP}{1}{1} > 900 \GeV$ ($\HFnm{PP}{1}{1} > 550 \GeV$) for the squark (gluino) regions to properly minimize the corresponding statistical and systematic uncertainties.
 \begin{figure}
 \caption{} \label{fig:boson_pt_ratio}
 \subfloat[Boson \pt ratio as a function of true boson \pt]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078_INT/GammaReweighting/Znunu_truth_bosonPt_dPhi/c1_bosonPt_no_cuts}}
@@ -292,7 +295,9 @@ m_T = \sqrt{2p_{T,\ell} \met ( 1 - \cos{ \phi_{e} - \metphi } },
 around the $W$ mass: $30 \GeV < m_T < 100 \GeV$.
 Checks in simulation and experience from other analyses shows that these requirements give a sample of high purity \wln background.
 Due to low statistics using the kinematic cuts imposed in the signal regions, the control region kinematic cuts are slightly loosened with respect to the signal region cuts.
-As discussed above, this leads a to tolerable increase in the systematic uncertainty from the extrapolation from the CR to the SR
+We use the loosest cut in any signal region as the control region selection for all signal regions.
+More clearly, the control region selection corresponding to each signal region is the \textit{same}.
+As discussed above, this leads to a tolerable increase in the systematic uncertainty from the extrapolation from the CR to the SR when compared to the resulting statistical uncertainty.
 
 Top events are also an important background, for the same reasons as the \wjets background, due to the dominant top decay channel of $t \rightarrow Wb$.
 For a top event to be selected by the analysis criteria, as in the case of \wjets, we expect a $W$ to decay via a $\tau$ lepton which decays hadronically or one a muon or electron to be misidentified as a jet or be outside the detector acceptance.
@@ -301,8 +306,19 @@ We are thus primarily concerned with semileptonic \ttbar events with \met from t
 To model this background, we use the same selection as the $W$ selection, but require that one of the jets chosen by the analysis has at least one $b$-tag.
 This selection has quite high purity, as we expect the \ttbar background to have two $b-$jets.
 Thus with the 70\% $b-$tagging efficiency working point used in this analysis, ignoring (small) correlations between the two $b-$tags, we expect to tag one of the $b-$jets greater than 90\% of the time.
+As with CRW, we need to loosen the cuts applied to CRT with respect to the signal region in order to gain sufficient expected data statistics.
+We use exactly the same scheme; the CRT corresponding to each SR is identical, due to using the loosest set of cuts among the SRs.
+This comes at the cost of an increased systematic uncertainty for this extrapolation, but it was determined that this tradeoff resulted in the lowest overall uncertainty.
 
-CRT,CRW,CRY,CRQ
+The final important background is the QCD background.
+As briefly discussed in the previous chapter, QCD backgrounds are difficult, for a few reasons we describe here.
+The large cross-section for QCD events means that even very rare extreme mismeasurements can be seen in our signal regions.
+However, as these events are very rare, one requires extreme confidence in the tails of the distributions to use simulation as an input for background estimation.
+To avoid this, the strategy in these cases is to apply a strong enough cut to expect \textit{zero} QCD events in the signal regions to avoid this issue.
+To produce a sample enriched in QCD, which we call CRQ, we reverse the $\Delta_{\mathrm{QCD}}$ and \HFnm{PP}{1}{1} cuts.
+This analysis uses the jet smearing method.
+
+Validation region definitions
 
 \subsection{R Z/$\gamma$ method}
 

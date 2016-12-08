@@ -154,6 +154,7 @@ The decay trees imposed in this thesis are shown in \ref{fig:decay_trees}.
 \subfloat[Disquark decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02a}}\ref{subfig:disquark_decay_tree}
 \subfloat[Digluino decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02b}}\ref{subfig:digluino_decay_tree} \\
 \subfloat[Compressed decay tree]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02c}}\ref{subfig:compressed_decay_tree}
+\subfloat[Anti-QCD assembling decay tree]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078_INT/QCD/RJRtree_SelfAssembling}}\ref{subfig:self_assembling_decay_tree}
 \end{figure}
 Leaving temporarily the question of ``how'' we apply the jigsaw rules, let us compare these trees to the signal processes of interest.
 In particular, we want to compare the Feynman diagrams of \ref{fig:feynman_signal} with the decay trees of \ref{fig:decay_trees}.
@@ -173,7 +174,7 @@ In this case we apply a jigsaw at the level of \Pa (\Pb) which separates a singl
 This child frame represents the hypothesized squark after the decay $\supe{g} \rightarrow g \supe{q}$, which then decays as in the squark case.
 This gives additional information which will be exploited for the gluino specific search regions.
 
-The final decay tree used in this thesis is the \textit{compressed} decay tree.
+The third decay tree used in this thesis is the \textit{compressed} decay tree.
 Compressed refers to signal models which have a small splitting between the mass of the proposed sparticle and the \lsp.
 In this case, the sparticle decay products (i.e. the jets and \met) do not generally have large scale\cite{Jackson:2016mfb}.
 Instead, the strategy is generally to look for a large-scale initial state radiation (ISR) jet which is recoiling off the disparticle system.
@@ -187,6 +188,15 @@ RJR offers a natural and straightforward way to exploit this feature in events c
 One imposes the simple decay tree in \ref{subfig:compressed_decay_tree} with associated jigsaw rules.
 With suitable jigsaw rules, this decay tree ``picks out'' the large \pt ISR jet, recoiling off the \met and additional radiation from the sparticle decays.
 This provides a convenient set of variables to understand compressed scenarios.
+
+There is one other decay tree, shown in \ref{subfig:self_assembling_decay_tree}.
+This is special, as it is only used for the purpose of QCD rejection, and does not directly map to a sparticle decay chain.
+Due to the large production cross-sections of QCD events, even very rare large jet mismeasurements can lead to significant \met which can enter the signal region.
+To reduce these backgrounds, one usually rejects events which contain jets which are ``too close'' by some distance metric to the \met in the event.
+Generally, in the past, the distance metric has been defined as simply the angular distance \deltaR.
+
+The \textit{self-assembling tree} can be seen as defining a distance metric which depends on the magnitudes of the \met and jets rather than simply their distance inangular space.
+Depending on the exact kinematics, the one or two closest jets are found, and label the \met \textit{siblings}.
 
 In this section, we have seen how one imposes particular decay trees on an event to produce a basis of kinematic variables in the approximated frames relevant to the hypothesized sparticle decay chain.
 This explains why we call this procedure ``recursive'': we can continue the procedure through as many steps of a decay tree as we want, and each application of a jigsaw rule is dependent on the variables produced in the last step.
@@ -336,3 +346,21 @@ The compressed scenario uses the following set of RJR variables:
 \item \NVjet - the number of jets associated to the visible system V
 \item \dphiISR - the opening angle between the ISR system and the invisible system measured in the lab frame.  As the invisible system is expected to carry much of the total $S$ system momentum, this should be large, as we expect the ISR system to recoil directly opposite the $I$ system in that case.
 \end{itemize}
+
+\subsection{Anti-QCD variables}
+
+For the self-assembling tree, we contruct two variables, which we combine to form a single variable which rejects QCD events.
+In this case, we use the mass minimzation jigsaw, with a fully transverse version of the event (i.e. we set all jet $z/\eta$ components to 0).
+This jigsaw defines the distance metric, and provides us with one or two jets known as the \met siblings.
+We define \psib as the sum of these jets, and define the following quantities.
+
+We calculate a ratio observable which examines the relative magnitude of the sibling vector \psib and \met, and an angle relating \psib and \met:
+\begin{align}
+R(\psib, \met) &\equiv \frac{\psib \cdot \methat}{ \psib \cdot \methat + |\metvec|}. \\
+\cos{\theta(\psib, \met)} &\equiv \frac{ (\psib + \metvec) \cdot \hat{p^{\text{sib+miss}_{sib}}}{|\psib| + \met}
+\end{align}
+These observables are highly correlated, but taking the following fractional difference provides strong discrimination between SUSY signal and QCD background events:
+\begin{align}
+\Delta_{\mathrm{QCD}} \equiv \frac{1 + \cos{\theta(\psib, \met)} - 2 R(\psib, \met) }{1 + \cos{\theta(\psib, \met)} + 2 R(\psib, \met) }.
+\end{align}
+We will use this variable in the next chapter.

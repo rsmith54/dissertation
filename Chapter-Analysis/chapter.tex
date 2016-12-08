@@ -225,12 +225,21 @@ This value is estimated using the following equation:
 \end{align}
 where the transfer factor TF is taken directly from MC.
 The two ingredients to our estimation of \ntext{SR}{data,obs} is thus \ntext{CR}{data,obs} and the transfer factor taken from MC.
+
+The transfer factor method is potentially more straightforward written in the following way:
+\begin{align}\label{eq:bkg_est_simple}
+\ntext{SR}{data,est} = \ntext{SR}{MC} \times  \begin{pmatrix} \frac{\ntext{CR}{data,obs}  }{ \ntext{CR}{MC} } \end{pmatrix}.
+\end{align}
+In this form, the correction to the overall normalization is explicit.
+The ratio tells $\frac{\ntext{CR}{data,obs}}{ \ntext{CR}{MC} }$ us how much to scale \ntext{SR}{MC} by in order to get the right overall normalization.
+The assumption made with this method is that the overall shape of the distribution should not change ``that much'' as one extrapolates to the signal region.
+
 The CR definitions are motivated and designed according to two (generally competing) requirements:
 \begin{enumerate}
 \item Statistical uncertainties due to low CR statistics
 \item Systematic uncertainties related to the extrapolation from the CR to the SR.  This motivates the desire to make the control regions as similar as possible to the signal regions without risking signal contamination while ensuring high purity in the targeted SM background.
 \end{enumerate}
-In principle, we can also apply data-driven corrections to the TF obtained for each CR.
+In principle, one can also apply data-driven corrections to the TF obtained for each CR.
 
 In order to validate the transfer factors obtained from MC, we also develop a series of \textit{validation regions} (VRs).
 These regions are generally designed to be ``in between'' the control region and signal region selections in phase space, and thus provide a check on the extrapolation from the control regions into the signal regions.
@@ -241,7 +250,7 @@ We only note this here since in principle, we can apply Eq.\ref{eq:bkg_est} to m
 This procedure also accounts for the correlations between regions due to correlated systematic uncertainties.
 We next describe the control region selection for the major SM backgrounds for the analysis.
 
-\subsection{Control and Validation Regions}
+\subsection{Control Regions}
 
 As was hinted at in the discussion of Monte Carlo generators, the primary backgrounds of note in this analysis are \zjets,\wjets,\ttbar, and QCD events.
 There is also a minor background from diboson events which is taken directly from MC with an uncertainty of 50\%.
@@ -250,7 +259,7 @@ A summary table is shown in \ref{tab:crdefs}.
 \input{Chapter-Analysis/background-estimation-table}
 
 Events with a $Z$ boson decaying to neutrinos in association with jets are the primary irreducible background in the analysis.
-These events have true \met from the decaying neutrinos, and can have significant values of the scale variables of interest.
+These events have true \met from the decaying neutrinos, and can have significant values of the scaleful variables of interest.
 Naively, one might expect us to use \Zll as the control process of interest, as \Zll events are quite well-measure.
 Unfortunately, the \Zll branching ratio is about half of from \Zvv, which necessitates loosening the control region selection significantly.
 This leads to large systematic uncertainties in the transfer factor to account for the separation in phase space.
@@ -268,7 +277,7 @@ In truth events, one clearly sees the effect of the $Z$ mass below \order 100 \G
 In reconstructed events, the effects are less clear at low boson \pt, primarily due to cut sculpting from i.e. the trigger requirement on photon events, which necessitates a higher \pt cut on photon events for the trigger to remain fully efficient.
 Still, it is clear that the ratio flattens out at high boson \pt, and we are justified in the use of CRY to model the \zjets background.
 
-The CRY kinematic selection is slightly looser in the scale variables for the noncompressed regions to provide sufficient control region statistics.
+The CRY kinematic selection is slightly looser in the scaleful variables for the noncompressed regions to provide sufficient control region statistics.
 This is chosen to be $\HFnm{PP}{1}{1} > 900 \GeV$ ($\HFnm{PP}{1}{1} > 550 \GeV$) for the squark (gluino) regions to properly minimize the corresponding statistical and systematic uncertainties.
 \begin{figure}
 \caption{} \label{fig:boson_pt_ratio}
@@ -283,9 +292,9 @@ This is effectively done with an auxiliary CRZ region, defined using two leptons
 The correction factor derived for this purpose is $\kappa = 1.39 \pm 0.05$.
 
 Event with a $W$ boson decaying leptonically via \wln can also enter the signal region.
-In  case, we use leptonically to include all leptons ($e,\mu,\tau$).
+In case, we use leptonically to include all leptons ($e,\mu,\tau$).
 The \wjets events passing the event selection either have a hadronically-decaying $\tau$, where the neutrino is used as \met, or the case where a muon or electron is misidentified as a jet or missed completely due to the limited detector acceptance.
-To model this background, we use a sample of one-lepton events with a veto on b-jets.
+To model this background, we use a sample of one-lepton events with a veto on b-jets, which we label CRW.
 The lepton is required to have $\pt > 27 \GeV$ to guarantee a fully efficient trigger.
 We then treat this single lepton as a jet for purposes of the RJR variable calculations.
 We apply a kinematic selection on the transverse mass:
@@ -316,9 +325,54 @@ The large cross-section for QCD events means that even very rare extreme mismeas
 However, as these events are very rare, one requires extreme confidence in the tails of the distributions to use simulation as an input for background estimation.
 To avoid this, the strategy in these cases is to apply a strong enough cut to expect \textit{zero} QCD events in the signal regions to avoid this issue.
 To produce a sample enriched in QCD, which we call CRQ, we reverse the $\Delta_{\mathrm{QCD}}$ and \HFnm{PP}{1}{1} cuts.
-This analysis uses the jet smearing method.
+This analysis uses the jet smearing method.\todo{TODO}
 
-Validation region definitions
+The final background of note in this background is the diboson background.
+This background is estimated directly from simulation.
+Due to the low cross-section of electroweak processes, this background is not significant in the signal regions.
+We assign a large ad-hoc 50\% systematic on the cross-section, and do not attempt to define a control region for this background.
+
+\subsection{Validation Regions}
+
+As discussed in general terms above, we define a set of validations regions to ensure we can properly model the particular backgrounds as we move closer to the SRs in phase space.
+We define at least one validation region for each major background.
+
+For the most important background \Zvv, we use a series of validation regions.
+The primary validation region, which we label as VRZ, is defined by selection lepton pairs of opposite sign and identical flavor which lie with 25 \GeV of the Z boson mass.
+This selection has high purity for \Zll events as seen in simulation.
+We treat the two leptons as contributions to the \met (as we did with the photon in CRY).
+This selection uses the same kinematic cuts as the signal region.
+We also define two VRs using the same event selection but looser kinematic cuts, which we label VRZa and VRZb.
+VRZa has a loosened selection on \HFnm{PP}{1}{1}, again to the loosest value among the signal regions, as was done for CRW and CRt.
+VRZa has a loosened selection on the primary scaleful variable  (\HTFnm{PP}{2}{1} or \HTFnm{PP}{4}{1}), again to the loosest value among the signal regions, as was done for CRW and CRT.
+These two validation regions allow use to test the modeling of each of these variables individually, as well as allowing more validation region statistics in the signal regions with tighter cuts on these variables.
+
+For the compressed regions, these $Z$ validation region were found lacking.
+The leptons are highly boosted in the compressed case, and the lepton acceptance was quite low due to lepton isolation requirements in \deltaR.
+Instead, two fully hadronic validation region were developed for the compressed regions.
+The first, VRZc has identical requirements to the signal regions with an inverted requirement on \dphiISR.
+From simulation, this region was found to be at least 50\% pure in $Z$ events, which was considered enough to validate this background in this extreme portion of phase space.
+For additional validation region statistics, we also developed VRZca, which takes again uses the loosest set of cuts from each signal region.
+Note this means that each compressed signal region has an identical VRZca.
+
+The top and $W$ control regions use the same event selection as the corresponding control regions, as described above.
+However, unlike the control regions, these validation regions reimpose the SR scaleful variable selections, to be closer in phase space to the hadronic signal regions.
+In the same way as we did for VRZa and VRZb, we also define auxiliary VRs which loosen the cuts on the scale variables.
+We define VRTa (VRWa) as VRT (VRW) with the same loosened cut on \HFnm{PP}{1}{1} and VRTb (VRWb) as VRT (VRW) with the same loosened cut on the primary scale variable.
+
+The final set of validation regions are those defined to check the estimation of the QCD background.
+VRQ is defined to be identical to the corresponding CRQ, but again we use the full SR region cuts for the scaleful variables.
+This selection is then closer to the corresponding signal region to validate the CRQ estimate.
+We also define the auxiliary validation regions VRQa and VRQb for the noncompressed signal regions.
+In this case, we reimpose one of the two inverted cuts in CRQ with respect to the signal regions, to make each one even closer to the SRs.
+In CRQa (CRQb), we reimpose the \HFnm{PP}{1}{1} ($\Delta_{\mathrm{QCD}}$).
+
+For the compressed case, we again define a separate validation region, due to the special kinematics probed.
+We construct a validation region which is the same as CRQ, with $.5 < \risr < R_{\text{ISR, SR}}$, where $R_{\text{ISR, SR}}$ is the cut on \risr in the corresponding SR.
+Again, this can be seen as probing ``in between'' the CR and SR in phase space.
+
+\todo{CR plots}
+\todo{validation region summary plot}
 
 \subsection{R Z/$\gamma$ method}
 

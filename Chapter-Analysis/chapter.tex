@@ -49,7 +49,7 @@ Importantly, the $W (Z)$+jet events are calculated at NLO while the the $\gamma$
 %  For these events, matrix elements are calculated at LO with up to three or four partons depending on the $\pt$ of the photon, and merged with the \sherpa\ parton shower using the ME+PS@LO prescription~\cite{Hoeche:2009rj}.
 %In the case of $W/Z$+jets, the NNPDF3.0NNLO PDF set \cite{Ball:2014uwa} is used, while for the $\gamma$+jets production the CT10 PDF set \cite{CT10pdf} is used, both in conjunction with dedicated parton shower-tuning developed by the authors of \sherpa.
 The $W/Z$ + jets events are normalized to their NNLO cross-sections \cite{Catani:2009sm}.
-The $\gamma$+jets LO cross-section is taken directly from \sherpa; we will apply a correction factor to be described later.\todo{THISSSSSS}
+The $\gamma$+jets LO cross-section is taken directly from \sherpa; we will apply a correction factor to be described later.
 
 The various \ttbar and single-top processes\cite{ATL-PHYS-PUB-2016-004} are generated using two versions of \textsc{Powheg-Box} \cite{ATL-PHYS-PUB-2016-004,powheg-box}.
 These are calculated at NLO and normalized to various orders ranging from NLO to NNLO+NNLL in the different processes, which can be seen in \ref{tab:montecarlo}\cite{Czakon:2013goa,Czakon:2011xx,Aliev:2010zk,Kant:2014oha,Kidonakis:2010ux,Kidonakis:2011wy}.
@@ -112,7 +112,7 @@ These two cuts are only used for the signal region selection.
 
 The rest of the preselection is used for the signal region and background estimation samples.
 These cuts are mostly used for the reduction of the dataset to a manageable
-Signal models with sensitivity to lower values of these scale variables have been ruled out by previous searches \todo{cite}.
+Signal models with sensitivity to lower values of these scale variables have been ruled out by previous searches\cite{SUSY-2015-06}.
 The final cut is on \meff, which is the scalar sum of all jets and \met.
 This is the final discriminating variable used in the complementary search to this thesis, which is also presented in \ref{ATLAS-CONF-2016-078}.
 
@@ -174,7 +174,7 @@ We also note that SRC4 and SRC5 have differing cuts on \NVjet, since these SRs a
 The squark regions (for noncompressed spectra) are organized into six signal regions.
 These are labeled by a numeral 1-3 and letter a/b.
 SRs sharing a common numeral i.e. SRS1a and SRS1b share a common set of scaleless cuts, while differing in the main scale variable \HTFnm{PP}{2}{1}.
-The two SRs for each set of scaless cuts, only differing in the main scale variable, can be seen in \todo{naive} way as providing sensitivity to a range of luminosity scenarios\footnotemark.
+The two SRs for each set of scaless cuts, only differing in the main scale variable, can be seen in a n{\"a}ive way as providing sensitivity to a range of luminosity scenarios\footnotemark.
 \footnotetext{These SRs were defined before the entire collision dataset was produced, and thus need to be robust in cases where the LHC provides significantly different than expected performance.}
 As before, we see that the scaleless cuts are loosened as we tighten the scaleful cuts, as we move across the table from SRS1a to SRS3b.
 This provides strong sensivity to signal models with intermediate mass splittings with SRS1a to large mass splittings with SR3b.
@@ -228,10 +228,10 @@ The two ingredients to our estimation of \ntext{SR}{data,obs} is thus \ntext{CR}
 
 The transfer factor method is potentially more straightforward written in the following way:
 \begin{align}\label{eq:bkg_est_simple}
-\ntext{SR}{data,est} = \ntext{SR}{MC} \times  \begin{pmatrix} \frac{\ntext{CR}{data,obs}  }{ \ntext{CR}{MC} } \end{pmatrix}.
+\ntext{SR}{data,est} = \ntext{SR}{MC} \times  \begin{pmatrix} \frac{\ntext{CR}{data,obs}  }{ \ntext{CR}{MC} } \end{pmatrix} \equiv ntext{SR}{MC} \times \mu_{CR}.
 \end{align}
 In this form, the correction to the overall normalization is explicit.
-The ratio tells $\frac{\ntext{CR}{data,obs}}{ \ntext{CR}{MC} }$ us how much to scale \ntext{SR}{MC} by in order to get the right overall normalization.
+The ratio $\frac{\ntext{CR}{data,obs}}{ \ntext{CR}{MC} }$ which we call $\mu$ informs us how to scale \ntext{SR}{MC} in order to get the right overall normalization.
 The assumption made with this method is that the overall shape of the distribution should not change ``that much'' as one extrapolates to the signal region.
 
 The CR definitions are motivated and designed according to two (generally competing) requirements:
@@ -332,6 +332,10 @@ This background is estimated directly from simulation.
 Due to the low cross-section of electroweak processes, this background is not significant in the signal regions.
 We assign a large ad-hoc 50\% systematic on the cross-section, and do not attempt to define a control region for this background.
 
+
+
+\input{cr-lastcut}
+
 \subsection{Validation Regions}
 
 As discussed in general terms above, we define a set of validations regions to ensure we can properly model the particular backgrounds as we move closer to the SRs in phase space.
@@ -355,7 +359,7 @@ From simulation, this region was found to be at least 50\% pure in $Z$ events, w
 For additional validation region statistics, we also developed VRZca, which takes again uses the loosest set of cuts from each signal region.
 Note this means that each compressed signal region has an identical VRZca.
 
-The top and $W$ control regions use the same event selection as the corresponding control regions, as described above.
+The top and $W$ validation regions use the same event selection as the corresponding control regions, as described above.
 However, unlike the control regions, these validation regions reimpose the SR scaleful variable selections, to be closer in phase space to the hadronic signal regions.
 In the same way as we did for VRZa and VRZb, we also define auxiliary VRs which loosen the cuts on the scale variables.
 We define VRTa (VRWa) as VRT (VRW) with the same loosened cut on \HFnm{PP}{1}{1} and VRTb (VRWb) as VRT (VRW) with the same loosened cut on the primary scale variable.
@@ -377,3 +381,53 @@ Again, this can be seen as probing ``in between'' the CR and SR in phase space.
 \subsection{R Z/$\gamma$ method}
 
 \subsection{Systematic Uncertainties}
+
+In this section, we discuss the uncertainties considered.
+These generally fall into four categories: theoretical generator uncertainties, uncertainties on the CR to SR extrapolations, uncertainties on the data-driven transfer factor corrections, and object reconstruction uncertainties.
+We discuss each of these categories here.
+A table summarizing this section is in \ref{tab:systematics-table}
+\input{Chapter-Analysis/systematics-table}
+
+The theoretical generator uncertainties are evaluated by using alternative simulation samples or varying scale uncertainties.
+In the case of the \zjets and \wjets backgrounds, the related theoretical uncertainties are estimated by varying the renormalization, factorization, and resummation scales by two, and decreasing the nominal CKKW matching scale by 5 \GeV and 10 \GeV respectively.
+In the case of \ttbar production, we compare the nominal \textsc{Powheg-Box} generator with MG5\_aMC@NLO, as well as comparing different radiation and generator tunes.
+As stated above, we account for the uncertainty on the small diboson bacground by imposition of a flat 50\% uncertainty.
+
+The CR to SR extrapolation uncertainties, or what could be called the transfer factor uncertainties, are listed in \ref{tab:systematics-table} as $mu\_$.
+There is one normalization factor $\mu$ for each major background, and its uncertainty is often a dominant one for many backgrounds.
+This uncertainty is generally dominated by the statistical uncertainty in the CR.
+
+There are two uncertainties from the data-driven corrections to the transfer factors.
+The first is the uncertainty on $\kappa$, which is measured using an auxiliary \Zll control region.
+This is labeled alpha\_Kappa.
+The other is the uncertainty is that assigned to the jet smearing method, which is seen in the table as alpha\_QCDError.
+
+The final set of uncertainties are those related to object reconstruction.
+In the case of the hadronic search presented, the important uncertainties are those assigned to the jet energy and \met.
+The uncertainties on the lepton reconstruction and $b$-tagging uncertainties were found to be negligible in all SRs.
+The measurement of the jet energy scale (JES) uncertainty is quite complicated, and described in ~\cite{Aad:2011he,Aad:2012vm,ATL-PHYS-PUB-2015-015}.
+After a complicated procedure to decorrelate the various components of the JES uncertainty, there are three components which remain, which are labeled as alpha\_JET\_GroupedNP\_1,2,3.
+The jet energy resolution uncertainty is estimated using the methods discussed in Refs.~\cite{Aad:2012ag,ATL-PHYS-PUB-2015-015}, and is labeled alpha\_JER.
+
+The \met soft term uncertainties are described in \cite{PERF-2014-04,ATL-PHYS-PUB-2015-023,ATL-PHYS-PUB-2015-027}.
+The uncertainty on the \met soft term resolution is parameterized into a component parellel to direction of the rest of the event (the sum of the hard objects \pt) and a component perpendicular to this direction.
+There is also an uncertainty on the \met soft term scale.
+These are labeled as alpha\_MET\_SoftTrk\_ResoPara, alpha\_MET\_SoftTrk\_ResoPerp, and alpha\_MET\_SoftTrk\_Scale.
+
+\subsection{Fitting procedure}
+
+In this section, we describe the fitting procedure employed, which properly accounts for the correlations between the uncertainties through the use of a likelihood fit as described in \ref{Baak:2014wma}.
+We use three classes of likelihood fits: \textit{background-only}, \textit{model-independent}, and \textit{model-dependent} fits.
+The background-only fits estimate the background yields in each signal region.
+These fits use only the control region event yields as inputs; they do not include the information from the signal regions besides the simulation event yield.
+The cross-contamination between CRs is also fit by this procedure.
+The systematic uncertainties described in the previous section are used as nuisance parameters.
+This background only fit also estimates the background event yields in the validation regions.
+When designing the analysis (before unblinding the signal regions), checking the validation region agreement is the primary way to validate the consistency and accuracy of the background estimation procedure.
+
+In the case no excess is observed, we use a model-independent fit to set upper limits on the possible number of possible beyond the Standard Model events in each SR.
+The fitting procedure has one difference from the background-only fit: we add the number of observed events as an input to the fit, and we fit the signal strength as a new non-negative free parameter.
+Using the $CL_{\mathrm{S}}$ prescription \todo{cite} and neglecting the possible (small) signal contamination in control regions, we derive the the observed and expected limits on the number of events from BSM phenomena in each signal region.
+
+Model-dependent fits are used to set exclusion limits on the specific SUSY models considered in this thesis, particular the gluino or squark pair production with various mass splittings.
+This can be seen as identical to the background-only fit with an additional simulation input from the particular model of interest, with its corresponding systematic uncertainties from detector effects account for as in the background-only fit.

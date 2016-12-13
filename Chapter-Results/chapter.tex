@@ -31,23 +31,71 @@ The table includes the expectations from simulation before applying the $\mu$ sc
 SRG3b shows a small excess, but this is not significant.
 
 In this case, we set both simplified model-dependent limits and model-independent limits on the possible cross-sections from BSM physics.
+We first consider the final values of the systematic uncertainties.
+
 \input{Chapter-Analysis/scale-cut-figures}
 \begin{figure}[tbph]
 \centering
 \caption{Summary of the signal region pulls} \label{fig:sr_summary}
 \includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_06b}
 \end{figure}
-\input{Chapter-Analysis/summary-table}
+\input{Chapter-Results/summary-table}
 
-\section{Fitting procedure checks and systematic uncertainties}
+\section{Systematic Uncertainties}
 
-This section presents
+This section considers the results of \ref{tab:BreakdownSysSRCompressed_RJR}.
+This table is a summary of the resulting systematic uncertainties on the background estimation in each signal region, properly accounting for systematic uncertainties.
+These uncertainties are expressed both as a relative uncertainty and absolute uncertainty.
+As correlations are properly treated, the absolute uncertainties do not add in quadrature, although most uncertainties are relatively uncorrelated.
+Example correlation matrices are shown for SRC1, SRG1a, and SRS1a in \ref{}; these show the pairwise correlation factors between each systematic uncertainty included in the fitting procedure \todo{remove ones that aren't actually in the tables}
+We discuss the general trends in the systematic uncertainties for each type of signal region.
 
+In the squark regions, the total uncertainties range from 10\% to 11\%.
+We note that the uncertainties on the $Z$, both theoretical and $\Delta_{\mu,\mathrm{Z+jets}}$ account for the largest on the background estimate in each signal region.
+The $kappa$ factor uncertainty, which is also an uncertainty on the $Z$ estimate, is also significant at 4\% in each region.
+The \Zvv contribution to the squark regions is the primary irreducible background, so relatively well-measured, the uncertainty on its event yield dominates the overall uncertainty.
+There are also significant uncertainties from the $W$ and top uncertainties, although these are subdominant.
+The flat diboson uncertainty is also relatively large, although again subdominant to the $Z$ uncertainties.
+We note that the statistics of the MC simulation samples are very small for the squark case; this is a reflection of the ``looseness'' of these regions, as the MC statistics are sufficient for all of the major backgrounds.
 
-\section{Exclusion plots}
+The gluino regions have overall larger uncertainties than the squark regions, between 10\% and 25\%. due to a multitude of factors; this is consistent with previous searches \todo{cite}.
+The $Z$ related uncertainties all contribute significantly to the final background yield uncertainties.
+These are relatively similar to the squark $Z$ uncertainties however.
+The $W$, top, and diboson uncertainties are all significantly more important than in the squark case however.
+In the gluino case, we also see that the limited simulation statistics begin to significantly affect the measurement of the Standard Model background.
+These are all reflections of the overall ``tighter'' quality of the gluino regions, as indicated by the event yields.
+The $\Delta_{\mu}$ uncertainties are affected by this due to the need to use overall looser control regions, while the theory uncertainties are more affected by small statistical fluctuations between different generators.
+The low statistics is particularly clear in SRG3b, where the simulation statistics account for a very large 14\% uncertainty.
+
+The compressed regions have systematic uncertainties ranging from 10\% to 19\%.
+For the tighter regions, SRC1, SRC4, and SRC5, we see a large contribution from the lack of MC statistics.
+SRC1 and SRC4 should a large value for the $W$ theory uncertainty, while all compressed regions show a large uncertainty on the $Z$ estimate.
+These are a product of the extreme phase space in boson \pt probed by the compressed regions.
+SRC5 shows large top and Jet/\met uncertainties; these are most evident due to the $\NVjet > 3$ cut, and thus the uncertainty in this region is quite affected by fluctuations in the top, jet, or \met uncertainties.
 
 \begin{figure}[tbph]
 \centering
-\caption{Exclus.}
-\label{fig:srs_scale}
+\caption{Correlation factors between systematic uncertainties in SRC1, SRG1a, and SRS1a.} \label{fig:systematic_correlations}
+\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078_INT/HistFitter/PullPlots/29_07_16/corr_SRJigsawSRC1}
+\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078_INT/HistFitter/PullPlots/29_07_16/corr_SRJigsawSRG1a}
+\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078_INT/HistFitter/PullPlots/29_07_16/corr_SRJigsawSRS1a}
+\end{figure}
+
+\input{Chapter-Results/results-syst-table-small.tex}
+
+\section{Exclusion plots}
+
+
+\begin{figure}[tbph]
+\begin{center}
+\includegraphics[width=0.45\textwidth]{figures/ATLAS-CONF-2016-078_INT/Sensitivity/RJR/atlasCLs_SS_direct_showSR}
+\includegraphics[width=0.45\textwidth]{figures/ATLAS-CONF-2016-078_INT/Sensitivity/RJR/atlasCLs_GG_direct_showSR}
+\end{center}
+\caption{Exclusion limits for direct production of (a) light-flavour squark pairs with decoupled gluinos and (b) gluino pairs with decoupled squarks.
+Gluinos (light-flavour squarks) are required to decay to two quarks (one quark) and a neutralino LSP.
+Exclusion limits are obtained by using the signal region with the best expected sensitivity at each point.
+The blue dashed lines show the expected limits at 95\% CL, with the light (yellow) bands indicating the $1\sigma$ excursions due to experimental and background-only  theoretical uncertainties.
+Observed limits are indicated by medium dark (maroon) curves where the solid contour represents the nominal limit, and the dotted lines are obtained by varying the signal cross-section by the renormalization and factorization scale and PDF uncertainties.
+Results are compared with the observed limits obtained by the previous ATLAS searches with no leptons, jets and missing transverse momentum~\cite{0-leptonPaper,0LPaper_13TeV}.}
+\label{fig:sensitivitytext}
 \end{figure}

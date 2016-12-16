@@ -4,10 +4,10 @@
 
 \chapter[A search for supersymmetric particles in zero lepton final states with the Recursive Jigsaw Technique][Top of Page Title]{A search for supersymmetric particles in zero lepton final states with the Recursive Jigsaw Technique}
 
-This section presents the details of the first search employing RJR variables as discriminating variables, as described in \cite{ATLAS-CONF-2016-078}.
+This section presents the details of the first search employing RJR variables as discriminating variables, as described in ~\cite{ATLAS-CONF-2016-078}.
 We will describe the simulation samples used, and then define the selections where we search for new SUSY phenomena, which we call the \textit{signal regions} (SRs)
 Afterwards, we describe the background estimation techniques used in the analysis.
-Finally, we discuss the treatment of systematic uncertainties, and how we combine them using a likelihood method\cite{Baak:2014wma}.
+Finally, we discuss the treatment of systematic uncertainties, and how we combine them using a likelihood method~\cite{Baak:2014wma}.
 
 \section{Simulation samples}
 
@@ -34,7 +34,7 @@ The detector response to the truth particles is simulated, and simulated hits ar
 After simulation, the standard reconstruction algorithms described previously are run with the simulated hits.
 This procedure ensures ``as close as possible'' treatment of simulation and collision data.
 
-We give a brief description of which samples use which generators; additional details are available in \cite{ATLAS-CONF-2016-078}.
+We give a brief description of which samples use which generators; additional details are available in ~\cite{ATLAS-CONF-2016-078}.
 
 \todo{MAKE BETTER}
 {\color{red}
@@ -45,7 +45,7 @@ The free parameters are $m_{\lsp}$ and $m_{\gluino}$ ($m_{\squark}$) for gluino-
 \todo{explain we have a ``grid'' of these signal models samples}
 %The {\textsc EvtGen}~v1.2.0 program~\cite{evtgen} is used to describe the properties of the $b$- and $c$- hadron decays in the signal samples, and the background samples except those produced with \sherpa~\cite{sherpa2}.
 
-Boson ($W$, $Z$, $\gamma$) plus jet events are simulated using different \sherpa generators, with \textsc{Comix} and \textsc{OpenLoops} matrix-element generators\cite{ATL-PHYS-PUB-2016-003, comix, openloops}.
+Boson ($W$, $Z$, $\gamma$) plus jet events are simulated using different \sherpa generators, with \textsc{Comix} and \textsc{OpenLoops} matrix-element generators~\cite{ATL-PHYS-PUB-2016-003, comix, openloops}.
 Photons are required to have transverse momentum of $> 35 \GeV$.
 Importantly, the $W (Z)$+jet events are calculated at NLO while the the $\gamma$+jet events are calculated at LO.
 % The production of $W$ or $Z$ bosons in association with jets~\cite{ATL-PHYS-PUB-2016-003} is simulated using the \sherpa~2.2.0 generator, while the production of $\gamma$ in association with jets is simulated using the \sherpa~2.1.1 generator.
@@ -54,10 +54,10 @@ Importantly, the $W (Z)$+jet events are calculated at NLO while the the $\gamma$
 % Events containing a photon in association with jets are generated requiring a photon transverse momentum above 35~\GeV.
 %  For these events, matrix elements are calculated at LO with up to three or four partons depending on the $\pt$ of the photon, and merged with the \sherpa\ parton shower using the ME+PS@LO prescription~\cite{Hoeche:2009rj}.
 %In the case of $W/Z$+jets, the NNPDF3.0NNLO PDF set \cite{Ball:2014uwa} is used, while for the $\gamma$+jets production the CT10 PDF set \cite{CT10pdf} is used, both in conjunction with dedicated parton shower-tuning developed by the authors of \sherpa.
-The $W/Z$ + jets events are normalized to their NNLO cross-sections \cite{Catani:2009sm}.
+The $W/Z$ + jets events are normalized to their NNLO cross-sections ~\cite{Catani:2009sm}.
 The $\gamma$+jets LO cross-section is taken directly from \sherpa; we will apply a correction factor to be described later.
 
-The various \ttbar and single-top processes\cite{ATL-PHYS-PUB-2016-004} are generated using two versions of \textsc{Powheg-Box} \cite{ATL-PHYS-PUB-2016-004,powheg-box}.
+The various \ttbar and single-top processes~\cite{ATL-PHYS-PUB-2016-004} are generated using two versions of \textsc{Powheg-Box} ~\cite{ATL-PHYS-PUB-2016-004,powheg-box}.
 These are calculated at NLO and normalized to various orders ranging from NLO to NNLO+NNLL in the different processes, which can be seen in \ref{tab:montecarlo}\cite{Czakon:2013goa,Czakon:2011xx,Aliev:2010zk,Kant:2014oha,Kidonakis:2010ux,Kidonakis:2011wy}.
 % For the generation of $t\bar{t}$ and single-top processes in the $Wt$ and $s$-channel~\cite{ATL-PHYS-PUB-2016-004}, the \textsc{Powheg-Box} v2 \cite{powheg-box} generator is used with the CT10 PDF set.
 % The electroweak (EW) $t$-channel single-top events are generated using the \textsc{Powheg-Box} v1 generator.
@@ -84,15 +84,15 @@ A summary of the SM background processes together with the MC generators, cross-
 \input{Chapter-Analysis/mc-samples}
 
 %The summary of processes considered together with the MC generators, cross-section calculations and PDFs used are listed in Table~\ref{tab:montecarlo}.
-For all SM background samples the response of the detector to particles is modelled with a full ATLAS detector simulation \cite{:2010wqa} based on \textsc{Geant4} \cite{Agostinelli:2002hh}.
-Signal samples are prepared using a fast simulation based on a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters \cite{ATLAS:2010bfa} and on \textsc{Geant4} elsewhere.
-%, or through a fast simulation using a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters \cite{ATLAS:2010bfa} and \textsc{Geant4} elsewhere; the latter applies to  \powheg{}+\pythia{} $t\bar{t}$ samples.
+For all SM background samples the response of the detector to particles is modelled with a full ATLAS detector simulation ~\cite{:2010wqa} based on \textsc{Geant4} ~\cite{Agostinelli:2002hh}.
+Signal samples are prepared using a fast simulation based on a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters ~\cite{ATLAS:2010bfa} and on \textsc{Geant4} elsewhere.
+%, or through a fast simulation using a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters ~\cite{ATLAS:2010bfa} and \textsc{Geant4} elsewhere; the latter applies to  \powheg{}+\pythia{} $t\bar{t}$ samples.
 
-All simulated events are overlaid with multiple $pp$ collisions simulated with the soft QCD processes of \pythia~8.186 using the A2 tune  \cite{A14tune} and the MSTW2008LO parton distribution functions \cite{Martin:2009iq}. The simulations are reweighted to match the distribution of the mean number of interactions observed in data. %It was checked that the effect of such pile-up reweighting is completely negligible.
+All simulated events are overlaid with multiple $pp$ collisions simulated with the soft QCD processes of \pythia~8.186 using the A2 tune  ~\cite{A14tune} and the MSTW2008LO parton distribution functions ~\cite{Martin:2009iq}. The simulations are reweighted to match the distribution of the mean number of interactions observed in data. %It was checked that the effect of such pile-up reweighting is completely negligible.
 
 %The MC samples were generated with an expected pile-up distribution (multiple $pp$ interactions in the same or neighbouring bunch-crossings), but have not been reweighted to match the distribution of the mean number of interactions observed in data. It has been checked that the effect of such pile-up reweighting is completely negligible.
 
-%Differing pile-up (multiple $pp$ interactions in the same or neighbouring bunch-crossings) conditions as a function of the instantaneous luminosity are taken into account by overlaying simulated minimum-bias events (simulated using \pythia~8 with the MSTW2008LO PDF set~\cite{Sherstnev:2007nd} and the A2 tune \cite{ATL-PHYS-PUB-2011-014})  onto the hard-scattering process and reweighting events according to the distribution of the mean number of interactions observed in data.
+%Differing pile-up (multiple $pp$ interactions in the same or neighbouring bunch-crossings) conditions as a function of the instantaneous luminosity are taken into account by overlaying simulated minimum-bias events (simulated using \pythia~8 with the MSTW2008LO PDF set~~\cite{Sherstnev:2007nd} and the A2 tune ~\cite{ATL-PHYS-PUB-2011-014})  onto the hard-scattering process and reweighting events according to the distribution of the mean number of interactions observed in data.
 
 \section{Event selection}
 
@@ -118,9 +118,9 @@ These two cuts are only used for the signal region selection.
 
 The rest of the preselection is used for the signal region and control regions used for background estimation.
 These cuts on scaleful variables used by previous searches are mostly used for the reduction of the dataset to a manageable size.
-Signal models with sensitivity to lower values of these scaleful variables have been ruled out by previous searches\cite{SUSY-2015-06}.
+Signal models with sensitivity to lower values of these scaleful variables have been ruled out by previous searches~\cite{SUSY-2015-06}.
 The final cut is on \meff, which is the scalar sum of all jets and \met.
-This is the final discriminating variable used in the complementary search to this thesis, which is also presented in \cite{ATLAS-CONF-2016-078}.
+This is the final discriminating variable used in the complementary search to this thesis, which is also presented in ~\cite{ATLAS-CONF-2016-078}.
 
 \input{Chapter-Analysis/preselection-table}
 
@@ -159,7 +159,7 @@ We will see this strategy at work in each set of signal regions.
 We have already described the useful variables in the previous chapter.
 The question is how to choose the optimal cuts for a given set of signal models, which are grouped in the mass splitting space.
 This was done by a brute force scan over the cut values, using a guess of integrated luminosity with a fixed systematic uncertainty scenario; the value of the systematic uncertainty is motivated by that from previous analyses.
-We choose the lowest cut value that maximizes the $Z_{\text{Bi}}$, as described in \cite{Cousins:2008zz}.
+We choose the lowest cut value that maximizes the $Z_{\text{Bi}}$, as described in ~\cite{Cousins:2008zz}.
 This figure of merit gives conservative estimates, as compared to i.e. $S/\sqrt{B}$.
 A figure showing an example of this selection tuning procedure is shown in \ref{fig:sr_optimization}.
 
@@ -321,7 +321,7 @@ The large cross-section for QCD events means that even very rare extreme mismeas
 However, as these events are very rare, one requires extreme confidence in the tails of the distributions to use simulation as an input for background estimation.
 To avoid this, the strategy in these cases is to apply a strong enough cut to expect \textit{zero} QCD events in the signal regions to avoid this issue.
 To produce a sample enriched in QCD, which we call CRQ, we reverse the $\Delta_{\mathrm{QCD}}$ and \HFnm{PP}{1}{1} cuts.
-This analysis uses the jet smearing method, as described in \cite{SUSY-2011-20}.
+This analysis uses the jet smearing method, as described in ~\cite{SUSY-2011-20}.
 This is a data-driven method which applies a resolution function to well-measured QCD events, which also an estimate of the impact of the jet energy mismeasurement on \met and subsequently the RJR variables.
 
 Distributions of CRQ in squark, gluino, and compressed regions are shown in \ref{fig:CRQ_SRJigsawSRS1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRG1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRC1_LastCut_CRQ_minusone}.
@@ -417,14 +417,14 @@ The measurement of the jet energy scale (JES) uncertainty is quite complicated, 
 After a complicated procedure to decorrelate the various components of the JES uncertainty, there are three components which remain, which are labeled as alpha\_JET\_GroupedNP\_1,2,3.
 The jet energy resolution uncertainty is estimated using the methods discussed in Refs.~\cite{Aad:2012ag,ATL-PHYS-PUB-2015-015}, and is labeled alpha\_JER.
 
-The \met soft term uncertainties are described in \cite{PERF-2014-04,ATL-PHYS-PUB-2015-023,ATL-PHYS-PUB-2015-027}.
+The \met soft term uncertainties are described in ~\cite{PERF-2014-04,ATL-PHYS-PUB-2015-023,ATL-PHYS-PUB-2015-027}.
 The uncertainty on the \met soft term resolution is parameterized into a component parellel to direction of the rest of the event (the sum of the hard objects \pt) and a component perpendicular to this direction.
 There is also an uncertainty on the \met soft term scale.
 These are labeled as alpha\_MET\_SoftTrk\_ResoPara, alpha\_MET\_SoftTrk\_ResoPerp, and alpha\_MET\_SoftTrk\_Scale.
 
 \subsection{Fitting procedure}
 
-In this section, we describe the fitting procedure employed, which properly accounts for the correlations between the uncertainties through the use of a likelihood fit as described in \cite{Baak:2014wma}.
+In this section, we describe the fitting procedure employed, which properly accounts for the correlations between the uncertainties through the use of a likelihood fit as described in ~\cite{Baak:2014wma}.
 We use three classes of likelihood fits: \textit{background-only}, \textit{model-independent}, and \textit{model-dependent} fits.
 The background-only fits estimate the background yields in each signal region.
 These fits use only the control region event yields as inputs; they do not include the information from the signal regions besides the simulation event yield.
@@ -436,7 +436,7 @@ When designing the analysis (before unblinding the signal regions), checking the
 In the case no excess is observed, we use a model-independent fit to set upper limits on the possible number of possible beyond the Standard Model events in each SR.
 These limits are derived using the same procedure as the background-only fit, with two additional pieces of information included in the fitting procedure.
 We include the SR event count, and a parameter known as the \textit{signal strength}, defined as $\mu = \sigma/\sigma_{\mathrm{BG}}$.
-Using the $CL_{\mathrm{S}}$ procedure\cite{Feldman:1997qc} and neglecting the possible (small) signal contamination in control regions, we derive the the observed and expected limits on the number of events from BSM phenomena in each signal region.
+Using the $CL_{\mathrm{S}}$ procedure~\cite{Feldman:1997qc} and neglecting the possible (small) signal contamination in control regions, we derive the the observed and expected limits on the number of events from BSM phenomena in each signal region.
 
 Model-dependent fits are used to set exclusion limits on the specific SUSY models considered in this thesis, particular the gluino or squark pair production with various mass splittings.
 This can be seen as identical to the background-only fit with an additional simulation input from the particular model of interest, with its corresponding systematic uncertainties from detector effects accounted for as in the background-only fit.

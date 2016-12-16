@@ -5,8 +5,8 @@
 \chapter[][Recursive Jigsaw Reconstruction]{Recursive Jigsaw Reconstruction}
 \label{ch:jigsaw}
 
-\textit{Recursive Jigsaw Reconstruction} (RJR) \cite{Jackson:2016mfb,ATLAS-CONF-2016-078} is a novel algorithm used for the analysis presented in this thesis.
-RJR is the conceptual successor to the razor technique \cite{Rogan:2010kb,Buckley:2013kua}, which has been used successfully in many new physics searches \cite{SUSY-2014-05,SUSY-2014-06,CMS-SUS-13-004,CMS-SUS-12-005,CMS-SUS-11-024,SUSY-2011-22}.
+\textit{Recursive Jigsaw Reconstruction} (RJR) ~\cite{Jackson:2016mfb,ATLAS-CONF-2016-078} is a novel algorithm used for the analysis presented in this thesis.
+RJR is the conceptual successor to the razor technique ~\cite{Rogan:2010kb,Buckley:2013kua}, which has been used successfully in many new physics searches ~\cite{SUSY-2014-05,SUSY-2014-06,CMS-SUS-13-004,CMS-SUS-12-005,CMS-SUS-11-024,SUSY-2011-22}.
 In this chapter, we will first present the razor technique, and describe the razor variables.
 We will then present the RJR algorithm.
 After the description of the algorithm, we will describe the precise RJR variables used by this thesis and attempt to provide some physical intuition of what they describe.
@@ -16,7 +16,7 @@ After the description of the algorithm, we will describe the precise RJR variabl
 \subsection{Motivation}
 In this thesis, we consider SUSY models where gluinos and squarks are pair-produced.
 Pair-production is a consequence of the $R$-parity imposed in many SUSY models.
-$R-$parity violation is highly constrained by limits on proton decay\cite{susyPrimer}, and is often assumed in SUSY model building.
+$R-$parity violation is highly constrained by limits on proton decay~\cite{susyPrimer}, and is often assumed in SUSY model building.
 The Feynman diagrams considered are shown in Fig.\ref{fig:feynman_signal}.
 \begin{figure}
 \caption{Feynman diagrams for the SUSY signals considered in this thesis} \label{fig:feynman_signal}
@@ -37,7 +37,7 @@ An additional limitation is the complete lack of longitudinal information.
 As events from i.e. QCD backgrounds tend to have higher boosts along the $z$-direction, this is ignoring an important handle in searches for new physics.
 Finally, \met is only one object, which is a measurement for \textit{two} separate LSPs.
 If one could factorize this information somehow, this would provide additional information to potentially discriminate against backgrounds.
-The \textit{razor variables} $(\mdr, R^2)$ are more robust than standard variables against these effects\cite{Rogan:2010kb,Buckley:2013kua}.
+The \textit{razor variables} $(\mdr, R^2)$ are more robust than standard variables against these effects~\cite{Rogan:2010kb,Buckley:2013kua}.
 
 \subsection{Derivation of the razor variables}
 
@@ -51,7 +51,7 @@ We begin by analyzing the decay in the ``rough-approximation'', or in modern par
 This is the frame where each sparticle is at rest.
 The complete set of frames considered in the case of the razor variables is shown in \ref{fig:razor_frames}.
 \begin{figure}
-\caption{Frames considered when applying the razor technique, from \cite{Buckley:2013kua}.} \label{fig:razor_frames}
+\caption{Frames considered when applying the razor technique, from ~\cite{Buckley:2013kua}.} \label{fig:razor_frames}
 \includegraphics[width=.9\linewidth]{superrazor/fig/sectionII/frames2}
 \end{figure}
 
@@ -133,12 +133,12 @@ For signal events, we expect $R$ to peak around $R \order 1/4$, while background
 
 \section{Recursive Jigsaw Reconstruction}
 
-Recursive Jigsaw Reconstruction is an algorithm allowing the imposition of a decay tree interpretation on an particular event\cite{Jackson:2016mfb,ATLAS-CONF-2016-078}.
+Recursive Jigsaw Reconstruction is an algorithm allowing the imposition of a decay tree interpretation on an particular event~\cite{Jackson:2016mfb,ATLAS-CONF-2016-078}.
 The idea is to construct the underlying kinematic variables (the masses and decay angles) on an event-by-event level.
 This is done ``recursively'' through a decay tree which corresponds (sometimes approximately) to the Fenymann diagram for the signal process of interest.
 After each step of the recursive procedure, the objects are ``placed'' into one bucket (or branch) of the decay tree, and the process is repeated on each frame we have imposed.
 The imposition of these decay trees is done by \textit{jigsaw} rule: a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
-This procedure is performed by the \texttt{RestFrames} software packages \cite{RestFrames}
+This procedure is performed by the \texttt{RestFrames} software packages ~\cite{RestFrames}
 
 In events where all objects are fully reconstructed, this is straightforward, and of course has been used for many years in particle physics experiments.
 Events which contain \met are more difficult, due to the loss of information: the potential for multiple mismeasured or simply unmeasureable objects, such as neutrinos or the LSP in SUSY searches.
@@ -177,7 +177,7 @@ This gives additional information which will be exploited for the gluino specifi
 
 The third decay tree used in this thesis is the \textit{compressed} decay tree.
 Compressed refers to signal models which have a small splitting between the mass of the proposed sparticle and the \lsp.
-In this case, the sparticle decay products (i.e. the jets and \met) do not generally have large scale\cite{Jackson:2016mfb}.
+In this case, the sparticle decay products (i.e. the jets and \met) do not generally have large scale~\cite{Jackson:2016mfb}.
 Instead, the strategy is generally to look for a large-scale initial state radiation (ISR) jet which is recoiling off the disparticle system.
 In the case where the LSPs receive no momentum from the sparticle decays, the following approximation holds:
 \begin{align}
@@ -258,7 +258,7 @@ In the next section, we describe the variables that are used in this thesis in m
 \section{Variables used in the search for zero lepton SUSY}
 
 We describe here the variables used in the search described in \ref{ATLAS-CONF-2016-078}.
-These were reconstructed using the RJR algorithm as just described, using the RestFrames packages\cite{RestFrames}.
+These were reconstructed using the RJR algorithm as just described, using the RestFrames packages~\cite{RestFrames}.
 In these frames, the momenta of all objects placed into that branch of the decay tree are available (after application of the approximated boost), and in principle we can calculate any variable of interest such as invariant masses or the angles between these objects.
 The truly useful set of variables are highly dependent on the signal process, and we leave their discussion to the subsequent chapters.
 It is useful to understand the philosophy employed in the construction of these variables.

@@ -58,7 +58,7 @@ The $W/Z$ + jets events are normalized to their NNLO cross-sections ~\cite{Catan
 The $\gamma$+jets LO cross-section is taken directly from \sherpa; we will apply a correction factor to be described later.
 
 The various \ttbar and single-top processes~\cite{ATL-PHYS-PUB-2016-004} are generated using two versions of \textsc{Powheg-Box} ~\cite{ATL-PHYS-PUB-2016-004,powheg-box}.
-These are calculated at NLO and normalized to various orders ranging from NLO to NNLO+NNLL in the different processes, which can be seen in \ref{tab:montecarlo}\cite{Czakon:2013goa,Czakon:2011xx,Aliev:2010zk,Kant:2014oha,Kidonakis:2010ux,Kidonakis:2011wy}.
+These are calculated at NLO and normalized to various orders ranging from NLO to NNLO+NNLL in the different processes, which can be seen in \Cref{tab:montecarlo}\cite{Czakon:2013goa,Czakon:2011xx,Aliev:2010zk,Kant:2014oha,Kidonakis:2010ux,Kidonakis:2011wy}.
 % For the generation of $t\bar{t}$ and single-top processes in the $Wt$ and $s$-channel~\cite{ATL-PHYS-PUB-2016-004}, the \textsc{Powheg-Box} v2 \cite{powheg-box} generator is used with the CT10 PDF set.
 % The electroweak (EW) $t$-channel single-top events are generated using the \textsc{Powheg-Box} v1 generator.
 % This generator uses the four-flavour scheme for the NLO matrix-element calculations together with the fixed four-flavour PDF set CT10f4~\cite{CT10pdf}.
@@ -79,11 +79,11 @@ The generator cross-sections are used in this case.
 
 The multi-jet background is generated with \pythia~8.186 using the A14 underlying-event tune and the NNPDF2.3LO parton distribution functions.
 
-A summary of the SM background processes together with the MC generators, cross-section calculation orders in $\alpha_{\textrm s}$, PDFs, parton shower and tunes used is given in Table~\ref{tab:montecarlo}.
+A summary of the SM background processes together with the MC generators, cross-section calculation orders in $\alpha_{\textrm s}$, PDFs, parton shower and tunes used is given in \Cref{tab:montecarlo}.
 }
 \input{Chapter-Analysis/mc-samples}
 
-%The summary of processes considered together with the MC generators, cross-section calculations and PDFs used are listed in Table~\ref{tab:montecarlo}.
+%The summary of processes considered together with the MC generators, cross-section calculations and PDFs used are listed in Table~\Cref{tab:montecarlo}.
 For all SM background samples the response of the detector to particles is modelled with a full ATLAS detector simulation ~\cite{:2010wqa} based on \textsc{Geant4} ~\cite{Agostinelli:2002hh}.
 Signal samples are prepared using a fast simulation based on a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters ~\cite{ATLAS:2010bfa} and on \textsc{Geant4} elsewhere.
 %, or through a fast simulation using a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters ~\cite{ATLAS:2010bfa} and \textsc{Geant4} elsewhere; the latter applies to  \powheg{}+\pythia{} $t\bar{t}$ samples.
@@ -103,7 +103,7 @@ We then describe the signal region strategy, and present the signal regions used
 \subsection{Preselection}
 
 The preselection is used to reduce the dataset to that of interest in this thesis.
-The table containing the preselection cuts is shown in \ref{tab:preselection}.
+The preselection cuts are shown in \Cref{tab:preselection}.
 This selection is also used for the samples used for background estimation, except for the lepton veto.
 
 The cuts [1] and [4] are a set of cleaning cuts to remove problematic events.
@@ -135,7 +135,7 @@ A variant of this schematic is used for most SUSY searches on ATLAS and CMS.
 \includegraphics[width=.9\linewidth]{sr_schematic}
 \end{figure}
 
-A schematic of this strategy is shown in \ref{fig:sr_schematic}.
+A schematic of this strategy is shown in \Cref{fig:sr_schematic}.
 This type of plane is how most $R-$parity conserving) SUSY searches are organized in both ATLAS and CMS
 The horizontal axis is the mass of the sparticle considered.
 In the case of this thesis, this will the squark or gluino mass.
@@ -150,10 +150,10 @@ Binning as finely as possible\footnotemark~ leads to overfitting due to the fluc
 \footnotetext{This can be defined as having a signal region for each simulated signal sample, which for this analysis is \order 100.}
 In this thesis, we use six squark signal regions, six gluino signal regions, and five compressed regions.
 
-The full table defining all signal regions is shown in \ref{tab:RJsrdefs}.
+The full table defining all signal regions is shown in \Cref{tab:RJsrdefs}.
 In all cases, the signal region selections contain a combination of scaleful and scaleless cuts.
 Emphasis on cuts on scaleful variables provide stronger sensitivity to larger mass splittings, while additional sensitivity to smaller mass splittings is found using stronger cuts on scaleless variables.
-One envisions walking from SR1 (with tight scaleless cuts and loose scaleful cuts) in \ref{fig:sr_schematic} towards SR3 by loosening the scaleless cuts and tightening the scaleful cuts.
+One envisions walking from SR1 (with tight scaleless cuts and loose scaleful cuts) in \Cref{fig:sr_schematic} towards SR3 by loosening the scaleless cuts and tightening the scaleful cuts.
 We will see this strategy at work in each set of signal regions.
 
 We have already described the useful variables in the previous chapter.
@@ -161,7 +161,7 @@ The question is how to choose the optimal cuts for a given set of signal models,
 This was done by a brute force scan over the cut values, using a guess of integrated luminosity with a fixed systematic uncertainty scenario; the value of the systematic uncertainty is motivated by that from previous analyses.
 We choose the lowest cut value that maximizes the $Z_{\text{Bi}}$, as described in ~\cite{Cousins:2008zz}.
 This figure of merit gives conservative estimates, as compared to i.e. $S/\sqrt{B}$.
-A figure showing an example of this selection tuning procedure is shown in \ref{fig:sr_optimization}.
+A figure showing an example of this selection tuning procedure is shown in \Cref{fig:sr_optimization}.
 
 \begin{figure}
 \caption{Optimization of the \HTFnm{PP}{4}{1} cut for a gluino signal model with $(m_{\gluino}, m_{\lsp} ) = (1500,700) \GeV $ assuming 10 \ifb and an uncertainty of 20\% on the background estimate.
@@ -232,7 +232,7 @@ These regions are generally designed to be ``in between'' the control region and
 Despite their closeness in phase space to the signal regions, they are also designed to have low signal contamination.
 
 In practice, we perform this estimation procedure simultaneously across all control regions; we describe this later.
-We only note this here since we can also apply Eq.\ref{eq:bkg_est} to measure the contamination of a control region with another background as well.
+We only note this here since we can also apply Eq.\Cref{eq:bkg_est} to measure the contamination of a control region with another background as well.
 This procedure accounts for the correlations between regions due to correlated systematic uncertainties.
 We next describe the control region selection for the major SM backgrounds for the analysis.
 
@@ -241,7 +241,7 @@ We next describe the control region selection for the major SM backgrounds for t
 As was hinted at in the discussion of Monte Carlo generators, the primary backgrounds of note in this analysis are \zjets, \wjets, \ttbar, and QCD events.
 There is also a minor background from diboson events which is taken directly from MC with an uncertainty of 50\%.
 We describe the strategy to estimate these various backgrounds here.
-A summary table is shown in \ref{tab:crdefs}.
+A summary table is shown in \Cref{tab:crdefs}.
 All distributions shown in this section use the scaling factors $\mu$ from the background fits, which we describe later.
 \input{Chapter-Analysis/background-estimation-table}
 
@@ -258,7 +258,7 @@ The kinematic properties of photon events strongly resemble those of $Z$ events 
 In this regime, the neutral bosons are both scaleless, and can be treated interchangeably, up to the differences in coupling strengths.
 %There are some residual effects due to the differing spin states, which should be identifiable in events with
 Additionally, the cross-section for \gammajets~ events is significantly larger than \zjets~ events above the $Z$ mass.
-These features are shown in \ref{fig:boson_pt_ratio} in simulated \Zvv truth and reconstructed events.
+These features are shown in \Cref{fig:boson_pt_ratio} in simulated \Zvv truth and reconstructed events.
 The reconstructed \Zvv events define the boson \pt as simply the \met.
 In truth events, one clearly sees the effect of the $Z$ mass below \order 100 \GeV, with a flattening of the ratio above \order 300 \GeV.
 In reconstructed events, the effects are less clear at low boson \pt, primarily due to cut sculpting from i.e. the trigger requirement on photon events, which necessitates a higher \pt cut on photon events for the trigger to remain fully efficient.
@@ -278,7 +278,7 @@ One can see this as a measurement of the k-factor for the LO \gammajets~ sample.
 This is effectively done with an auxiliary CRZ region, defined using two leptons with an invariant mass close with 25 \GeV of the Z mass.
 The correction factor derived for this purpose is $\kappa = 1.39 \pm 0.05$.
 
-Distributions of CRY in squark, gluino, and compressed regions are shown in \ref{fig:CRY_SRJigsawSRS1a_LastCut_CRY_minusone,fig:CRY_SRJigsawSRG1a_LastCut_CRY_minusone,fig:CRY_SRJigsawSRC1_LastCut_CRY_minusone}.
+Distributions of CRY in squark, gluino, and compressed regions are shown in \Cref{fig:CRY_SRJigsawSRS1a_LastCut_CRY_minusone,fig:CRY_SRJigsawSRG1a_LastCut_CRY_minusone,fig:CRY_SRJigsawSRC1_LastCut_CRY_minusone}.
 One can see the quite high purity of CRY in photon events from these plots.
 
 Event with a $W$ boson decaying leptonically via \wln can also enter the signal region.
@@ -298,7 +298,7 @@ We use the loosest cut in any signal region as the control region selection for 
 More clearly, the control region selection corresponding to each signal region is the \textit{same}.
 As discussed above, this leads to a tolerable increase in the systematic uncertainty from the extrapolation from the CR to the SR when compared to the resulting statistical uncertainty.
 
-Distributions of CRW in squark, gluino, and compressed regions are shown in \ref{fig:CRW_SRJigsawSRS1a_LastCut_CRW_minusone,fig:CRW_SRJigsawSRG1a_LastCut_CRW_minusone,fig:CRW_SRJigsawSRC1_LastCut_CRW_minusone}.
+Distributions of CRW in squark, gluino, and compressed regions are shown in \Cref{fig:CRW_SRJigsawSRS1a_LastCut_CRW_minusone,fig:CRW_SRJigsawSRG1a_LastCut_CRW_minusone,fig:CRW_SRJigsawSRC1_LastCut_CRW_minusone}.
 There is high purity in \wjets~ events in the control region corresponding to all signal regions.
 
 Top events are also an important background, for the same reasons as the \wjets~ background, due to the dominant top decay channel of $t \rightarrow Wb$.
@@ -312,7 +312,7 @@ As with CRW, we need to loosen the cuts applied to CRT with respect to the signa
 We use exactly the same scheme; the CRT corresponding to each SR is identical, due to using the loosest set of cuts among the SRs.
 This comes at the cost of an increased systematic uncertainty for this extrapolation, but it was determined that this tradeoff resulted in the lowest overall uncertainty.
 
-Distributions of CRT in squark, gluino, and compressed regions are shown in \ref{fig:CRT_SRJigsawSRS1a_LastCut_CRT_minusone,fig:CRT_SRJigsawSRG1a_LastCut_CRT_minusone,fig:CRT_SRJigsawSRC1_LastCut_CRT_minusone}.
+Distributions of CRT in squark, gluino, and compressed regions are shown in \Cref{fig:CRT_SRJigsawSRS1a_LastCut_CRT_minusone,fig:CRT_SRJigsawSRG1a_LastCut_CRT_minusone,fig:CRT_SRJigsawSRC1_LastCut_CRT_minusone}.
 There is high purity in top events in the control region corresponding to all signal regions.
 
 The final important background is the QCD background.
@@ -324,7 +324,7 @@ To produce a sample enriched in QCD, which we call CRQ, we reverse the $\Delta_{
 This analysis uses the jet smearing method, as described in ~\cite{SUSY-2011-20}.
 This is a data-driven method which applies a resolution function to well-measured QCD events, which also an estimate of the impact of the jet energy mismeasurement on \met and subsequently the RJR variables.
 
-Distributions of CRQ in squark, gluino, and compressed regions are shown in \ref{fig:CRQ_SRJigsawSRS1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRG1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRC1_LastCut_CRQ_minusone}.
+Distributions of CRQ in squark, gluino, and compressed regions are shown in \Cref{fig:CRQ_SRJigsawSRS1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRG1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRC1_LastCut_CRQ_minusone}.
 There is high purity in top events in the control region corresponding to all signal regions.
 
 The final background of note in this background is the diboson background.
@@ -373,7 +373,7 @@ For the compressed case, we again define a separate validation region, due to th
 We construct a validation region which is the same as CRQ, with $.5 < \risr < R_{\text{ISR, SR}}$, where $R_{\text{ISR, SR}}$ is the cut on \risr in the corresponding SR.
 Again, this can be seen as probing ``in between'' the CR and SR in phase space.
 
-The results of this validation can be seen in \ref{fig:vr_summary}.
+The results of this validation can be seen in \Cref{fig:vr_summary}.
 Each bin is \textit{pull} of the validation region corresponding to a particular signal region.
 This is defined
 \begin{align}
@@ -393,7 +393,7 @@ We can see there are few postive pulls (indicating an underestimation of the bac
 In this section, we discuss the uncertainties considered.
 These generally fall into four categories: theoretical generator uncertainties, uncertainties on the CR to SR extrapolations, uncertainties on the data-driven transfer factor corrections, and object reconstruction uncertainties.
 We discuss each of these categories here.
-A table summarizing this section is in \ref{tab:systematics-table}
+A table summarizing this section is in \Cref{tab:systematics-table}
 \input{Chapter-Analysis/systematics-table}
 
 The theoretical generator uncertainties are evaluated by using alternative simulation samples or varying scale uncertainties.
@@ -401,7 +401,7 @@ In the case of the \zjets~ and \wjets~ backgrounds, the related theoretical unce
 In the case of \ttbar production, we compare the nominal \textsc{Powheg-Box} generator with MG5\_aMC@NLO, as well as comparing different radiation and generator tunes.
 As stated above, we account for the uncertainty on the small diboson bacground by imposition of a flat 50\% uncertainty.
 
-The CR to SR extrapolation uncertainties, or what could be called the transfer factor uncertainties, are listed in \ref{tab:systematics-table} as $mu\_$.
+The CR to SR extrapolation uncertainties, or what could be called the transfer factor uncertainties, are listed in \Cref{tab:systematics-table} as $mu\_$.
 There is one normalization factor $\mu$ for each major background, and their uncertainties, especially $\mu_Z$, are often dominant for the measurement in many signal regions.
 This uncertainty is generally dominated by the statistical uncertainty in the CR.
 
@@ -440,5 +440,5 @@ Using the $CL_{\mathrm{S}}$ procedure~\cite{Feldman:1997qc} and neglecting the p
 
 Model-dependent fits are used to set exclusion limits on the specific SUSY models considered in this thesis, particular the gluino or squark pair production with various mass splittings.
 This can be seen as identical to the background-only fit with an additional simulation input from the particular model of interest, with its corresponding systematic uncertainties from detector effects accounted for as in the background-only fit.
-As noted when we introduced \ref{fig:sr_schematic}, the exclusion contours from previous model-dependent fits are the primary motivating factor in the design of our signal regions.
+As noted when we introduced \Cref{fig:sr_schematic}, the exclusion contours from previous model-dependent fits are the primary motivating factor in the design of our signal regions.
 If no excess is found, we set limits on each of the simplified signal models with various mass splittings.

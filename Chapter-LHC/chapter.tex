@@ -38,7 +38,7 @@ Practically speaking, the easiest options for particles in a collider are proton
 \footnotetext{Muon colliders are a potential future option at high energies, since the relativistic $\gamma$ factor gives them a relatively long lifetime in the lab frame.}
 Given the dependence on mass, we can see why protons are used to reach the highest energies.
 The tradeoff for this is that protons are not point particles, and we thus we don't know the exact incoming four-vectors of the protons.
-This is a reflection of the ``bag model'' discussed in Ch.\ref{ch:sm}, where each proton is actually a bag of incoming quarks and gluons, which individually contribute to the total proton energy.
+This is a reflection of the ``bag model'' discussed in \Cref{ch:sm}, where each proton is actually a bag of incoming quarks and gluons, which individually contribute to the total proton energy.
 
 The particle \textit{beam} refers to the bunches combined.
 An important property of a beam of a particular energy $E$, moving in uniform magnetic field $B$, containing particles of momentum p is the \textit{beam rigidity} :
@@ -69,7 +69,7 @@ Due to this simple relation, one can also quantify the ``amount of data delivere
 
 \section{Accelerator Complex}
 
-The Large Hadron Collider is the last accelerator in a chain of accelerators which together form the CERN accelerator complex, shown in \ref{fig:accelerator_complex}.
+The Large Hadron Collider is the last accelerator in a chain of accelerators which together form the CERN accelerator complex, shown in \Cref{fig:accelerator_complex}.
 \begin{figure}
 \caption{The CERN accelerator complex.}\label{fig:accelerator_complex}
 \includegraphics[width=.9\linewidth]{Cern-Accelerator-Complex}
@@ -93,7 +93,7 @@ The LHC was installed in the existing 27 km tunnel used by the Large Electron Po
 This allowed the existing accelerator complex at CERN, described in the previous section, to be used as the injection system to prepare the protons up to $450 \GeV$.
 Many aspects of the LHC design were decided by this very constraint, and specified the options allowed to increase the energy or luminosity.
 In particular, the radius of the tunnel was already specified.
-From Eq.\ref{eq:rigidity}, this implies the momentum (or energy) of the beam is entirely determined by the magnetic field.
+From Eq.\Cref{eq:rigidity}, this implies the momentum (or energy) of the beam is entirely determined by the magnetic field.
 Given the 27 km circumference of the LEP tunnel, one can calculate the required magnetic field to reach the 7 $\TeV$ per proton design energy of the LHC :
 \begin{align}
 r &= C / 2\pi = 4.3 \text{ km} \\
@@ -106,7 +106,7 @@ To produce this large field, superconducting magnets are used.
 \subsection{Magnets}
 
 There are many magnets used by the LHC machine, but the most important are the 1232 dipole magnets.
-A schematic is shown in Fig.\ref{fig:dipole_schematic} and a photograph is present in Fig.\ref{fig:dipole_photo}.
+A schematic is shown in Fig.\Cref{fig:dipole_schematic} and a photograph is present in \Cref{fig:dipole_photo}.
 \begin{figure}
 \caption{Schematic of an LHC dipole magnet.}\label{fig:dipole_schematic}
 \includegraphics[width=.9\linewidth]{lhc_dipole}
@@ -133,7 +133,7 @@ The beampipes inside of the magnets are held in high vacuum to avoid stray inter
 \section{Dataset Delivered by the LHC}
 
 In this thesis, we analyze the data delivered by the LHC to ATLAS in the 2015 and 2016 datasets.
-The beam parameters relevant to this dataset are available in Table \ref{tab:lhc_beam_parameters}.
+The beam parameters relevant to this dataset are available in \Cref{tab:lhc_beam_parameters}.
 \begin{table}
 \centering
 \caption{Beam parameters of the Large Hadron Collider.}\label{tab:lhc_beam_parameters}
@@ -155,7 +155,7 @@ Betatron function at collision point $\beta^*$ (cm) & - & 55 \\ \hline
 The peak instanteous luminosity delivered in 2015 (2016) was $L = 5.2 \, (11) \, \text{cm}^{-2} \text{s}^{-1} \times 10^{33} $.
 One can note that the instanteous luminosity delivered in the 2016 dataset exceeds the design luminosity of the LHC.
 The total integrated luminosity delivered was 13.3 \ifb.
-In Figure \ref{fig:lumi}, we display the integrated luminosity per day for 2015 and 2016.
+In \Cref{fig:lumi}, we display the integrated luminosity per day for 2015 and 2016.
 % \footnotemark
 %\footnotetext{This thesis analyzes results through ICHEP2016.
 %The corresponding 2016 plot for the year to date can be found at the ATLAS lumonosity group \href{https://twiki.cern.ch/twiki/bin/view/AtlasPublic/LuminosityPublicResultsRun2}{twiki}.}
@@ -170,7 +170,7 @@ In Figure \ref{fig:lumi}, we display the integrated luminosity per day for 2015 
 \textit{Pileup} is the term for the additional proton-proton interactions which occur during each bunch crossing of the LHC.
 At the beginning of the LHC physics program, there had not been a collider which averaged more than a single interaction per bunch crossing.
 In the LHC, each bunch crossing (or \textit{event})  generally contains multiple proton-proton interactions.
-An simulated event with many \textit{vertices} can be seen in Fig.\ref{fig:pileup_reconstruction}.
+An simulated event with many \textit{vertices} can be seen in \Cref{fig:pileup_reconstruction}.
 \begin{figure}
 \caption{Simulated event with many pileup vertices.}\label{fig:pileup_reconstruction}
 \includegraphics[width=.9\linewidth]{pileup_reconstruction}
@@ -184,7 +184,7 @@ Out-of-time pileup refers to effects related to proton-proton interactions previ
 We quantify in-time pileup by the number of ``primary''\footnotemark \xspace vertices in a particular event.
 \footnotetext{\textit{The} primary vertex is as defined above, but we unfortunately use the same name here.}
 To quantify the out-of-time pileup, we use the average number of interactions per bunch crossing $<\mu>$.
-In Figure \ref{fig:pileup}, we show the distribution of $\mu$ for the dataset used in this thesis.
+In \Cref{fig:pileup}, we show the distribution of $\mu$ for the dataset used in this thesis.
 \begin{figure}
 \caption{Mean number of interactions per bunch crossing in the 2015 and 2016 datasets.}\label{fig:pileup}
 \includegraphics[width=.9\linewidth]{pileup_2015}

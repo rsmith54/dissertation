@@ -3,6 +3,7 @@
 %The following command starts your chapter. If you want different titles used in your ToC and at the top of the page throughout the chapter, you can specify those values here. Since Columbia doesn't want extra information in the headers and footers, the "Top of Page Title" value won't actually appear.
 
 \chapter[Object Reconstruction][Top of Page Title]{Object Reconstruction}
+\label{ch:reconstruction}
 
 This chapter describes the reconstruction algorithms used within ATLAS.
 We will make the distinction between the ``primitive'' objects which are reconstructed from the detector signals from the ``composite'' physics objects we use in measurements and searches for new physics.
@@ -38,11 +39,11 @@ At this point, the algorithm applies an additional filter to avoid ambiguities f
 The TRT hits are added to the seeds using the same method.
 After this procedure, all hits are associated to a track.
 
-The next step is to figure out the correct kinematics of the track.
+The next step is to determine the correct kinematics of the track.
 This is done by applying a fitting algorithm which outputs the best-fit track parameters by minimizing the track distance from hits, weighted by each hit's resolution.
 These parameters are $(d_0, z_0, \eta, \phi, q/p)$ where $d_0$ ($z_0$) is the transverse (longitudinal) impact parameter and $q/p$ is the charge over the track momenta.
 This set of parameters uniquely defines the measurement of the trajectory of the charged particle associated to the track.
-An illustration of a track with these parameters is shown in Fig.\ref{fig:track_schematic}.
+An illustration of a track with these parameters is shown in \Cref{fig:track_schematic}.
 
 \begin{figure}
 \caption{The parameters associated to a track.}
@@ -63,7 +64,7 @@ Seven silicon (pixel + SCT) hits are required for all tracks.
 No more than two \textit{holes} are allowed in the pixel detector.
 Holes are expected measurements from the track that are missing in the pixel detector.
 Finally, tracks with poor fit quality, as measured by $\chi^2/ndf$, are also rejected.
-Due to the high quality of the silicon measurements in the pixel detector and SCT, these requirements give good track reconstruction efficiency, as seen in Fig.\ref{fig:track_eff} for simulated events~\cite{Hamano:1489674}.
+Due to the high quality of the silicon measurements in the pixel detector and SCT, these requirements give good track reconstruction efficiency, as seen in \Cref{fig:track_eff} for simulated events~\cite{Hamano:1489674}.
 \begin{figure}
 \caption{Track reconstruction efficiency as a function of track \pt and $\eta$.
 The efficiency is defined as the number of reconstructed tracks divided by the number of generate charged particles.} \label{fig:track_eff}
@@ -105,7 +106,7 @@ One iteratively tests all cells adjacent to these seeds for $\calosig > 2$.
 Each cells passing this selection is then added to the topocluster, and the procedure is repeated.
 When the algorithm reaches the point where there are no additional adjacent cells with $\calosig > 2$, every positive-energy cell adjacent to the current proto-cluster is added.
 The collection of summed cells is a topocluster.
-An example of this procedure for a simulation dijet event is shown in Fig.\ref{fig:topocluster}.
+An example of this procedure for a simulation dijet event is shown in \Cref{fig:topocluster}.
 \begin{figure}
 \caption{Example of topoclustering on a simulated dijet event.} \label{fig:topocluster}
 \subfloat[All cells with $\calosig > 4$.]{\includegraphics[width=.45\linewidth]{topoclustering_sig4.pdf}}
@@ -136,7 +137,7 @@ These tracks are used as inputs to the muon reconstruction, as we will see below
 There are essentially six objects used in ATLAS searches for new physics: electrons, photons, muons, $\tau$-jets, jets, and \met.
 The reconstruction of these objects is described here.
 In this thesis, $\tau$ lepton jets are not treated differently from other hadronic jets, and we will not consider their reconstruction algorithms.
-A very convenient summary plot is shown in Fig.\ref{fig:atlas_interactions}.
+A very convenient summary plot is shown in \Cref{fig:atlas_interactions}.
 \begin{figure}
 \caption{The interactions of particles with the ATLAS detector.
 Solid lines indicate the particle is interacting with the detector, while dashed lines are shown where the particle does not interact.} \label{fig:atlas_interactions}
@@ -179,7 +180,7 @@ Those track-cluster seeds with tracks pointing to the primary vertex are reconst
 
 For photons, we have two options to consider, known as \textit{converted} and \textit{unconverted} photons.
 Due to the high energy of the LHC collisions, typical photons have energy $ >\order 1 \GeV$.
-At this scale, photons interact almost exclusively via pair-production in the presence of the detector material, as shown in Fig.\ref{fig:photon_pair_production} ~\cite{Agashe:2014kda}.
+At this scale, photons interact almost exclusively via pair-production in the presence of the detector material, as shown in \Cref{fig:photon_pair_production} ~\cite{Agashe:2014kda}.
 If the track-cluster seed has a track which does not point at the primary vertex, we reconstruct this object as a converted photon.
 This happens since the photon travels a distance before decay into two electrons, and see the tracks coming from this secondary vertex.
 Those clusters which do not have any associated tracks are then reconstruced as an unconverted photon.
@@ -240,7 +241,7 @@ Additionally, there is a requirement on the $q/p$ significance, defined as
 \begin{equation}\label{eq:muon_sig}
 S_{q/p} = \frac{|(q/p)^{\text{ID}} - (q/p)^{\text{MS}} |}{\sqrt{\sigma_{\text{ID}}^2 + \sigma_{\text{MS}}^2  }}.
 \end{equation}
-The $\sigma_{\text{ID,MS}}$ in the denominator of Eq.\ref{eq:muon_sig} are the uncertainties on the corresponding quantity from the numerator.
+The $\sigma_{\text{ID,MS}}$ in the denominator of Eq.\Cref{eq:muon_sig} are the uncertainties on the corresponding quantity from the numerator.
 Finally, cuts are placed on the number of hits in the various detector elements.
 
 Subsequently tighter cuts on these variables allow one to define the different muon identification criteria.
@@ -249,7 +250,7 @@ Medium muons consist of Loose muons with tighter cuts on the quality variables.
 They also require more than three MDT hits in at least two MDT layers.
 These are the default used by ATLAS analyses.
 Tight muons have stronger cuts than those of the medium selection, and reducing the reconstruction efficiency.
-The reconstruction efficiency as a function of \pt can be seen for Medium muons in Fig.\ref{fig:muon_eff}.
+The reconstruction efficiency as a function of \pt can be seen for Medium muons in \Cref{fig:muon_eff}.
 
 \begin{figure}
 \caption{Medium muon efficiency as measured in ~\cite{PERF-2015-10}.} \label{fig:muon_eff}
@@ -288,7 +289,7 @@ d_{ij} &= \text{min}(k_{T,i}^{2p} , k_{T,j}^{2p} )  \frac{\Delta_{ij}^2 }{R^2} \
 d_{iB} &= k_{T_i}^{2p}
 \end{aligned}
 \end{equation}
-In Eq.\ref{eq:kt}, $k_{T,i}$ is the transverse momentum of $i$-th jet \textit{constituent} and $\Delta_{ij}$ is the angular distance \deltaR between the constituents.
+In Eq.\Cref{eq:kt}, $k_{T,i}$ is the transverse momentum of $i$-th jet \textit{constituent} and $\Delta_{ij}$ is the angular distance \deltaR between the constituents.
 Both $R$ and $p$ are adjustable parameters: $R$ is known as the (jet) \textit{cone size} and $p$ regulates the power of the energy versus the geometrical scales.
 The algorithm sequence, for a given set of objects $i$ with four-vector $k$ :
 \begin{enumerate}
@@ -324,7 +325,7 @@ In ATLAS, jets are reconstructed using multiple different objects as inputs, inc
 For physics analyses, ATLAS primarily uses jets reconstructed from calorimeter clusters, but we will describe the others here, as they are often used for systematic uncertainties.
 
 Calorimeter jets are reconstructed using topoclusters with the anti-\kt algorithm with $R = 0.4$.
-The jet reconstruction algorithm is run on the collection of all topoclusters reconstructed as in Sec.\ref{sec:topoclusters}.
+The jet reconstruction algorithm is run on the collection of all topoclusters reconstructed as in \Cref{sec:topoclusters}.
 Both EM and LCW scale clusters are used in the ATLAS reconstruction software and produce two sets of jets for analysis.
 As stated above, this thesis presents an analysis using jets reconstructed using EM scale clusters, which we refer to as \textit{EM jets}.
 
@@ -351,7 +352,7 @@ Jets as described in the last section are still \textit{uncalibrated}.
 Even correcting the cluster energies using the LCW does not fully correct the jet energy, due to particles losing energy in the calorimeters.
 This is corrected using the \textit{jet energy scale} (JES).
 The JES is a series of calibrations which on average restore the correct truth jet energy for a given reconstructed jet.
-The steps to derive the JES are described in Fig.\ref{fig:jes_correction_steps} and described here.
+The steps to derive the JES are described in \Cref{fig:jes_correction_steps} and described here.
 
 The first step is the origin correction.
 This adjusts the jet to point at the primary vertex.
@@ -375,7 +376,7 @@ In the low \pt region ($20 \GeV \undertilde{<} p_{T,\text{jet}} \undertilde{<} <
 In the \pt region ($100 \GeV \undertilde{<} p_{T,\text{jet}} \undertilde{<} 600 \GeV $), the reference object is a photon, while in the high \pt region ($p_{T,\text{jet}} \undertilde{<} 200 \GeV $), the high \pt jet is compared to multiple smaller \pt jets.
 The reference object is the group of multijets.
 After the application of the residual in-situ calibration, the data and MC scales are identical up to corresponding uncertainties.
-The combined JES uncertainty as a function of \pt is shown in Fig.\ref{fig:jes_uncertainties}.
+The combined JES uncertainty as a function of \pt is shown in \Cref{fig:jes_uncertainties}.
 
 \begin{figure}
 \caption{The steps used by ATLAS to calibrate jets} \label{fig:jes_correction_steps}
@@ -477,7 +478,7 @@ This result was important to assure the integrity of the \met measurements at th
 The \Zll selection is used to measure the intrinsic \met resolution of the detector.
 Neutrinos only occur in these events from heavy-flavor decays inside of jets, and thus \Zll events have very low \met.
 This provides an ideal event topology to understand the modelling of \met mismeasurement.
-Candidate \Zmm events are first required to pass a muon or electron trigger, as described in Table \ref{tab:triggers}.
+Candidate \Zmm events are first required to pass a muon or electron trigger, as described in \Cref{tab:triggers}.
 Offline, the selection of \Zmm events requires exactly two medium muons.
 The muons are required to have opposite charge and $\pt > 25 \GeV$, and mass of the dimuon system is required to be consistent with the $Z$ mass $|m_{ll} - m_Z | < 25 \GeV$.
 
@@ -499,7 +500,7 @@ There are two main ingredients to investigate : the \met resolution and the \met
 \subsubsection{Measuring \met Performance in early 2015 data : metrics}
 
 To compare these algorithms we use the \met resolution, \met scale, and linearity.
-Representative distributions of TST \Emiss{x}, \Emiss{y}, and  \met from early 2015 datataking are shown in Fig.\ref{fig:tst_met_zmumu}.
+Representative distributions of TST \Emiss{x}, \Emiss{y}, and  \met from early 2015 datataking are shown in \Cref{fig:tst_met_zmumu}.
 
 The \met resolution is an important variable due to the fact that the bulk of the distributions associated to \Emiss{x(y)} are Gaussian distributed ~\cite{Aad2012}.
 However, to properly measure the tails of this distribution, especially when considering non-calorimeter based soft terms, it is important to use the root-mean square as the proper measure of the resolution.
@@ -518,7 +519,7 @@ It is defined as
  \label{eq:sumet}
 \end{equation}
 The measurement as a function of \npv~ is useful to understand the degradation of \met performance with increasing pileup.
-Figure \ref{fig:tst_met_resolution_zmumu} shows the TST \met resolution in the early 2015 data compared with simulation.
+\Cref{fig:tst_met_resolution_zmumu} shows the TST \met resolution in the early 2015 data compared with simulation.
 The degradation of the TST \met performance is shown as a function of pileup \npv and total event activity \sumET.
 We see that the degradation is significant as a function of these variables, but simulation describes the data well.
 
@@ -533,7 +534,7 @@ The unit vector \Az~ of the $Z$ system is defined as
 \end{equation}
 where $\vec{p_T}^{\ell^+}$ and $\vec{p_T}^{\ell^-}$ are the transverse momenta of the leptons from the $Z$ boson decay.
 The relevant scale metric is the mean value of the \metvec projected onto $\Az$ :  $\langle\metvec\cdot \Az \rangle$.
-In Figure \ref{fig:tst_met_scale_zmumu}, the scale is shown for the early 2015 dataset.
+In \Cref{fig:tst_met_scale_zmumu}, the scale is shown for the early 2015 dataset.
 The negative bias, which is maximized at about 5 \GeV, is a reflection of two separate effects.
 The soft neutral particles are missed by the tracking system, and thus ignored in TST \met.
 Missed particles due to the limited ID acceptance can also affect the scale.
@@ -572,7 +573,7 @@ As described above, the resolution, scale, and linearity are metrics to understa
 In this section, we present comparisons of the different algorithms, including particle flow, in simulation and using a data sample from 2015 of 80 \ipb.
 In these plots, ``MET\_PFlow\_TST'' refers to charged PFlow \met, while the other algorithms are as described above.
 
-Figures \cref{fig:mc_algs_met_resolution_zmumu,fig:mc_algs_met_scale_zmumu} show the resolution and scale in simulated \Zmm events.
+\Cref{fig:mc_algs_met_resolution_zmumu,fig:mc_algs_met_scale_zmumu} show the resolution and scale in simulated \Zmm events.
 The resolution curves follow the expected behavior discussed before.
 Due to the high pileup in 2015 run conditions, the CST \met resolution is poor, and further degrades with increasing pileup and event activity.
 The ``regular'' PFlow \met shows reduces pileup and event activity dependence as compared to the CST.
@@ -589,15 +590,15 @@ In events with no jets, the soft term is essentially the only indication of the 
 In this case, the pileup effects cancel, on average, due to the U$(1)_\phi$ symmetry of the ATLAS detector, and CST performs rather well compared to the more complicated track-based algorithms.
 The full PFlow algorithm performs best, since it provides a small amount of pileup suppression on the neutral components from CST.
 
-The resolution and linearity are shown in simulated \Wen events in Figure \ref{fig:mc_algs_met_resolution_wenu}.
+The resolution and linearity are shown in simulated \Wen events in \Cref{fig:mc_algs_met_resolution_wenu}.
 The resolution in \Wen events shows a similar qualitative behavior to \Zmm events.
 The CST \met has the worst performance, with charged PFlow \met performing best.
 The surprise here is the scale associated to TST \met has the strongest performance throughout the space parameterized by \mettrue, except for one bin at $40 \GeV < \mettrue < 50 \GeV$.
 The scale in these events is best measured using a track-based soft term.
 
 The resolution also investigated in real data passing the \Zmm selection described above.
-A comparison of the \met between real data and simulation for each algorithm is presented in Figure \ref{fig:data_algs_met_zmumu}.
-The resolution as a function of \sumET and \npv~ is shown in Figure \ref{fig:data_algs_met_resolution_zmumu} for this dataset.
+A comparison of the \met between real data and simulation for each algorithm is presented in \Cref{fig:data_algs_met_zmumu}.
+The resolution as a function of \sumET and \npv~ is shown in \Cref{fig:data_algs_met_resolution_zmumu} for this dataset.
 Overall, the real dataset shows the same general features as the simulation dataset in terms of algorithm performance.
 However, the performance of all algorithms seems to be significantly worse in data.
 This is likely due to simplifications made in the simulation: soft interactions which are not simulated have a significant effect on an event level variable such as the \met resolution.

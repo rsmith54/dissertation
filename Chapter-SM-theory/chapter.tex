@@ -7,7 +7,7 @@ The SM is the culmination of years of work in both theoretical and experimental 
 In this thesis, we take the view that theorists construct a model with the field content and symmetries as inputs, and write down the most general Lagrangian consistent with those symmetries.
 Assuming this model is compatible with nature (in particular, the predictions of the model are consistent with previous experiments), experimentalists are responsible for testing the parameters by measurements.
 
-Additional theoretical background is in \ref{app:qft_symmetries}.
+Additional theoretical background is in \Cref{app:qft_symmetries}.
 The philosophy and notations are inspired by ~\cite{yuvalSMLectures, Buchmuller:984122}.
 
 \section{Field Content}\label{sec:field_content}
@@ -62,8 +62,8 @@ W^{\mu\nu}_a &=  \dmuup W^\nu_a - \partial^\nu W^\mu_a - g \epsilon_{abc} W^\mu_
 \includegraphics[width=.9\linewidth]{sombrero_potential}
 \end{figure}
 
-The terms in the Lagrangian \ref{eq:ew_lagr} proportional to $\mu^2$ and $\lambda$ make up the ``Higgs potential'' ~\cite{Higgs:1964pj}.
-As normal (see Appendix \ref{app:qft_symmetries}), we restrict $\lambda > 0$ to guarantee our potential is bounded from below, and we also require $\mu^2 < 0$, which gives us the standard ``sombrero'' potential shown in \ref{fig:sombrero}.
+The terms in the Lagrangian \Cref{eq:ew_lagr} proportional to $\mu^2$ and $\lambda$ make up the ``Higgs potential'' ~\cite{Higgs:1964pj}.
+As normal (see Appendix \Cref{app:qft_symmetries}), we restrict $\lambda > 0$ to guarantee our potential is bounded from below, and we also require $\mu^2 < 0$, which gives us the standard ``sombrero'' potential shown in \Cref{fig:sombrero}.
 
 This potential has infinitely many minima at $<\phi> = \sqrt{2m/\lambda}$
 The ground state is \textit{spontaneously} broken by the choice of ground state, which induces a vacuum expection value (VEV).
@@ -77,7 +77,7 @@ We choose a gauge to rotate away the dependence on $\theta_a$, such that we can 
 \phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + h(x) \end{pmatrix}.
 \end{equation}
 Now, we can see how the masses of the vector bosons are generated from the application of the Higgs mechanism.
-We plug Eq.\ref{eq:higgs_field_after_ssb} back into the electroweak Lagrangian, and only showing the relevant mass terms in the vacuum state where $h(x) = 0$  see that (dropping the Lorentz indices) :
+We plug Eq.\Cref{eq:higgs_field_after_ssb} back into the electroweak Lagrangian, and only showing the relevant mass terms in the vacuum state where $h(x) = 0$  see that (dropping the Lorentz indices) :
 \begin{align}
 \Lagr_M = \frac{1}{8} \begin{vmatrix} \begin{pmatrix} gW_3 + g'B & g(W_1 - iW_2)\\ g(W_1 + iW_2) & -gW_3 + g'B \end{pmatrix}  \begin{pmatrix} 0  \\ v \end{pmatrix} \end{vmatrix}^2\\ = \frac{g^2 v^2}{8} \begin{bmatrix} W_1^2 + W_2^2 + (\frac{g'}{g}B - W_3)^2 \end{bmatrix} \notag
 \end{align}
@@ -143,7 +143,7 @@ These sprays are known as \textit{jets}, which are what are observed by experime
 
 It is important to recognize the importance of understanding these QCD interactions in high-energy hadron colliders such as the LHC.
 Since protons are hadrons, proton-proton collisions such as those produced by the LHC are primarily governed by the processes of QCD.
-In particular, by far the most frequent process observed in LHC experiments is dijet production from gluon-gluon interactions, as can be seen Fig.\ref{fig:sm_xsec}).
+In particular, by far the most frequent process observed in LHC experiments is dijet production from gluon-gluon interactions, as can be seen \Cref{fig:sm_xsec}).
 These gluons that interact are part of the \textit{sea} particles inside the proton; the simple $p = uud$ model does not apply.
 The main \textit{valence} $uud$ quarks are constantly interacting via gluons, which can themselves radiate gluons or split into quarks, and so on.
 A more useful understanding is given by the colloquially-known \textit{bag} model ~\cite{Chodos:1974je, Chodos:1974pn}, where the proton is seen as a ``bag'' of (in principle) infinitely many partons, each with energy $ E < \sqrt{s} = 6.5 \TeV$.
@@ -151,13 +151,13 @@ One then collides this (proton) bag with another, and views the products of this
 
 Fortunately, we are generally saved by the QCD factorization theorems ~\cite{Collins:1989gx}.
 This allows one to understand the hard (i.e. short distance or high energy) $2 \rightarrow 2$ parton process using the tools of perturbative QCD, while making series of approximations known as a \textit{parton shower} model to understand the additional corrections from nonpertubative QCD.
-We will discuss the reconstruction of jets by experiments in Ch.\ref{Chapter-ATLAS}.
+We will discuss the reconstruction of jets by experiments in \Cref{ch:reconstruction}.
 
 \subsection{Fermions}
 
 We will now look more closely at the fermions in the Standard Model ~\cite{Agashe:2014kda}.
 
-As noted earlier in Sec.\ref{sec:field_content}, the fermions of the Standard Model can be first distinguished between those that interact via the strong force (quarks) and those which do not (leptons).
+As noted earlier in \Cref{sec:field_content}, the fermions of the Standard Model can be first distinguished between those that interact via the strong force (quarks) and those which do not (leptons).
 
 There are six leptons in the Standard Model, which can be placed into three \textit{generations}.
 \begin{equation}
@@ -188,7 +188,7 @@ Their hadronic decay products generally have long lifetimes and they are reconst
 \footnotetext{In some contexts, charm quarks are also treated as a separate category, although it is quite difficult to distinguish charm quarks from the other light quarks at high enery colliders.}
 The bottom quark hadronizes primarly through the $B$-mesons, which generally travels a short distance before decaying to other hadrons.
 This allows one to distinguish decays via $b$-quarks from other jets.
-This procedure is known as \textit{b-tagging} and will be discussed more in Ch.\ref{Chapter-ATLAS}.
+This procedure is known as \textit{b-tagging} and will be discussed more in Ch.\Cref{Chapter-ATLAS}.
 
 Due to its large mass, the top quark decays before it can hadronize.
 There are no bound states associated to the top quark.
@@ -202,7 +202,7 @@ Decays via tops, especially $\ttbar$ are frequently an important signal decay mo
 \end{figure}
 
 We briefly overview the entirety of the fundamental interactions of the Standard Model.
-These can also be found in \ref{fig:sm_interactions}.
+These can also be found in \Cref{fig:sm_interactions}.
 
 The electromagnetic force, mediated by the photon, interacts with via a three-point coupling all charged particles in the Standard Model.
 The photon thus interacts with all the quarks, the charged leptons, and the charged $W^\pm$ bosons.
@@ -227,11 +227,11 @@ Additionally, there are the three-point and four-point gluon-only interactions.
 \section{Deficiencies of the Standard Model}
 
 The Standard Model has been enormously successful.
-This relatively simple theory is capable of explaining a very wide range of phenomenom, which ultimately break down to combinations of nine diagrams shown in Fig.\ref{fig:sm_interactions} at tree level.
+This relatively simple theory is capable of explaining a very wide range of phenomenom, which ultimately break down to combinations of nine diagrams shown in \Cref{fig:sm_interactions} at tree level.
 Unfortunately, there are some unexplained problems with the Standard Model.
-We cannot go through all of the potential issues in this thesis, but we will motivate the primary issues which naturally lead one to \textit{supersymmetry}, as we will see in Ch.\ref{ch:susy}.
+We cannot go through all of the potential issues in this thesis, but we will motivate the primary issues which naturally lead one to \textit{supersymmetry}, as we will see in \Cref{ch:susy}.
 
-The Standard Model has many free paramaters; see Table \ref{tab:sm_free_parameters}.
+The Standard Model has many free paramaters, shown in \Cref{tab:sm_free_parameters}.
 \begin{table}
 \centering
 \caption{Parameters of the Standard Model.  For values dependent on the renormalization scheme, we use a combination of the on-shell normalization scheme ~\cite{Hollik:1988ii, Bardin:1989vz, Kennedy:1988rt, Sirlin:1980nh} and  modified minimal subtraction scheme with $m_{\bar{MS}}$ as indicated in the table~\cite{ Fanchiotti:1992tu}}.
@@ -276,14 +276,14 @@ One would hope this behavior was repeated between the electroweak forces and the
 \caption{The running of Standard Model gauge couplings.  The Standard Model couplings do not unify at high energies, which indicates it cannot completely describe nature through the Planck scale.} \label{fig:sm_gauge_coupling}
 \includegraphics[width=.9\linewidth]{Grand_unification_couplings_sm}
 \end{figure}
-The Standard Model does not exhibit this behavior, as we can see in Fig.\ref{fig:sm_gauge_coupling}.
+The Standard Model does not exhibit this behavior, as we can see in \Cref{fig:sm_gauge_coupling}.
 
 \begin{figure}
 \caption{The dominant quantum loop correction to the Higgs mass in the Standard Model.} \label{fig:sm_higgs_corrections}
 \includegraphics[width=.9\linewidth]{sm_higgs_corrections}
 \end{figure}
 But, the most significant problem with the Standard Model is the \textit{hierarchy problem}.
-In its most straightforward incarnation, the Higgs scalar field is subject to quantum corrections through loop diagrams, as shown in Fig.\ref{fig:sm_higgs_corrections}.
+In its most straightforward incarnation, the Higgs scalar field is subject to quantum corrections through loop diagrams, as shown in \Cref{fig:sm_higgs_corrections}.
 For demonstration, we use the contributions from the top quark, since the top quark has the largest Higgs Yukawa coupling due to its large mass.
 In general, we should expect these corrections to quadratically dependent on the scale of the ultraviolet physics, $\Lambda$.
 Briefly assume there is no new physics before the Planck scale of gravity, $\Lambda_{\text{Planck}} = 10^{19} \GeV$.
@@ -329,7 +329,7 @@ In the next chapter, we will see how these problems can be alleviated by the the
 
 % Let us now recall that local gauge invariance means that the vector fields in this theory are \textit{massless}.
 % N\"aively, it seems this combined with the chirality of the Standard Model, that \textit{none} of the fields have masses.
-% The solution to this seeming conundrum is of course the well-known ``Higgs'' mechanism, described in Sec. \ref{subsec:symmetry_breaking}.
+% The solution to this seeming conundrum is of course the well-known ``Higgs'' mechanism, described in Sec. \Cref{subsec:symmetry_breaking}.
 
 % In the Standard Model, the Higgs potential is given by
 % \begin{equation} \label{eq:higgs_potential}
@@ -337,13 +337,13 @@ In the next chapter, we will see how these problems can be alleviated by the the
 % \end{equation}
 
 % Since $\lambda$ is dimensionless and real, to have a potential bounded from below, we require $\lambda > 0$.
-% To break the gauge symmetry, we require $\mu^2 < 0$, leading again to the sombrero potential \ref{fig:sombrero}.
+% To break the gauge symmetry, we require $\mu^2 < 0$, leading again to the sombrero potential \Cref{fig:sombrero}.
 % We define
 % \begin{equation}
 % v^2 = - \frac{\mu^2}{\lambda}.
 % \end{equation}
 
-% This allows us to write \ref{eq:higgs_potential} as
+% This allows us to write \Cref{eq:higgs_potential} as
 % \begin{equation} \label{eq:higgs_potential_rewritten}
 % \Lagr_\phi = - \lambda (\phi^\dagger \phi - \frac{v^2}{2})^2
 % \end{equation}
@@ -372,12 +372,12 @@ In the next chapter, we will see how these problems can be alleviated by the the
 
 % \section{Particle Spectrum : Standard Model Lagrangian after Electroweak Symmetry Breaking}
 
-% We can now return to the Standard Model Lagrangian and use the equation for the Higgs field after EWSB \ref{eq:higgs_field}.
+% We can now return to the Standard Model Lagrangian and use the equation for the Higgs field after EWSB \Cref{eq:higgs_field}.
 % This will show us the ``physical'' particle content of the Standard Model.
 
 % \subsection{Particle content associated to $\Lagr_\phi$}
 
-% Setting $phi$ as in Eq.\ref{eq:higgs_field}, we quickly see that we can rewrite Eq.\ref{eq:higgs_potential_rewritten} as
+% Setting $phi$ as in Eq.\Cref{eq:higgs_field}, we quickly see that we can rewrite Eq.\Cref{eq:higgs_potential_rewritten} as
 % \todo{ CHECK FACTORS OF TWO}
 % \begin{equation}
 % \Lagr_\phi = - \lambda (\phi^\dagger \phi - \frac{v^2}{2})^2  = - \lambda ( \frac{1}{2} (v + h(x))^2 - \frac{v^2}{2})^2 = - \lambda ( h(x)^2 + vh(x))^2 = -\lambda ( h(x)^4 + v h(x)^3 + \frac{v^2}{2} h(x)^2 ).
@@ -387,7 +387,7 @@ In the next chapter, we will see how these problems can be alleviated by the the
 
 % \subsection{Particle content associated to $\Lagr_{kin}$}
 
-% Again using Eq.\ref{eq:higgs_field} and $\Dmuup = \dmuup + ig_s G^\mu_a L_a + i g W^\mu_a T_a + i g' Y B^\mu $, we can see how the mass terms associated to the three massive gauge bosons, and also see how the photon stays massless.
+% Again using Eq.\Cref{eq:higgs_field} and $\Dmuup = \dmuup + ig_s G^\mu_a L_a + i g W^\mu_a T_a + i g' Y B^\mu $, we can see how the mass terms associated to the three massive gauge bosons, and also see how the photon stays massless.
 % The mass terms for the gauge boson fields come from the kinetic term of the Higgs field :
 % For each of the vector boson fields, we have the follow field strengths :
 

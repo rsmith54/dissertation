@@ -223,8 +223,8 @@ They leave a ID track, a small, characteristic deposition in the EM calorimeter,
 The primary reconstruction technique produces a so-called \textit{combined} muon.
 ``Combined'' means using a combination of the ID and MS tracks to produce the final reconstruced muon kinematics.
 This is done by refitting the hits associated to both tracks, and using this refit track for the muon kinematics.
-This process produces the best measured muons, although several other worse algorithms are used when the full detector information is missing.
-An example is in the region $2.5 < |\eta| < 2.7$ outside the ID acceptance, where MS tracks are used without the corresponding ID tracks.
+%This process produces the best measured muons, although several other worse algorithms are used when the full detector information is missing.
+%An example is in the region $2.5 < |\eta| < 2.7$ outside the ID acceptance, where MS tracks are used without the corresponding ID tracks.
 
 \subsubsection{Quality Identification}
 
@@ -260,11 +260,11 @@ The reconstruction efficiency as a function of \pt can be seen for Medium muons 
 
 Jets are composite objects corresponding to many physical particles ~\cite{Agashe:2014kda,PERF-2011-03,PERF-2012-01}
 This is a striking difference from the earlier particles.
-Fortunately, we normally (and in this thesis) care about the original particle produced in primary collision.
+Fortunately, we normally (and in this thesis) only need information about the original particle produced in the primary collision.
 In the SM, this corresponds to quarks and gluons.
 Due to the hadronization process, free quarks and gluons spontaneously hadronize and produce a hadronic shower, which we call a jet.
 These showers can be measured by the EM and hadronic calorimeters, and the charged portions can be measured in the ID.
-The first question is how to combine these measurements into a composite object representing the underlying physical parton.
+The first step is to combine these measurements into a composite object representing the underlying physical parton.
 This is done via jet algorithms.
 
 \subsection{Jet Algorithms}
@@ -280,7 +280,7 @@ The first two requirements can be seen in terms of requirements on soft gluon em
 Since partons emit arbitrarily soft gluons freely, one should expect the algorithms to not be affected by this emission.
 The final requirement is of course a practical limitation.
 
-The algorithms in use by ATLAS (and CMS) which satisfies these requirements are collectively known as the \kt algorithms ~\cite{Ellis:1993tq,Cacciari:2005hq,Cacciari:2008gp}.
+The algorithms in use by ATLAS (and CMS) which satisfies these requirements are collectively known as the \kt~ algorithms ~\cite{Ellis:1993tq,Cacciari:2005hq,Cacciari:2008gp}.
 These algorithms iteratively combine the ``closest'' objects, defined using the following distance measures :
 \begin{equation}
 \begin{aligned}\label{eq:kt}
@@ -288,7 +288,7 @@ d_{ij} &= \text{min}(k_{T,i}^{2p} , k_{T,j}^{2p} )  \frac{\Delta_{ij}^2 }{R^2} \
 d_{iB} &= k_{T_i}^{2p}
 \end{aligned}
 \end{equation}
-In Eq.\ref{eq:kt}, $k_T,i$ is the transverse momentum of $i$-th jet \textit{constituent}, $\Delta_{ij}$ is the angular distance between the constituents.
+In Eq.\ref{eq:kt}, $k_{T,i}$ is the transverse momentum of $i$-th jet \textit{constituent} and $\Delta_{ij}$ is the angular distance \deltaR between the constituents.
 Both $R$ and $p$ are adjustable parameters: $R$ is known as the (jet) \textit{cone size} and $p$ regulates the power of the energy versus the geometrical scales.
 The algorithm sequence, for a given set of objects $i$ with four-vector $k$ :
 \begin{enumerate}
@@ -298,9 +298,9 @@ If the distance is one of the $d_{iB}$, remove the object from the list, call it
 \end{enumerate}
 This process ends when all objects $i$ have been added to a jet.
 
-Any choice of $(p,R)$ has the requirements of collinear and radiative safety.
+Any choice of $(p,R)$ has requirements of collinear and radiative safety.
 In essence, the choice is then to optimize based on speed and the potential for new physics discoveries.
-In ATLAS, we make the choice of $p = -1$ which is also known as the \textit{anti-}\kt algorithm.
+In ATLAS, we make the choice of $p = -1$ which is also known as the \textit{anti-}\kt~ algorithm.
 The choice of $R = 0.4$ is used for the distance parameter of the jets.
 
 The primary ``nice'' quality of this algorithm can be seen with the following example.
@@ -310,60 +310,59 @@ Consider three inputs to an anti-\kt algorithm, all with $\eta = 0$ :
 \item Object 2 : (\pt, $\phi$) = (20 \GeV, -0.2)
 \item Object 3 : (\pt, $\phi$) = (10 \GeV, 0.2)
 \item Object 4 : (\pt, $\phi$) = (1  \GeV, 0.5)
-\end{itemize}.
+\end{itemize}
 In the case shown, it seems natural to first combine the ``bigger'' objects 1 and 2.
 These then pick up the extra small object 3, and object 4 is not included in the jet.
-This is exactly what is done by the anti-\kt algorithm.
+This is what is done by the anti-\kt algorithm.
 The (normal) \kt algorithm with $p = 1$ instead combines the smallest objects, 3 and 4, first.
 Object 1 and 2 combine to form their own jet, instead of these jets picking up object 3.
-This behavior is not ideal due to the effects of pileup, as we will see in the next section.
+This behavior is not ideal due to effects from pileup, as we will see in the next section.
 
 \subsection{Jet Reconstruction}
 
 In ATLAS, jets are reconstructed using multiple different objects as inputs, including tracks, ``truth'' objects, calorimeter clusters, and \textit{particle flow objects} (PFOs).
-For physics analyses, ATLAS primarily uses jets reconstructed from calorimeter clusters, but we will describe the others here, as they are often used for derivations of systematic uncertainties or future prospects.
+For physics analyses, ATLAS primarily uses jets reconstructed from calorimeter clusters, but we will describe the others here, as they are often used for systematic uncertainties.
 
-Calorimeter jets are reconstructed using topoclusters using the anti-\kt algorithm with $R = 0.4$.
+Calorimeter jets are reconstructed using topoclusters with the anti-\kt algorithm with $R = 0.4$.
 The jet reconstruction algorithm is run on the collection of all topoclusters reconstructed as in Sec.\ref{sec:topoclusters}.
 Both EM and LCW scale clusters are used in the ATLAS reconstruction software and produce two sets of jets for analysis.
-As stated above, this thesis presents an analysis using jets reconstructed using EM scale clusters, which we refer to these as \textit{EM jets}.
+As stated above, this thesis presents an analysis using jets reconstructed using EM scale clusters, which we refer to as \textit{EM jets}.
 
 Tracks can be used as inputs to jet reconstruction algorithms.
 Jets reconstructed from tracks are known as \textit{track jets}.
-Since the ID tracks do not measure neutral objects, these jets measure an incorrect energy.
+Since the ID tracks do not measure neutral objects, these jets underestimate the true jet energy.
 However, these are still useful for checks and derivations of systematic uncertainties.
 
 \textit{Truth} jets are reconstructed from \textit{truth} particles.
 In this case, truth is jargon for simulation.
 In simulation, the actual simulated particles are available and used as inputs to the jet reconstruction algorithms.
-Similarly to track jets, these are not useful in and of themselves.
-Instead, truth jets are used for comparisons and derivations of systematic uncertainties.
+Similarly to track jets, these are not useful in and of themselves, but are used in conjunction with studies of reconstructed jets.
 
 The last object used as inputs to jet reconstruction algorithms are \textit{particle flow objects} (PFOs).
 These are used extensively as the primary input to jet particle reconstruction algorithms by the CMS collaboration~\cite{CMS:2009nxa}.
 Particle flow objects are reconstructed by associating tracks and clusters through a combination of angular distance measures and detector response measurements to create a composite object which contains information from both the ID and the calorimeters.
 For calorimeter clusters which do not have any associated ID track, the cluster is simply the PFO.
 The natural association between tracks and clusters provides easy pileup subtraction since tracks are easily associated to the primary vertex.
-This technique is generally used in CMS, and ATLAS has been slow to adopt the same.
 As pileup has increased, the utility of using PFOs as inputs to jet reconstruction has increased as well.
 
 \subsection{Jet Calibration}
 
 Jets as described in the last section are still \textit{uncalibrated}.
 Even correcting the cluster energies using the LCW does not fully correct the jet energy, due to particles losing energy in the calorimeters.
-The solution to this is the \textit{jet energy scale} (JES).
+This is corrected using the \textit{jet energy scale} (JES).
 The JES is a series of calibrations which on average restore the correct truth jet energy for a given reconstructed jet.
-These steps are shown in Fig.\ref{fig:jes_correction_steps} and described here.
+The steps to derive the JES are described in Fig.\ref{fig:jes_correction_steps} and described here.
 
 The first step is the origin correction.
 This adjusts the jet to point at the primary vertex.
 Next, is the jet-area based pileup correction.
 This step subtracts the ``average'' pileup as measured by the energy density $\rho$ outside of the jets and assumes this is a good approximation for the pileup inside the jet.
-One then removes energy $\Delta E = \rho \times A_{\text{jet}}$ in this step.
-The residual pileup correction makes a final offset correction by parametrizing the change in jet energy as a function of the number of primary vertices $N_{\text{PV}}$ and the average number of interactions $\mu.$
+One removes energy $\Delta E = \rho \times A_{\text{jet}}$ in this step.
+The residual pileup correction applies a final offset correction by parametrizing the change in jet energy as a function of the number of primary vertices $N_{\text{PV}}$ and the average number of interactions $\mu$.
+More details can be found in \cite{PERF-2012-01}.
 
-The next step is the most important single correction, known as the AbsoluteEtaJES step.
-Due to the use of non-compensation and sampling calorimeters in ATLAS, the measured energy of a jet is a fraction of the true energy of the outgoing parton.
+The next step is the most important single correction, known as the AbsoluteEtaJES.
+Due to the use of noncompensation and sampling calorimeters in ATLAS, the measured energy of a jet is a fraction of the true energy of the outgoing parton.
 Additionally, due to the use of different technologies and calorimeters throughout the detector, there are directional biases induced by these effects.
 The correction bins a multiplicative factor in \pt and $\eta$ which scales the reconstructed jets to corresponding truth jet \pt.
 This step does not entirely correct the jets, since it is entirely a simulation-based approach.
@@ -372,10 +371,10 @@ The final steps are known as the global sequential calibration (GSC) and the res
 The GSC uses information about the jet showering shape to apply additional corrections based on the expected shape of gluon or quark jets.
 The final step is the residual in-situ calibration, which is only applied to data.
 This step uses well-measured objects recoiling off a jet to provide a final correction to the jets in data.
-In the low \pt region ($20 \GeV \order< p_{T,\text{jet}}  \order < 200 \GeV $ ), $Z \rightarrow ll$ events are used as a reference object.
-In the middle \pt region ($100 \GeV \order< p_{T,\text{jet}}  \order< 600 \GeV $), the reference object is a photon, while in the high \pt region ($p_{T,\text{jet}} \order> 200 \GeV $), the high \pt jet is compared to multiple smaller \pt jets.
-The reference object is this group of multijets.
-After this final correction, the data and MC scales are identical up to the corresponding uncertainties.
+In the low \pt region ($20 \GeV \undertilde{<} p_{T,\text{jet}} \undertilde{<} < 200 \GeV $ ), $Z \rightarrow ll$ events are used as a reference object.
+In the \pt region ($100 \GeV \undertilde{<} p_{T,\text{jet}} \undertilde{<} 600 \GeV $), the reference object is a photon, while in the high \pt region ($p_{T,\text{jet}} \undertilde{<} 200 \GeV $), the high \pt jet is compared to multiple smaller \pt jets.
+The reference object is the group of multijets.
+After the application of the residual in-situ calibration, the data and MC scales are identical up to corresponding uncertainties.
 The combined JES uncertainty as a function of \pt is shown in Fig.\ref{fig:jes_uncertainties}.
 
 \begin{figure}
@@ -393,24 +392,24 @@ The combined JES uncertainty as a function of \pt is shown in Fig.\ref{fig:jes_u
 
 The \textit{jet vertex tagger} (JVT) technique is used to separate pileup jets from those associated to the hard primary vertex~\cite{ATLAS-CONF-2014-018}.
 The technique for doing so first involves \textit{ghost association}~\cite{Cacciari:2008gn}.
-Ghost association runs the anti-\kt jet clustering algorithm on a combined collection of the topoclusters and tracks.
-The tracks \textit{only} momenta are set to zero\footnotemark, with only the directional information is included.
-\footnotetext{Well, not exactly zero, since zero momentum tracks wouldn't have a well-defined $(\eta,\phi)$ coordinate, but set to a value obeying $p_{\text{T,track}}  << 400 \MeV = p_{\text{track,min}}$.
+Ghost association runs the anti-\kt~ jet clustering algorithm on a combined collection of the topoclusters and tracks.
+The tracks \textit{only} momenta are set to zero\footnotemark, with only the directional information included.
+\footnotetext{Not exactly zero, since zero momentum tracks wouldn't have a well-defined $(\eta,\phi)$ coordinate, but set to a value obeying $p_{\text{T,track}}  << 400 \MeV = p_{\text{track,min}}$.
 This is the minimum momentum for a track to reach the ATLAS inner detector.}
-As discussed above, the anti-\kt algorithm is ``big to small'';  tracks are associated to the ``biggest'' jet near them in ($\eta, \phi$).
+As discussed above, the anti-\kt~ algorithm is ``big to small'';  tracks are associated to the ``biggest'' jet near them in ($\eta, \phi$).
 This method uniquely associates each track to a jet, without changing the final jet kinematics.
 
-The JVT technique uses a combination of these track variables to determine the likelihood that the jet originated at the primary vertex.
+The JVT technique uses a combination of track variables to determine the likelihood that the jet originated at the primary vertex.
 For jets which have associated tracks from ghost association, this value ranges from 0 (likely pileup jet) to 1 (likely hard scatter jet).
 Jets without associated tracks are assigned JVT $= -.1$.
-The  working point of JVT$ > .59$ is used for jets in this thesis.
+The  working point of JVT $ > .59$ is used for jets in this thesis.
 
 \subsection{B-jets}
 
-Jets originating from bottom quarks (b-jets) are interesting physical phenomena that can be \textit{tagged} by the ATLAS detector~\cite{Aad:2015ydr,ATL-PHYS-PUB-2016-012}.
+Jets originating from bottom quarks (b-jets) can be \textit{tagged} by the ATLAS detector~\cite{Aad:2015ydr,ATL-PHYS-PUB-2016-012}.
 B-hadrons, which have a comparatively long lifetime compared to hadrons consisting of lighter quarks, can travel a macroscopic distance inside the ATLAS detector.
 The high-precision tracking detectors identify the secondary vertices from these decays and the jet matched to that vertex is called a \textit{b-jet}.
-The ``MV2c10'' algorithm, based on boosted decision trees, identifies these jets using a combination of variables sensitive to the difference between light-quark and b-quark jets.
+The \texttt{MV2c10} algorithm~\cite{Aad:2015ydr,ATL-PHYS-PUB-2016-012}, based on boosted decision trees, identifies these jets using a combination of variables sensitive to the difference between light-quark and b-quark jets.
 The efficiency of this tagger is 77\%, with a rejection factor of 134 for light-quarks and 6 for charm jets.
 
 \subsection{Missing Transverse Momentum}
@@ -433,39 +432,38 @@ The $E^{\text{miss}}_{x(y)}$ components are calculated as:
 \end{equation}
 where each value \Emisscomp{x(y)} is the negative vectorial sum of the calibrated objects defined in the previous sections.
 
-For purposes of \met reconstruction, we must assign an ordering of \textit{overlap removal}.
+For purposes of \met reconstruction, we must assign an \textit{overlap removal} ordering.
 This is to avoid double counting of the underlying primitive objects (clusters and tracks) which are inputs to the reconstruction of the physics objects.
 We resolve this in the following order : electrons, photons , jets and muons.
 This is motivated by the performance of the reconstruction of these objects in the calorimeters.
 
 The soft term $\Emisscomp{x(y)}{\text{soft}}$ contains all of the primitive objects which are not associated to any of the reconstructed physics objects.
-Of course, we need to choose which primitive object to use.
-The primary choices which have been used within ATLAS are the \textit{ calorimeter-based soft term} (CST) and the \textit{track-based soft term} (TST).
+we need to choose which primitive object to use.
+The primary choices which have been used within ATLAS are the \textit{ calorimeter-based soft term} (CST) and the \textit{track-based soft term} (TST)~\cite{Aad:2016nrq}.
 Based on the soft term choice, we then call \met built with a CST (TST) soft term simply CST (TST) \met.
-An additional option, which will be important as pileup continues to increase, particle flow \met (PFlow \met).
+An additional option, which will be important as pileup continues to increase, is particle flow \met (PFlow \met).
 
 The CST \met was used for much of the early ATLAS data-taking.
 CST \met is built from the calibrated hard objects, combined with the calorimeter clusters which are \textit{not} assigned to any of those hard objects.
 In the absence of pileup, it provides the best answer for the ``true'' \met in a given event, due to the impressive hermiticity of the calorimeters.
-Unfortunately, the calorimeters do not know ``where'' from where their energy deposition came, and thus CST is susceptible to drastically reduced performance as pileup is increased.
+Unfortunately, the calorimeters do not know from where their energy deposition came, and thus CST is susceptible to drastically reduced performance with increasing pileup.
 
 TST \met is the standard for ATLAS searches as currently performed by ATLAS.
-TST \met is built by using the calibrated hard objects and the soft term is built from the tracks which are not assigned to any of those hard objects.
-In particular, due to the impressive track-vertex association efficiency, one chooses tracks which only come from the primary vertex.
-This drastically reduces the pileup contributions to the \met measurement.
-However, since the ID tracking system is unable to measure neutral objects, the TST \met is ``wrong''.
-This bias is important to understand for many measurements.
-Hhowever, in most searches for new physics, the soft \met is generally a small fraction of the total \met, and thus this bias is not particularly hurtful.
+TST \met is reconstructed using the calibrated hard objects and a soft term from the tracks which are not assigned to any of those hard objects.
+In particular, due to the track-vertex association efficiency, one chooses tracks which only come from the primary vertex.
+This reduces the pileup contributions to the \met measurement.
+However, since the ID tracking system is unable to detect neutral objects, the TST \met is ``wrong''.
+In most searches for new physics, the soft \met is generally a small fraction of the total \met, and thus this bias is not particularly hurtful.
 
 PFlow \met uses the PFOs described above to build the \met.
 The PFOs which are assigned to hard objects are calibrated, and the PFOs which are not assigned to any hard object are added to the soft term.
 In this context, it is convenient to distinguish between ``charged'' and ``neutral'' PFOs.
 Charged PFOs can be seen as a topocluster which has an associated track, while neutral PFOs do not.
-This charged PFO is essentially a topocluster that we are ``sure'' comes from the primary vertex.
-The neutral PFOs are in the same status as the original topoclusters.
+A charged PFO is essentially a topocluster which is matched with the primary vertex.
+The neutral PFOs have the same status as the original topoclusters.
 Thus a ``full'' PFlow \met should have performance somewhere between TST \met and CST \met\footnotemark.
 \footnotetext{Naively, due to approximate isospin symmetry, about 2/3 of the hadrons will be charged and 1/3 will be neutral.}
-A \textit{charged} PFlow \met should for sanity be the same as TST.
+A \textit{charged} PFlow \met should be the same as TST.
 
 
 \subsubsection{Measuring \met Performance : event selection}
@@ -477,13 +475,13 @@ Here we present the results in early 2015 data with \Zmm and \Wen events, as sho
 This result was important to assure the integrity of the \met measurements at the higher energy and pileup environment of Run-2.
 
 The \Zll selection is used to measure the intrinsic \met resolution of the detector.
-The only possible source of neutrinos in these decays is from heavy-flavor decays inside of jets, and thus \Zll events they have very low \met.
+Neutrinos only occur in these events from heavy-flavor decays inside of jets, and thus \Zll events have very low \met.
 This provides an ideal event topology to understand the modelling of \met mismeasurement.
 Candidate \Zmm events are first required to pass a muon or electron trigger, as described in Table \ref{tab:triggers}.
 Offline, the selection of \Zmm events requires exactly two medium muons.
 The muons are required to have opposite charge and $\pt > 25 \GeV$, and mass of the dimuon system is required to be consistent with the $Z$ mass $|m_{ll} - m_Z | < 25 \GeV$.
 
-\Wln events are an important topology to evaluate the \met modelling in an event with real \met.
+\Wln events are an important topology to evaluate the \met modelling in events with real \met.
 This \met is from the neutrino, which is not detected.
 The \met in these events has a characteristic distribution with a peak at $\frac{1}{2} m_W$.
 The selection of \Wen events begins with the selection of exacly one electron of medium quality.
@@ -494,18 +492,18 @@ The transverse mass is used to select the \Wen events :
 \label{eq:mT}
 \end{equation}
 where \deltaPhi is the difference in the $\phi$ between the \met and the electron.
-\mT is required to be greater than 50 \GeV.
+\mT~ is required to be greater than 50 \GeV.
 
 There are two main ingredients to investigate : the \met resolution and the \met scale.
 
 \subsubsection{Measuring \met Performance in early 2015 data : metrics}
 
-To compare these algorithms we use the \met resolution, \met scale, and the linearity.
+To compare these algorithms we use the \met resolution, \met scale, and linearity.
 Representative distributions of TST \Emiss{x}, \Emiss{y}, and  \met from early 2015 datataking are shown in Fig.\ref{fig:tst_met_zmumu}.
 
 The \met resolution is an important variable due to the fact that the bulk of the distributions associated to \Emiss{x(y)} are Gaussian distributed ~\cite{Aad2012}.
 However, to properly measure the tails of this distribution, especially when considering non-calorimeter based soft terms, it is important to use the root-mean square as the proper measure of the resolution.
-This is strictly larger than a resolution as measured using a fit to a Gaussian, due to the long tails from i.e. track mismeasurements.
+This is strictly larger than resolution as measured using a fit to a Gaussian, due to the long tails from i.e. track mismeasurements.
 The resolution is measured with respect to two separate variables : \sumET and \npv.
 \sumET is an important measure of the ``total event activity''.
 It is defined as
@@ -519,21 +517,22 @@ It is defined as
   \sum \pT^{\text{soft}}.
  \label{eq:sumet}
 \end{equation}
-The measurement as a function of \npv is useful to understand the degradation of \met performance with increasing pileup.
-Figure \ref{fig:tst_met_resolution_zmumu} shows the \met resolution in the early 2015 data.
-The degradation of the \met performance is shown as a function of pileup \npv and total event activity \sumET.
+The measurement as a function of \npv~ is useful to understand the degradation of \met performance with increasing pileup.
+Figure \ref{fig:tst_met_resolution_zmumu} shows the TST \met resolution in the early 2015 data compared with simulation.
+The degradation of the TST \met performance is shown as a function of pileup \npv and total event activity \sumET.
+We see that the degradation is significant as a function of these variables, but simulation describes the data well.
 
-Another important performance metric is the \met scale, or how ``right'' we are in our \met calculation.
-This can be off in various directions, as CST \met contains additional particles from pileup, while soft neutral particles\footnotemark are ignored by TST \met.
+Another important performance metric is the \met scale.
+This indicates how well we measure the magnitude of the \met, as CST \met contains additional particles from pileup, while soft neutral particles\footnotemark are ignored by TST \met.
 \footnotetext{``Soft`` here means those particles which are not hard enough to be reconstructed as their own particle, using the reconstruction algorithms above.}
-To measure this in data, we again use \Zmm events, where the \Zmm system is treated as a well-measured reference object.
+To determine this in data, we again use \Zmm events, where the \Zmm system is treated as a well-measured reference object.
 The component of \met which is in the same direction as the reconstructed \Zmm system is sensitive to potential biases in the detector response.
-The unit vector \Az of the $Z$ system is defined as
+The unit vector \Az~ of the $Z$ system is defined as
 \begin{equation}
 \Az =\frac{\vec{p_T}^{\ell^+}+\vec{p_T}^{\ell^-}}{|\vec{p_T}^{\ell^+}+\vec{p_T}^{\ell^-}|},
 \end{equation}
 where $\vec{p_T}^{\ell^+}$ and $\vec{p_T}^{\ell^-}$ are the transverse momenta of the leptons from the $Z$ boson decay.
-The relevant scale metric is then the mean value of the \metvec projected onto $\Az$ :  $\langle\metvec\cdot \Az \rangle$.
+The relevant scale metric is the mean value of the \metvec projected onto $\Az$ :  $\langle\metvec\cdot \Az \rangle$.
 In Figure \ref{fig:tst_met_scale_zmumu}, the scale is shown for the early 2015 dataset.
 The negative bias, which is maximized at about 5 \GeV, is a reflection of two separate effects.
 The soft neutral particles are missed by the tracking system, and thus ignored in TST \met.
@@ -549,60 +548,59 @@ The linearity is expected to be zero if the \met is reconstructed at the correct
 
 %\footnotetext{Due to the very close to exact U(1)$_\phi$ symmetry of ATLAS, the $x$ and $y$ components can be considered independent, and they are added in this plot.}
 \begin{figure}
-\caption{TST \Emiss{x}, \Emiss{y}, and \met distributions of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}. The data sample consists of 6 \ipb.} \label{fig:tst_met_zmumu}
+\caption{TST \Emiss{x}, \Emiss{y}, and \met distributions of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection. The data sample consists of 6 \ipb.} \label{fig:tst_met_zmumu}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_01c}}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_01d}} \\
 \subfloat[ ]{\includegraphics[width=.9\linewidth] {ATL-PHYS-PUB-2015-027/fig_01a}}
 \end{figure}
 
 \begin{figure}
-\caption{Resolution of TST \met of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}. The data sample consists of 6 \ipb.} \label{fig:tst_met_resolution_zmumu}
+\caption{Resolution of TST \met of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection. The data sample consists of 6 \ipb.} \label{fig:tst_met_resolution_zmumu}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_04a}}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_04b}}
 \end{figure}
 
 \begin{figure}
-\caption{Scale of TST \met of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}. The data sample consists of 6 \ipb.} \label{fig:tst_met_scale_zmumu}
+\caption{Scale of TST \met of early $\sqrt{s} = 13 \TeV$ data compared with simulation after the \Zmm selection. The data sample consists of 6 \ipb.} \label{fig:tst_met_scale_zmumu}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{ATL-PHYS-PUB-2015-027/fig_05}}
 \end{figure}
 
 
 \subsubsection{Particle Flow Performance}
 
-As described above, the resolution, scale, and linearity are the most important metrics to understand the performance of the different \met algorithms.
+As described above, the resolution, scale, and linearity are metrics to understand the performance of the different \met algorithms.
 In this section, we present comparisons of the different algorithms, including particle flow, in simulation and using a data sample from 2015 of 80 \ipb.
 In these plots, ``MET\_PFlow\_TST'' refers to charged PFlow \met, while the other algorithms are as described above.
 
-Figures \ref{fig:mc_algs_met_resolution_zmumu,fig:mc_algs_met_scale_zmumu} show the resolution and scale in simulated \Zmm events.
-The resolution curves follow the ``intuitive'' behavior discussed before.
-Due to the high pileup in 2015 run conditions, the CST \met resolution is poor, and becomes even poorer with increasing pileup and event activity.
+Figures \cref{fig:mc_algs_met_resolution_zmumu,fig:mc_algs_met_scale_zmumu} show the resolution and scale in simulated \Zmm events.
+The resolution curves follow the expected behavior discussed before.
+Due to the high pileup in 2015 run conditions, the CST \met resolution is poor, and further degrades with increasing pileup and event activity.
 The ``regular'' PFlow \met shows reduces pileup and event activity dependence as compared to the CST.
-As stated earlier, the \met from the PFlow algorithm can be seen as a hybrid of TST \met and CST \met.
+PFlow \met can be seen as a hybrid of TST \met and CST \met.
 The charged PFOs (\order 2/3) are pileup supressed, while the neutral PFOs (or topoclusters) are not.
-Both charged PFlow and TST \met show only a small residual dependence on \npv and \sumET, since they have fully pileup supressed inputs through the track associations.
+Both charged PFlow and TST \met show only a small residual dependence on \npv~ and \sumET, since they have fully pileup supressed inputs through track associations.
 
 The scale plots are shown for $Z$+jets events and $Z$ events with no jets.
 For the nonsuppressed CST, the scale continues to worsen with increasing \ptZ.
-It is almost always the worst performing algorithm.
 The standard PFlow algorithm performs the second worst in the region of high \ptZ, but is the best at low \ptZ.
-The most exciting note in this plot is the improved scale of the charged PFlow \met compared to the TST \met.
+We note the improved scale of the charged PFlow \met compared to the TST \met.
 Considering the resolution is essentially identical, the PFlow algorithm is better picking up the contributions from additional neutral particles.
 In events with no jets, the soft term is essentially the only indication of the \met mismeasurement, since the muons will be well-measured.
 In this case, the pileup effects cancel, on average, due to the U$(1)_\phi$ symmetry of the ATLAS detector, and CST performs rather well compared to the more complicated track-based algorithms.
 The full PFlow algorithm performs best, since it provides a small amount of pileup suppression on the neutral components from CST.
 
-The resolution and linearity are shown in simulated \Wen events in Figure \ref{fig:mc_algs_met_resolution_wenu,}.
-The resolution in \Wen events shows a similar qualitative behavior to that shown in \Zmm events.
+The resolution and linearity are shown in simulated \Wen events in Figure \ref{fig:mc_algs_met_resolution_wenu}.
+The resolution in \Wen events shows a similar qualitative behavior to \Zmm events.
 The CST \met has the worst performance, with charged PFlow \met performing best.
-The surprise here is that the scale associated to TST \met in these events is best throughout the space parameterized by \mettrue, except for one bin at $40 \GeV < \mettrue < 50 \GeV$.
+The surprise here is the scale associated to TST \met has the strongest performance throughout the space parameterized by \mettrue, except for one bin at $40 \GeV < \mettrue < 50 \GeV$.
 The scale in these events is best measured using a track-based soft term.
 
 The resolution also investigated in real data passing the \Zmm selection described above.
 A comparison of the \met between real data and simulation for each algorithm is presented in Figure \ref{fig:data_algs_met_zmumu}.
-The resolution as a function of \sumET and \npv is shown in Figure \ref{fig:data_algs_met_resolution_zmumu} for this dataset.
-Overall, this plot shows the same general features as the simulation dataset in terms of algorithm performance.
+The resolution as a function of \sumET and \npv~ is shown in Figure \ref{fig:data_algs_met_resolution_zmumu} for this dataset.
+Overall, the real dataset shows the same general features as the simulation dataset in terms of algorithm performance.
 However, the performance of all algorithms seems to be significantly worse in data.
-This is likely due to simplifications made in the simulation: soft interactions that cannot be simulated can have a significant effect on an event level variable such as the \met resolution.
+This is likely due to simplifications made in the simulation: soft interactions which are not simulated have a significant effect on an event level variable such as the \met resolution.
 
 \begin{figure}
 \caption{Comparison of \met resolution and linearity using different \met algorithms with simulated \Wen events.} \label{fig:mc_algs_met_resolution_wenu}
@@ -623,7 +621,7 @@ This is likely due to simplifications made in the simulation: soft interactions 
 \end{figure}
 
 \begin{figure}
-\caption{Comparison of \met distributions using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:data_algs_met_zmumu}
+\caption{Comparison of \met distributions using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection} \label{fig:data_algs_met_zmumu}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_PFlow_ch_weight_zmumu}}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_PFlow_weight_zmumu}} \\
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/MET_TST_weight_zmumu}}
@@ -632,7 +630,7 @@ This is likely due to simplifications made in the simulation: soft interactions 
 
 
 \begin{figure}
-\caption{Comparison of \met resolution using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection described in Sec.\ref{subsubsec:met_event_selection}} \label{fig:data_algs_met_resolution_zmumu}
+\caption{Comparison of \met resolution using different \met algorithms with a data sample of 80 \ipb after the \Zmm selection} \label{fig:data_algs_met_resolution_zmumu}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/resol_sumet}}
 \subfloat[ ]{\includegraphics[width=.45\linewidth]{HCW_plots/resol_npv}}
 \end{figure}

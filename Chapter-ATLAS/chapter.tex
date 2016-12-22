@@ -14,7 +14,8 @@ A schematic of the detector is shown in \Cref{fig:atlas_full}.
 
 The \textit{inner detector} (ID) lies closest to the collision point, and contains three separate subdetectors.
 It provides pseudorapidity\footnotemark coverage of $|\eta| < 2.5$ for charged particles.
-\footnotetext{ATLAS uses a right-handed Cartesian coordinate system; the origin is defined by the nominal beam interaction point.
+\footnotetext{ATLAS uses a right-handed Cartesian coordinate system.
+The origin is defined by the nominal beam interaction point.
 The positive-$z$ direction is defined by the incoming beam travelling counterclockwise around the LHC.
 The positive-$x$ direction points towards the center of the LHC ring from the origin, and the positive-$y$ direction points upwards towards the sky.
 For particles of transverse (in the $x-y$ plane) momentum $p_T = \sqrt{p_x^2 + p_y^2}$ and energy $E$, it is generally most convenient fully describe this particle's kinematics as measured by the detector in the $(p_T, \phi, \eta, E)$ basis.
@@ -24,23 +25,24 @@ The tracks reconstructed from the inner detector hits are used to reconstruct th
 The ATLAS \textit{calorimeter} consists of two subdetectors, known as the \textit{electromagnetic} and \textit{hadronic} calorimeters.
 These detectors stop particles and measure their energy deposition.
 The calorimeters provide coverage out to pseudorapidity of $|\eta| < 4.9$.
-The muon spectrometer is aptly named; it is specifically used for muons, which are the only particles which generally reach the outer portions of the detector.
+The muon spectrometer is aptly named, as it measures  muons, which are the only particles which generally reach the outer portions of the detector.
 In this region, we have the large tracking systems of the muon spectrometer, which provide precise measurements of muon momenta.
 The muon spectrometer has pseudorapidity coverage of $|\eta| < 2.7$.
 
-\begin{figure}
+\begin{figure}[tbp]
 \caption{The ATLAS detector. Copyright CERN.} \label{fig:atlas_full}
 \includegraphics[width=.9\linewidth]{atlas_full}
 \end{figure}
 
 \section{Magnets}
 
-\begin{figure}
+\begin{figure}[tbp]
 \caption{The ATLAS magnet system. Copyright CERN.} \label{fig:atlas_magnets}
 \includegraphics[width=.9\linewidth]{atlas_magnets}
 \end{figure}
 
-ATLAS contains multiple magnetic systems; primarily, we are concerned with the solenoid, used by the inner detector, and the toroids located outside of the ATLAS calorimeter.
+ATLAS contains multiple magnetic systems.
+Primarily, we are concerned with the solenoid, used by the inner detector, and the toroids located outside of the ATLAS calorimeter.
 A schematic is shown in \Cref{fig:atlas_magnets}.
 These magnetic fields are used to bend charged particles, which subsequently allows one to measure their momentum.
 
@@ -48,9 +50,10 @@ The ATLAS central solenoid is a 2.3 m diameter, 5.3 m long solenoid at the cente
 It produces a uniform magnetic field of 2 T.
 An important design constraint for the central solenoid was the decision to place it in between the inner detector and the calorimeters.
 To avoid excessive energy deposition which could affect calorimeter measurements, the central solenoid must be as transparent as possible\footnotemark.
-\footnotetext{This is also one of the biggest functional differences between ATLAS and CMS; in CMS, the solenoid is outside of the calorimeters.}
+\footnotetext{This is also one of the biggest functional differences between ATLAS and CMS
+In CMS, the solenoid is outside of the calorimeters.}
 
-The toroid system consists of eight air-core superconducting barrel loops; these give ATLAS its distinctive shape.
+The toroid system consists of eight air-core superconducting barrel loops, which give ATLAS its distinctive shape.
 There are also two endcap air-core magnets.
 These produce a magnetic field in a region of approximately 26 m in length and 10 m of radius.
 The magnetic field in this region is non-uniform.
@@ -58,7 +61,7 @@ The magnetic field in this region is non-uniform.
 \section{Inner Detector}
 
 The ATLAS inner detector consists of three separate tracking detectors, which are known as, in order of increasing distance from the interaction point, the Pixel Detector, Semiconductor Tracker (SCT), and the Transition Radiation Tracker (TRT).
-\begin{figure}
+\begin{figure}[tbp]
 \caption{The ATLAS inner detector. Copyright CERN.} \label{fig:atlas_inner_detector}
 \includegraphics[width=.9\linewidth]{atlas_inner_detector}
 \end{figure}
@@ -67,7 +70,7 @@ Tracks are used as inputs for reconstruction of many higher-level physics object
 Accurate track reconstruction is thus crucial for precise measurements of charged particles.
 
 \subsection{Pixel Detector}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{The ATLAS pixel detector. Copyright CERN.} \label{fig:atlas_inner_detector}
 \includegraphics[width=.9\linewidth]{atlas_inner_detector}
 \end{figure}
@@ -78,7 +81,8 @@ The layers are known as the ``Insertable'' B-Layer (IBL), the B-Layer (or Layer-
 These layers are close to the interaction point, and therefore experience significant radiation exposure.
 
 Layer-1, Layer-2, and Layer-3 were installed with the initial construction of ATLAS.
-They contain front-end integrated electronics (FEI3s) bump-bonded to 1744 silicon modules; each module is 250 $\mu$m in thickness and contains 47232 pixels.
+They contain front-end integrated electronics (FEI3s) bump-bonded to 1744 silicon modules.
+Each module is 250 $\mu$m in thickness and contains 47232 pixels.
 These pixels have planar sizes of 50 x 400 $\mu^2$ or  50 x 600 $\mu^2$, to provide highly accurate location information.
 The FEI3s are mounted on long rectangular structures known as staves, which encircle the beam pipe.
 A small tilt to each stave allows full coverage in $\phi$.
@@ -93,20 +97,22 @@ This smaller granularity was required due to the smaller distance to the interac
 In total, a charged particle passing through the inner detector would expect to leave four hits in the pixel detector.
 
 \subsection{Semiconductor Tracker}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{A ring of the Semiconductor Tracker. Copyright CERN.} \label{fig:sct_photo}
 \includegraphics[width=.9\linewidth]{sct_photo}
 \end{figure}
 
 The SCT is a silicon strip detecotr directly beyond Layer-2 of the pixel detector ~\cite{IDET-2013-01}.
-The dual-sensors of the SCT contain 2 x 768 individual strips; each strip has area 6.4 cm$^2$.
-The SCT dual-sensor is double-layered, at a relative angle of 40 mrad; together these layers provide the necessary 3D information for track reconstruction.
+The dual-sensors of the SCT contain 2 x 768 individual strips.
+Each strip has area 6.4 cm$^2$.
+The SCT dual-sensor is double-layered, at a relative angle of 40 mrad.
+Together, these layers provide the necessary 3D information for track reconstruction.
 There are four of these double-layers, at radia of 284 mm, 355 mm, 427 mm, and 498 mm.
 These double-layers provide hits comparable to those of the pixel detector.
 The SCT provides an four additional hits to reconstruct tracks for each charged particle.
 
 \subsection{Transition Radiation Tracker}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{A schematic of the Transition Radiation Tracker. Copyright CERN.} \label{fig:trt_schematic}
 \includegraphics[width=.9\linewidth]{trt_schematic}
 \end{figure}
@@ -123,7 +129,7 @@ Generally, electrons have a much larger Lorentz factor than minimum ionizing par
 This is used to discriminate electrons from background in electron reconstruction.
 
 \section{Calorimetry}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{The ATLAS calorimeter. Copyright CERN.} \label{fig:atlas_calorimeter}
 \includegraphics[width=.9\linewidth]{atlas_calorimeter}
 \end{figure}
@@ -141,7 +147,7 @@ Combined, these provide full coverage in $\phi$ up to $|\eta| <4.9$.
 They are shown in \Cref{fig:atlas_calorimeter}.
 
 \subsection{Electromagnetic Calorimeters}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{A schematic of a subsection of the barrel LAr electromagnetic calorimeter. Copyright CERN.} \label{fig:lar_schematic}
 \includegraphics[width=.9\linewidth]{lar_schematic}
 \end{figure}
@@ -168,7 +174,7 @@ In total, the EM calorimeters contain about 190000 individual calorimeter cells.
 
 
 \subsection{Hadronic Calorimeters}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{A schematic of Tile hadronic calorimeter. Copyright CERN.} \label{fig:tile_schematic}
 \includegraphics[width=.9\linewidth]{tile_schematic}
 \end{figure}
@@ -181,18 +187,18 @@ The barrel Tile calorimeter extends out to $|\eta| < 1.7$.
 It has three layers, which combined give about 10 interactions lengths to provide excellent stopping power for hadrons.
 This is critical to avoid excess \textit{punchthrough} to the muon spectrometer beyond the hadronic calorimeters.
 The first layer has a depth of 1.5 interaction lengths.
-The second layer is again the thickest at a depth of 4.1 interaction lengths; most of the energy of incoming particle is deposited here.
+The second layer is again the thickest at a depth of 4.1 interaction lengths.
+Most of the energy of incoming particles is deposited in the second layer.
 Both the first and second layer have segmentation of $\Delta\eta = 0.1, \Delta\phi = 0.1$.
 Generally, one does not need as fine granularity in the hadronic calorimeter, since the energy depositions in the hadronic calorimeters will be summed into the composite objects as jets.
 The third layer has a thickness of 1.8 interaction lengths, with a segmentation of $\Delta\eta = 0.2, \Delta\phi = 0.1$.
 The use of multiple layers gives information about the induces hadronic shower as it propagates through the detector material.
 
-\todo{lumpy sentences}
-The endcap LAr hadronic calorimeter covers the region $1.5 < |\eta| < 3.2$.
-It is a sampling calorimeter; the active material is LAr with a copper absorbed.
-It does not use the accordion shape of the other calorimeters; it has a ``standard'' flat shape perpendicular to the interaction point.
-The segmentation varies with $\eta$.
-For $1.5 < |\eta| < 2.5 $, the cells are $\Delta\eta = 0.1, \Delta\phi = 0.1$; in the region $2.5 < |\eta | < 3.2$, the cells are $\Delta\eta = 0.2, \Delta\phi = 0.2$.
+The endcap LAr hadronic calorimeter is a sampling calorimeter which covers the region $1.5 < |\eta| < 3.2$.
+Liquid argon is the the active material and it uses a copper absorber.
+Unlike the other sampling calorimeters in ATLAS, it does not use the accordion shape.
+Instead, it is a flat detector perpendicular to the interaction point.
+The segmentation varies with $\eta$, ranging from cells of size $\Delta\eta = 0.1, \Delta\phi = 0.1$ in the center region to $\Delta\eta = 0.2, \Delta\phi = 0.2$ in the forward region.
 
 The forward LAr calorimeter is the last subdetector of the ATLAS calorimetry.
 Of those subdetectors which are used for standard reconstruction techniques, the FCal sits at the most extreme values of $ 3.1 < |\eta| < 4.9$.
@@ -201,12 +207,12 @@ The absorber in FCal1 is copper, with a liquid argon active medium.
 FCal2 and FCal3 also use a liquid argon active medium, with a tungsten absorber.
 
 \section{Muon Spectrometer}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{The ATLAS muon spectrometer. Copyright CERN.} \label{fig:atlas_muon_spectrometer}
 \includegraphics[width=.9\linewidth]{atlas_muon_spectrometer}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[tbp]
 \caption{A schematic in $z/\eta$ showing the location of the subdetectors of the muon spectrometer. Copyright CERN.} \label{fig:atlas_schematic_muon_spectrometer}
 \includegraphics[width=.9\linewidth]{atlas_schematic_muon_spectrometer}
 \end{figure}
@@ -215,22 +221,25 @@ The muon spectrometer sits outside the hadronic calorimetry, with pseudorapidity
 The MS is a huge detector, with some detector elements existing as far as 11 m in radius from the interaction point.
 This system is used almost exclusively to measure the momenta of muons.
 These systems provide a rough measurement, which is used in triggering (described in \Cref{sec:trigger}), and a precise measurement to be used in offline event reconstruction.
-The MS produces tracks in a similar way to the ID; the hits in each subdetector are recorded and then tracks are produced from these hits.
+The MS produces tracks in a similar way to the ID.
+The hits in each subdetector are recorded and then tracks are produced from these hits.
 Muon spectrometer tracks are largely independent of the ID tracks due to the independent solenoidal and toriodal magnet systems used in the ID and MS respectively.
 The MS consists of four separate subdetectors: the barrel region is covered by the Resistive Plate Chambers (RPCs) and Monitored Drift Tubes (MDTs) while the endcaps are covered by MDTs, Thin Gap Chambers (TGCs), and Cathode Strip Chambers (CSCs).
 
 \subsection{Monitored Drift Tubes}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{Schematic of a Muon Drift Tube chamber. Copyright CERN.} \label{fig:mdt_chamber}
 \includegraphics[width=.9\linewidth]{mdt_chamber}
 \end{figure}
 
 The MDT system is the largest individual subdetector of the MS.
 MDTs provide precision measurements of muon momenta as well as fast measurements used for triggering.
-There are 1088 MDT chambers providing coverage out to pseudorapidity $|\eta| < 2.7 $; each consists of an aluminum tube containing an argon-CO$_2$ gas mixture.
+There are 1088 MDT chambers providing coverage out to pseudorapidity $|\eta| < 2.7 $.
+Each consists of an aluminum tube containing an argon-CO$_2$ gas mixture.
 In the center of each tube there 50 $\mu$m diameter tungsten-rhenium wire at a voltage of 3080 V.
 A muon entering the tube will induce ionization in the gas, which will ``drift'' towards the wire due to the voltage.
-One measures this ionization as a current in the wire; this current comes with a time measurement related to how long it takes the ionization to drift to the wire.
+One measures this ionization as a current in the wire.
+The current comes with a time measurement related to how long it takes the ionization to drift to the wire.
 
 These tubes are layered in a pattern shown in \Cref{fig:mdt_chamber}.
 Combining the measurements from the tubes in each layer gives good position resolution.
@@ -240,7 +249,8 @@ The combination of these three measurements gives precise momenta measurements f
 
 \subsection{Resistive Plate Chambers}
 
-The RPC system is alternated with the MDT system in the barrel; the first two layers of RPC detectors surround the second MDT layer while the third is outside the final MDT layer.
+The RPC system is alternated with the MDT system in the barrel
+The first two layers of RPC detectors surround the second MDT layer while the third is outside the final MDT layer.
 The RPC system covers pseudorapidity $|\eta| < 1.05 $.
 Each RPC consists of two parallel plates at a distance of 2 mm surrounding a C$_2$H$_2$F$_4$ mixture.
 The electric field between these plates is 4.9k kV/mm.
@@ -251,7 +261,7 @@ This is most useful in triggering, where the timing requirements are quite sever
 The RPCs also complement the MDTs by providing a measurement of the non-bending coordinate.
 
 \subsection{Cathode Strip Chambers}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{Photo of the installation of Cathode Strip Chambers and Monitored Drift Tubes. Copyright CERN.} \label{fig:csc_photo}
 \includegraphics[width=.9\linewidth]{csc_photo}
 \end{figure}
@@ -270,12 +280,12 @@ The CSCs are arranged into four planes on the wheels of the muon spectrometer, a
 There are 32 CSCs in total, with 16 on each side of the detector in $\eta.$
 
 \subsection{Thin Gap Chambers}
-\begin{figure}
+\begin{figure}[tbp]
 \caption{Photo of a muon Big Wheel, consisting of Thin Gap Chambers. Copyright CERN.} \label{fig:tgc_photo}
 \includegraphics[width=.9\linewidth]{tgc_photo}
 \end{figure}
 
-The TGCs serve the purpose of the RPCs in the endcap at pseudorapidity of $1.05 < |\eta| < 2.4 $; they provide fast measurements used in triggering.
+The TGCs serve the purpose of the RPCs in the endcap at pseudorapidity of $1.05 < |\eta| < 2.4 $, by providing fast measurements used for triggering.
 They are multiwire proportional chambers similar to the CSCs.
 The fast readouts necessary for triggering are provided by a high electric field and a small wire-to-wire distance of 1.8 mm.
 These detectors provide both $\eta$ and $\phi$ information, allowing the trigger to use as much information as possible when selecting events.
@@ -336,7 +346,7 @@ A prescaled trigger only records every $n$th event which passes the trigger requ
 Inne wishes to investigate all data events passing some set of analysis cuts, so often one uses the ``lowest threshold unprescaled trigger''.
 \textit{Turn-on curves} allow one to select the needed offline analysis cut to ensure the trigger is fully efficient.
 An example turn-on curve for the \met triggers used in the signal region of this analysis is shown in \Cref{fig:met_turnon}.
-\begin{figure}[hbtp]
+\begin{figure}[tbp]
 \caption{Turn-on curves for the \met triggers used in this thesis.} \label{fig:met_turnon}
 \includegraphics[width=.9\linewidth]{2016-05-16-UpdatedTurnOns}
 \end{figure}
@@ -359,33 +369,32 @@ More information can be found in ~\cite{ATL-DAQ-PUB-2016-001}.
 \begin{sidewaystable}[htbp]
 \caption{High-Level Triggers used in this thesis.
 Descriptions of loose, medium, tight, and isolated can be found in ~\cite{ATL-DAQ-PUB-2016-001}.
-The d$_0$ cut refers to a quality cut on the vertex position; this was removed from many triggers in 2016 to increase sensitivity to displaced vertex signals.
+The d$_0$ cut refers to a quality cut on the vertex position, which was removed from many triggers in 2016 to increase sensitivity to displaced vertex signals.
 For most triggers, the increased thresholds in 2016 compared to 2016 were designed to keep the rate approximately equal.
-The exception is the \met triggers; see \Cref{subsubsec:razor_triggers}.
 }\label{tab:triggers}
 \centering
-\begin{tabularx}{\textwidth}{| X | X | X | X | X | X | X|}
+\begin{tabularx}{\textwidth}{| l | l | l | l | l | l | l|}
 \hline
-Physics Object & Trigger                                   & \pt Threshold (GeV) & Level-1 Seed         & Additional Requirements      & Rate (Hz) \\
-\hhline{|=|=|=|}                                                                                                                                               \\
-\textbf{2015 Data}                                                                                                                                             \\
+Physics Object & Trigger                                   & \pt Threshold (GeV) & Level-1 Seed         & Requirements      & Rate (Hz) \\
+\hhline{|=|=|=|=|=|=}
+\multicolumn{6}{|l|}{\textbf{2015 Data}} \\
 \met           & \hlttrig{xe70}                            & 70                  & \trigtt{L1\_XE50}    & -                            & 60                    \\
-Muon           & \hlttrig{mu24\_iloose\_L1MU15}            & 24                  & \trigtt{L1\_MU15}    & isolated, loose              & 130                   \\
+Muon           & \hlttrig{mu24\_iloose}            & 24                  & \trigtt{L1\_MU15}    & isolated, loose              & 130                   \\
 Muon           & \hlttrig{mu50}                            & 50                  & \trigtt{L1\_MU15}    & -                            & 30                    \\
-Electron       & \hlttrig{e24\_lhmedium\_iloose\_L1EM20VH} & 24                  & \trigtt{L1\_EM20VH}  & medium OR isolated, loose    & 140                   \\
+Electron       & \hlttrig{e24\_lhmedium\_iloose} & 24                  & \trigtt{L1\_EM20VH}  & medium OR isolated, loose    & 140                   \\
 Electron       & \hlttrig{e60\_lhmedium}                   & 60                  & \trigtt{L1\_EM20VH}  & medium                       & 10                    \\
 Electron       & \hlttrig{e120\_lhloose}                   & 120                 & \trigtt{L1\_EM20VH}  & loose                        & $<$10                   \\
 Photon         & \hlttrig{g120\_loose}                     & 120                 & \trigtt{L1\_EM20VH}  & loose                        & 20                    \\
-\hhline{|=|=|=|}                                                                                                                                               \\
-\textbf{2016 Data}                                                                                                                                             \\
+\hhline{|=|=|=|=|=|=}
+\multicolumn{6}{|l|}{\textbf{2016 Data}} \\
 \met           & \hlttrig{xe100\_mht\_L1XE50}              & 100                 & \trigtt{L1\_XE50}    & -                            & 180                   \\
 Muon           & \hlttrig{mu24\_ivarmedium}                & 24                  & \trigtt{L1\_MU20}    & medium                       & 120                   \\
 Muon           & \hlttrig{mu50}                            & 50                  & \trigtt{L1\_MU20}    & -                            & 40                    \\
-Electron       & \hlttrig{e24\_lhtight\_nod0\_ivarloose}   & 24                  & \trigtt{L1\_EM22VHI} & tight with no d$_0$ or loose & 110                   \\
+Electron       & \hlttrig{e24\_lhtight\_nod0}   & 24                  & \trigtt{L1\_EM22VHI} & tight with no d$_0$ OR loose & 110                   \\
 Electron       & \hlttrig{e60\_lhmedium\_nod0}             & 60                  & \trigtt{L1\_EM22VHI} & medium with no d$_0$         & 10                    \\
 Electron       & \hlttrig{e140\_lhloose\_nod0}             & 140                 & \trigtt{L1\_EM22VHI} & loose with no d$_0$          & $<$10                   \\
 Photon         & \hlttrig{g140\_loose}                     & 140                 & \trigtt{L1\_EM22VHI} & loose                        & 20                    \\
-\hhline{|=|=|=|}                                                                                                                                          \\
+\hhline{|=|=|=|=|=|=}
 \end{tabularx}
 \end{sidewaystable}
 

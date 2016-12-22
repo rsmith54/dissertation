@@ -1,30 +1,26 @@
-\begin{table}[H]
+\begin{table}[hptb]
 \resizebox{\textwidth}{!}{
-\begin{tabular}{| l l c c c c |}
+\begin{tabular}{| l l c c c c c |}
 \hline
-Physics process & Generator& Cross-section & PDF set & Parton shower & Tune \\
-&& normalization & & & \\
+Physics process                                   & Generator               & Alternative generator & Cross-section & PDF set      & Parton shower & Tune                 \\
+                                                  &                         &                       & normalization &              &               &                      \\
 \hline
-$W(\rightarrow \ell\nu)$ + jets              & \sherpa~2.2.0        & NNLO  &  NNPDF3.0NNLO   &  \sherpa\     & \sherpa~default \\
-$Z/\gamma^{*}(\rightarrow \ell \bar \ell)$ + jets & \sherpa~2.2.0         & NNLO  &  NNPDF3.0NNLO   & \sherpa\      & \sherpa~default\\
-$\gamma $ + jets & \sherpa~2.1.1         & LO  &    CT10  & \sherpa\   & \sherpa~default\\
-
-$t\bar{t}$              & {\textsc Powheg-Box}~v2   & NNLO+NNLL                   &  CT10 &  \pythia~6.428  &\textsc{Perugia2012} \\
-
-%%Single-top              &&&&\\
-Single top ($Wt$-channel) & {\textsc Powheg-Box} v2  &  NNLO+NNLL  &  CT10 &  \pythia~6.428   & \textsc{Perugia2012}\\
-Single top ($s$-channel)           & {\textsc Powheg-Box} v2  & NLO  &  CT10 &  \pythia~6.428   & \textsc{Perugia2012}\\
-Single top ($t$-channel)           & {\textsc Powheg-Box} v1  & NLO  &  CT10f4 &  \pythia~6.428   & \textsc{Perugia2012}\\
-
-$t\bar{t}+W/Z/WW$       &  MG5\_aMC@NLO~2.2.3  & NLO  & NNPDF2.3LO & \pythia~8.186 & A14    \\
-
-$WW$, $WZ$, $ZZ$    &  \sherpa~2.1.1       & NLO  &  CT10 & \sherpa\   & \sherpa~default \\
-Multi-jet    &  \pythia~8.186       & LO  & NNPDF2.3LO & \pythia~8.186   & A14\\
-
+$W(\rightarrow \ell\nu)$ + jets                   & \sherpa~2.2.0           & \madgraph             & NNLO          & NNPDF3.0NNLO & \sherpa\      & \sherpa~default      \\
+$Z/\gamma^{*}(\rightarrow \ell \bar \ell)$ + jets & \sherpa~2.2.0           & \madgraph             & NNLO          & NNPDF3.0NNLO & \sherpa\      & \sherpa~default      \\
+$\gamma $ + jets                                  & \sherpa~2.1.1           & -                     & LO            & CT10         & \sherpa\      & \sherpa~default      \\
+$t\bar{t}$                                        & {\textsc Powheg-Box}~v2 & \mcatnlo              & NNLO+NNLL     & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
+Single top ($Wt$-channel)                         & {\textsc Powheg-Box} v2 & \mcatnlo              & NNLO+NNLL     & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
+Single top ($s$-channel)                          & {\textsc Powheg-Box} v2 & \mcatnlo              & NLO           & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
+Single top ($t$-channel)                          & {\textsc Powheg-Box} v1 & \mcatnlo              & NLO           & CT10f4       & \pythia~6.428 & \textsc{Perugia2012} \\
+$t\bar{t}+W/Z/WW$                                 & MG5\_aMC@NLO~2.2.3      & -                     & NLO           & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
+$WW$, $WZ$, $ZZ$                                  & \sherpa~2.1.1           & -                     & NLO           & CT10         & \sherpa\      & \sherpa~default      \\
+Multijet                                         & \pythia~8.186           & -                     & LO            & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
 \hline
 \end{tabular}
 \caption{The Standard Model background Monte Carlo simulation samples used in this thesis.
-The generators, the order in $\alpha_{\textrm s}$ of cross-section calculations used for yield normalization, PDF sets, parton showers and tunes used for the underlying event are shown.}
+The generators, the order in $\alpha_{\textrm s}$ of cross-section calculations used for yield normalization, PDF sets, parton showers and tunes used for the underlying event are shown.
+Alternative generators are only used for the major backgrounds.
+}
 \label{tab:montecarlo}
 }
 \end{table}

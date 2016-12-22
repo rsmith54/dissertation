@@ -17,82 +17,33 @@ To select events in data, we use the trigger system as previously discussed, and
 We now discuss the simulation samples used for this search.
 
 Simulated data is fundamentally important to the ATLAS physics program.
-Calibrations, measurements, and searches use Monte Carlo (MC) simulations\footnotemark~ to compare with collision data.
-\footnotetext{In jargon, often just called ``Monte Carlo'' or MC.}
+Calibrations, measurements, and searches use Monte Carlo (MC) simulations to compare with collision data.
 In this thesis, MC samples are used to optimize the signal region selections, assist in background estimation, and assess the sensitivity to specific SUSY signal models.
 The details of Monte Carlo production, accuracy, and utility are far beyond the scope of this thesis, but we provide a short description here.
 
 The first step is MC \textit{generation}.
-A program is run which does a matrix-element calculation, sometimes with additional corrections, which produces a set of output particles from the parton interactions.
-These output particles are then decayed via another (or the same) simulation program.
-This produces a set of \textit{truth} particles, which are the output of event generation.
-The details of which generator to use are the subject of much discussion, and generally (many) comparisons are made between them, for different processes of interest.
-Additionally, differences between generators are often a starting point for the calculation of systematic uncertainties.
+A program is run which does a matrix-element calculation which produces a set of outgoing particles from the parton interactions.
+The output particles are \textit{interfaced} ~\cite{Mangano:2006rw} with the parton decays, showering, and hadronization processes.
+This can be done by the same program or another tool altogether.
+This produces a set of \textit{truth} particles with their corresponding kinematics.
 
-The next step is the \textit{simulation}.
-The detector response to the truth particles is simulated, and simulated hits are produced.
-After simulation, the standard reconstruction algorithms described previously are run with the simulated hits.
-This procedure ensures ``as close as possible'' treatment of simulation and collision data.
-
-We give a brief description of which samples use which generators; additional details are available in ~\cite{ATLAS-CONF-2016-078}.
-
-\todo{MAKE BETTER}
-{\color{red}
-Signal (digluino and disquark) samples are generated with up to two extra partons in the matrix element using MG5\_aMC@NLO~2.2.2 event generator~\cite{Alwall:2014hca} interfaced to  \pythia~8.186~\cite{Sjostrand:2014zea}.
-The nominal cross-section is taken from an envelope of cross-section predictions using different PDF sets and factorization and renormalization scales, as described in Ref.~\cite{Kramer:2012bx}, considering only light-flavour quarks ($u$, $d$, $s$, $c$).
-For the light-flavour squarks (gluinos) in case of gluino- (squark-) pair production, cross-sections are evaluated assuming masses of 450 \TeV.
-The free parameters are $m_{\lsp}$ and $m_{\gluino}$ ($m_{\squark}$) for gluino-pair (squark-pair) production models.
-\todo{explain we have a ``grid'' of these signal models samples}
-%The {\textsc EvtGen}~v1.2.0 program~\cite{evtgen} is used to describe the properties of the $b$- and $c$- hadron decays in the signal samples, and the background samples except those produced with \sherpa~\cite{sherpa2}.
-
-Boson ($W$, $Z$, $\gamma$) plus jet events are simulated using different \sherpa generators, with \textsc{Comix} and \textsc{OpenLoops} matrix-element generators~\cite{ATL-PHYS-PUB-2016-003, comix, openloops}.
-Photons are required to have transverse momentum of $> 35 \GeV$.
-Importantly, the $W (Z)$+jet events are calculated at NLO while the the $\gamma$+jet events are calculated at LO.
-% The production of $W$ or $Z$ bosons in association with jets~\cite{ATL-PHYS-PUB-2016-003} is simulated using the \sherpa~2.2.0 generator, while the production of $\gamma$ in association with jets is simulated using the \sherpa~2.1.1 generator.
-%In events with $W$ or $Z$ bosons, the matrix elements calculated using the , and merged with the \sherpa\ parton shower \cite{sherpashower} using the ME+PS@NLO prescription \cite{mepsnlo}. %To fix the scale setting problem, a reweighting procedure based on the number truth jets is applied.
-% The samples are produced with a simplified scale setting prescription in the multi-parton matrix elements, to improve the event generation speed. A theory-based re-weighting of the jet multiplicity distribution is applied at event level, derived from event generation with the strict scale prescription.
-% Events containing a photon in association with jets are generated requiring a photon transverse momentum above 35~\GeV.
-%  For these events, matrix elements are calculated at LO with up to three or four partons depending on the $\pt$ of the photon, and merged with the \sherpa\ parton shower using the ME+PS@LO prescription~\cite{Hoeche:2009rj}.
-%In the case of $W/Z$+jets, the NNPDF3.0NNLO PDF set \cite{Ball:2014uwa} is used, while for the $\gamma$+jets production the CT10 PDF set \cite{CT10pdf} is used, both in conjunction with dedicated parton shower-tuning developed by the authors of \sherpa.
-The $W/Z$ + jets events are normalized to their NNLO cross-sections ~\cite{Catani:2009sm}.
-The $\gamma$+jets LO cross-section is taken directly from \sherpa; we will apply a correction factor to be described later.
-
-The various \ttbar and single-top processes~\cite{ATL-PHYS-PUB-2016-004} are generated using two versions of \textsc{Powheg-Box} ~\cite{ATL-PHYS-PUB-2016-004,powheg-box}.
-These are calculated at NLO and normalized to various orders ranging from NLO to NNLO+NNLL in the different processes, which can be seen in \Cref{tab:montecarlo}\cite{Czakon:2013goa,Czakon:2011xx,Aliev:2010zk,Kant:2014oha,Kidonakis:2010ux,Kidonakis:2011wy}.
-% For the generation of $t\bar{t}$ and single-top processes in the $Wt$ and $s$-channel~\cite{ATL-PHYS-PUB-2016-004}, the \textsc{Powheg-Box} v2 \cite{powheg-box} generator is used with the CT10 PDF set.
-% The electroweak (EW) $t$-channel single-top events are generated using the \textsc{Powheg-Box} v1 generator.
-% This generator uses the four-flavour scheme for the NLO matrix-element calculations together with the fixed four-flavour PDF set CT10f4~\cite{CT10pdf}.
-% For this process, the decay of the top quark is simulated using {\textsc MadSpin} tool \cite{10a} preserving all spin correlations, while for all processes the parton shower, fragmentation, and the underlying event are generated using \pythia~6.428 \cite{pythia6} with the CTEQ6L1 \cite{Pumplin:2002vw} PDF set and the corresponding {\textsc Perugia 2012} tune (P2012) \cite{perugia}. The top quark mass is set to 172.5~\GeV.
-% The $h_{\rm damp}$ parameter, which controls the $\pt$ of the first additional emission beyond the Born configuration, is set to the mass of the top quark. The main effect of this is to regulate the high-$\pt$ emission against which the ttbar system recoils \cite{ATL-PHYS-PUB-2016-004}.
-%The EvtGen v1.2.0 program \cite{evtgen} is used for properties of the bottom and charm hadron decays.
-% The $t\bar{t}$ events are normalized to the NNLO+NNLL ~\cite{Czakon:2013goa,Czakon:2011xx}.
-% The $s$- and $t$-channel single-top events are normalized to the NLO cross-sections \cite{}, and the $Wt$-channel single-top events are normalized to the NNLO+NNLL~\cite{}.
-% For the generation of $t\bar{t}$ + EW processes ($t\bar{t} + W/Z/WW$)~\cite{ATL-PHYS-PUB-2016-005}, the MG5\_aMC@NLO~2.2.3~\cite{Alwall:2014hca} generator at LO interfaced to the \pythia~8.186 parton-shower model is used, with up to two ($t\bar{t}+W$, $t\bar{t}+Z(\to \nu\nu/qq)$), one ($t\bar{t}+Z(\to \ell\ell)$) or no ($t\bar{t}+WW$) extra partons included in the matrix element.
-% The ATLAS underlying-event tune A14 is used together with the NNPDF2.3LO PDF set.
-% The events are normalized to their respective NLO cross-sections~\cite{Lazopoulos:2008de,Campbell:2012dh}.
-
-Diboson processes ($WW$, $WZ$, $ZZ$)~\cite{ATL-PHYS-PUB-2016-002} are simulated using the  \sherpa~2.1.1 generator
-For processes with four charged leptons (4$\ell$), three charged leptons and a neutrino (3$\ell$+1$\nu$) or two charged leptons and two neutrinos (2$\ell$+2$\nu$), the matrix elements contain all diagrams with four electroweak vertices, and are calculated for up to one (4$\ell$, 2$\ell$+2$\nu$) or no partons (3$\ell$+1$\nu$) at NLO and up to three partons at LO using the \textsc{Comix} and \textsc{OpenLoops} matrix-element generators, and merged with the \sherpa\ parton shower using the ME+PS@NLO prescription.
-For processes in which one of the bosons decays hadronically and the other leptonically, matrix elements are calculated for up to one ($ZZ$) or no ($WW$, $WZ$) additional partons at NLO and for up to three additional partons at LO using the \textsc{Comix} and \textsc{OpenLoops} matrix-element generators, and merged with the \sherpa\ parton shower using the ME+PS@NLO prescription.
-In all cases, the CT10 PDF set is used in conjunction with a dedicated parton-shower tuning developed by the authors of  \sherpa.
-The generator cross-sections are used in this case.
-
-The multi-jet background is generated with \pythia~8.186 using the A14 underlying-event tune and the NNPDF2.3LO parton distribution functions.
-
-A summary of the SM background processes together with the MC generators, cross-section calculation orders in $\alpha_{\textrm s}$, PDFs, parton shower and tunes used is given in \Cref{tab:montecarlo}.
-}
 \input{Chapter-Analysis/mc-samples}
+For each major background, we employ a baseline sample and alternative sample, which we will use later to derive uncertainties on the theoretical cross-sections.
+The choice of generators for each background is itself a quite broad topic, which we avoid discussing here.
+A summary of the generators used is shown in \cref{tab:montecarlo}.
+In this thesis, we will use \sherpa~\cite{Gleisberg:2008ta} to generate boson events: \Zll, \Wln, diboson, and photon events.
+These are interfaced with the \sherpa's parton showering model ~\cite{sherpashower}.
+The alternative samples for \Zll and \Wln decays are generated with \madgraph ~\cite{madgraph1} interfaced with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
+Single top and \ttbar events are generated with \powhegbox ~\cite{powheg-box} interfaced with itself and the alternative samples are generated with \mcatnlo ~\cite{Alwall:2014hca} interfaced with \HERWIGPP ~\cite{Frixione:2010ra}
+QCD events are generated with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
+Events with \ttbar in association with a gauge boson are generated in MG5\_aMC@NLO~2.2.3 ~\cite{Alwall:2014hca} interfaced with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
 
-%The summary of processes considered together with the MC generators, cross-section calculations and PDFs used are listed in Table~\Cref{tab:montecarlo}.
-For all SM background samples the response of the detector to particles is modelled with a full ATLAS detector simulation ~\cite{:2010wqa} based on \textsc{Geant4} ~\cite{Agostinelli:2002hh}.
-Signal samples are prepared using a fast simulation based on a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters ~\cite{ATLAS:2010bfa} and on \textsc{Geant4} elsewhere.
-%, or through a fast simulation using a parameterization of the performance of the ATLAS electromagnetic and hadronic calorimeters ~\cite{ATLAS:2010bfa} and \textsc{Geant4} elsewhere; the latter applies to  \powheg{}+\pythia{} $t\bar{t}$ samples.
-
-All simulated events are overlaid with multiple $pp$ collisions simulated with the soft QCD processes of \pythia~8.186 using the A2 tune  ~\cite{A14tune} and the MSTW2008LO parton distribution functions ~\cite{Martin:2009iq}. The simulations are reweighted to match the distribution of the mean number of interactions observed in data. %It was checked that the effect of such pile-up reweighting is completely negligible.
-
-%The MC samples were generated with an expected pile-up distribution (multiple $pp$ interactions in the same or neighbouring bunch-crossings), but have not been reweighted to match the distribution of the mean number of interactions observed in data. It has been checked that the effect of such pile-up reweighting is completely negligible.
-
-%Differing pile-up (multiple $pp$ interactions in the same or neighbouring bunch-crossings) conditions as a function of the instantaneous luminosity are taken into account by overlaying simulated minimum-bias events (simulated using \pythia~8 with the MSTW2008LO PDF set~~\cite{Sherstnev:2007nd} and the A2 tune ~\cite{ATL-PHYS-PUB-2011-014})  onto the hard-scattering process and reweighting events according to the distribution of the mean number of interactions observed in data.
+After generation of the truth level particles using the various generators interfaced with their parton showering models, we perform \textit{simulation}.
+The detector response to the truth particles is simulated, and simulated hits are produced.
+This procedure ensures ``as close as possible'' treatment of simulation and collision data.
+In ATLAS, this is done using the \GEANTFour toolkit ~\cite{Agostinelli:2002hh}.
+This toolkit outputs simulated detector signals, on which we run the exact same reconstruction algorithms as described in the previous chapters.
+This allows us to produce output simulation datasets for each of the backgrounds in the analysis.
 
 \section{Event selection}
 
@@ -110,7 +61,6 @@ The cuts [1] and [4] are a set of cleaning cuts to remove problematic events.
 The \textit{Good Runs List} is a centrally-maintained list of data runs which have been determined to be ``good for physics''.
 This determination is made by analysis of the various subdetectors, and monitoring of their status.
 Event cleaning is used to veto events which could be affected by noncollision background, noise bursts, or cosmic rays.
-
 
 We require the lowest unprescaled \met trigger for the data run of interest, as described previously, in cut [2].
 The lepton veto is applied in cut [5].
@@ -238,7 +188,7 @@ We next describe the control region selection for the major SM backgrounds for t
 
 \subsection{Control Regions}
 
-As was hinted at in the discussion of Monte Carlo generators, the primary backgrounds of note in this analysis are \zjets, \wjets, \ttbar, and QCD events.
+The primary backgrounds of note in this analysis are \zjets, \wjets, \ttbar, and QCD events.
 There is also a minor background from diboson events which is taken directly from MC with an uncertainty of 50\%.
 We describe the strategy to estimate these various backgrounds here.
 A summary table is shown in \Cref{tab:crdefs}.
@@ -423,6 +373,55 @@ There is also an uncertainty on the \met soft term scale.
 These are labeled as alpha\_MET\_SoftTrk\_ResoPara, alpha\_MET\_SoftTrk\_ResoPerp, and alpha\_MET\_SoftTrk\_Scale.
 
 \subsection{Fitting procedure}
+
+This section describes the fitting procedure to properly account for the correlations between the various uncertainties and the simultaneous fitting of the control and signal regions.
+
+\subsection{Maximum likelihood fit}
+
+To properly account for the systematic uncertainties and simultaneously fit the control regions, we employ a maximum-likelihood fit as described in ~\cite{Baak:2014wma}.
+The likelihood function \Lagr is the product of the Poisson distributions governing the likelihood in each of the signal regions and the corresponding control regions:
+We begin by considering our event counts  $\bm{b}$ in a signal region with its corresponding signal regions.
+The systematic uncertainties are included as a set of nuisance parameters $\bm{\theta}$.
+
+The full likelihood function can be written ~\cite{Baak:2014wma}:
+\begin{align}
+\Lagr(n | \mu, b) &= P_{\mathrm{SR}} \times P_{\mathrm{CR}} \times C_{\mathrm{syst}} \\
+                  &= P(n_S | \lambda_S(\mu_{S},  \bm{b}, \bm{\theta} ) ) \times
+                     \prod_{i \epsilon \text{CR}}  P(n_i | \lambda_i(\mu_b , \bm{b}, \bm{\theta}))
+                     \times C_{\text{syst}}(\bm{\theta}^0 , \bm{\theta})
+\end{align}
+where $P(n_i | \lambda_i(\mu , \bm{b}, \bm{\theta}))$ is a Poisson distribution conditioned on the event counts $n_i$ in the $i$-th CR with mean parameter $\lambda_i(\mu , \bm{b}, \bm{\theta})$.
+The term $C_{\text{syst}}(\bm{\theta}^0 , \bm{\theta})$ is the probability density function with central values $\bm{\theta}^0$ which are varied with the nuisance parameters $\bm{\theta}$.
+We model these as Gaussian distributions with unit width and mean zero:
+\begin{align}
+C_{\text{syst}}(\bm{\theta}^0 , \bm{\theta}) = \prod_{s\epsilon S} G(\mu = \theta_s, \sigma = 1),
+\end{align}
+where $S$ is the set of systematic uncertainties considered in the analysis.
+
+The terms $\lambda_j$ for any region $j$ can be expressed as
+\begin{align}
+\lambda_j( \mu, \bm{b},\bm{\theta}) = \sum_b \mu_b \xspace b_j \xspace \prod_{s\epsilon S} \xspace (1 + \Delta_{j,b,s} \theta_s)
+\end{align}
+The term $\mu_b$ is the normalization factor associated to the background $b$ with event count $b_j$ in the region $j$.
+The terms $\bm{\Delta}$ inside the product represent scale factors freeing the model to account for the systematic uncertainties $\theta_s$.
+
+The process now is to maximize this likelihood function, given the free parameters $\mu_b$ and the parameters $\bm{\Delta}$ associated to the systematics as nuisance parameters.
+This is done using the \histfitter~ package ~\cite{Baak:2014wma}.
+The normalization parameters $\mu_b$ are the primary output of this maximization, and are in fact the control regions' raison d'\^{e}tre.
+This allows the magnitudes of each background process to maximized \textit{given the actual control region event counts}.
+We can say the normalization parameters are found such that the likelihood is maximized.
+The nuisance paramters are also determined by this procedure, but do not have a straightforward
+
+The final expected background prediction in each fit by region $r_s$ is then given by
+\begin{align}
+N_{\text{total background}} = \sum_b \mu_b N_{b, \text{MC}}
+\end{align}
+
+\subsection{Background-only fit, model-independent fit, and model-dependent fit}
+
+The maximum likelihood fit described above can be used with a variety of event count inputs.
+We use three separate fit classes, which we call \textit{background-only}, \textit{model-independent}, and \textit{model-dependent} fits.
+In terms of the likelihood function inputs, these can be seen as including a different list of event counts $\bm{b}$
 
 In this section, we describe the fitting procedure employed, which properly accounts for the correlations between the uncertainties through the use of a likelihood fit as described in ~\cite{Baak:2014wma}.
 We use three classes of likelihood fits: \textit{background-only}, \textit{model-independent}, and \textit{model-dependent} fits.

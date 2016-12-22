@@ -98,12 +98,12 @@ In total, a charged particle passing through the inner detector would expect to 
 \includegraphics[width=.9\linewidth]{sct_photo}
 \end{figure}
 
-The SCT is directly beyond Layer-2 of the pixel detector ~\cite{IDET-2013-01}.
-This is a silicon strip detector, which do not provide the full 3D information of the pixel detector.
+The SCT is a silicon strip detecotr directly beyond Layer-2 of the pixel detector ~\cite{IDET-2013-01}.
 The dual-sensors of the SCT contain 2 x 768 individual strips; each strip has area 6.4 cm$^2$.
-The SCT dual-sensor is then double-layered, at a relative angle of 40 mrad; together these layers provide the necessary 3D information for track reconstruction.
+The SCT dual-sensor is double-layered, at a relative angle of 40 mrad; together these layers provide the necessary 3D information for track reconstruction.
 There are four of these double-layers, at radia of 284 mm, 355 mm, 427 mm, and 498 mm.
-These double-layers provide hits comparable to those of the pixel detector, and we have four additional hits to reconstruct tracks for each charged particle.
+These double-layers provide hits comparable to those of the pixel detector.
+The SCT provides an four additional hits to reconstruct tracks for each charged particle.
 
 \subsection{Transition Radiation Tracker}
 \begin{figure}
@@ -111,16 +111,16 @@ These double-layers provide hits comparable to those of the pixel detector, and 
 \includegraphics[width=.9\linewidth]{trt_schematic}
 \end{figure}
 The Transition Radiation Tracker is the next detector radially outward from the SCT.
-It contains straw drift tubes; these contain a tungsten gold-plated wire of 32 $\mu$m diameter held under high voltage (-1530 V) with the edge of the Kapton-aluminum tube.
+It contains straw drift tubes.
+Each tube contains a tungsten gold-plated wire of 32 $\mu$m diameter held under high voltage (-1530 V) with the edge of the Kapton-aluminum tube.
 They are filled with a gas mixture of primarily xenon that is ionized when a charged particle passes through the tube.
 The ions are collected by the ``drift'' due to the voltage inside the tubes, which is read out by the electronics.
-This gives so-called ``continuous tracking'' throughout the tube, due to the large number of ions produced.
-
-The TRT is so-named due to the \textit{transition radiation} (TR) it induces.
-Due to the dielectric difference between the gas and tubes, TR is induced.
+% This gives so-called ``continuous tracking'' throughout the tube, due to the large number of ions produced.
+% The TRT is so-named due to the \textit{transition radiation} (TR) it induces.
+Due to the dielectric difference between the gas and tubes, transition radiation is induced.
 This is important for distinguishing electrons from their predominant background of minimum ionizing particles.
-Generally, electrons have a much larger Lorentz factor than minimum ionizing particles, which leads to additional TR.
-This can be used as an additional handle for electron reconstruction.
+Generally, electrons have a much larger Lorentz factor than minimum ionizing particles, which leads to additional transition radiation.
+This is used to discriminate electrons from background in electron reconstruction.
 
 \section{Calorimetry}
 \begin{figure}
@@ -128,15 +128,17 @@ This can be used as an additional handle for electron reconstruction.
 \includegraphics[width=.9\linewidth]{atlas_calorimeter}
 \end{figure}
 
-The calorimetry of the ATLAS detector also includes multiple subdetectors; these subdetectors allow precise measurements of the electrons, photons, and hadrons produced by the ATLAS detector.
-Generically, calorimeters work by stopping particles in their material, and measuring the energy deposition.
-This energy is deposited as a cascade particles induce from interactions with the detector material known \textit{showers}.
-ATLAS uses \textit{sampling} calorimeters; these alternate a dense absorbing material, which induces showers, with an active layer which measures energy depositions by the induced showers.
+The calorimetry of the ATLAS detector also includes multiple subdetectors which allow precise measurements of the electrons, photons, and hadrons produced in collisions delivered by the LHC.
+Calorimeters work by stopping particles in their material and measuring the energy deposition.
+This energy is deposited as a cascade of particles induce from interactions with the detector material known as \textit{showers}.
+ATLAS uses \textit{sampling} calorimeters, alternating a dense absorbing material to induce showers with an active layer to measure energy depositions by the induced showers.
 Since some energy is deposited into the absorption layers as well, the energy depositions must be properly calibrated for the detector.
 
-Electromagnetic objects (electrons and photons) and hadrons have much different interaction properties, and thus we need different calorimeters to accurately measure these different classes of objects; we can speak of the \textit{electromagnetic} and \textit{hadronic} calorimeters.
-ATLAS contains four separate calorimeters : the liquid argon (LAr) electromagnetic barrel calorimeter, the Tile barrel hadronic calorimeter, the LAr endcap electromagnetic calorimeter, the LAr endcap hadronic calorimeter, and the LAr Forward Calorimeter (FCal).
-Combined, these provide full coverage in $\phi$ up to $|\eta| <4.9$, and can be seen in \Cref{fig:atlas_calorimeter}.
+Electromagnetic objects (electrons and photons) and hadrons have different interaction properties.
+We use different types of calorimeters to accurately measure these classes of objects, which we call \textit{electromagnetic} and \textit{hadronic} calorimeters.
+ATLAS contains multiple separate calorimeters : the liquid argon (LAr) electromagnetic barrel calorimeter, the Tile barrel hadronic calorimeter, the LAr endcap electromagnetic calorimeter, the LAr endcap hadronic calorimeter, and the LAr Forward Calorimeter (FCal).
+Combined, these provide full coverage in $\phi$ up to $|\eta| <4.9$.
+They are shown in \Cref{fig:atlas_calorimeter}.
 
 \subsection{Electromagnetic Calorimeters}
 \begin{figure}
@@ -145,15 +147,15 @@ Combined, these provide full coverage in $\phi$ up to $|\eta| <4.9$, and can be 
 \end{figure}
 
 The electromagnetic calorimeters of the ATLAS detector consist of the barrel and endcap LAr calorimeters.
-These are arranged into an ingenious ``accordion'' shape, shown in \Cref{fig:lar_schematic}, which allows full coverage in $\phi$ and exceptional coverage in $\eta$ while still allowing support structures for detector operation.
+These are arranged into an ``accordion'' shape, shown in \Cref{fig:lar_schematic}, which allows full coverage in $\phi$ and significant coverage in $\eta$ while still allowing support structures for detector operation.
 The accordion is made of layers with liquid argon (active detection material) and lead (absorber) to induce electromagnetic showers.
 The LAr EM calorimeters are each more than 20 radiation lengths deep, which provides the high stopping power necessary to properly measure the electromagnetic showers.
 
 The barrel component of the LAr EM calorimeter extends from the center of the detector out to $| \eta| <  1.475 $.
 The calorimeter has a presampler, which measures the energy of any EM shower induced before the calorimeter.
-This has segmentation of $\Delta\eta = 0.025, \Delta\phi = .01$
+This has segmentation of $\Delta\eta = 0.025$,$ \Delta\phi = .01$
 There are three ``standard'' layers in the barrel, which have decreasing segmentation into calorimeter \textit{cells} as one travels radially outward from the interaction point.
-The first layer has segmentation of $\Delta\eta = 0.003, \Delta\phi = .1$, and is quite thin relative to the other layers at only 4 radiation lengths deep.
+The first layer has segmentation of $\Delta\eta = 0.003, \Delta\phi = .1$, and is quite thin with a depth of 4 radiation lengths.
 It provides precise $\eta$ and $\phi$ measurements for incoming EM objects.
 The second layer is the deepest at 16 radiation lengths, with a segmentation of $\Delta\eta = 0.025, \Delta\phi = 0.025$.
 It is primarily responsible for stopping the incoming EM particles, which dictates its large relative thickness, and measures most of the energy of the incoming particles.
@@ -161,7 +163,7 @@ The third layer is only 2 radiation lengths deep, with a rough segmentation of $
 The deposition in this layer is primarily used to distinguish hadrons interacting electromagnetically and entering the hadronic calorimeter from the strictly EM objects which are stopped in the second layer.
 
 The barrel EM calorimeter has a similar overall structure, but extends from $1.4 < |\eta| < 3.2$.
-The segmentation in $\eta$ is better in the endcap than the barrel; the $\phi$ segmentation is the same.
+The $\eta$ segmentation is smaller in the endcap than the barrel, while the $\phi$ segmentation is the same.
 In total, the EM calorimeters contain about 190000 individual calorimeter cells.
 
 
@@ -176,24 +178,25 @@ It contains three subdetectors : the barrel Tile calorimeter, the endcap LAr cal
 Similar to the EM calorimeters, these are sampling calorimeters that alternate steel (dense material) with an active layer (plastic scintillator).
 
 The barrel Tile calorimeter extends out to $|\eta| < 1.7$.
-There are again three layers, which combined give about 10 interactions length of distance, which provides excellent stopping power for hadrons.
+It has three layers, which combined give about 10 interactions lengths to provide excellent stopping power for hadrons.
 This is critical to avoid excess \textit{punchthrough} to the muon spectrometer beyond the hadronic calorimeters.
 The first layer has a depth of 1.5 interaction lengths.
 The second layer is again the thickest at a depth of 4.1 interaction lengths; most of the energy of incoming particle is deposited here.
-Both the first and second layer have segmentation of about $\Delta\eta = 0.1, \Delta\phi = 0.1$.
-Generally, one does not need as fine of granularity in the hadronic calorimeter, since the energy depositions in the hadronic calorimeters will be summed into the composite objects we know as jets.
+Both the first and second layer have segmentation of $\Delta\eta = 0.1, \Delta\phi = 0.1$.
+Generally, one does not need as fine granularity in the hadronic calorimeter, since the energy depositions in the hadronic calorimeters will be summed into the composite objects as jets.
 The third layer has a thickness of 1.8 interaction lengths, with a segmentation of $\Delta\eta = 0.2, \Delta\phi = 0.1$.
-The use of multiple layers allows one to understand the induced hadronic shower as it propagates through the detector material.
+The use of multiple layers gives information about the induces hadronic shower as it propagates through the detector material.
 
+\todo{lumpy sentences}
 The endcap LAr hadronic calorimeter covers the region $1.5 < |\eta| < 3.2$.
-It is again a sampling calorimeter; the active material is LAr with a copper absorbed.
+It is a sampling calorimeter; the active material is LAr with a copper absorbed.
 It does not use the accordion shape of the other calorimeters; it has a ``standard'' flat shape perpendicular to the interaction point.
 The segmentation varies with $\eta$.
-For $1.5 < |\eta| < 2.5 $, the cells are $\Delta\eta = 0.1, \Delta\phi = 0.1$; in the region $2.5 < |\eta | < 3.2$, the cells are $\Delta\eta = 0.2, \Delta\phi = 0.2$ in size.
+For $1.5 < |\eta| < 2.5 $, the cells are $\Delta\eta = 0.1, \Delta\phi = 0.1$; in the region $2.5 < |\eta | < 3.2$, the cells are $\Delta\eta = 0.2, \Delta\phi = 0.2$.
 
-The final calorimeter in ATLAS is the forward LAr calorimeter.
+The forward LAr calorimeter is the last subdetector of the ATLAS calorimetry.
 Of those subdetectors which are used for standard reconstruction techniques, the FCal sits at the most extreme values of $ 3.1 < |\eta| < 4.9$.
-The FCal itself is made of three subdetectors; FCal1 is actually an electromagnetic module, while FCal2 and FCal3 are hadronic.
+The FCal itself is made of three subdetectors: the electromagnetic FCal1 and hadronic FCal2 and FCal3.
 The absorber in FCal1 is copper, with a liquid argon active medium.
 FCal2 and FCal3 also use a liquid argon active medium, with a tungsten absorber.
 
@@ -208,11 +211,10 @@ FCal2 and FCal3 also use a liquid argon active medium, with a tungsten absorber.
 \includegraphics[width=.9\linewidth]{atlas_schematic_muon_spectrometer}
 \end{figure}
 
-The muon spectrometer is the final major subdetector of the ATLAS detector.
 The muon spectrometer sits outside the hadronic calorimetry, with pseudorapidity coverage out to $|\eta| < 2.7$.
 The MS is a huge detector, with some detector elements existing as far as 11 m in radius from the interaction point.
-This system is used almost exclusively to measure the momenta of muons; these are the only measured SM particles which consistently exit the hadronic calorimeters.
-These systems provide a rough measurement, which is used in triggering (described in \Cref{sec:trigger}), and a precise measurement to be used in offline event reconstruction as described in \Cref{ch:reconstruction}.
+This system is used almost exclusively to measure the momenta of muons.
+These systems provide a rough measurement, which is used in triggering (described in \Cref{sec:trigger}), and a precise measurement to be used in offline event reconstruction.
 The MS produces tracks in a similar way to the ID; the hits in each subdetector are recorded and then tracks are produced from these hits.
 Muon spectrometer tracks are largely independent of the ID tracks due to the independent solenoidal and toriodal magnet systems used in the ID and MS respectively.
 The MS consists of four separate subdetectors: the barrel region is covered by the Resistive Plate Chambers (RPCs) and Monitored Drift Tubes (MDTs) while the endcaps are covered by MDTs, Thin Gap Chambers (TGCs), and Cathode Strip Chambers (CSCs).
@@ -224,15 +226,15 @@ The MS consists of four separate subdetectors: the barrel region is covered by t
 \end{figure}
 
 The MDT system is the largest individual subdetector of the MS.
-MDTs provide precision measurements of muon momenta as well as fast measurements used for triggers.
+MDTs provide precision measurements of muon momenta as well as fast measurements used for triggering.
 There are 1088 MDT chambers providing coverage out to pseudorapidity $|\eta| < 2.7 $; each consists of an aluminum tube containing an argon-CO$_2$ gas mixture.
-In the center of each tube there 50$\mu$m diameter tungsten-rhenium wire at a voltage of 3080 V.
+In the center of each tube there 50 $\mu$m diameter tungsten-rhenium wire at a voltage of 3080 V.
 A muon entering the tube will induce ionization in the gas, which will ``drift'' towards the wire due to the voltage.
 One measures this ionization as a current in the wire; this current comes with a time measurement related to how long it takes the ionization to drift to the wire.
 
 These tubes are layered in a pattern shown in \Cref{fig:mdt_chamber}.
 Combining the measurements from the tubes in each layer gives good position resolution.
-The system consists of three subsystems of these layers, at 5 m, 7m, and 9 m from the interaction point.
+The system consists of three subsystems of these layers, at 5 m, 7 m, and 9 m from the interaction point.
 The innermost layer is directly outside the hadronic calorimeter.
 The combination of these three measurements gives precise momenta measurements for muons.
 
@@ -246,7 +248,7 @@ Just as in the MDTs, an incoming muon ionizes the gas, and the deposited ionizat
 It is quite fast, but with a relatively poor spatial resolution of 1 cm.
 Still, it can provide reasonable $\phi$ resolution due to its large distance from the interaction point.
 This is most useful in triggering, where the timing requirements are quite severe.
-The RPCs are also complement the MDTs by providing a measurement of the non-bending coordinate.
+The RPCs also complement the MDTs by providing a measurement of the non-bending coordinate.
 
 \subsection{Cathode Strip Chambers}
 \begin{figure}
@@ -255,8 +257,8 @@ The RPCs are also complement the MDTs by providing a measurement of the non-bend
 \end{figure}
 
 The CSCs are used in place of MDTs in the first layer of the endcaps.
-This region, at $2.0 < |\eta| < 2.7$, has higher particle multiplicity at the close distance to the interaction point from low-energy photons and neutrons.
-The MDTs were not equip to deal with the higher particle rate of this region, so the CSCs were designed to deal with this deficiency.
+This region, at $2.0 < |\eta| < 2.7$, has higher particle multiplicity at close distance to the interaction point from low-energy photons and neutrons.
+The MDTs are not equip to deal with the high particle rate in this region, so the CSCs were designed to deal with this deficiency.
 
 Each CSC consists multiwire proportional chambers, oriented radially outward from the interaction point.
 These chambers overlap partially in $\phi$.
@@ -264,7 +266,7 @@ The wires contain a gas mixture of argon and CO$_2$, which is ionized when muons
 The detectors operate with a voltage of 1900 V, with much lower drift times than the MDTs.
 They provide less hits than MDTs, but their lower drift times lower uptime and reduce the amount of detector overload.
 
-The CSCs are arranged into four planes on the wheels of the muon spectrometer, as seen in Fig.\Cref{fig:csc}.
+The CSCs are arranged into four planes on the wheels of the muon spectrometer, as seen in Fig.\Cref{fig:csc_photo}.
 There are 32 CSCs in total, with 16 on each side of the detector in $\eta.$
 
 \subsection{Thin Gap Chambers}
@@ -274,17 +276,17 @@ There are 32 CSCs in total, with 16 on each side of the detector in $\eta.$
 \end{figure}
 
 The TGCs serve the purpose of the RPCs in the endcap at pseudorapidity of $1.05 < |\eta| < 2.4 $; they provide fast measurements used in triggering.
-The TGCs are also multiwire proportional chambers a la the CSCs.
-The fast readouts necessary for trigger are provided by a high electric field and a small wire-to-wire distance of 1.8 mm.
+They are multiwire proportional chambers similar to the CSCs.
+The fast readouts necessary for triggering are provided by a high electric field and a small wire-to-wire distance of 1.8 mm.
 These detectors provide both $\eta$ and $\phi$ information, allowing the trigger to use as much information as possible when selecting events.
 
 \section{Trigger System}\label{sec:trigger}
 
 The data rate delivered by the LHC is staggering ~\cite{ATL-DAQ-PUB-2016-001}.
 In the 2016 dataset, the collision rate was 40 MHz, meaning a \textit{bunch spacing} of 25 ns.
-In each of the event, as we saw in \Cref{ch:lhc}, there are many proton-proton collisions.
+In each of the event, there are many proton-proton collisions.
 Most of the collisions are uninteresting, such as elastic scattering of protons, or even inelastic scattering leading to low-energy dijet events.
-These types of events have been studied in detail in previous experiments.
+These low-energy events have have been studied in detail in previous experiments.
 
 Even if one is genuinely interested in these events, it's \textit{impossible} to save all of the information available in each event.
 If all events were written ``to tape'' (as the jargon goes), ATLAS would store terabytes of data per second.
@@ -293,7 +295,8 @@ We thus implement a \textit{trigger} which provides fast inspection of events to
 
 The ATLAS trigger system consists of a two-level trigger, known as the Level-1 trigger (L1 trigger) and the High-Level Trigger (HLT)\footnotemark.
 \footnotetext{In Run1, ATLAS ran with a three-level trigger system.
-The L1 was essentially as today; the HLT consisted of two separate systems known as the L2 trigger and the Event Filter (EF).
+The L1 was essentially as today.
+The HLT consisted of two separate systems known as the L2 trigger and the Event Filter (EF).
 This was changed to the simpler system used today during the shutdown between Run1 and Run2.
 }
 Trigger selections are organized into \textit{trigger chains}, where events passing a particular L1 trigger are passed to a corresponding HLT trigger.
@@ -305,37 +308,42 @@ One can also use HLT triggers as prerequisites for each other, as is done in som
 The L1 trigger is hardware-based, and provides the very fast rejection needed to quickly select events of interest.
 The L1 trigger uses only what is known as \textit{prompt} data to quickly identify interesting events.
 Only the calorimeters and the triggering detectors (RPCs and TGCs)  of the MS are fast enough to be considered at L1, since the tracking reconstruction algorithms used by the ID and the more precise MS detectors are very slow.
-This allows quick identification of events with the most interesting physical objects : large missing transverse momentum and high-\pt electrons, muons, and jets.
+This allows quick identification of events with the most interesting physical objects: large missing transverse momentum and high-\pt electrons, muons, and jets.
 
 L1 trigger processing is done locally.
 This means that events are selected without considering the entire available event.
-Energy deposits over some threshold are reconstructed as \textit{regions of interest}.
+Energy deposits over some threshold are reconstructed as \textit{regions of interest} (RoIs).
 These RoIs are then compared using pattern recognition hardware to ``expected'' patterns for the given RoIs.
 Events with RoIs matching these expected patterns are then handed to the HLT through the Central Trigger Processor.
-This step alone lowers the data rate down by about three orders of magnitude.
+This step lowers the data rate down to about 75 kHz.
 
 \subsection{High-Level Trigger}
 
-The HLT performs the next step, taking the incoming data rate from the L1 trigger of \order 75 kHz down to the \order 1 kHz that can be written to tape.
-The HLT really performs much like a simplified offline reconstruction, using many common quality and analysis cuts to eliminate uninteresting events.
+After passing the L1 trigger, events are passed to the HLT, which takes the incoming data rate from \order 75 kHz down to the \order 1 kHz that can be written to tape.
+The HLT performs much like a simplified offline reconstruction, using many common quality and analysis cuts to eliminate uninteresting events.
 This is done by using computing farms located close to the detector, which process events in parallel.
-Individually, each event which enters the computing farms takes about 4 seconds to reconstruct; the HLT reconstruction time also has a long tail, which necessitates careful monotoring of the HLT to ensure smooth operation.
+Individually, each event which enters the computing farms takes about 4 seconds to reconstruct.
+However, some events take significantly longer to reconstruct, which necessitates careful monotoring of the HLT to ensure smooth operation.
 
-HLT triggers are targetted to a particular physics process, such as a \met trigger, single muon trigger, or multijet trigger.
+HLT triggers are targeted to a particular physics process, such as a \met trigger, single muon trigger, or multijet trigger.
 The collection of all triggers is known as the trigger \textit{menu}.
-Since many low-energy particles are produced in collisions, it is necessary to set a \textit{trigger threshold} on the object of interest; this is really just a fancy naming for a trigger \pt cut.
-Due to the changing luminosity conditions of the LHC, these thresholds change constantly, mostly by increasing thresholds with increasing instaneous luminosity.
+Since many low-energy particles are produced in collisions, it is necessary to set a \textit{trigger threshold} on the object of interest.
+Due to the changing luminosity conditions of the LHC, these thresholds change constantly.
+The most common strategy is to increase the trigger thresholds with increasing instanteous luminosity.
 This allows an approximately constant number of events to be written for further analysis.
 Triggers which have rates higher than those designated by the menu are \textit{prescaled}.
-This means writing only some fraction of the triggered events.
-Of course, for physics analyses, one wishes to investigate all data events passing some set of analysis cuts, so often one uses the ``lowest threshold unprescaled trigger''.
+A prescaled trigger only records every $n$th event which passes the trigger requirements, where $n$ is the prescale value.
+Inne wishes to investigate all data events passing some set of analysis cuts, so often one uses the ``lowest threshold unprescaled trigger''.
 \textit{Turn-on curves} allow one to select the needed offline analysis cut to ensure the trigger is fully efficient.
 An example turn-on curve for the \met triggers used in the signal region of this analysis is shown in \Cref{fig:met_turnon}.
+\begin{figure}[hbtp]
+\caption{Turn-on curves for the \met triggers used in this thesis.} \label{fig:met_turnon}
+\includegraphics[width=.9\linewidth]{2016-05-16-UpdatedTurnOns}
+\end{figure}
 
 The full set of the lowest threshold unprescaled triggers considered here can be found in \Cref{tab:triggers}.
 These are the lowest unprescaled triggers associated to the SUSY signal models and Standard Model backgrounds considered in this thesis.
 More information can be found in ~\cite{ATL-DAQ-PUB-2016-001}.
-
 
 % SR events are required to pass HLT_xe70 trigger,
 % • CRW, CRT, CRZ events are required to pass HLT_mu24_iloose_L1MU15 || HLT_mu50 for muons
@@ -358,7 +366,7 @@ The exception is the \met triggers; see \Cref{subsubsec:razor_triggers}.
 \centering
 \begin{tabularx}{\textwidth}{| X | X | X | X | X | X | X|}
 \hline
-Physics Object & Trigger                                   & \pt Threshold (GeV) & Level-1 Seed         & Additional Requirements      & Approximate Rate (Hz) \\
+Physics Object & Trigger                                   & \pt Threshold (GeV) & Level-1 Seed         & Additional Requirements      & Rate (Hz) \\
 \hhline{|=|=|=|}                                                                                                                                               \\
 \textbf{2015 Data}                                                                                                                                             \\
 \met           & \hlttrig{xe70}                            & 70                  & \trigtt{L1\_XE50}    & -                            & 60                    \\
@@ -381,25 +389,25 @@ Photon         & \hlttrig{g140\_loose}                     & 140                
 \end{tabularx}
 \end{sidewaystable}
 
-\subsubsection{Razor Triggers}\label{subsubsec:razor_triggers}
+% \subsubsection{Razor Triggers}\label{subsubsec:razor_triggers}
 
-For the analysis presented in this thesis, the \textit{razor triggers} were developed.
-These are topological triggers, combining both jet and \met information to select interesting events.
-In particular, they use the razor variable \mdr which will be described in Chapter \Cref{ch:rj}.
+% For the analysis presented in this thesis, the \textit{razor triggers} were developed.
+% These are topological triggers, combining both jet and \met information to select interesting events.
+% In particular, they use the razor variable \mdr which will be described in \Cref{ch:jigsaw}.
 
-Based on 2015 run conditions, these triggers would have allowed the use of a lower offline \met cut with a similar rate to the nominal \met triggers.
-This can be seen in the turn-on curves shown in \Cref{fig:razor_triggers}.
-The razor triggers are fully efficient at nearly 100 \GeV lower than the corresponding \met triggers in \mdr.
+% Based on 2015 run conditions, these triggers would have allowed the use of a lower offline \met cut with a similar rate to the nominal \met triggers.
+% This can be seen in the turn-on curves shown in \Cref{fig:razor_triggers}.
+% The razor triggers are fully efficient at nearly 100 \GeV lower than the corresponding \met triggers in \mdr.
 
-\begin{figure}
-\caption{Turn-on curves for the razor triggers and nominal \met trigger.
-The razor triggers show a much sharper turn-on in \mdr relative to the \met trigger.
-The converse is true for the \met triggers.
-} \label{fig:razor_triggers}
-\includegraphics[width=.9\linewidth]{TurnOn_Met}\\
-\includegraphics[width=.9\linewidth]{TurnOn_MDR}
-\end{figure}
+% \begin{figure}
+% \caption{Turn-on curves for the razor triggers and nominal \met trigger.
+% The razor triggers show a much sharper turn-on in \mdr relative to the \met trigger.
+% The converse is true for the \met triggers.
+% } \label{fig:razor_triggers}
+% \includegraphics[width=.9\linewidth]{TurnOn_Met}\\
+% \includegraphics[width=.9\linewidth]{TurnOn_MDR}
+% \end{figure}
 
-There was a quite big change in the 2016 menu, which increased the rate given to \met triggers drastically.
-This can be seen in the difference in rate shown between \met triggers in 2015 and 2016 in \Cref{tab:triggers}.
-This allowed the \met triggers to maintain a lower threshold throughout the dataset used in this thesis.
+% There was a quite big change in the 2016 menu, which increased the rate given to \met triggers drastically.
+% This can be seen in the difference in rate shown between \met triggers in 2015 and 2016 in \Cref{tab:triggers}.
+% This allowed the \met triggers to maintain a lower threshold throughout the dataset used in this thesis.

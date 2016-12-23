@@ -2,32 +2,32 @@
 
 %The following command starts your chapter. If you want different titles used in your ToC and at the top of the page throughout the chapter, you can specify those values here. Since Columbia doesn't want extra information in the headers and footers, the "Top of Page Title" value won't actually appear.
 
-\chapter[][Recursive Jigsaw Reconstruction]{Recursive Jigsaw Reconstruction}
+\chapter[Recursive Jigsaw Reconstruction][Recursive Jigsaw Reconstruction]{Recursive Jigsaw Reconstruction}
 \label{ch:jigsaw}
 
 \textit{Recursive Jigsaw Reconstruction} (RJR) ~\cite{Jackson:2016mfb,ATLAS-CONF-2016-078} is a novel algorithm used for the analysis presented in this thesis.
 RJR is the conceptual successor to the razor technique ~\cite{Rogan:2010kb,Buckley:2013kua}, which has been used successfully in many new physics searches ~\cite{SUSY-2014-05,SUSY-2014-06,CMS-SUS-13-004,CMS-SUS-12-005,CMS-SUS-11-024,SUSY-2011-22}.
 In this chapter, we will first present the razor technique, and describe the razor variables.
 We will then present the RJR algorithm.
-After the description of the algorithm, we will describe the precise RJR variables used by this thesis and attempt to provide some physical intuition of what they describe.
+After the description of the algorithm, we will describe the precise RJR variables used in the analysis.
 
 \section{Razor variables}
 
 \subsection{Motivation}
-In this thesis, we consider SUSY models where gluinos and squarks are pair-produced.
+We consider SUSY models where gluinos and squarks are pair-produced.
 Pair-production is a consequence of the $R$-parity imposed in many SUSY models.
-$R-$parity violation is highly constrained by limits on proton decay~\cite{susyPrimer}, and is often assumed in SUSY model building.
+$R$-parity violation is highly constrained by limits on proton decay~\cite{susyPrimer}, and is often assumed in SUSY model building.
 The Feynman diagrams considered are shown in \Cref{fig:feynman_signal}.
 \begin{figure}
 \caption{Feynman diagrams for the SUSY signals considered in this thesis} \label{fig:feynman_signal}
-\subfloat[Disquark production]   {\includegraphics[width=.7\linewidth]{ATLAS-CONF-2016-078/fig_01a}} \\
-\subfloat[Digluino production]   {\includegraphics[width=.7\linewidth]{ATLAS-CONF-2016-078/fig_01b}} \\
+\subfloat[Squark pair production]   {\includegraphics[width=.7\linewidth]{ATLAS-CONF-2016-078/fig_01a}} \\
+\subfloat[Gluino pair production]   {\includegraphics[width=.7\linewidth]{ATLAS-CONF-2016-078/fig_01b}} \\
 \end{figure}
 
-As discussed previously, the consequences of this $\mathbb{Z}_2$ symmetry are drastic.
-To understand the utility of the razor variables, the stability of the lightest supersymmetric particle is very important.
+The consequences of this $\mathbb{Z}_2$ symmetry are drastic~\cite{susyPrimer}.
+To understand the utility of the razor variables, the stability of the lightest supersymmetric particle is important.
 In many SUSY models, including the ones considered in this thesis, this is the lightest neutralino \lsp.
-This means that on either side of a SUSY decay process, where we begin with disparticle production, we have a final state particle which is not detected.
+This means that on either side of a SUSY decay process, where we begin with sparticle pair production, we have a final state particle which is not detected.
 Generically, this leads to \met.
 Selections based on \met are very good at reducing dominant backgrounds, for example from QCD backgrounds.
 
@@ -152,14 +152,14 @@ Finally, we will describe the variables used in the all-hadronic SUSY search pre
 The decay trees imposed in this thesis are shown in \Cref{fig:decay_trees}.
 \begin{figure}
 \caption{RJR decay trees imposed in this thesis} \label{fig:decay_trees}
-\subfloat[Disquark decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02a}}\Cref{subfig:disquark_decay_tree}
-\subfloat[Digluino decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02b}}\Cref{subfig:digluino_decay_tree} \\
+\subfloat[Squark pair decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02a}}\Cref{subfig:disquark_decay_tree}
+\subfloat[Gluino pair decay tree]  {\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02b}}\Cref{subfig:digluino_decay_tree} \\
 \subfloat[Compressed decay tree]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078/fig_02c}}\Cref{subfig:compressed_decay_tree}
 \subfloat[Anti-QCD assembling decay tree]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078_INT/QCD/RJRtree_SelfAssembling}}\Cref{subfig:self_assembling_decay_tree}
 \end{figure}
 Leaving temporarily the question of ``how'' we apply the jigsaw rules, let us compare these trees to the signal processes of interest.
 In particular, we want to compare the Feynman diagrams of \Cref{fig:feynman_signal} with the decay trees of \Cref{fig:decay_trees}.
-The decay tree in \Cref{subfig:disquark_decay_tree} corresponds exactly to that expected from disquark production, and matches very closely with the principles of the razor approach.
+The decay tree in \Cref{subfig:disquark_decay_tree} corresponds exactly to that expected from squark pair production, and matches very closely with the principles of the razor approach.
 We first apply a jigsaw rule, indicated by a line, to the kinematics of the objects in the \textit{lab} frame.
 This outputs the kinematics of our event in the \textit{parent-parent} (\PP) frame, or in the razor terminology, the CM frame.
 That is, the kinematics of this frame are an estimator for the kinematics in the center of mass frame of the disquark system.
@@ -167,9 +167,9 @@ We apply another jigsaw, which splits the objects in the \PP frame into two new 
 These are equivalent to the razor frames of the razor technique, and represent proxy frames where each squark is at rest.
 In \Pa (\Pb), the decay is symmetric between the visible \Va (\Vb) objects and the invisible system \Ia (\Ib).
 To generate the estimator of the kinematics of the \Va, \Vb, \Ia, and \Ib systems in the \Pa and \Pb systems, we apply another jigsaw rule to split the total \met between \Pa and \Pb, which allows calculations of these kinematics in these frames.
-For the case of disquark production, this is the expected decay tree, and we stop the recursive calculation at that level.
+For the case of squark pair production, this is the expected decay tree, and we stop the recursive calculation at that level.
 
-In the case of digluino production, we expect two additional jets, and we can perform an additional boost in each of \Pa and \Pb, to what we call the \Ca and \Cb frames.
+In the case of gluino pair production, we expect two additional jets, and we can perform an additional boost in each of \Pa and \Pb, to what we call the \Ca and \Cb frames.
 The decay tree is shown in \Cref{subfig:digluino_decay_tree}.
 In this case we apply a jigsaw at the level of \Pa (\Pb) which separates a single visible object $V_{1a}$ ($V_{2a}$) from the child frame \Ca (\Cb).
 This child frame represents the hypothesized squark after the decay $\supe{g} \rightarrow g \supe{q}$, which then decays as in the squark case.
@@ -178,7 +178,7 @@ This gives additional information which will be exploited for the gluino specifi
 The third decay tree used in this thesis is the \textit{compressed} decay tree.
 Compressed refers to signal models which have a small splitting between the mass of the proposed sparticle and the \lsp.
 In this case, the sparticle decay products (i.e. the jets and \met) do not generally have large scale~\cite{Jackson:2016mfb}.
-Instead, the strategy is generally to look for a large-scale initial state radiation (ISR) jet which is recoiling off the disparticle system.
+Instead, the strategy is generally to look for a large-scale initial state radiation (ISR) jet which is recoiling off the pair-produced sparticles' system.
 In the case where the LSPs receive no momentum from the sparticle decays, the following approximation holds:
 \begin{align}
 \met \order -p_T^{\text{ISR}} \times \frac{m_{\lsp} }{m_{\text{sparticle}}}
@@ -244,7 +244,7 @@ However in this case, there is a nice property of this guess.
 The symmetry of the production mechanism, where we have two decay products $V_i$ and $I_i$ produced from the decay of the same heavy sparticle, is explicit with this jigsaw choice.
 
 The final jigsaw rule we employ in this thesis is used to resolve the ``amount'' of \met that ``belongs'' to each hemisphere, and therefore how to impose the transverse boost onto each of i.e. \Pa and \Pb from \PP.
-Equivalently, it can be seen as the resolution of the kinematics of the \Ia and \Ib objects in the disquark and digluino decay trees.
+Equivalently, it can be seen as the resolution of the kinematics of the \Ia and \Ib objects in the squark and gluino pair production decay trees.
 Recall that at this point, we have already approximated the boost of the \PP frame.
 The choice we use is to minimize the masses $\Pa$ and $\Pb$, while simultaneously constraining $\Pa = \Pb$.
 As is the case in the last step, there is a straightforward physical interpretation of this choice.
@@ -308,28 +308,28 @@ Although the $H$ variables are interesting in their own right, the true power of
 This is because the scaleless ratios and angles are in fact measured in the ``right'' frame, where right here means an approximation of the correct frame.
 This provides a less correlated set of variables than those measured in the lab frame, due to the corrections to the disparticle or sparticle system boosts from the RJR technique.
 
-For the search for noncompressed disquark production, we use will use the following set of RJR variables.
+For the search for noncompressed squark pair production, we use will use the following set of RJR variables:
 \begin{itemize}
 \item \HFnm {\PP}{1}{1} - scale variable useful for discrimination against QCD backgrounds and used in a similar way to \met
-\item \HTFnm{\PP}{2}{1} - scale variable providing information on the overall mass scale of the event for disquark signal production.  We will often call this the \textit{full} scale variable.
+\item \HTFnm{\PP}{2}{1} - scale variable providing information on the overall mass scale of the event for squark pair production.  We will often call this the \textit{full} scale variable.
 \item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{2}{1} $ - ratio used to prevent imbalanced events where the scale variable is dominated by one high \pT jet or high \met
 \item \pzlabratioTwo - ratio to used to prevent significant boosts in the $z-$direction.  \pzlab is a measure of the total boost of the \PP system from the lab frame
 \item \ptjTworatio - ratio to force the second leading jet in the \PP frame to carry a significant portion of the total scalar sum in that frame.  This requirement is another balance requirement, on the total \pT of that second jet in the \PP frame.
 \end{itemize}
-First, we note that there is an implicit requirement that each hemisphere has at least one jet (to even reconstruct the \Pa and \Pb frames), these variables are implicitly using two or more jets, as we expect in disquark production.
+First, we note that there is an implicit requirement that each hemisphere has at least one jet (to even reconstruct the \Pa and \Pb frames), these variables are implicitly using two or more jets, as we expect for squark pair production.
 The other important thing to note is that all of the ratios use the full scale variable as the denominator.
 This is sensible, as we expect all of these effects to be scaled with the full scale variable \HTFnm {\PP}{2}{1}.
 We will see a similar behavior for the gluino regions, with a new full scale variable.
 
-For the search for noncompressed digluino production, we use will use the following set of RJR variables.
+For the search for noncompressed gluino pair production, we use will use the following set of RJR variables.
 Due to the increased complexity of the event topology with four jets, there are additional handles we can exploit:
 \begin{itemize}
-\item \HFnm {\PP}{1}{1} - same as disquark production
-\item \HTFnm{\PP}{4}{1} - scale variable providing information on the overall mass scale of the event for digluino signal production.  As before, we often call this the \textit{full} scale variable.  Since this variable allows the jets to be separated in the \PP frame, it is more appropriate for digluino production.
+\item \HFnm {\PP}{1}{1} - same as squark pair production variable
+\item \HTFnm{\PP}{4}{1} - scale variable providing information on the overall mass scale of the event for gluino pair production.  As before, we often call this the \textit{full} scale variable.  Since this variable allows the jets to be separated in the \PP frame, it is more appropriate for gluino pair production.
 \item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{4}{1} $ - ratio used to prevent imbalanced events where the scale variable is dominated by one high \pT jet or high \met
-\item $\HTFnm{\PP}{4}{1}/\HFnm{\PP}{4}{1} $ - ratio used to measure the fraction of the total scalar sum of the momentum in the transverse plane.  Digluino production is expected to be fairly central
+\item $\HTFnm{\PP}{4}{1}/\HFnm{\PP}{4}{1} $ - ratio used to measure the fraction of the total scalar sum of the momentum in the transverse plane.  Decay products from gluino pair production are expected to be fairly central
 \item \pzlabratioFour - ratio to used to prevent significant boosts in the $z-$direction
-\item \minjTwoGuy - ratio to require the second leading jet in \textit{both} squark-like hemispheres \Ca and \Cb to contain a significant portion of \textit{that frame's} momenta.  This is similar to the \ptjTworatio disquark discriminator, but applied to both hemispheres \Ca and \Cb.
+\item \minjTwoGuy - ratio to require the second leading jet in \textit{both} squark-like hemispheres \Ca and \Cb to contain a significant portion of \textit{that frame's} momenta.  This is similar to the \ptjTworatio squark decay tree discriminator, but applied to both hemispheres \Ca and \Cb.
 \item \maxjTwoGuy - ratio requiring one jet in each of the $P_i$ to not take too much of the total momentum of that frame.  This ratio is generally a very loose cut.
 \end{itemize}
 

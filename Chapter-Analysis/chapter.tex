@@ -26,17 +26,29 @@ A program is run which does a matrix-element calculation which produces a set of
 The output particles are \textit{interfaced} ~\cite{Mangano:2006rw} with the parton decays, showering, and hadronization processes.
 This can be done by the same program or another tool altogether.
 This produces a set of \textit{truth} particles with their corresponding kinematics.
+A summary of the generators for each sample is shown in \cref{tab:montecarlo}.
+
+The signal samples are produced using simplified models.
+Simplified models employ an effective Lagrangian which introduces the smallest possible set of new particles, with only one production process and one decay channel with 100\% branching ratio.
+The squarks are generated in pairs, where each squark decays directly to a jet and the LSP.
+Gluinos are also generated in pairs, where each gluino decays directly to a squark and jet, and the squark subsequently decays to another jet and the LSP.
+Signal samples are produced in a \textit{grid} of sparticle and \lsp mass, where each signal sample is generated with a particular $(m_{\text{sparticle}, }, m_{\lsp})$.
+This allows us to probe a variety of signal models with the given mass splittings.
+These samples are generated with \madgraph ~\cite{madgraph1} interfaced with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
+The generated squark samples cover the grid with squark masses ranging from 200 \GeV to 2000 \GeV and \lsp masses ranging from 0 \GeV up to 1100 \GeV.
+The gluino samples cover the grid as well, with gluino masses of 200 \GeV to 2600 \GeV and \lsp masses from 0 \GeV up to 1600 \GeV.
+The grids are well-populated, with about 200 samples covering this space, and a higher density of samples at smaller mass splittings.
 
 \input{Chapter-Analysis/mc-samples}
 For each major background, we employ a baseline sample and alternative sample, which we will use later to derive uncertainties on the theoretical cross-sections.
 The choice of generators for each background is itself a quite broad topic, which we avoid discussing here.
-A summary of the generators used is shown in \cref{tab:montecarlo}.
+
 In this thesis, we will use \sherpa~\cite{Gleisberg:2008ta} to generate boson events: \Zll, \Wln, diboson, and photon events.
 These are interfaced with the \sherpa's parton showering model ~\cite{sherpashower}.
 The alternative samples for \Zll and \Wln decays are generated with \madgraph ~\cite{madgraph1} interfaced with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
 Single top and \ttbar events are generated with \powhegbox ~\cite{powheg-box} interfaced with itself and the alternative samples are generated with \mcatnlo ~\cite{Alwall:2014hca} interfaced with \HERWIGPP ~\cite{Frixione:2010ra}
 QCD events are generated with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
-Events with \ttbar in association with a gauge boson are generated in MG5\_aMC@NLO~2.2.3 ~\cite{Alwall:2014hca} interfaced with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
+Events with \ttbar in association with a gauge boson are generated in MG5\_aMC@NLO ~\cite{Alwall:2014hca} interfaced with \PYTHIAEight ~\cite{Sjostrand:2014zea}.
 
 After generation of the truth level particles using the various generators interfaced with their parton showering models, we perform \textit{simulation}.
 The detector response to the truth particles is simulated, and simulated hits are produced.
@@ -57,14 +69,10 @@ The preselection is used to reduce the dataset to that of interest in this thesi
 The preselection cuts are shown in \Cref{tab:preselection}.
 This selection is also used for the samples used for background estimation, except for the lepton veto.
 
-The cuts [1] and [4] are a set of cleaning cuts to remove problematic events.
+The cuts [1] and [3] are a set of cleaning requirements which remove problematic events.
 The \textit{Good Runs List} is a centrally-maintained list of data runs which have been determined to be ``good for physics''.
 This determination is made by analysis of the various subdetectors, and monitoring of their status.
 Event cleaning is used to veto events which could be affected by noncollision background, noise bursts, or cosmic rays.
-
-We require the lowest unprescaled \met trigger for the data run of interest, as described previously, in cut [2].
-The lepton veto is applied in cut [5].
-These two cuts are only used for the signal region selection.
 
 The rest of the preselection is used for the signal region and control regions used for background estimation.
 These cuts on scaleful variables used by previous searches are mostly used for the reduction of the dataset to a manageable size.
@@ -78,7 +86,10 @@ This is the final discriminating variable used in the complementary search to th
 We define a set of of signal regions using the RJR variables previously described.
 These signal regions are split into three general categories: squark pair production SRs, gluino pair production SRs, and compressed production SRs.
 Within these general SRs, we have a set of signal regions targetting different mass splittings of the sparticle and LSP.
-\begin{figure}
+To ensure complementarity with other ATLAS SUSY searches which have lepton requirements, the signal region selections veto any events with any leptons of $\pt > 10 \GeV$.
+The hadronic signal regions also require the events to have passed the lowest unprescaled \met trigger at the time the event was recorded.
+The high \met selection in the preselection means these triggers (\hlttrig{xe70}, \hlttrig{xe80\_tclcw\_L1XE50} or \hlttrig{xe100\_mht\_L1XE50}) are fully efficient in data events.
+\begin{figure}[tbp]
 \caption{Schematic leading the development of the SUSY signal regions in this thesis.
 A variant of this schematic is used for most SUSY searches on ATLAS and CMS.
 } \label{fig:sr_schematic}
@@ -86,18 +97,18 @@ A variant of this schematic is used for most SUSY searches on ATLAS and CMS.
 \end{figure}
 
 A schematic of this strategy is shown in \Cref{fig:sr_schematic}.
-This type of plane is how most $R-$parity conserving) SUSY searches are organized in both ATLAS and CMS
+This type of plane is how most $R-$parity conserving SUSY searches are organized in both ATLAS and CMS
 The horizontal axis is the mass of the sparticle considered.
 In the case of this thesis, this will the squark or gluino mass.
-On the horizontal axis, we place the LSP mass.
+On the vertical axis, we place the LSP mass.
 These are the two free parameters of the simplified models considered here.
 Our search occurs in this two-parameter space.
 Each signal region targets some portion of this plane.
 As shown in the figure, a new iteration of a search will use a set of signal regions which have sensitivity just beyond those of the previous exclusions.
-The choice of how many signal regions to use to fully cover this plane is in many ways a matter of judgment, as it is important to avoid over or under/over-fitting to the signal models of interest.
-To take the extreme examples, One signal region will obscure the different phenomena in signal events with large versus small mass splittings, leading to underfitting.
+The choice of how many signal regions to use to cover this plane is in many ways a matter of judgment, as it is important to avoid under/over-fitting to the signal models of interest.
+To take the extreme examples, one signal region will obscure the different phenomena in signal events with large versus small mass splittings, leading to underfitting.
 Binning as finely as possible\footnotemark~ leads to overfitting due to the fluctuations present in the signal and background events passing the various selections selection.
-\footnotetext{This can be defined as having a signal region for each simulated signal sample, which for this analysis is \order 100.}
+\footnotetext{This can be defined as having a signal region for each simulated signal sample.  There are \order 100 simulated signal samples produced in the plane.}
 In this thesis, we use six squark signal regions, six gluino signal regions, and five compressed regions.
 
 The full table defining all signal regions is shown in \Cref{tab:RJsrdefs}.
@@ -113,7 +124,7 @@ We choose the lowest cut value that maximizes the $Z_{\text{Bi}}$, as described 
 This figure of merit gives conservative estimates, as compared to i.e. $S/\sqrt{B}$.
 A figure showing an example of this selection tuning procedure is shown in \Cref{fig:sr_optimization}.
 
-\begin{figure}
+\begin{figure}[tbp]
 \caption{Optimization of the \HTFnm{PP}{4}{1} cut for a gluino signal model with $(m_{\gluino}, m_{\lsp} ) = (1500,700) \GeV $ assuming 10 \ifb and an uncertainty of 20\% on the background estimate.
 } \label{fig:sr_optimization}
 \includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078_INT/OPT_gluino/HT5PP_10fb_20sys_gg1500_700}
@@ -216,7 +227,7 @@ Still, it is clear that the ratio flattens out at high boson \pt, and we are jus
 
 The CRY kinematic selection is slightly looser in the scaleful variables for the noncompressed regions to provide sufficient control region statistics.
 This is chosen to be $\HFnm{PP}{1}{1} > 900 \GeV$ ($\HFnm{PP}{1}{1} > 550 \GeV$) for the squark (gluino) regions to minimize the corresponding statistical and systematic uncertainties.
-\begin{figure}
+\begin{figure}[tbp]
 \caption{} \label{fig:boson_pt_ratio}
 \subfloat[Boson \pt ratio as a function of true boson \pt]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078_INT/GammaReweighting/Znunu_truth_bosonPt_dPhi/c1_bosonPt_no_cuts}}
 \subfloat[Boson \pt ratio as a function of reconstructed boson \pt]{\includegraphics[width=.45\linewidth]{ATLAS-CONF-2016-078_INT/GammaReweighting/Znunu_reco/c1_bosonPt_no_cuts}}
@@ -332,7 +343,7 @@ This is defined
 where $\sigma_{\mathrm{tot}}$ is the total uncertainty folding in all systematic uncertainties, which we will describe later.
 Assuming we have well-measured our backgrounds, we expect a Gaussian distribution of the pulls around 0, with a standard deviation of 1, as this is measuring the number of standard deviations around the mean.
 We can see there are few postive pulls (indicating an underestimation of the background), indicating we have conservatively measured the Standard Model backgrounds with our control regions.
-\begin{figure}
+\begin{figure}[tbp]
 \caption{Summary of the validation region pulls} \label{fig:vr_summary}
 \includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_05b}
 \end{figure}

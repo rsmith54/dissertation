@@ -1,20 +1,23 @@
-\begin{table}[hptb]
+\begin{table}[tbp]
 \resizebox{\textwidth}{!}{
 \begin{tabular}{| l l c c c c c |}
 \hline
-Physics process                                   & Generator               & Alternative generator & Cross-section & PDF set      & Parton shower & Tune                 \\
-                                                  &                         &                       & normalization &              &               &                      \\
+%MG5\_aMC@NLO~2.2.3
+Physics process                                       & Generator               & Alternative generator & Cross-section & PDF set      & Parton shower & Tune                 \\
+                                                      &                         &                       & normalization &              &               &                      \\
 \hline
-$W(\rightarrow \ell\nu)$ + jets                   & \sherpa~2.2.0           & \madgraph             & NNLO          & NNPDF3.0NNLO & \sherpa\      & \sherpa~default      \\
-$Z/\gamma^{*}(\rightarrow \ell \bar \ell)$ + jets & \sherpa~2.2.0           & \madgraph             & NNLO          & NNPDF3.0NNLO & \sherpa\      & \sherpa~default      \\
-$\gamma $ + jets                                  & \sherpa~2.1.1           & -                     & LO            & CT10         & \sherpa\      & \sherpa~default      \\
-$t\bar{t}$                                        & {\textsc Powheg-Box}~v2 & \mcatnlo              & NNLO+NNLL     & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
-Single top ($Wt$-channel)                         & {\textsc Powheg-Box} v2 & \mcatnlo              & NNLO+NNLL     & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
-Single top ($s$-channel)                          & {\textsc Powheg-Box} v2 & \mcatnlo              & NLO           & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
-Single top ($t$-channel)                          & {\textsc Powheg-Box} v1 & \mcatnlo              & NLO           & CT10f4       & \pythia~6.428 & \textsc{Perugia2012} \\
-$t\bar{t}+W/Z/WW$                                 & MG5\_aMC@NLO~2.2.3      & -                     & NLO           & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
-$WW$, $WZ$, $ZZ$                                  & \sherpa~2.1.1           & -                     & NLO           & CT10         & \sherpa\      & \sherpa~default      \\
-Multijet                                         & \pythia~8.186           & -                     & LO            & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
+$\squark\squark$, $\squark \rightarrow q \lsp$        & MG5\_aMC@NLO~2.2.3      & -                     & NLO           & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
+$\gluino\gluino$, $\gluino \rightarrow q\bar{q} \lsp$ & MG5\_aMC@NLO~2.2.3      & -                     & NLO           & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
+$W(\rightarrow \ell\nu)$ + jets                       & \sherpa~2.2.0           & \madgraph             & NNLO          & NNPDF3.0NNLO & \sherpa\      & \sherpa~default      \\
+$Z/\gamma^{*}(\rightarrow \ell \bar \ell)$ + jets     & \sherpa~2.2.0           & \madgraph             & NNLO          & NNPDF3.0NNLO & \sherpa\      & \sherpa~default      \\
+$\gamma $ + jets                                      & \sherpa~2.1.1           & -                     & LO            & CT10         & \sherpa\      & \sherpa~default      \\
+$t\bar{t}$                                            & {\textsc Powheg-Box}~v2 & \mcatnlo              & NNLO+NNLL     & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
+Single top ($Wt$-channel)                             & {\textsc Powheg-Box} v2 & \mcatnlo              & NNLO+NNLL     & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
+Single top ($s$-channel)                              & {\textsc Powheg-Box} v2 & \mcatnlo              & NLO           & CT10         & \pythia~6.428 & \textsc{Perugia2012} \\
+Single top ($t$-channel)                              & {\textsc Powheg-Box} v1 & \mcatnlo              & NLO           & CT10f4       & \pythia~6.428 & \textsc{Perugia2012} \\
+$t\bar{t}+W/Z/WW$                                     & MG5\_aMC@NLO~2.2.3      & -                     & NLO           & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
+$WW$, $WZ$, $ZZ$                                      & \sherpa~2.1.1           & -                     & NLO           & CT10         & \sherpa\      & \sherpa~default      \\
+Multijet                                              & \pythia~8.186           & -                     & LO            & NNPDF2.3LO   & \pythia~8.186 & A14                  \\
 \hline
 \end{tabular}
 \caption{The Standard Model background Monte Carlo simulation samples used in this thesis.

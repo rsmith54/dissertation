@@ -5,56 +5,59 @@
 \chapter[Results][Results]{Results}
 
 This chapter presents the results of the search for squarks and gluinos in zero lepton final states.
-The full signal region distributions with normalization factors from the background-only fits are shown.
-The final resulting systematic uncertainties are discussed.
+The full signal region distributions with normalization factors $\mu_B$ derived from the background-only fits are shown.
+The systematic uncertainties are discussed.
 As no excess is observed, we run the model-dependent fits to set exclusion limits in the sparticle-\lsp~ plane and use the model-independent fit procedure to set model-independent upper limits on the new physics cross-sections.
 
 \section{Signal region distributions}
 \input{Chapter-Analysis/scale-cut-figures}
 
-In \Cref{fig:srs_scale,fig:srg_scale,fig:src_scale},  the unblinded distributions of the last scale cut used for each signal region.
-These distributions include the $\mu$ normalization scale factors derived from the maximum likelihood fit.
-The systematic uncertainties are also shown.
+\Cref{fig:srs_scale,fig:srg_scale,fig:src_scale} show the unblinded distributions of the last scale cut  (\ptisr, \HTFnm{PP}{4}{1}, or \HTFnm{PP}{2}{1}) used for each signal region.
+These distributions include the $\mu$ normalization scale factors for each SM background $\mu_B$ derived from the background-only fits.
+The systematic uncertainties are also shown with a red dashed band.
 In each plot, the distribution of one particular signal model is shown.
 The signal model is targeted by the signal region shown in the plot, but each signal region targets a number of other signal models as well.
-
-These distributions are shown after all signal region cuts are applied, except for the main scale variable shown on the horizontal axis (\ptisr, \HTFnm{PP}{4}{1}, or \HTFnm{PP}{2}{1}).
-Systematic uncertainties are shown with a red dashed band.
+These distributions are shown after all signal region cuts are applied, except for the main scale variable shown on the horizontal axis.
 We show the (a) and (b) version of a given noncompressed signal region on the same figure, as they differ only in the value of the main scale cut.
 For example, SRS1a and SRS1b are both shown in the distribution of \HTFnm{PP}{2}{1} shown in the upper-left plot of \Cref{fig:srs_scale}.
-The left-most (right-most) arrow shown is the location of the a (b) cut applied in the analysis.
+The left (right) arrow shown is the location of the a (b) cut applied in the analysis.
 We call these plot \textit{$N-1$} plots, where $N$ refers to the number of cuts applied in the analysis.
 
 An expanded set of $N-1$ plots are available in \Cref{app:n-1_plots}.
 Each variable which is used to discriminate signal from background has an associated $N-1$ plot.
-These plots show the additional discrimination resulting from \textit{only} the cut which is shown.
+These plots show the additional discrimination resulting from \textit{only} from the variable displayed on the horizontal axis.
 
-A figure showing a summary of the pulls in all of the SRs is shown in \Cref{fig:sr_summary}.
+\begin{figure}[tbp]
+\centering
+\caption{Summary of the signal regions} \label{fig:sr_summary}
+\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_06b}
+\end{figure}
+A summary figure is shown in \Cref{fig:sr_summary}.
 This figure shows the data and simulation event yields with the corresponding statistical and systematic uncertainties for all signal regions simultaneously.
-From this plot, we can see there is no significant excess of events over the Standard Model background.
-
+%From this plot, we can see there is no significant excess of events over the Standard Model background.
 This information is also presented in \Cref{tab:p0_UL_RJR}.
-The table includes the raw event yields from simulation before applying the $\mu$ normalization factor.
-The model-independent limits are also shown in this table.
+The table also includes the raw event yields from simulation before applying the $\mu$ normalization factor for comparison.
+The model-independent limits are shown in this table.
+\input{Chapter-Results/summary-table}
 
 \section{Systematic Uncertainties}
 
 This section considers the results of \Cref{tab:BreakdownSysSRCompressed_RJR}.
 This table is a summary of the systematic uncertainties on the SM background event yields in each signal region.
-These uncertainties are expressed both as a relative uncertainty and absolute uncertainty.
+These uncertainties are expressed both as relative and absolute uncertainties.
 The absolute uncertainties do not add in quadrature as the uncertainties can be correlated.
 %Example correlation matrices are shown for SRC1, SRG1a, and SRS1a in \Cref{}
 %These show the pairwise correlation factors between each systematic uncertainty included in the fitting procedure \todo{remove ones that aren't actually in the tables}
 We discuss the general trends in the systematic uncertainties for each type of signal region.
 
-In the squark regions, the total uncertainties including statistical and systematic uncertainties range from 10\% to 11\% of the total event yield.
+In the squark regions, the total uncertainties including statistical and systematic uncertainties range are approximately 10\% of the total event yield.
 The uncertainties on the $Z$ event yields, both theoretical and $\Delta_{\mu,\mathrm{Z+jets}}$ are the largest uncertainties for each signal region.
 The $\kappa$ factor uncertainty, which is also an uncertainty on the $Z$ event yield, is also significant at 4\% in each region.
 The \Zvv contribution to the squark regions is the primary irreducible background, so even when relatively well-measured, the $Z$ event yield uncertainties dominate the overall background uncertainty.
 There are also significant uncertainties from the $W$, top, and flat diboson uncertainties.
 The uncertainty due to statistics of the MC simulation samples are small for the squark case; this is a reflection of the ``looseness'' of these regions.
 
-The gluino regions have overall larger total uncertainties on the background event yields than the squark regions: between 10\% and 25\%.
+The gluino regions have overall larger total uncertainties on the background event yields than the squark regions, from 10\% and 25\%.
 The $Z$ uncertainties all contribute significantly, yet they are similar to the squark $Z$ event yield uncertainties.
 The $W$, top, and diboson uncertainties are all significantly larger than in the squark case.
 In the gluino case, we also see that the limited simulation statistics begin to significantly affect the estimation of the Standard Model background event yield.
@@ -90,17 +93,10 @@ There is no significant excess in any of the signal region; the largest excess i
 This information is summarized in \Cref{fig:sr_summary}.
 We thus set model-independent and model-dependent limits.
 
-\begin{figure}[tbp]
-\centering
-\caption{Summary of the signal region pulls} \label{fig:sr_summary}
-\includegraphics[width=.9\linewidth]{ATLAS-CONF-2016-078/fig_06b}
-\end{figure}
-\input{Chapter-Results/summary-table}
-
 \subsection{Model-Independent Limits}
 
 As no significant excess is observed in any of the signal regions of this analysis after estimating the background using the background-only fit, we set limits on the model-independent and model-dependent cross sections.
-This is done using the model-independent and model-dependent fit setups.
+We use the model-independent and model-dependent fit setups.
 
 The model-independent limits are shown in \Cref{tab:BreakdownSysSRCompressed_RJR}.
 We present the upper limits on the cross-section for new physics which enters each SR.
@@ -115,25 +111,25 @@ We derive exclusion limits for the simplified models.
 These are models with pair-production of squark pairs with inaccessible gluinos, and gluino pairs with inaccessible squarks.
 They correspond directly to the Feynman diagrams shown previously.
 The free parameters of these simplified models are the relevant sparticle mass and the mass of the LSP \lsp.
-We set limits in a plane of these free parameters.
+We set limits the plane of these free parameters.
 
 The exclusion limits are shown in \Cref{fig:sensitivitytext}.
 %The gray text at the point of each simplified model with masses $(m_{\mathrm{sparticle}}, m_{\lsp})$
-This gray text indicates the signal region which provided the best sensitivity at that point, as measured by the background-only fit.
+The gray text indicates the signal region providing the best sensitivity at that $(m_{\mathrm{sparticle}}, m_{\lsp})$ point, as measured by the background-only fit.
 For each simplified signal model, we run the model-dependent fit, where the signal model signal strength $\mu_{\mathrm{sig}}$ is included as an additional free parameter.
-The signal sample is also allowed to freely contribute to the control regions due to signal contamination.
+The signal sample can also contribute to the control regions due to signal contamination.
 This produces a CL$_s$ $p-$value for each signal model in the plane, and we can find those with $p = 0.05$ to set a 95\% exclusion limit.
-For comparison, the limits from the 2015 dataset and the 2012 dataset are also s
+For comparison, the limits from the 2015 dataset and the 2012 dataset are also shown.
 %The simultaneous fit in the control and signal region produces a set of normalization parameters $\mu$ for each Standard Model background as well as the signal strength $\mu_{\mathrm{sig}}$ for the particular signal model of interest.
 
-In the squark-\lsp~ exclusion plane in \Cref{fig:exclusion_sq}, we observe that the limits from the 2015 dataset are far extended in all directions.
-The expected and observed exclusions are similar, which is a reflection of the compatability of the expected Standard Model event counts and observed event counts in the squark regions.
-A squark with mass of 1350 \GeV~ or less is excluded by the analysis in direct decays to a quark and LSP.
-In the compressed spectra, we have extended limits significantly over the 2015 result in the region of 600-700 \GeV~ in squark mass with an LSP of 450 \GeV~ to 600 \GeV~.
-Directly along the kinematically-forbidden diagonal, the shape of the exclusions artificially affected by the interpolation between the signal models considered.
+In the squark-\lsp~ exclusion plane in \Cref{fig:exclusion_sq}, the limits are far extended compared to the 2015 dataset.
+The expected and observed exclusions are similar, which reflects the compatability of the expected Standard Model event counts and observed event counts in the squark signal regions.
+A squark with mass of 1350 \GeV~ or less is excluded by the analysis in direct decays to a quark and massless LSP.
+In the compressed spectra, we extended limits significantly over the 2015 result in the region of 600-700 \GeV~ in squark mass with an LSP of 450 \GeV~ to 600 \GeV~.
+Directly along the kinematically-forbidden diagonal, the shape of the exclusions are artificially affected by the interpolation between the signal models considered.
 This artificial effect can be resolved by the simulation of additional signal models to fill in the space.
 The limits in the intermediate with an LSP of \order 450-500 \GeV~ are not significantly extended beyond the previous dataset.
-Each signal region designed to provide sensitivity to the simplified model of squark pair-production (all SRS regions and SRC1-4).
+Each signal region designed to provide sensitivity to the squark pair-production model (all SRS regions and SRC1-4) excludes at least one point in the grid.
 This indicating each signal region provides additional sensitivity to squark phenomena, or more explicitly, we would exclude a smaller region of the squark pair-production simplified model space with fewer signal regions.
 
 Curiously, a gluino region, SRG2a, is chosen as the optimal signal region in the squark-\lsp~ plane, when the squark mass is \order 700 \GeV.
@@ -142,7 +138,7 @@ One could see this as an indication that the next iteration of the analysis shou
 Another possibility is this region also benefits from the ISR-assisted compressed region strategy.
 As the gluino regions require four jets due to the imposition of the gluino decay tree, these could be capturing events where a two jet ISR system recoils off the disquark system.
 
-In the gluino-\lsp~ exclusion plane, shown in \Cref{fig:exclusion_gl}, the limits on gluino masses in the simplified model where gluinos decay to two jets and an \lsp~ significantly extend the limits from the 2015 dataset.
+In the gluino-\lsp~ exclusion plane shown in \Cref{fig:exclusion_gl}, the limits on gluino masses in the simplified model where gluinos decay to two jets and an \lsp~ significantly extend the limits from the 2015 dataset.
 Throughout most of the plane, the expected limit is significantly stronger than the observed limit; for example, the gluino mass limit is more than 50 \GeV~ stronger in the case of a massless \lsp~.
 A significant portion of phase space is covered by SRG3a and SRG3b.
 These regions saw a statistical fluctuation upward, seen in the signal region pulls \Cref{fig:sr_summary}.

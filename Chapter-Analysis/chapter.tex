@@ -352,7 +352,6 @@ Instead, we apply a cut which ensures \textit{zero} QCD events in the signal reg
 To produce a sample enriched in QCD, which we call CRQ, we reverse the $\Delta_{\mathrm{QCD}}$ and \HFnm{PP}{1}{1} cuts.
 This analysis uses the jet smearing method, as described in ~\cite{SUSY-2011-20}.
 %This is a data-driven method which applies a resolution function to well-measured QCD events, which also an estimate of the impact of the jet energy mismeasurement on \met and subsequently the RJR variables.
-%\todo{fix here}
 
 Distributions of CRQ in squark, gluino, and compressed regions are shown in \Cref{fig:CRQ_SRJigsawSRG1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRC1_LastCut_CRQ_minusone}.
 There is high purity in QCD events in the control region corresponding to all signal regions.
@@ -389,11 +388,27 @@ For additional validation region statistics, we also developed VRZca, which agai
 Note this means that each compressed signal region has an identical VRZca.
 
 The top and $W$ validation regions use the same event selection as the corresponding control regions with stronger cuts on the scaleful variables.
-These cuts are set to the values of the corresponding SRs,
-However, unlike the control regions, these validation regions reimpose the SR scaleful variable selections, to be closer in phase space to the hadronic signal regions.
-In the same way as we did for VRZa and VRZb, we also define auxiliary VRs which loosen the cuts on the scale variables.
-We define VRTa (VRWa) as VRT (VRW) with the same loosened cut on \HFnm{PP}{1}{1} and VRTb (VRWb) as VRT (VRW) with the same loosened cut on the primary scale variable.
-\todo{fix this section}
+For example, in SRS3a, VRT has the following kinematic selection, with a $b$-tag required:
+\begin{table}[H]
+\label{tab:vrw_kinematic_selection}
+\begin{tabular}{|l|l|}
+\hline
+Variable & VRT cut \\ \hline
+$H_{\textrm 1,1}^{\textrm ~PP}/H_{\textrm 2,1}^{\textrm ~PP} \geq$ & 0.5 \\ \hline
+$H_{\textrm 1,1}^{\textrm ~PP}/H_{\textrm 2,1}^{\textrm ~PP} \leq$ & 0.98 \\ \hline
+$p_{\textrm PP,~z}^{\textrm ~lab} / \left( p_{\textrm PP,~z}^{\textrm ~lab}+H_{\textrm T~2,1}^{\textrm ~PP}\right) \leq $ & 0.6 \\ \hline
+$p_{\textrm j2,~T}^{\textrm ~PP}/H_{\textrm T~2,1}^{\textrm ~PP} \geq $ & 0.13 \\ \hline
+$\Delta_{\textrm  QCD} > $ & 0.001 \\ \hline
+$H_{\textrm T~2,1}^{\textrm ~PP}>$ & 1800 \GeV \\ \hline
+$H_{\textrm 1,1}^{\textrm ~PP} >$ & 1600 \GeV \\ \hline
+\hline
+\end{tabular}
+\end{table}
+The cuts on the scaleless cuts shown are identical to those in \Cref{tab:crw_kinematic_selection}, but the selections on scaleful cuts $H_{\textrm T~2,1}^{\textrm ~PP}$ and $H_{\textrm 1,1}^{\textrm ~PP}$ are restored to those of the signal region, as shown in \Cref{tab:squark_srs}.
+Thus, these regions have a kinematic selection between the corresponding CRT and the signal region selection.
+To provide additional validation, we also define auxiliary VRs which loosen the cuts on the scale variables.
+VRTa (VRWa) as VRT (VRW) loosens the selection on \HFnm{PP}{1}{1} to that off the control region, while still requiring the cut on the primary scale variable.
+The opposite logic is required for VRTb and VRWb: the primary scale variable cut is loosened, while still requiring the \HFnm{PP}{1}{1} selection of the signal region.
 
 The final set of validation regions are those defined to check the QCD background.
 VRQ is defined to be identical to the corresponding CRQ, but again we use the full SR region cuts for the scaleful variables.

@@ -134,7 +134,7 @@ For signal events, we expect $R$ to peak around $R \order 1/4$, while background
 
 Recursive Jigsaw Reconstruction is an algorithm allowing the imposition of a decay tree interpretation of a particular event~\cite{Jackson:2016mfb,ATLAS-CONF-2016-078}.
 The idea is to construct the underlying kinematic variables (the masses and decay angles) on an event-by-event level.
-This is done ``recursively'' through a decay tree which corresponds, sometimes approximately, to the Fenymann diagram for the signal process of interest.
+This is done ``recursively'' through a decay tree which corresponds, sometimes approximately, to the Feynman diagram for the signal process of interest.
 After each step of the recursive procedure, the objects are ``placed'' into one bucket (or branch) of the decay tree, and the process is repeated on each frame we have imposed.
 The imposition of these decay trees is done by a \textit{jigsaw} rule: a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
 This procedure is performed by the \texttt{RestFrames} software packages ~\cite{RestFrames}
@@ -195,7 +195,7 @@ Due to the large production cross-sections of QCD events, even very rare large j
 To reduce these backgrounds, one usually rejects events which contain jets which are ``too close'' by some distance metric to the \met in the event.
 Generally, in the past, the distance metric has been defined as simply the angular distance \deltaR.
 
-The \textit{self-assembling tree} can be seen as defining a distance metric which depends on the magnitudes of the \met and jets rather than simply their distance inangular space.
+The \textit{self-assembling tree} can be seen as defining a distance metric which depends on the magnitudes of the \met and jets rather than simply their distance in angular space.
 Depending on the exact kinematics, the one or two closest jets are found, and label the \met \textit{siblings}.
 
 In this section, we have seen how one imposes particular decay trees on an event to produce a basis of kinematic variables in the approximated frames relevant to the hypothesized sparticle decay chain.
@@ -276,13 +276,13 @@ Taking our general philosophy to a particular case, we here describe the variabl
 We have a suite of scale variables which we will call the $H$ variables, and a suite of angles and ratios.
 
 As we have described above, the RJR algorithm gives us access to the masses of each frame of interest.
-It may seem natural that these variables would be the most useful for discrimation of the signal from background processes.
+It may seem natural that these variables would be the most useful for discrimination of the signal from background processes.
 However, these masses, such as the invariant mass of the \PP system $M_{\PP}$, can be significantly affected by the additional jets in the events.
 In backgrounds with significant jet activity such as \zjets and \wjets events, these masses can have large values which complicate discrimination from the signal processes.
 Instead, we use the $H$ variables, as they show resilience to this effect, and provide stronger discrimination from the SM backgrounds.
 They take their name from the commonly used variable \HT, which is the scalar sum of the visible momentum.
 From the RJR technique, we can evaluate these variables in the non-lab frame and include longitudinal information.
-They are also constructed with \textit{aggregrate} momenta using a similar mass minimization procedure as we have already described.
+They are also constructed with \textit{aggregate} momenta using a similar mass minimization procedure as we have already described.
 
 We label these variables as $H_{n,m}^F$.
 %\todo{get the figure for H variables}
@@ -350,8 +350,8 @@ The compressed scenario uses the following set of RJR variables:
 
 \subsubsection{Anti-QCD variables}
 
-For the self-assembling tree, we contruct two variables, which we combine to form a single variable which rejects QCD events.
-In this case, we use the mass minimzation jigsaw, with a fully transverse version of the event (i.e. we set all jet $z/\eta$ components to 0).
+For the self-assembling tree, we construct two variables, which we combine to form a single variable which rejects QCD events.
+In this case, we use the mass minimization jigsaw, with a fully transverse version of the event (i.e. we set all jet $z/\eta$ components to 0).
 This jigsaw defines the distance metric, and provides us with one or two jets known as the \met siblings.
 We define \psib as the sum of these jets, and define the following quantities.
 

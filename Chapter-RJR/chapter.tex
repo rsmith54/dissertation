@@ -100,7 +100,7 @@ We drop the ``$\text{lab}$'' designation for the rest of the discussion.
 The question is how to compute the magnitudes of these boosts, given the missing degrees of freedom.
 
 For the transverse boost $\beta_T$, recall the two megajets have equal energies in their \rframe~by construction.
-This constraint can be reexpressed as a constraint on the magnitude of this boost, in terms of the boost velocity $\beta_L$ and corresponding Lorentz factor $\gamma_L$):
+This constraint can be reexpressed as a constraint on the magnitude of this boost, in terms of the boost velocity $\beta_L$ and corresponding Lorentz factor $\gamma_L$) ~\cite{Rogan:2010kb,Buckley:2013kua}.:
 \begin{align}\label{eq:beta_t}
 \beta_T = \frac{ \gamma_L (E_1 - E_2) - \gamma_L \beta_L (p_{1,z} - p_{2,z})}
                { \hat{\beta}_T \cdot (\vec{p_{1,T}} + \vec{p_{2,T}} )}
@@ -110,7 +110,7 @@ We now make the \textit{choice} for the direction of the transverse boost $\hat{
 \begin{align}
 \hat{\beta}_T =  \frac{\vec{p_{1,T}} +  \vec{p_{2,T}}}{ | \vec{p_{1,T}} +  \vec{p_{2,T}}  | }.
 \end{align}
-This choice forces the denominator of \Cref{eq:beta_t} to unity, and corresponds to aligning the transverse boost direction with the sum of the two megajets transverse directions.
+This choice corresponds to aligning the transverse boost direction with the vectorial sum of the two megajets transverse directions.
 
 For the longitudinal boost, we choose $\vec{\beta_L}$ along the $z$-direction, with magnitude:
 \begin{align} \label{eq:beta_l}
@@ -122,7 +122,7 @@ This well-motivated choice due to the total $z$ symmetry.
 We now have intuitive guesses for both boosts, which allow us write our original characteristic mass $M_R$ in terms of the lab frame variables, by application of these two Lorentz boosts to the energies of \Cref{eq:mr}:
 \begin{alignat}{3}
 M_R^2 &\xrightarrow[]{\beta_T } M_{R,\text{CM}}^{2} \xrightarrow[]{\beta_L } M_{R,\text{lab}}^{2}
-      &=(E_1 + E_2)^2 - (p_{1,z} + p_{1,z})^2.
+      &=(E_1 + E_2)^2 - (p_{1,z} + p_{1,z})^2
 \end{alignat}
 
 Finally, we define an additional mass variable, which include the missing transverse energy \met.
@@ -132,11 +132,14 @@ Thus, we define the transverse mass:
 \begin{align}
 (M_R^T)^2 = \frac{1}{2} \begin{bmatrix} \met(p_{1,T}  + p_{2,T}) - \metvec \cdot (\vec{p_{1,T}}  + \vec{p_{2,T} })  \end{bmatrix}.
 \end{align}
+This definition can be seen as assigning half of the \metvec to ``be associated to'' each megajet.
 Generally, we have $M_R^T < M_R$, so we define a dimensionless ratio (``the razor''):
 \begin{align}
 R^2 = \begin{pmatrix} \frac{M_R^T}{M_R} \end{pmatrix}^2.
 \end{align}
-For signal events, we expect $R$ to peak around $R \order 1/4$, while backgrounds without real \met are expected to have $R \order 0$.
+For signal events, we expect $R^2$ to peak around $R^2 \order 1/4$.
+$M_R$ and $M_R^T$ are two measurements of the same scale (\mheavy), with an additional geometric factor for $M_R^T$ due to the fact that it is a purely transverse quantity.
+Backgrounds without real \met are expected to have $R \order 0$.
 
 \section{Recursive Jigsaw Reconstruction}
 
@@ -147,9 +150,9 @@ After each step of the recursive procedure, the objects are ``placed'' into one 
 The imposition of these decay trees is done by a \textit{jigsaw} rule: a procedure to resolve combinatoric or kinematic ambiguities while traversing the decay tree.
 This procedure is performed by the \texttt{RestFrames} software packages ~\cite{RestFrames}
 
-In events where all objects are fully reconstructed, this is straightforward, and of course has been used for many years in particle physics experiments.
+In events where all objects are fully reconstructed and distinguishable, this is straightforward, as we have access to the entire set of four-momenta to fully reconstruct the target masses and decay angles.
 Events which contain \met are more difficult, due to the loss of information: the potential for multiple mismeasured or simply unmeasureable objects, such as neutrinos or the LSP in SUSY searches.
-There can also be combinatoric ambiguities in deciding how to group objects of the same type.
+There can also be combinatoric ambiguities in deciding how to group indistinguishable objects of the same type.
 Specifically here, we will be concerned with the jigsaw rule to associate jets to a particular branch of a decay tree.
 The jigsaw rules we impose will remove these ambiguities.
 First, we will describe the decay trees used in this thesis, and then describe the jigsaw rules we will use.
@@ -182,7 +185,7 @@ The decay tree is shown in \Cref{subfig:digluino_decay_tree}.
 In this case we apply a jigsaw at the level of \Pa (\Pb) which separates a single visible object $V_{1a}$ ($V_{2a}$) from the child frame \Ca (\Cb).
 This child frame represents the hypothesized squark after the decay $\supe{g} \rightarrow g \supe{q}$, which then decays as in the squark case.
 
-The third decay tree used in this thesis is the \textit{compressed} decay tree.
+The third decay tree  is the \textit{compressed} decay tree.
 Compressed refers to signal models which have a small splitting between the mass of the proposed sparticle and the \lsp.
 The sparticle decay products in compressed models (i.e. the jets and \met) do not generally have large scale~\cite{Jackson:2016mfb}.
 Instead, the strategy is generally to look for a large-scale initial state radiation (ISR) jet which is recoiling off the pair-produced sparticles.
@@ -204,7 +207,7 @@ To reduce these backgrounds, one usually rejects events which contain jets which
 Generally, in the past, the distance metric has been defined as simply the angular distance \deltaR.
 
 The \textit{self-assembling tree} can be seen as defining a distance metric which depends on the magnitudes of the \met and jets rather than simply their distance in angular space.
-Depending on the exact kinematics, the one or two closest jets are found, and label the \met \textit{siblings}.
+Depending on the exact kinematics, the one or two closest jets are found, and we label them \met \textit{siblings}.
 
 In this section, we have seen how one imposes particular decay trees on an event to produce a basis of kinematic variables in the approximated frames relevant to the hypothesized sparticle decay chain.
 This explains why we call this procedure ``recursive'': the procedure can be iterated through as many steps of a decay tree as necessary, and each application of a jigsaw rule is dependent on the variables produced in the last step.
@@ -219,8 +222,8 @@ In principle, these need not have any particular physical motivation.
 Instead, the jigsaw rules are a way to resolve the mathematical ambiguities to fully reconstruct the full decay chain kinematics.
 However, most practical jigsaw rules also have some reasonable physical motivation, which we will also elucidate.
 
-In the original razor point of view, some jigsaw rules can be seen as the definitions of the boosts which relate the different frames of interest, while other rules allow one to combine multiple objects and place them into a particular hemisphere (previously megajet).
-These are the two forms of jigsaw rules: combinatoric and kinematic.
+In the original razor point of view, some jigsaw rules can be seen as the definitions of the boosts which relate the different frames of interest, while other rules allow one to combine multiple objects and place them into a particular hemisphere (in previous terminology, a megajet).
+We call the first type kinematic jigsaw rules and the second combinatoric jigsaw rules.
 As we have stressed before, the jigsaw rules are a \textit{choice}: as long as a particular jigsaw rule allows the definition of variables at each step in a decay tree, it is ``as valid'' as any other rule.
 
 Practically speaking, we use only a small subset of possible jigsaw rules.
@@ -238,7 +241,7 @@ The minimization of $\beta_L$ will be used as the jigsaw rule in the first step 
 This is equivalent to the imposition of longitudinal boost invariance, as we expect on average $p_{z,\text{\PP,CM}} = 0$.
 One defines a unique longitudinal boost by imposition of this external constraint.
 
-The final two jigsaw rules used in this thesis was not used in the razor technique.
+The final two jigsaw rules used in this thesis were not used in the razor technique.
 We describe them here.
 
 The first kinematic ambiguity is the total mass of the invisible system $M_I$.
@@ -255,11 +258,14 @@ Recall that at this point, we have already approximated the boost of the \PP fra
 The choice we use is to minimize the masses $\Pa$ and $\Pb$, while simultaneously constraining $\Pa = \Pb$.
 As is the case in the last step, there is a straightforward physical interpretation of this choice.
 In the signal models we are considering, \Pa and \Pb are the estimated frames of the squark or gluino pair-produced as a heavy resonance.
-We then of course expect $M_{\Pa} = M_{\Pb}$.
+We then of course expect, and thus use it as our constraint, that:
+\begin{align}
+M_{\Pa} = M_{\Pb}
+\end{align}
 
 The imposition of the decay trees, with ambiguities resolved through the jigsaw rules, give a full set of boosts relating the frames of each decay tree.
 In each frame, we have estimates for the frame mass and decay angles, which can be used in searches for new physics.
-In the next section, we describe the variables that are used in this thesis in more details.
+In the next section, we describe the variables that are used to search for squarks and gluinos decaying hadronically in more detail.
 
 \section{Variables used in the search for zero lepton SUSY}
 \label{sec:rjr_hadronic}
@@ -281,7 +287,7 @@ To avoid this, each decay tree will only use two scale variables, one which quan
 \subsubsection{Squark and gluino variables}
 
 Taking our general philosophy to a particular case, we here describe the variables used by the squark and gluino searches.
-We have a suite of scale variables which we will call the $H$ variables, and a suite of angles and ratios.
+We use a set of scale variables which we will call the $H$ variables, and a set of angles and ratios.
 
 As we have described above, the RJR algorithm gives us access to the masses of each frame of interest.
 It may seem natural that these variables would be the most useful for discrimination of the signal from background processes.
@@ -293,10 +299,10 @@ From the RJR technique, we can evaluate these variables in the non-lab frame and
 They are also constructed with \textit{aggregate} momenta using a similar mass minimization procedure as we have already described.
 
 We label these variables as $H_{n,m}^F$.
-They are evaluated in the frame $F$, where $F \epsilon \{$lab, \PP, \Pa, \Pb$\}$.
+They are evaluated in the frame $F$, where $F \xspace \epsilon \xspace \{$lab, \PP, \Pa, \Pb$\}$.
 When the discussion applies to both \Pa and \Pb, we will write $P_i$.
 The subscripts $n$ and $m$ denote the number of visible and invisible vectors considered, respectively.
-When there are more vectors available than $n$ or $m$, we add up vectors using the hemisphere (megajet) jigsaw rule until there are $n$ ($m$) objects\footnotemark.
+When there are more vectors available than $n$ or $m$, we add up vectors using the hemisphere jigsaw rule until there are $n$ ($m$) objects\footnotemark.
 \footnotetext{Recall that these vectors are constructed by the imposition of the decay tree with the relevant jigsaw rules.}
 In the opposite case, where $n$ or $m$ is greater than the number of available objects, one simply considers the available objects.
 The \HFnm{F}{n}{m} variables are then defined as
@@ -306,7 +312,7 @@ The \HFnm{F}{n}{m} variables are then defined as
 It may not be clear that these variables encode independent information.
 Fundamentally, this is just an expression of the triangle inequality $\sum |\vec{p}| \geq |\sum \vec{p}|$.
 One can also define purely transverse of these variables, which we will denote \HTFnm{F}{n}{m}.
-Including this view, it is easy to see how the $H$ variables are extensions of the normal \HT variables, as
+We can then see how the $H$ variables are extensions of the normal \HT variable, as
 \begin{align}
 \HT = \HTFnm{\text{lab}}{\infty}{0}.
 \end{align}

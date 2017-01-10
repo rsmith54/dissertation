@@ -27,12 +27,12 @@ The Feynman diagrams considered are shown in \Cref{fig:feynman_signal}.
 The consequences of this $\mathbb{Z}_2$ symmetry are drastic~\cite{susyPrimer}.
 To understand the utility of the razor variables, the stability of the lightest supersymmetric particle is important.
 In many SUSY models, including the ones considered in this thesis, this is the lightest neutralino \lsp.
-This means that on either side of a SUSY decay process, where we begin with sparticle pair production, we have a final state particle which is not detected.
+The consequence is on either side of a SUSY decay process, where we begin with sparticle pair production, we have a final state particle which is not detected.
 Generically, this leads to \met.
 Selections based on \met are very good at reducing  backgrounds, for example from QCD processes.
 
 However, there are limitations to searches based on \met.
-Due to jet mismeasurements, instrumental failures, finite detector acceptance, nongaussian tails in the detector response, and production of neutrinos inside of jets, there are many sources of ``fake'' \met which does not correspond to a Standard Model neutrino or new physics object such as an LSP.
+Due to jet mismeasurements, instrumental failures, finite detector acceptance, nongaussian tails in the detector response, and production of neutrinos inside of jets, there are many sources of ``fake'' \met which do correspond to Standard Model neutrinos or new physics objects such as an LSP.
 An additional limitation is the complete lack of longitudinal information.
 As events from QCD backgrounds tend to have higher boosts along the $z$-direction, this neglects an important discriminator for use in searches for SUSY.
 Finally, \met is only one object, which is a measurement for \textit{two} separate LSPs.
@@ -49,7 +49,7 @@ Each sparticle decays to a number of observable objects (in this thesis, jets), 
 We will combine all of the jets into a \textit{megajet}; this process will be described below.
 We begin by analyzing the decay in the ``rough-approximation'', or in modern parlance, \textit{razor frame} (\rframe).
 This is the frame where the sparticle is at rest.
-Note that by construction, there are two razor frames corresponding to each sparticle.
+Note by construction, there are two razor frames corresponding to each sparticle.
 The complete set of frames considered in the case of the razor variables is shown in \Cref{fig:razor_frames}.
 \begin{figure}[tbp]
 \caption{Frames considered when applying the razor technique, from ~\cite{Buckley:2013kua}.} \label{fig:razor_frames}
@@ -57,11 +57,19 @@ The complete set of frames considered in the case of the razor variables is show
 \end{figure}
 
 In the \rframe, the decay is straightforward to analyze.
-Each megajet has energy $E_1^R, E_2^R$ in the frame of its parent sparticle, and we define a characteristic mass $M_R$:
-\begin{align}\label{eq:mr}
-E_1^R &= E_2^R &= \frac{\mheavy^2 - \mlsp^2}{ 2 \mheavy } \\
-M_R &= 2 \times E_1^R = 2 \times E_2^R &= \frac{\mheavy^2 - \mlsp^2}{\mheavy }.
+Applying conservation of four-momenta, with a massless megajet and orienting ourselves so the decay occurs along the decay axis:
+\begin{align}
+\text{Before decay}  & : (\mheavy, 0)   \nonumber \\
+\text{After decay}   & : (\mlsp,   p_{ \lsp }^R) -  (0, E_{1,2}^R)                                             \nonumber \\
+                     & \mheavy^2 = \mlsp^2 - p_{ \lsp }^R E_{1,2}^R = \mlsp^2 - 2 \mheavy E_{1,2}^R  \\
+                     & E_{1,2}^R = \frac{\mheavy^2 - \mlsp^2}{2 \mheavy} \nonumber
 \end{align}
+
+Now note that this analysis is identical in each \rframe, and we define a characteristic mass $M_R$:
+\begin{alignat}{3}\label{eq:mr}
+E_1^R &= E_2^R &= \frac{\mheavy^2 - \mlsp^2}{ 2 \mheavy } \\
+M_R &= 2 \times E_1^R = 2 \times E_2^R &= \frac{\mheavy^2 - \mlsp^2}{\mheavy } \nonumber
+\end{alignat}
 For cases where $\mheavy >> \mlsp$, $M_R$ is an estimator of \mheavy.
 This scenario happens in the SM, such as in \ttbar and \WW events, where the \lsp~ is instead a neutrino.
 
@@ -77,16 +85,16 @@ m_{J_1}^2 + m_{J_2}^2.
 \end{align}
 In modern parlance, this is known as a \textit{jigsaw}.
 This is a \textit{choice}.
-It may have nice physical qualities or satisfy some convenient intuition about the events, but as we will see later, other choices are possible.
+In this case, we assumed the megajets were massless in \Cref{eq:mr}, so this chooses the set of megajets which most closely match our assumption.
 
 We now describe how we translate our megajet kinematics, measured in the lab frame, to the \rframe.
 This is a two-step procedure.
 We perform two \textit{boosts}: a longitudinal boost $\beta_L$ and a transverse boost $\beta_T$.
 Schematically,
-\begin{align}
-J_1^R & \xrightarrow[]{\beta_T } J_1^{CM} & \xrightarrow[]{\beta_L} J_1^{\text{lab}} \\
+\begin{alignat}{3}
+J_1^R & \xrightarrow[]{ \beta_T} J_1^{CM} & \xrightarrow[]{\beta_L} J_1^{\text{lab}} \\
 J_2^R & \xrightarrow[]{-\beta_T} J_2^{CM} & \xrightarrow[]{\beta_L} J_2^{\text{lab}} \\
-\end{align}
+\end{alignat}
 The $J_{1,2}^{\text{lab}}$ correspond directly to those in the megajet construction.
 We drop the ``$\text{lab}$'' designation for the rest of the discussion.
 The question is how to compute the magnitudes of these boosts, given the missing degrees of freedom.
@@ -112,10 +120,10 @@ Viewed in terms of the original parton-parton interactions, this is the choice w
 This well-motivated choice due to the total $z$ symmetry.
 
 We now have intuitive guesses for both boosts, which allow us write our original characteristic mass $M_R$ in terms of the lab frame variables, by application of these two Lorentz boosts to the energies of \Cref{eq:mr}:
-\begin{align}
+\begin{alignat}{3}
 M_R^2 &\xrightarrow[]{\beta_T } M_{R,\text{CM}}^{2} \xrightarrow[]{\beta_L } M_{R,\text{lab}}^{2}
       &=(E_1 + E_2)^2 - (p_{1,z} + p_{1,z})^2.
-\end{align}
+\end{alignat}
 
 Finally, we define an additional mass variable, which include the missing transverse energy \met.
 Importantly, note that we did not use the \met in the definition of $M_R$, which depends only on the energies of the megajets.

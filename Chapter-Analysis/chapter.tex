@@ -247,7 +247,11 @@ The primary backgrounds in this analysis are \zjets, \wjets, \ttbar, and QCD eve
 There is also a minor background from diboson events which is taken directly from simulation with an ad-hoc uncertainty of 50\%.
 We describe the strategy to estimate these various backgrounds here.
 A summary table is shown in \Cref{tab:crdefs}.
-All distributions shown in this section use the scaling factors $\mu$ from the background fits.
+All distributions shown use the scaling factors $\mu_B$ from the background fits.
+\Crefname{chapter}{Appendix}{Appendix}%lazy hack
+Control region distributions are shown for one squark, gluino, and compressed signal region, with the rest found in \Cref{app:cr_n-1_plots}.
+\Crefname{chapter}{Ch.}{Ch.}
+
 \input{Chapter-Analysis/background-estimation-table}
 
 Events with a $Z$ boson decaying to neutrinos in association with jets are the primary irreducible background in the analysis.
@@ -292,7 +296,7 @@ Additional details can be found in ~\cite{0-leptonPaper,0LPaper_13TeV,ATLAS-CONF
 The correction factor is $\kappa = 1.39 \pm 0.05$.
 The uncertainty is derived from the calculation of $\kappa$ with the \met requirements for CRZVL and CR$\gamma$VL changed.
 
-Distributions of CR$\gamma$ in squark, gluino, and compressed regions are shown in \Cref{fig:CRY_SRJigsawSRG1a_LastCut_CRY_minusone,fig:CRY_SRJigsawSRC1_LastCut_CRY_minusone}.
+Distributions of CR$\gamma$ in squark, gluino, and compressed regions are shown in \Cref{fig:CRY,fig:CRY_SRJigsawSRG1a_LastCut_CRY_minusone,fig:CRY_SRJigsawSRC1_LastCut_CRY_minusone}.
 These figures show the high purity of the photon control region for each signal region.
 
 Event with a $W$ boson decaying leptonically via \wln can also enter the signal region.
@@ -329,7 +333,7 @@ $H_{\textrm 1,1}^{\textrm ~PP} >$ & 1000 \GeV \\ \hline
 Comparing this set of selections with the signal regions \Cref{tab:squark_srs}, these are loosest cuts among all squark signal regions.
 This leads to a tolerable increase in the systematic uncertainty from the extrapolation from the CR to the SR when compared to the resulting statistical uncertainty.
 
-Distributions of CRW in squark, gluino, and compressed regions are shown in \Cref{fig:CRW_SRJigsawSRG1a_LastCut_CRW_minusone,fig:CRW_SRJigsawSRC1_LastCut_CRW_minusone}.
+Distributions of CRW in squark, gluino, and compressed regions are shown in \Cref{fig:CRW,fig:CRW_SRJigsawSRG1a_LastCut_CRW_minusone,fig:CRW_SRJigsawSRC1_LastCut_CRW_minusone}.
 There is high purity in \wjets~events in the control region corresponding to all signal regions.
 
 Top events are also an important background, for the same reasons as the \wjets~ background, due to the dominant top decay channel of $t \rightarrow Wb$.
@@ -343,7 +347,7 @@ With the 70\% $b$-tagging efficiency working point~\cite{Aad:2015ydr,ATL-PHYS-PU
 We use the same loosening scheme as we described for CRW.
 Using the SRS1a example in \Cref{tab:crw_kinematic_selection}, we implement the same kinematic cuts applied as in CRW, but with the required $b$-jet instead of a $b$-jet veto.
 
-Distributions of CRT in squark, gluino, and compressed regions are shown in \Cref{fig:CRT_SRJigsawSRG1a_LastCut_CRT_minusone,fig:CRT_SRJigsawSRC1_LastCut_CRT_minusone}.
+Distributions of CRT in squark, gluino, and compressed regions are shown in \Cref{fig:CRT,fig:CRT_SRJigsawSRG1a_LastCut_CRT_minusone,fig:CRT_SRJigsawSRC1_LastCut_CRT_minusone}.
 There is high purity in top events in the control region corresponding to all signal regions.
 
 QCD events are another important background.
@@ -357,7 +361,7 @@ These two cuts provide the strongest rejection of QCD, so inverting them provide
 This analysis uses the jet smearing method, as described in ~\cite{SUSY-2011-20}.
 %This is a data-driven method which applies a resolution function to well-measured QCD events, which also an estimate of the impact of the jet energy mismeasurement on \met and subsequently the RJR variables.
 
-Distributions of CRQ in squark, gluino, and compressed regions are shown in \Cref{fig:CRQ_SRJigsawSRG1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRC1_LastCut_CRQ_minusone}.
+Distributions of CRQ in squark, gluino, and compressed regions are shown in \Cref{fig:CRQ,fig:CRQ_SRJigsawSRG1a_LastCut_CRQ_minusone,fig:CRQ_SRJigsawSRC1_LastCut_CRQ_minusone}.
 There is high purity in QCD events in the control region corresponding to all signal regions.
 
 Diboson events can also pass the signal region selection criteria.

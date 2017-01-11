@@ -353,6 +353,7 @@ However, as these events are very rare, simulation fails to be a particularly us
 Instead, we apply a cut which ensures \textit{zero} QCD events in the signal regions.
 To produce a sample enriched in QCD, which we call CRQ, we invert the $\Delta_{\mathrm{QCD}}$ and \HFnm{PP}{1}{1} cut from the corresponding signal region.
 This means instead of requiring these values over the signal region cut, we require them to be under the signal region cut.
+These two cuts provide the strongest rejection of QCD, so inverting them provides a sample enriched in QCD events.
 This analysis uses the jet smearing method, as described in ~\cite{SUSY-2011-20}.
 %This is a data-driven method which applies a resolution function to well-measured QCD events, which also an estimate of the impact of the jet energy mismeasurement on \met and subsequently the RJR variables.
 
@@ -415,13 +416,14 @@ The opposite logic is required for VRTb and VRWb: the primary scale variable cut
 
 The final set of validation regions are those defined to check the QCD background.
 VRQ is defined to be identical to the corresponding CRQ, but again we use the full SR region cuts for the scaleful variables.
-This selection is then closer to the corresponding signal region to validate the CRQ estimate.
+This ensures the QCD validation region is between the signal region and the corresponding control region.
 We also define the auxiliary validation regions VRQa and VRQb for the noncompressed signal regions.
-In this case, we reimpose one of the two inverted cuts in CRQ with respect to the signal regions, to make each one even closer to the SRs.
-In CRQa (CRQb), we reimpose the \HFnm{PP}{1}{1} ($\Delta_{\mathrm{QCD}}$).
+In this case, we reimpose one of the two inverted cuts in VRQ with respect to the signal regions, to make each one even closer to the SRs.
+In VRQa (VRQb), we reimpose the \HFnm{PP}{1}{1} ($\Delta_{\mathrm{QCD}}$).
+These allow us to understand the modeling of these two variables separately.
 
 For the compressed case, we again define a separate validation region, due to the special kinematics probed.
-We construct a validation region which is the same as CRQ, with $.5 < \risr < R_{\text{ISR, SR}}$, where $R_{\text{ISR, SR}}$ is the cut on \risr~ in the corresponding SR.
+We construct a validation region which is the same as CRQ, with $.5 < \risr < R_{\text{ISR, SR}}$, where $R_{\text{ISR, SR}}$ is the cut on \risr~in the corresponding SR.
 Again, this can be seen as probing ``in between'' the CR and SR in phase space.
 
 The results of this validation can be seen in \Cref{fig:vr_summary}.
@@ -445,20 +447,19 @@ Dashes indicate the validation region is not applicable to the given signal regi
 %\subsection{R Z/$\gamma$ method}
 \subsection{Systematic Uncertainties}
 
-In this section we discuss the uncertainties.
-These generally fall into four categories: theoretical generator uncertainties, uncertainties on the CR to SR extrapolations, uncertainties on the data-driven transfer factor corrections, and object reconstruction uncertainties.
+There are four general categories of uncertainties: theoretical generator uncertainties, uncertainties on the CR to SR extrapolations, uncertainties on the data-driven transfer factor corrections, and object reconstruction uncertainties.
 We discuss each of these categories here.
 A summary of the uncertainties is available in \Cref{tab:systematics-table}.
 \input{Chapter-Analysis/systematics-table}
 
 The theoretical generator uncertainties are evaluated by using alternative simulation samples.
-In the case of the \zjets~ and \wjets~ backgrounds, the related theoretical uncertainties are estimated by varying the renormalization, factorization, and resummation scales by two, and decreasing the nominal CKKW matching scale by 5 \GeV and 10 \GeV respectively.
+In the case of the \zjets~and \wjets~backgrounds, the related theoretical uncertainties are estimated by varying the renormalization, factorization, and resummation scales by two, and decreasing the nominal CKKW matching scale by 5 \GeV and 10 \GeV respectively.
 In the case of \ttbar production, we compare the nominal \textsc{Powheg-Box} generator with MG5\_aMC@NLO, as well as comparing different radiation and generator tunes.
 As stated above, we account for the uncertainty on the small diboson background by imposition of a flat 50\% uncertainty.
 
 The uncertainties on the normalization factors $\mu_{\text{background}}$ are listed in \Cref{tab:systematics-table} as $\Delta\mu_{\text{background}}$.
 %There is one normalization factor $\mu$ for each major background, and their uncertainties, especially $\mu_Z$, are often dominant for the measurement in many signal regions.
-In previous analyses, these uncertainties have often been dominant, especially $\Delta\mu_{Z,\mathrm{+jets}}$, as these uncertainties represent our misunderstanding of the total event yields of the Standard Model backgrounds in the signal regions.
+In previous analyses ~\cite{0-leptonPaper,0LPaper_13TeV}, these uncertainties have often been dominant, especially $\Delta\mu_{Z,\mathrm{+jets}}$, as these uncertainties represent our misunderstanding of the total event yields of the Standard Model backgrounds in the signal regions.
 The statistical uncertainty from the control region is generally the most important component of these uncertainties.
 
 There are two uncertainties from the data-driven corrections to the transfer factors.
@@ -466,30 +467,32 @@ The first is the uncertainty on $\kappa$, which we derived by varying the \met r
 The other is the uncertainty is that assigned to the jet smearing method, which is derived using the method in~\cite{SUSY-2011-20}.
 
 The final set of uncertainties are those related to object reconstruction.
-In the case of a hadronic, the important uncertainties are those assigned to the jet energy and \met.
+In a hadronic search, the important uncertainties are those assigned to the jet energy and \met.
 The uncertainties on the lepton reconstruction and $b$-tagging uncertainties were found to be negligible in all SRs.
-The measurement of the jet energy scale (JES) uncertainty is quite complicated, and described in ~\cite{Aad:2011he,Aad:2012vm,ATL-PHYS-PUB-2015-015}.
-After a complicated procedure to decorrelate the various components of the JES uncertainty, there are three remaining components.
-The jet energy resolution uncertainty is estimated using the methods discussed in Refs.~\cite{Aad:2012ag,ATL-PHYS-PUB-2015-015}.
-These uncertainties are included in the the total Jet/MET uncertainty.
+The measurement of the jet energy scale (JES) uncertainty is described in ~\cite{Aad:2011he,Aad:2012vm,ATL-PHYS-PUB-2015-014,ATL-PHYS-PUB-2015-015}.
+After a procedure to decorrelate the dozens of JES uncertainties, we form a representation of three \textit{strongly reduced} nuisance parameters which capture the uncertainty correlations without a significant loss of information.
+These three uncertainties are included in the total Jet/MET uncertainty.
+
+The jet energy resolution uncertainty is estimated using the methods discussed in ~\cite{Aad:2012ag,ATL-PHYS-PUB-2015-015}.
+This uncertainty accounts for the differences between the jet energy resolution between data and simulation.
+We include this uncertainty a component of total Jet/MET uncertainty.
 
 The \met soft term uncertainties are described in ~\cite{PERF-2014-04,ATL-PHYS-PUB-2015-023,ATL-PHYS-PUB-2015-027}.
 The uncertainty on the \met soft term resolution is parameterized into a component parallel to direction of the rest of the event (the sum of the hard objects \pt) and a component perpendicular to this direction.
 We also derive an uncertainty on the \met soft term scale.
+We measure this uncertainty by comparing the \met response between simulation and data
 These uncertainties are also included in the total Jet/MET uncertainty.
-The uncertaint
-There is also an uncertainty on the \met soft term scale.
 
-\section{Background-only fit, model-independent fit, and model-dependent fit}
+\section{Fitting procedures}
 
 The maximum likelihood fit described above can be used with a variety of event count inputs.
 We use three separate fit classes, which we call \textit{background-only}, \textit{model-independent}, and \textit{model-dependent} fits.
-In terms of the likelihood function inputs, these can be seen as including a different list of event counts $\bm{b}$
+In terms of the likelihood function inputs, these can be seen as including a different list of event counts $\bm{b}$.
 
 The background-only fit estimates the background yields in each signal region.
-This fit use only the control region event yields as inputs; they do not include the information from the signal regions besides the simulation event yield.
+This fit uses the control region event yields as inputs; they do not include information from the signal regions besides the simulation event yield.
 The cross-contamination between CRs is also fit by this procedure.
-The output of the background-only fit is the set of \textit{fitted} simulated event counts in the signal and validation regions,
+The output of the background-only fit is a set of \textit{fitted} simulated event counts in the signal and validation regions,
 
 In the case no excess is observed, we use a model-independent fit to set upper limits on the possible number of possible beyond the Standard Model events in each SR.
 These limits are derived using the same procedure as the background-only fit, with two additional pieces of information included in the fitting procedure.

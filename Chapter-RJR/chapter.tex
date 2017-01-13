@@ -27,26 +27,27 @@ The Feynman diagrams considered are shown in \Cref{fig:feynman_signal}.
 The consequences of this $\mathbb{Z}_2$ symmetry are drastic~\cite{susyPrimer}.
 To understand the utility of the razor variables, the stability of the lightest supersymmetric particle is important.
 In many SUSY models, including the ones considered in this thesis, this is the lightest neutralino \lsp.
-The consequence is on either side of a SUSY decay process, where we begin with sparticle pair production, we have a final state particle which is not detected.
+The consequence is on either branch of a SUSY decay process, where we begin with sparticle pair production, we have a final state particle which is not detected.
 Generically, this leads to \met.
 Selections based on \met are very good at reducing  backgrounds, for example from QCD processes.
 
 However, there are limitations to searches based on \met.
 Due to jet mismeasurements, instrumental failures, finite detector acceptance, nongaussian tails in the detector response, and production of neutrinos inside of jets, there are many sources of ``fake'' \met which do correspond to Standard Model neutrinos or new physics objects such as an LSP.
 An additional limitation is the complete lack of longitudinal information.
-As events from QCD backgrounds tend to have higher boosts along the $z$-direction, this neglects an important discriminator for use in searches for SUSY.
+As events from QCD backgrounds tend to have higher boosts along the $z$-direction than signal events, this neglects an important discriminator for use in searches for SUSY.
 Finally, \met is only one object, which is a measurement for \textit{two} separate LSPs.
 If one could factorize this information somehow, this would provide additional information to potentially discriminate against backgrounds.
 The \textit{razor variables} $(\mdr, R^2)$ are more robust than \met-based variables against sources of fake \met as well as providing additional longitudinal information which can be used to discriminate against backgrounds~\cite{Rogan:2010kb,Buckley:2013kua}.
 
 \subsection{Derivation of the razor variables}
 
-To derive the razor variables $(\mdr, R^2)$, we start with a generic situation of the pair production of heavy sparticles with mass $\mheavy$.\footnotemark
+To derive the razor variables $(\mdr, R^2)$, we start with a generic situation of the pair production of heavy sparticles each with mass $\mheavy$\footnotemark.
 \footnotetext{The razor variables have undergone confusing notational changes over the years.
 We will be self-consistent, but the notation used here may be different from references.
 }
 Each sparticle decays to a number of observable objects (in this thesis, jets), and an unobservable \lsp~ of mass \mlsp.
 We will combine all of the jets into a \textit{megajet}; this process will be described below.
+For now, we assume the massive sparticles each decay to one large megajet and the \lsp.
 We begin by analyzing the decay in the ``rough-approximation'', or in modern parlance, \textit{razor frame} (\rframe).
 This is the frame where the sparticle is at rest.
 Note by construction, there are two razor frames corresponding to each sparticle.
@@ -61,11 +62,11 @@ Applying conservation of four-momenta, with a massless megajet and orienting our
 \begin{align}
 \text{Before decay}  & : (\mheavy, 0)   \nonumber \\
 \text{After decay}   & : (\mlsp,   p_{ \lsp }^R) -  (0, E_{1,2}^R)                                             \nonumber \\
-                     & \mheavy^2 = \mlsp^2 - p_{ \lsp }^R E_{1,2}^R = \mlsp^2 - 2 \mheavy E_{1,2}^R  \\
+                     & \mheavy^2 = \mlsp^2 - p_{ \lsp }^R E_{1,2}^R = \mlsp^2 + 2 \mheavy E_{1,2}^R  \\
                      & E_{1,2}^R = \frac{\mheavy^2 - \mlsp^2}{2 \mheavy} \nonumber
 \end{align}
 
-Now note that this analysis is identical in each \rframe, and we define a characteristic mass $M_R$:
+Now note that this derivation is identical in each \rframe~since the sparticle masses are equal, and we define a characteristic mass $M_R$:
 \begin{alignat}{3}\label{eq:mr}
 E_1^R &= E_2^R &= \frac{\mheavy^2 - \mlsp^2}{ 2 \mheavy } \\
 M_R &= 2 \times E_1^R = 2 \times E_2^R &= \frac{\mheavy^2 - \mlsp^2}{\mheavy } \nonumber
@@ -110,14 +111,14 @@ We now make the \textit{choice} for the direction of the transverse boost $\hat{
 \begin{align}
 \hat{\beta}_T =  \frac{\vec{p_{1,T}} +  \vec{p_{2,T}}}{ | \vec{p_{1,T}} +  \vec{p_{2,T}}  | }.
 \end{align}
-This choice corresponds to aligning the transverse boost direction with the vectorial sum of the two megajets transverse directions.
+This choice corresponds to aligning the transverse boost direction with the vectorial sum of the two megajets' transverse directions.
 
 For the longitudinal boost, we choose $\vec{\beta_L}$ along the $z$-direction, with magnitude:
 \begin{align} \label{eq:beta_l}
 \beta_L = \frac{p_{1,z} + p_{2,z}}{E_1+E_2}.
 \end{align}
 Viewed in terms of the original parton-parton interactions, this is the choice which ``on average'' gives $p_{z,\text{CM}} = 0$, as we would expect.
-This well-motivated choice due to the total $z$ symmetry.
+This is a well-motivated choice due to the total $z$ symmetry.
 
 We now have intuitive guesses for both boosts, which allow us write our original characteristic mass $M_R$ in terms of the lab frame variables, by application of these two Lorentz boosts to the energies of \Cref{eq:mr}:
 \begin{alignat}{3}
@@ -132,10 +133,10 @@ Thus, we define the transverse mass:
 \begin{align}
 (M_R^T)^2 = \frac{1}{2} \begin{bmatrix} \met(p_{1,T}  + p_{2,T}) - \metvec \cdot (\vec{p_{1,T}}  + \vec{p_{2,T} })  \end{bmatrix}.
 \end{align}
-This definition can be seen as assigning half of the \metvec to ``be associated to'' each megajet.
+This definition can be seen as assigning half of the \metvec~to ``be associated to'' each megajet.
 Generally, we have $M_R^T < M_R$, so we define a dimensionless ratio (``the razor''):
 \begin{align}
-R^2 = \begin{pmatrix} \frac{M_R^T}{M_R} \end{pmatrix}^2.
+R^2 = \begin{pmatrix} \frac{M_R^T}{M_R} \end{pmatrix}^2
 \end{align}
 For signal events, we expect $R^2$ to peak around $R^2 \order 1/4$.
 $M_R$ and $M_R^T$ are two measurements of the same scale (\mheavy), with an additional geometric factor for $M_R^T$ due to the fact that it is a purely transverse quantity.
@@ -151,11 +152,11 @@ The imposition of these decay trees is done by a \textit{jigsaw} rule: a procedu
 This procedure is performed by the \texttt{RestFrames} software packages ~\cite{RestFrames}
 
 In events where all objects are fully reconstructed and distinguishable, this is straightforward, as we have access to the entire set of four-momenta to fully reconstruct the target masses and decay angles.
-Events which contain \met are more difficult, due to the loss of information: the potential for multiple mismeasured or simply unmeasureable objects, such as neutrinos or the LSP in SUSY searches.
+Events which contain \met are more difficult, due to the loss of information: the potential for multiple mismeasured or unmeasureable objects, such as neutrinos or the LSP in SUSY searches.
 There can also be combinatoric ambiguities in deciding how to group indistinguishable objects of the same type.
 Specifically here, we will be concerned with the jigsaw rule to associate jets to a particular branch of a decay tree.
 The jigsaw rules we impose will remove these ambiguities.
-First, we will describe the decay trees used in this thesis, and then describe the jigsaw rules we will use.
+First, we will describe the decay trees, and then describe the jigsaw rules we will use.
 Finally, we will describe the variables used in the all-hadronic SUSY search presented in this thesis.
 
 \subsection{Decay Trees}
@@ -173,7 +174,7 @@ In particular, we want to compare the Feynman diagrams of \Cref{fig:feynman_sign
 The decay tree in \Cref{subfig:disquark_decay_tree} corresponds exactly to that expected from squark pair production, and matches closely with the principles of the razor approach.
 We first apply a jigsaw rule, indicated by a line, to the kinematics of the objects in the \textit{lab} frame.
 This outputs the kinematics of our event in the \textit{parent-parent} (\PP) frame, or in the razor terminology, the CM frame.
-That is, the kinematics of this frame are an estimator for the kinematics in the center of mass frame of the CM of pass of the squark pair production system.
+That is, the kinematics of this frame are an estimator for the kinematics in the center of mass frame of the squark pair production system.
 We apply another jigsaw, which splits the objects in the \PP frame into two new frames, known as the \Pa and \Pb systems.
 These are equivalent to the razor frames, and represent proxy frames where each squark is at rest.
 In \Pa (\Pb), the decay is symmetric between the visible \Va (\Vb) objects and the invisible system \Ia (\Ib).
@@ -186,31 +187,31 @@ In this case we apply a jigsaw at the level of \Pa (\Pb) which separates a singl
 This child frame represents the hypothesized squark after the decay $\supe{g} \rightarrow g \supe{q}$, which then decays as in the squark case.
 
 The third decay tree  is the \textit{compressed} decay tree.
-Compressed refers to signal models which have a small splitting between the mass of the proposed sparticle and the \lsp.
+Compressed refers to signal models which have a small splitting between the mass of the sparticle and the \lsp.
 The sparticle decay products in compressed models (i.e. the jets and \met) do not generally have large scale~\cite{Jackson:2016mfb}.
-Instead, the strategy is generally to look for a large-scale initial state radiation (ISR) jet which is recoiling off the pair-produced sparticles.
+Instead, the strategy is generally to look for large-scale initial state radiation (ISR) which is recoiling off the pair-produced sparticles.
 In the case where the LSPs receive no momentum from the sparticle decays, the following approximation holds:
 \begin{align}
 \met \order -p_T^{\text{ISR}} \times \frac{m_{\lsp} }{m_{\text{sparticle}}}
 \end{align}
-where $\pt^{\text{ISR}}$ is the transverse momentum associated to the entire ISR system.
+where $\pt^{\text{ISR}}$ is the transverse momentum associated to the ISR system.
 
 RJR offers a natural and straightforward way to exploit this feature in events containing ISR.
 One imposes the simple decay tree in \Cref{subfig:compressed_decay_tree} with associated jigsaw rules.
-With suitable jigsaw rules, this decay tree ``picks out'' the large \pt ISR jet, recoiling off the \met and additional radiation from the sparticle decays.
+With suitable jigsaw rules, this decay tree ``picks out'' the large \pt ISR system, recoiling off the \met and additional radiation from the sparticle decays.
 This provides a convenient set of variables to understand compressed scenarios.
 
 There is one other decay tree, shown in \Cref{subfig:self_assembling_decay_tree}.
 This is special, as it is only used for the purpose of QCD rejection, and does not directly map to a sparticle decay chain.
-Due to the large production cross-sections of QCD events, even very rare large jet mismeasurements can lead to significant \met which can enter the signal region.
+Due to the large production cross-sections of QCD events, even very rare jet mismeasurements can lead to significant \met which can enter the signal region.
 To reduce these backgrounds, one usually rejects events which contain jets which are ``too close'' by some distance metric to the \met in the event.
 Generally, in the past, the distance metric has been defined as simply the angular distance \deltaR.
 
 The \textit{self-assembling tree} can be seen as defining a distance metric which depends on the magnitudes of the \met and jets rather than simply their distance in angular space.
 Depending on the exact kinematics, the one or two closest jets are found, and we label them \met \textit{siblings}.
 
-In this section, we have seen how one imposes particular decay trees on an event to produce a basis of kinematic variables in the approximated frames relevant to the hypothesized sparticle decay chain.
-This explains why we call this procedure ``recursive'': the procedure can be iterated through as many steps of a decay tree as necessary, and each application of a jigsaw rule is dependent on the variables produced in the last step.
+In this section, we have seen how one imposes particular decay trees on an event relevant to the hypothesized sparticle decay chain.
+This explains why we call this procedure ``recursive'': the procedure can be iterated through as many steps of a decay tree as necessary, and each application of a jigsaw rule is dependent on the kinematic variables produced in the last step.
 The question is: \textit{what are these jigsaw rules?}.
 
 \subsection{Jigsaw Rules}
@@ -220,11 +221,11 @@ The rules we imposed must fully defined kinematic variables at each step in a de
 The only possible solution to fully define the event kinematics in terms of the frames of the hypothesized decays is the imposition of external constraints to eliminate additional degrees of freedom.
 In principle, these need not have any particular physical motivation.
 Instead, the jigsaw rules are a way to resolve the mathematical ambiguities to fully reconstruct the full decay chain kinematics.
-However, most practical jigsaw rules also have some reasonable physical motivation, which we will also elucidate.
+However, most practical jigsaw rules also have some reasonable physical motivation, which we also elucidate.
 
 In the original razor point of view, some jigsaw rules can be seen as the definitions of the boosts which relate the different frames of interest, while other rules allow one to combine multiple objects and place them into a particular hemisphere (in previous terminology, a megajet).
 We call the first type kinematic jigsaw rules and the second combinatoric jigsaw rules.
-As we have stressed before, the jigsaw rules are a \textit{choice}: as long as a particular jigsaw rule allows the definition of variables at each step in a decay tree, it is ``as valid'' as any other rule.
+As we stressed before, the jigsaw rules are a \textit{choice}: as long as a particular jigsaw rule allows the definition of variables at each step in a decay tree, it is ``as valid'' as any other rule.
 
 Practically speaking, we use only a small subset of possible jigsaw rules.
 The combinatoric jigsaw rule has already been introduced as megajet construction above.
@@ -237,14 +238,14 @@ This is the jigsaw rule used in the decay trees when going from one frame to two
 
 We will use three other jigsaw rules, which are all kinematic jigsaw rules.
 One has already been used in the razor technique.
-The minimization of $\beta_L$ will be used as the jigsaw rule in the first step of each decay tree: the lab frame to the \PP/CM frame.
-This is equivalent to the imposition of longitudinal boost invariance, as we expect on average $p_{z,\text{\PP,CM}} = 0$.
-One defines a unique longitudinal boost by imposition of this external constraint.
+The minimization of $\beta_L$ is used as the jigsaw rule in the first step of each decay tree: the lab frame to the \PP/CM frame.
+This is equivalent to the imposition of longitudinal boost invariance, as we expect on average $p_{z,\text{\PP \/ CM}} = 0$.
+One defines a unique longitudinal boost by imposition of this external constraint, as we did in \Cref{eq:beta_l}.
 
 The final two jigsaw rules used in this thesis were not used in the razor technique.
 We describe them here.
 
-The first kinematic ambiguity is the total mass of the invisible system $M_I$.
+The next kinematic ambiguity is the total mass of the invisible system $M_I$.
 We guess this to be:
 \begin{align}
 M_I^2 = M_V^2 - 4 M_{\Va} M_{\Vb}.
@@ -254,9 +255,9 @@ The symmetry of the production mechanism, where we have two decay products $V_i$
 
 The final jigsaw rule is used to resolve the ``amount'' of \met that ``belongs'' to each hemisphere, and therefore how to impose the transverse boost onto each of i.e. \Pa and \Pb from \PP.
 Equivalently, it can be seen as the resolution of the kinematics of the \Ia and \Ib objects in the squark and gluino pair production decay trees.
-Recall that at this point, we have already approximated the boost of the \PP frame.
+Recall that at this point, we already approximated the boost of the \PP frame.
 The choice we use is to minimize the masses $\Pa$ and $\Pb$, while simultaneously constraining $\Pa = \Pb$.
-As is the case in the last step, there is a straightforward physical interpretation of this choice.
+There is a straightforward physical interpretation of this choice.
 In the signal models we are considering, \Pa and \Pb are the estimated frames of the squark or gluino pair-produced as a heavy resonance.
 We then of course expect, and thus use it as our constraint, that:
 \begin{align}
@@ -271,7 +272,7 @@ In the next section, we describe the variables that are used to search for squar
 \label{sec:rjr_hadronic}
 
 We describe here the variables used in the RJR search described in~\cite{ATLAS-CONF-2016-078}.
-These were reconstructed using the RJR algorithm as just described, using the RestFrames packages~\cite{RestFrames}.
+These were reconstructed using the RJR algorithm as implemented by the RestFrames packages~\cite{RestFrames}.
 In these frames, the momenta of all objects placed into that branch of the decay tree are available (after application of the approximated boost), and in principle we can calculate any variable of interest such as invariant masses or the angles between these objects.
 The truly useful set of variables are highly dependent on the signal process, and we leave their discussion to the subsequent sections.
 It is useful to understand the philosophy employed in the construction of these variables.
@@ -292,7 +293,7 @@ We use a set of scale variables which we will call the $H$ variables, and a set 
 As we have described above, the RJR algorithm gives us access to the masses of each frame of interest.
 It may seem natural that these variables would be the most useful for discrimination of the signal from background processes.
 However, these masses, such as the invariant mass of the \PP system $M_{\PP}$, can be significantly affected by the additional jets in the events.
-In backgrounds with significant jet activity such as \zjets and \wjets events, these masses can have large values which complicate discrimination from the signal processes.
+In backgrounds with significant jet activity such as \zjets~and \wjets~events, these masses can have large values which complicate discrimination from the signal processes.
 Instead, we use the $H$ variables, as they show resilience to this effect, and provide stronger discrimination from the SM backgrounds.
 They take their name from the commonly used variable \HT, which is the scalar sum of the visible momentum.
 From the RJR technique, we can evaluate these variables in the non-lab frame and include longitudinal information.
@@ -307,7 +308,7 @@ When there are more vectors available than $n$ or $m$, we add up vectors using t
 In the opposite case, where $n$ or $m$ is greater than the number of available objects, one simply considers the available objects.
 The \HFnm{F}{n}{m} variables are then defined as
 \begin{align}
-\HFnm{F}{n}{m} = \sum_i^n | \vec{p_{\text{vis},i}}^F | + \sum_j^m | \vec{p_{\text{inv},i}}^F |.
+\HFnm{F}{n}{m} = \sum_i^n | \vec{p_{\text{vis},i}}^F | + \sum_j^m | \vec{p_{\text{inv},j}}^F |.
 \end{align}
 It may not be clear that these variables encode independent information.
 Fundamentally, this is just an expression of the triangle inequality $\sum |\vec{p}| \geq |\sum \vec{p}|$.
@@ -325,24 +326,24 @@ To search for noncompressed squark pair production, we use the following set of 
 \begin{itemize}
 \item \HFnm {\PP}{1}{1} - scale variable useful for discrimination against QCD backgrounds and used in a similar way to \met
 \item \HTFnm{\PP}{2}{1} - scale variable providing information on the overall mass scale of the event for squark pair production.  We will often call this the \textit{full} scale variable.
-\item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{2}{1} $ - ratio used to prevent imbalanced events where the scale variable is dominated by one high \pT jet or high \met
-\item \pzlabratioTwo - ratio which prevents significant boosts in the $z-$direction.  \pzlab is a measure of the total boost of the \PP system from the lab frame
+\item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{2}{1} $ - ratio used to reject imbalanced events where the scale variable is dominated by one high \pT jet or high \met
+\item \pzlabratioTwo - ratio which prevents significant boosts in the $z-$direction.  \pzlab measures of the total boost of the \PP system from the lab frame
 \item \ptjTworatio - ratio to force the second leading jet in the \PP frame to carry a significant portion of the total scalar sum of the total momenta in that frame.  This requirement is another balance requirement, on the total \pT of that second jet in the \PP frame.
 \end{itemize}
-First, we note that there is an implicit requirement that each hemisphere has at least one jet (to even reconstruct the \Pa and \Pb frames), thus we implicitly require two or more jets, as we expect for squark pair production.
+Note there is an implicit requirement that each hemisphere has at least one jet (to even reconstruct the \Pa and \Pb frames), thus we implicitly require two or more jets, as we expect for squark pair production.
 The other important thing to note is that all of the ratios use the full scale variable as the denominator.
 This is sensible, as we expect all of these effects to be scaled with the full scale variable \HTFnm {\PP}{2}{1}.
 We will see a similar behavior for the gluino regions, with a new full scale variable.
 
-To search for noncompressed gluino pair production, we use the following set of RJR variables:
-Due to the increased complexity of the event topology with four jets, there are additional handles we can exploit:
+To search for noncompressed gluino pair production, we use the following set of RJR variables.
+Due to the increased complexity of the four-jet event topology, there are additional variables we can exploit:
 \begin{itemize}
 \item \HFnm {\PP}{1}{1} - same as squark pair production variable
 \item \HTFnm{\PP}{4}{1} - scale variable providing information on the overall mass scale of the event for gluino pair production.  As before, we often call this the \textit{full} scale variable.  Since this variable allows the jets to be separated in the \PP frame, it is more appropriate for gluino pair production.
-\item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{4}{1} $ - ratio used to prevent imbalanced events where the scale variable is dominated by one high \pT jet or high \met
-\item $\HTFnm{\PP}{4}{1}/\HFnm{\PP}{4}{1} $ - ratio used to measure the fraction of the total scalar sum of the momentum in the transverse plane.  Decay products from gluino pair production are expected to be fairly central
-\item \pzlabratioFour - ratio to used to prevent significant boosts in the $z-$direction
-\item \minjTwoGuy - ratio to require the second leading jet in \textit{both} squark-like hemispheres \Ca and \Cb to contain a significant portion of \textit{that frame's} momenta.  This is similar to the \ptjTworatio squark decay tree discriminator, but applied to both hemispheres \Ca and \Cb.
+\item $\HTFnm{\PP}{1}{1}/\HFnm{\PP}{4}{1} $ - ratio to reject imbalanced events where the scale variable is dominated by one high \pT jet or high \met
+\item $\HTFnm{\PP}{4}{1}/\HFnm{\PP}{4}{1} $ - ratio measuring the fraction of the total scalar sum of the momentum in the transverse plane.  Decay products from gluino pair production are expected to be fairly central
+\item \pzlabratioFour - ratio to reject events with significant boosts in the $z-$direction
+\item \minjTwoGuy~- ratio to require the second leading jet in \textit{both} squark-like hemispheres \Ca and \Cb to contain a significant portion of \textit{that frame's} momenta.  This is similar to the \ptjTworatio squark decay tree discriminator, but applied to both hemispheres \Ca and \Cb, where $i = a,b$.
 \item \maxjTwoGuy - ratio requiring one jet in each of the $P_i$ not encompass too much of the total momentum available in that frame.  This ratio is generally a very loose cut.
 \end{itemize}
 
@@ -350,15 +351,15 @@ Due to the increased complexity of the event topology with four jets, there are 
 
 As we saw above, the decay tree imposed for compressed spectra is simpler.
 We do not attempt to fully reconstruct the details of the system recoiling off the ISR system, but use a straightforward set of variables in this case.
-One additional simplification is that all variables are force to be transverse in this case, by simply excluding the $\eta/z$ information of the objects as inputs to the RJR reconstruction.
+One additional simplification is that all variables are force to be transverse in this case, by simply excluding the $\eta/z$ information of the objects as inputs to RJR.
 We still use the philosophy of limiting our scaleful variables to just two.
 The compressed scenario uses the following set of RJR variables:
 \begin{itemize}
-\item \ptisr - scale variable that is the magnitude of the total transverse momenta of all jets associated to the ISR system, as evaluated in the CM frame
+\item \ptisr~- scale variable that is the magnitude of the total transverse momenta of all jets associated to the ISR system, as evaluated in the CM frame
 \item $\risr \equiv \vec{p_I^{\text{CM}}} \cdot \hat{p_{T,S}^{\text{CM}}} / p_{T,S}^{\text{CM}} $  - this ratio is our measurement for the ratio of the LSP mass to the compressed sparticle mass. In compressed cases, this should be large, as this estimates the amount of the total CM $\rightarrow S$ boost carried by the invisible system.
-\item \MTS - the transverse mass of the S system
-\item \NVjet - the number of jets associated to the visible system V
-\item \dphiISR - the opening angle between the ISR system and the invisible system measured in the lab frame.  As the invisible system is expected to carry much of the total $S$ system momentum, this should be large, as we expect the ISR system to recoil directly opposite the $I$ system.
+\item \MTS~- the transverse mass of the S system
+\item \NVjet~- the number of jets associated to the visible system V
+\item \dphiISR~- the opening angle between the ISR system and the invisible system measured in the lab frame.  As the invisible system is expected to carry much of the total $S$ system momentum, this should be large, as we expect the ISR system to recoil directly opposite the $I$ system.
 \end{itemize}
 
 \subsubsection{Anti-QCD variables}
@@ -377,11 +378,11 @@ These observables are highly correlated, but taking the following fractional dif
 \begin{align}
 \Delta_{\mathrm{QCD}} \equiv \frac{1 + \cos{\theta(\psib, \met)} - 2 R(\psib, \met) }{1 + \cos{\theta(\psib, \met)} + 2 R(\psib, \met) }.
 \end{align}
-We will use this variable in the next chapter.
+A cut on $\Delta_{\mathrm{QCD}} > 0$ provides strong rejection of QCD events, while SUSY signal events generally survive this seleciton.
 
 \section{Conclusions}
 
 The RJR suite of variables will provide sensitivity to a wide variety of squark and gluino production scenarios.
 We will see in the next chapter that this set of variables described above provide strong sensitivity to a wide range of simplified models of squark and gluino pair production, by use of a variety of signal selections, in the next chapter.
-We note however, that this set of variables is not unique, and the RJR technique can be used for a large variety of final states.
+We note however, this set of variables is not unique, and the RJR technique can be used for a large variety of final states.
 The search presented here is the first to use RJR, but a different suite of variables could be used for other decay modes, and it will be exciting to see how the technique can be exploited in future searches.

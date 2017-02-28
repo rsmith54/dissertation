@@ -253,12 +253,18 @@ ABSTRACT\\ %You need to keep this text here in all capitals. Don't change it.
 \listoftables
 
 %Here I need an acknowledgments page.
-\newpage
-%\chapter*{Acknowledgements} %I use an asterisk because I don't want my acknowledgements in the table of contents. I use \chapter to make sure that the acknowledgements go on the correct side of the page when you print out the dissertation.
-%Then a dedication page
-\newpage
-%\chapter*{Dedication} %Same here -- asterisk so that my dedication doesn't show up in the table of contents. You might want to take out "Dedication" as the title of this chapter. It's just here for a placeholder.
-%To Amelie and Merrill.
+%\newpage
+\include{./acknowledgements}
+
+%\newpage
+\chapter*{Dedication} %Same here -- asterisk so that my dedication doesn't show up in the table of contents. You might want to take out "Dedication" as the title of this chapter. It's just here for a placeholder.
+\vfil
+\begin{center}
+{\large \textit{To Amelie \\ and Merrill.}}
+\end{center}
+\vfil
+
+
 
 %What follows is the main text of your dissertation. You can comment out lines if you want to exclude them from your document for drafts. Everything after \mainmatter will get Arabic numbers centered on the bottom of the page.
 

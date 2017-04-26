@@ -11,11 +11,12 @@
 % \newcommand*{\ATLASLATEXPATH}{}
 %-------------------------------------------------------------------------------
 %\documentclass[UKenglish,texlive=2011]{\ATLASLATEXPATH atlasdoc}
-\documentclass[letterpaper,12pt]{memoir} %The memoir class is great for longer works that use separate chapters. The Dissertation Office recommends 10-pt Arial or 12-pt Times New Roman. I use 12-pt for readability.
+\documentclass[letterpaper,12pt,oneside]{memoir} %The memoir class is great for longer works that use separate chapters. The Dissertation Office recommends 10-pt Arial or 12-pt Times New Roman. I use 12-pt for readability.
 \usepackage[american]{babel} %Enables hyphenation and date formats according to American conventions. Change "american" to "british" (or another value) if you work outside the US.
 \hyphenpenalty=750
 \interfootnotelinepenalty=10000
 
+\renewcommand\cftappendixname{\appendixname~}
 \usepackage{todonotes}
 \usepackage{amsfonts}
 \usepackage{slashed}
@@ -244,7 +245,7 @@ ABSTRACT\\ %You need to keep this text here in all capitals. Don't change it.
 %Phew, you're done with the "Cover pages and abstract" part. Now to the "Prefatory pages."
 \frontmatter %This command lets LaTeX know that you want lowercase Roman page numbers in these next sections.
 
-\tableofcontents %LaTeX automatically renders your table of contents using your \chapter and \section commands throughout the whole document. If you don't want something to appear in the table of contents, simply use an asterisk in the command, like \chapter*{} or \section*{}
+\tableofcontents* %LaTeX automatically renders your table of contents using your \chapter and \section commands throughout the whole document. If you don't want something to appear in the table of contents, simply use an asterisk in the command, like \chapter*{} or \section*{}
 
 %include lists of figures and tables
 \newpage
